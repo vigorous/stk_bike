@@ -14,7 +14,7 @@ import com.stk.util.AppUtil;
 import com.stk.util.PageData;
 
 @Controller
-@RequestMapping(value="/loginController")
+//@RequestMapping(value="/loginController")
 public class LoginController extends BaseController {
 	
 	/**

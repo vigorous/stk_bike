@@ -17,7 +17,7 @@
                 <li class="menu"><a href="static/bikeFunction/stolenManage.jsp" target="mainFrame">被盗车辆管理</a></li>
                 <li class="menu"><a href="static/bikeFunction/eplateManage.jsp" target="mainFrame">电子车牌发卡管理</a></li>
                 <li class="menu"><a href="static/bikeFunction/lowBatteryManage.jsp" target="mainFrame">低电量车辆管理</a></li>
-                <li class="menu"><a target="mainFrame" onclick="addTab('1001','test','loginController/test')">测试功能</a></li>
+                <li class="menu"><a target="mainFrame" onclick="addTab('1001','test','test')">测试功能</a></li>
                 <!-- 车辆功能管理 -->
                 <!-- <li class="menu"><a href="static/bikeData/hiddenQuery.jsp" target="iframe1">隐匿车辆查询</a></li>
                 <li class="menu"><a href="static/bikeData/offSiteQuery.jsp" target="iframe1">异地车辆查询</a></li>

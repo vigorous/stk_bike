@@ -21,7 +21,7 @@ String path = request.getContextPath();
 				alert("name = "+name+",password = "+password);
 				$.ajax({
 					type: "POST",
-					url: 'loginController/login',
+					url: 'login',
 			    	data: {name:name,password:password},
 					dataType:'json',
 					cache: false,
@@ -29,7 +29,7 @@ String path = request.getContextPath();
 						alert(data.result);
 						if("success" == data.result){
 							//saveCookie();
-							window.location.href="loginController/main/index";
+							window.location.href="main/index";
 						}else if("usererror" == data.result){
 							$("#name").tips({
 								side : 1,
