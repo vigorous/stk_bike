@@ -45,6 +45,10 @@ public class BaseController {
 		logger.info("");
 	}
 	
+	public static void logDebug(Logger logger , Exception e){
+		logger.error(e.getMessage(), e);
+	}
+	
 	public static void log(Logger logger, String desc){
 		logger.info(desc);
 	}

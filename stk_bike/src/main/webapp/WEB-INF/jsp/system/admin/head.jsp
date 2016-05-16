@@ -14,7 +14,28 @@
     </div>
     <div class="head-nav">
         <ul class="nav-bar">
-            <li class="nav-bar-list bar-hover"><a href="javascript:;">首页</a></li>
+        	<c:forEach items="${firstMenuList}" var="menu">
+        		
+	            <li class="nav-bar-list bar-hover"><a href="javascript:;">${menu.menu_Name}</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+	            
+	            <!-- <li class="nav-bar-list"><a href="javascript:;">车辆功能管理</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+	            
+	            <li class="nav-bar-list"><a href="javascript:;">车辆数据分析</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+	            
+	            <li class="nav-bar-list"><a href="javascript:;">智能终端数据分析</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+	            
+	            <li class="nav-bar-list"><a href="javascript:;">系统设置</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+	            
+	            <li class="nav-bar-list"><a href="javascript:;">设备管理</a></li>
+	            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li> -->
+	        </c:forEach>
+	        
+	        <!-- <li class="nav-bar-list bar-hover"><a href="javascript:;">首页</a></li>
             <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
             <li class="nav-bar-list"><a href="javascript:;">车辆功能管理</a></li>
             <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
@@ -25,7 +46,8 @@
             <li class="nav-bar-list"><a href="javascript:;">系统设置</a></li>
             <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
             <li class="nav-bar-list"><a href="javascript:;">设备管理</a></li>
-            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li>
+            <li class="nav-line"><img src="static/imgs/nav_line.png" alt=""/></li> -->
+            
             <li id="time"></li>
         </ul>
     </div>

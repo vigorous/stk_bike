@@ -1,7 +1,10 @@
 package com.stk.controller.system.login;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -14,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sse.bikemanagement.entity.MenuVO;
 import com.stk.controller.base.BaseController;
 import com.stk.domain.system.User;
+import com.stk.service.system.menu.MenuService;
 import com.stk.util.AppUtil;
 import com.stk.util.Const;
 import com.stk.util.PageData;
@@ -24,6 +29,8 @@ import com.stk.util.PageData;
 //@RequestMapping(value="/loginController")
 public class LoginController extends BaseController {
 	
+	@Resource(name="menuService")
+	private MenuService menuService;
 	/**
 	 * 跳转到登录页面
 	 * @return
@@ -82,8 +89,17 @@ public class LoginController extends BaseController {
 	public ModelAndView login_index(@PathVariable("changeMenu") String changeMenu){
 		logBefore(logger,"LoginController login_index method " + changeMenu);
 		ModelAndView mv = this.getModelAndView();
-		if("index".equals(changeMenu)){
-			mv.setViewName("system/admin/main");
+		
+		try {
+			//获取菜单信息
+			List<MenuVO> firstMenuList = menuService.queryFirstMenu();
+			
+			if("index".equals(changeMenu)){
+				mv.setViewName("system/admin/main");
+				mv.addObject("firstMenuList",firstMenuList);
+			}
+		} catch (Exception e) {
+			logDebug(logger,e);
 		}
 		logAfter(logger);
 		return mv;

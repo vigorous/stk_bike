@@ -8,10 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<mvc:annotation-driven/>
-	<mvc:default-servlet-handler/>
+	<!-- <mvc:default-servlet-handler/> -->
 	
-	<context:component-scan base-package="com.stk.controller" />
-	<context:component-scan base-package="com.json" />
+	<context:component-scan base-package="com.stk" />
+	<!-- <context:component-scan base-package="com.json" /> -->
 	
 	<!-- 配置静态资源  -->
 	<mvc:resources mapping="/static/**" location="/,/static/" />

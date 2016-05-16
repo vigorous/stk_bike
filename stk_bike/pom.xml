@@ -7,6 +7,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>stk_bike Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<commons-lang.version>2.6</commons-lang.version>
+		<slf4j.version>1.7.6</slf4j.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<jackson.version>2.5.4</jackson.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -17,7 +25,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
@@ -72,11 +85,18 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
+		
 		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<!-- <dependency>
 		    <groupId>tomcat</groupId>
 		    <artifactId>jasper-runtime</artifactId>
 		    <version>5.5.23</version>
-		</dependency>
+		</dependency> -->
 		<!-- <dependency>
 		    <groupId>org.apache.tomcat</groupId>
 		    <artifactId>jasper</artifactId>
@@ -98,13 +118,13 @@
 		</dependency>
 		
 		<!-- json-lib-2.4-jdk15.jar -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>jsonlib</groupId>
 			<artifactId>jsonlib</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar</systemPath>
-		</dependency>
+		</dependency> -->
 		<!-- jackjson-all-1.7.6 -->
 		<dependency>
 			<groupId>jackson</groupId>
