@@ -27,6 +27,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		 String username = (String)token.getPrincipal();  				//得到用户名 
 	     String password = new String((char[])token.getCredentials()); 	//得到密码
 		
+	     System.out.println("username = "+username+",password = "+password);
 	     if(null != username && null != password){
 	    	 return new SimpleAuthenticationInfo(username, password, getName());
 	     }else{

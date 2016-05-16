@@ -8,7 +8,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.sse.bikemanagement.entity.UserVO;
+import com.stk.domain.system.User;
 import com.stk.util.Const;
 
 public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
@@ -16,31 +16,37 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		
-		String path = request.getServletPath();
-		System.out.println("preHandle..."+path);
-		return true;
-		
 		/*String path = request.getServletPath();
+		System.out.println("preHandle..."+path);
+		return true;*/
+		
+		String path = request.getServletPath();
+		System.out.println("preHandle --> "+path);
 		if(path.matches(Const.NO_INTERCEPTOR_PATH)){
 			return true;
 		}else{
 			//shiro管理的session
+			System.out.println("=====================shiro管理的session=======================");
 			Subject currentUser = SecurityUtils.getSubject();  
 			Session session = currentUser.getSession();
-			UserVO userVO = (UserVO)session.getAttribute(Const.SESSION_USER);
+			User userVO = (User)session.getAttribute(Const.SESSION_USER);
+			System.out.println(userVO);
 			if(userVO!=null){
-				path = path.substring(1, path.length());
+				/*path = path.substring(1, path.length());
 				boolean b = Jurisdiction.hasJurisdiction(path);
 				if(!b){
 					response.sendRedirect(request.getContextPath() + Const.LOGIN);
 				}
-				return b;
+				return b;*/
+				System.out.println("----->true");
+				return true;
 			}else{
 				//登陆过滤
+				System.out.println("----->false");
 				response.sendRedirect(request.getContextPath() + Const.LOGIN);
 				return false;		
 				//return true;
 			}
-		}*/
+		}
 	}
 }
