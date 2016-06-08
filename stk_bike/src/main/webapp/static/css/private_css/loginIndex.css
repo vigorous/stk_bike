@@ -96,7 +96,7 @@
 }
 
 /*µÇÂ¼°´Å¥*/
-.login-box-wrap .submit button {
+.login-box-wrap .submit .lgbtn {
     width: 120px;
     margin: 0 50px;
     height: 42px;

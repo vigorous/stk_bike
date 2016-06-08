@@ -377,7 +377,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a onclick="addTab('1001','和和京津冀','test')">
+								<a href="javascript:;" onclick="addTab('1001','和和京津冀','test')">
 									<i class="menu-icon fa fa-caret-right"></i>
 									和和京津冀
 								</a>
@@ -408,3 +408,5 @@
 				</script>
 				<script src="static/js/private_js/admin/head.js"></script>
 			</div>
+			
+			

@@ -35,3 +35,5 @@
 		<script src="static/assets/js/html5shiv.js"></script>
 		<script src="static/assets/js/respond.js"></script>
 		<![endif]-->
+		
+		<script src="static/js/jquery-1.9.1.min.js"></script>

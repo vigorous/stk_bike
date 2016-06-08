@@ -132,8 +132,8 @@ String path = request.getContextPath();
                     <!--登录按钮部分-->
                     <div class="submit">
                         <!-- <button type="submit" onclick="login()">登录</button> -->
-                        <a onclick="login()">登录</a>
-                        <button type="submit">重置</button>
+                        <a class="lgbtn" style="text-decoration:none;" onclick="login()">登录</a>
+                        <button class="lgbtn" type="submit">重置</button>
                     </div>
                 </form>
             </div>

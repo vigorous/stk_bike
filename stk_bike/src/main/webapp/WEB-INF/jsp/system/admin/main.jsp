@@ -125,5 +125,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script src="static/assets/js/ace/ace.settings-skin.js"></script>
 		<script src="static/assets/js/ace/ace.widget-on-reload.js"></script>
 		<script src="static/assets/js/ace/ace.searchbox-autocomplete.js"></script>
+		
+		<!--引入属于此页面的js -->
+		<script type="text/javascript" src="static/js/myjs/main.js"></script>
 </body>
 </html>
