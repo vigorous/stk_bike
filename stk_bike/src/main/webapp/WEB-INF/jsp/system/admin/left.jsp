@@ -1,7 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%
-	String pathl = request.getContextPath();
-	String basePathl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+pathl+"/";
+	String path1 = request.getContextPath();
+	String basePath1 = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path1+"/";
 %>
 		<!-- 本页面涉及的js函数，都在head.jsp页面中     -->
 		<!-- #section:basics/sidebar -->
@@ -16,7 +16,7 @@
 							<i class="ace-icon fa fa-signal"></i>
 						</button>
 
-						<button class="btn btn-info">
+						<button class="btn btn-info" onclick="window.open('<%=basePath1%>/static/Ace_admin_1.3.4/index.html')">
 							<i class="ace-icon fa fa-pencil"></i>
 						</button>
 
@@ -377,7 +377,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="faq.html">
+								<a onclick="addTab('1001','和和京津冀','test')">
 									<i class="menu-icon fa fa-caret-right"></i>
 									和和京津冀
 								</a>
@@ -406,4 +406,5 @@
 				<script type="text/javascript">
 					try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
 				</script>
+				<script src="static/js/private_js/admin/head.js"></script>
 			</div>

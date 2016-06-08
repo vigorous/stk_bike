@@ -21,7 +21,7 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 		return true;*/
 		
 		String path = request.getServletPath();
-		System.out.println("preHandle --> "+path);
+		//System.out.println("preHandle --> "+path);
 		if(path.matches(Const.NO_INTERCEPTOR_PATH)){
 			return true;
 		}else{
@@ -38,11 +38,11 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 					response.sendRedirect(request.getContextPath() + Const.LOGIN);
 				}
 				return b;*/
-				System.out.println("----->true");
+				//System.out.println("----->true");
 				return true;
 			}else{
 				//登陆过滤
-				System.out.println("----->false");
+				//System.out.println("----->false");
 				response.sendRedirect(request.getContextPath() + Const.LOGIN);
 				return false;		
 				//return true;

@@ -92,11 +92,11 @@ public class LoginController extends BaseController {
 		
 		try {
 			//获取菜单信息
-			List<MenuVO> firstMenuList = menuService.queryFirstMenu();
+			//List<MenuVO> firstMenuList = menuService.queryFirstMenu();
 			
 			if("index".equals(changeMenu)){
 				mv.setViewName("system/admin/main");
-				mv.addObject("firstMenuList",firstMenuList);
+				//mv.addObject("firstMenuList",firstMenuList);
 			}
 		} catch (Exception e) {
 			logDebug(logger,e);
