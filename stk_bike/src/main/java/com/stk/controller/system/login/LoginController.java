@@ -116,6 +116,27 @@ public class LoginController extends BaseController {
 		return mv;
 	}
 	
+	@RequestMapping("/change")
+	public ModelAndView change(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/admin/change");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/nearHot")
+	public ModelAndView nearHot(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/nearHotQuery");
+		logAfter(logger);
+		return mv;
+	}
 	/**
 	 * 进入tab标签
 	 * @return

@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="static/assets/css/font-awesome.css" />
 
 		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="static/assets/css/jquery-ui.css" />
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="static/assets/css/ace-fonts.css" />

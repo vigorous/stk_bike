@@ -224,9 +224,9 @@
 						
 						<ul class="submenu">
 							<li class="">
-								<a href="form-elements.html">
+								<a href="javascript:;" onclick="addTab('2001','周边热点查询','nearHot')">
 									<i class="menu-icon fa fa-caret-right"></i>
-									车辆管理
+									周边热点查询
 								</a>
 
 								<b class="arrow"></b>
@@ -235,7 +235,7 @@
 							<li class="">
 								<a href="form-elements-2.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									品牌管理
+									终端采集查询
 								</a>
 
 								<b class="arrow"></b>
@@ -244,7 +244,7 @@
 							<li class="">
 								<a href="form-wizard.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									被盗车辆管理
+									人流量统计
 								</a>
 
 								<b class="arrow"></b>
@@ -253,7 +253,7 @@
 							<li class="">
 								<a href="wysiwyg.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									电子车牌发卡管理
+									虚拟身份查询
 								</a>
 
 								<b class="arrow"></b>
@@ -262,7 +262,7 @@
 							<li class="">
 								<a href="dropzone.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									低电量车辆管理
+									智能终端轨迹查询
 								</a>
 
 								<b class="arrow"></b>
@@ -271,7 +271,79 @@
 							<li class="">
 								<a href="dropzone.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									车辆查询
+									MAC同行
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									MAC布防设置
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									关系人分析查询
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									终端关系数据查询
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									电子车牌找同行
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									MAC落脚点分析
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									RFID落脚点分析
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									虚拟身份关联分析
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="dropzone.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									嫌疑MAC分析
 								</a>
 
 								<b class="arrow"></b>
@@ -345,7 +417,7 @@
 							</li>
 							
 							<li class="">
-								<a href="dropzone.html">
+								<a href="javascript:;">
 									<i class="menu-icon fa fa-caret-right"></i>
 									公告管理
 								</a>
@@ -386,7 +458,7 @@
 							</li>
 
 							<li class="">
-								<a href="error-404.html">
+								<a href="javascript:;" onclick="addTab('1002','地方撒发生','change')">
 									<i class="menu-icon fa fa-caret-right"></i>
 									地方撒发生
 								</a>
