@@ -557,7 +557,7 @@
 		</div>
 	</div>
 	
-	
+	</div>
 	<!-- basic scripts -->
 
 		<!--[if !IE]> -->
