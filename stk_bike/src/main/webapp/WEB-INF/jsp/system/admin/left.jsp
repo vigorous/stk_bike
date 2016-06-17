@@ -46,7 +46,7 @@
 	<!-- /.sidebar-shortcuts -->
 
 	<ul class="nav nav-list">
-		<li class="active"><a href="index.html"> <i
+		<li class="active"><a href="javascript:;" onclick="addTab('0001','首页','business/realTimeAlarm/survey/surveyList')"> <i
 				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 					首页 </span>
 		</a> <b class="arrow"></b></li>
@@ -57,19 +57,19 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="#"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0101','实时报警','business/realTimeAlarm/realTimeAlarm/realTimeAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 实时报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0102','被盗车辆报警','business/realTimeAlarm/stolenVehicleAlarm/stolenVehicleAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 被盗车辆报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="jqgrid.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0103','布防车辆报警','business/realTimeAlarm/deploymentVehicleAlarm/deploymentVehicleAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 布防车辆报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="jqgrid.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0104','布防MAC报警','business/realTimeAlarm/deploymentMacAlarm/deploymentMacAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 布防MAC报警
 				</a> <b class="arrow"></b></li>
 			</ul></li>
@@ -200,7 +200,7 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="form-elements.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0501','区域管理','business/systemSetting/regionalManagement/regionalManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 区域管理
 				</a> <b class="arrow"></b></li>
 
