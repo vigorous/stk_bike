@@ -114,7 +114,7 @@ public class Page<T> {
 			sb.append("var totalPage="+totalPage+";");
 			
 			//换页函数
-			sb.append("function nextPage(page){debugger;");
+			sb.append("function nextPage(page){");
 			sb.append("	if(true && document.forms[0]){\n");
 			sb.append("		var url = document.forms[0].getAttribute(\"action\")+'?'+$('form').eq(0).serialize();\n");
 			sb.append("		if(url.indexOf('?')>-1){url += \"&"+(entityOrField?"page.currentPage":"currentPage")+"=\";}\n");

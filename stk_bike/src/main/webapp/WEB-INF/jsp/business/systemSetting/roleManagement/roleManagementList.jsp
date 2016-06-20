@@ -24,7 +24,7 @@
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="新建" id="new" />
+						<input type="button" class="btn btn-primary" value="新建" />
 					</div>
 				</div>
 			</div>
@@ -33,15 +33,17 @@
 					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 						<thead>
 							<tr>
-								<th class="text-center" width="33.33%">区域ID</th>
-								<th class="text-center" width="33.33%">区域名称</th>
-								<th class="text-center" width="33.33%">操作</th>
+								<th class="text-center" width="15%">角色ID</th>
+								<th class="text-center" width="15%">角色名称</th>
+								<th class="text-center" width="55%">角色权限</th>
+								<th class="text-center" width="15%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -55,7 +57,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -69,7 +72,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -83,7 +87,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -97,7 +102,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -111,7 +117,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -125,7 +132,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -139,7 +147,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -153,7 +162,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -167,7 +177,8 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>新城区</td>
+								<td>管理员</td>
+								<td>MAC布防报警,被盗车辆报警,被盗车辆管理,车辆布防报警,车辆查询,车辆管理,低电量车辆管理,电子车牌发卡管理,概况,品牌管理,实时报警</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -187,10 +198,5 @@
 		</div>
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script type="text/javascript">
-			$("#new").click(function(){
-				Dialog.open({Title:"新建区域",URL:"regionalManagementForm"});
-			});
-		</script>
 	</body>
 </html>

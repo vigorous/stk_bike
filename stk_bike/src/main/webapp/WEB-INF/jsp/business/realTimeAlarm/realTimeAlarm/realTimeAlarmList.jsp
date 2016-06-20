@@ -9,24 +9,15 @@
 <html>
 	<head lang="en">
 		<base href="<%=basePath%>">
-		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
-		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 		<style type="text/css">
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
 			.margin-left-30{margin-left: 30px;}
 		</style>
+		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="breadcrumbs">
-			<ul class="breadcrumb">
-				<li><span>您现在的位置：</span></li>
-				<li class="active">实时报警</li>
-				<li class="active">实时报警</li>
-			</ul>
-		</div>
 		<div class="page-content">
 			<div class="row">
 				<div class="col-xs-12">
@@ -106,5 +97,7 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 	</body>
 </html>

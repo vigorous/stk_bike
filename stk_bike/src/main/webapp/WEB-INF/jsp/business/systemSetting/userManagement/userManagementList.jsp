@@ -24,7 +24,7 @@
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="新建" id="new" />
+						<input type="button" class="btn btn-primary" value="新建" />
 					</div>
 				</div>
 			</div>
@@ -33,15 +33,19 @@
 					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 						<thead>
 							<tr>
-								<th class="text-center" width="33.33%">区域ID</th>
-								<th class="text-center" width="33.33%">区域名称</th>
-								<th class="text-center" width="33.33%">操作</th>
+								<th class="text-center" width="20%">用户名</th>
+								<th class="text-center" width="20%">用户名称</th>
+								<th class="text-center" width="20%">所在单位</th>
+								<th class="text-center" width="20%">角色</th>
+								<th class="text-center" width="20%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -54,8 +58,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -68,8 +74,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -82,8 +90,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -96,8 +106,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -110,8 +122,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -124,8 +138,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -138,8 +154,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -152,8 +170,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -166,8 +186,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>wanglei</td>
+								<td>王磊</td>
+								<td>王店派出所</td>
+								<td>1111</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -187,10 +209,5 @@
 		</div>
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script type="text/javascript">
-			$("#new").click(function(){
-				Dialog.open({Title:"新建区域",URL:"regionalManagementForm"});
-			});
-		</script>
 	</body>
 </html>

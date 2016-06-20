@@ -201,15 +201,15 @@
 						class="menu-icon fa fa-caret-right"></i> 区域管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="form-elements-2.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0502','单位管理','business/systemSetting/unitManagement/unitManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 单位管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="form-wizard.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0503','角色管理','business/systemSetting/roleManagement/roleManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 角色管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="wysiwyg.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0504','用户管理','business/systemSetting/userManagement/userManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 用户管理
 				</a> <b class="arrow"></b></li>
 

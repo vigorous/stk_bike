@@ -9,15 +9,15 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/business/systemSetting/regionalManagement")
-public class RegionalManagementController extends BaseController {
+@RequestMapping(value="/business/systemSetting/roleManagement")
+public class RoleManagementController extends BaseController {
 	
 	/**
-	 * 跳转到区域管理列表页
+	 * 跳转到角色管理列表页
 	 * @return
 	 */
-	@RequestMapping(value="/regionalManagementList")
-	public ModelAndView regionalManagementList(Model model,Integer currentPage,Integer showCount){
+	@RequestMapping(value="/roleManagementList")
+	public ModelAndView roleManagementList(Model model,Integer currentPage,Integer showCount){
 		//造数据
 		Page page = new Page();
 		if(currentPage == null){
@@ -35,17 +35,7 @@ public class RegionalManagementController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/systemSetting/regionalManagement/regionalManagementList");
+		mav.setViewName("business/systemSetting/roleManagement/roleManagementList");
 		return mav;
-	}
-	
-	/**
-	 * 跳转到区域管理编辑页
-	 * @return
-	 */
-	@RequestMapping(value="/regionalManagementForm")
-	public String regionalManagementForm(){
-		
-		return "business/systemSetting/regionalManagement/regionalManagementForm";
 	}
 }
