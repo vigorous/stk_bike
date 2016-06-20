@@ -37,7 +37,12 @@
 			class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>案件号</th>
+					<th class="center">
+						<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+						</label>
+					</th>
 					<th>电子车牌</th>
 					<th class="hidden-480">车主姓名</th>
 					<th>身份证号妈</th>
@@ -47,12 +52,17 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td class="center">
+						<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+						</label>				
+					</td>
 					<td>$45</td>
 					<td><a href="#">ace.com</a></td>
 					<td>$45</td>
 					<td class="hidden-480">3,330</td>
 					<td>Feb 12</td>
-					<td>$45</td>
 				</tr>
 			</tbody>
 		</table>
