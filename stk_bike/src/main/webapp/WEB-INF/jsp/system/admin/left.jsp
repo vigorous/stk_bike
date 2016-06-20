@@ -81,33 +81,30 @@
 
 			<ul class="submenu">
 				<li class=""><a href="javascript:;"
-					onclick="addTab('3001','车辆管理','bike_manager')"> <i
+					onclick="addTab('3001','车辆管理','bike/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 车辆管理
 				</a> <b class="arrow"></b></li>
 
 				<li class=""><a href="javascript:;"
-				onclick="addTab('3002','品牌管理','brand_manager')"> <i
+				onclick="addTab('3002','品牌管理','brand/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 品牌管理
 				</a> <b class="arrow"></b></li>
 
 				<li class=""><a href="javascript:;"
-					onclick="addTab('3003','被盗管理','stolenManager')"> <i
+					onclick="addTab('3003','被盗管理','stolen/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 被盗车辆管理
 				</a> <b class="arrow"></b></li>
 
 				<li class=""><a href="javascript:;"
-					onclick="addTab('3004','电子车牌发卡管理','eidManager')"> <i
+					onclick="addTab('3004','电子车牌发卡管理','plate/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 电子车牌发卡管理
 				</a> <b class="arrow"></b></li>
 
 				<li class=""><a href="javascript:;"
-					onclick="addTab('3005','低电量车辆管理','lowbikeManager')"> <i
+					onclick="addTab('3005','低电量车辆管理','lowpower/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 低电量车辆管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 车辆查询
-				</a> <b class="arrow"></b></li>
 			</ul></li>
 
 		<li class=""><a href="#" class="dropdown-toggle"> <i

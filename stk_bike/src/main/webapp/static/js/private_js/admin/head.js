@@ -9,7 +9,6 @@ $(function(){
 });
 
 function addTab(id,MENU_NAME,MENU_URL){
-	alert("locat="+locat);
 	/*$.ajax({
 		type: "POST",
 		url: locat+'/head/getUname.do?tm='+new Date().getTime(),
