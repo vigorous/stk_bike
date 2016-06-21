@@ -276,10 +276,10 @@
 			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 			$('.chosen-select').chosen();
 			$("#deviceLog").off().click(function(){
-				addTab('0604','设备日志','business/deviceManagement/rfidDeviceManagement/deviceLogList');
+				addTab('0604','','设备日志','business/deviceManagement/rfidDeviceManagement/deviceLogList');
 			});
 			$("#pointDistribution").off().click(function(){
-				addTab('0605','点位分布','business/deviceManagement/rfidDeviceManagement/pointDistributionDetail');
+				addTab('0605','','点位分布','business/deviceManagement/rfidDeviceManagement/pointDistributionDetail');
 			});
 		</script>
 	</body>
