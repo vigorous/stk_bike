@@ -137,6 +137,61 @@ public class LoginController extends BaseController {
 		logAfter(logger);
 		return mv;
 	}
+	
+	@RequestMapping("/tmlSelect")
+	public ModelAndView tmlSelect(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/tmlSelectQuery");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/humanTraffic")
+	public ModelAndView humanTraffic(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/humanTraffic");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/virtualId")
+	public ModelAndView virtualId(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/virtualIdQuery");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/tmlTrance")
+	public ModelAndView tmlTrance(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/tmlTranceQuery");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/togetherMac")
+	public ModelAndView togetherMac(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/togetherMacQuery");
+		logAfter(logger);
+		return mv;
+	}
 	/**
 	 * 进入tab标签
 	 * @return

@@ -1,6 +1,6 @@
 var locat = (window.location+'').split('/'); 
 $(function(){
-	alert(locat);
+	/*alert(locat);*/
 	if('main'== locat[3]){
 		locat =  locat[0]+'//'+locat[2];
 	}else{
@@ -8,7 +8,21 @@ $(function(){
 	};
 });
 
-function addTab(id,MENU_NAME,MENU_URL){
+var syid = "cgjIndex";
+var zdsjid = "tmlData";
+function addTab(id,fid,MENU_NAME,MENU_URL){
+	if(id != zdsjid){
+		$("#" + zdsjid).removeClass();
+		zdsjid = id;
+	}
+	if(fid != syid){
+		$("#" + syid).removeClass();
+		syid = fid;
+	}
+	$("#" + fid).attr("class","active open");
+	$("#" + id).attr("class","active");
+	
+	/*alert("locat="+locat);*/
 	/*$.ajax({
 		type: "POST",
 		url: locat+'/head/getUname.do?tm='+new Date().getTime(),
