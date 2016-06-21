@@ -38,3 +38,6 @@
 		<![endif]-->
 		
 		<script src="static/js/jquery-1.9.1.min.js"></script>
+		
+		<script src="plugins/zDialog/zDialog.js"></script>
+		<script src="plugins/zDialog/zDrag.js"></script>

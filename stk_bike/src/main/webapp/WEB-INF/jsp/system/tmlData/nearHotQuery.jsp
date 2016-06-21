@@ -28,9 +28,9 @@
 	<div class="page-content">
 		<div class="row">
 			<div class="col-xs-12">
-			<table border='0'>
+			<table style="border:0;">
 				<tr>
-					<td style="padding:0 5px;"> 
+					<td style="padding-right:5px;"> 
 					 	<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="请选择类型...">
 							<option value="">  </option>
 							<option value="AL">Alabama</option>
@@ -42,38 +42,27 @@
 							<option value="CT">Connecticut</option>
 							<option value="DE">Delaware</option>
 							<option value="FL">Florida</option>
-							<option value="GA">Georgia</option>
-							<option value="HI">Hawaii</option>
-							<option value="ID">Idaho</option>
-							<option value="IL">Illinois</option>
-							<option value="IN">Indiana</option>
-							<option value="IA">Iowa</option>
-							<option value="KS">Kansas</option>
-							<option value="KY">Kentucky</option>
-							<option value="LA">Louisiana</option>
-							<option value="ME">Maine</option>
-							<option value="MD">Maryland</option>
 						</select>
 					</td>
 					
-					<td style="padding:0 5px;">
+					<td style="padding-right:5px;">
 						<span class="input-icon">
 							<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
 							<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
 						</span>
 					</td>
 					
-					<td style="padding:0 5px;">
+					<td style="padding-right:5px;">
 						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="开始日期" />
 					</td>
 					
-					<td style="padding:0 5px;">
+					<td style="padding-right:5px;">
 						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="结束日期" />
 					</td>
 					
-					<td style="vertical-align:middle;padding:0 5px;"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
+					<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
 					
-					<td style="vertical-align:middle;padding:0 5px;"><a class="btn btn-sm btn-info" onclick="toExcel();" title="导出到EXCEL"><i id="nav-search-icon" class="fa fa-download"></i></a></td>
+					<!-- <td style="vertical-align:middle;padding-right:5px;"><a class="btn btn-sm btn-info" onclick="toExcel();" title="导出到EXCEL"><i id="nav-search-icon" class="fa fa-download"></i></a></td> -->
 				</tr>
 			</table>
 			</div>
@@ -166,17 +155,22 @@
 											<span class="lbl"></span>
 										</label>
 									</th>
-									<th>Domain</th>
-									<th>Price</th>
-									<th class="hidden-480">Clicks</th>
+									<th>热点名称</th>
+									<th>热点MAC</th>
+									<th class="hidden-480">地址</th>
+
+									<th class="hidden-480">
+										设备编号
+									</th>
+									<th>
+										<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+										上线时间
+									</th>
 
 									<th>
 										<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-										Update
+										下线时间
 									</th>
-									<th class="hidden-480">Status</th>
-
-									<th></th>
 								</tr>
 							</thead>
 
@@ -345,7 +339,7 @@
 									<td>Mar 11</td>
 
 									<td class="hidden-480">
-										<span class="label label-sm label-warning">Expiring</span>
+										<span class="label label-sm label-warning">进行中</span>
 									</td>
 
 									<td>
@@ -419,7 +413,7 @@
 									<td>Apr 03</td>
 
 									<td class="hidden-480">
-										<span class="label label-sm label-inverse arrowed-in">Flagged</span>
+										<span class="label label-sm label-inverse arrowed-in">离线</span>
 									</td>
 
 									<td>
@@ -493,7 +487,7 @@
 									<td>Jan 21</td>
 
 									<td class="hidden-480">
-										<span class="label label-sm label-success">Registered</span>
+										<span class="label label-sm label-success">在线</span>
 									</td>
 
 									<td>
@@ -553,11 +547,11 @@
 							</tbody>
 						</table>
 					</div><!-- /.span -->
+				</div>
 			</div>
 		</div>
 	</div>
-	
-	</div>
+		
 	<!-- basic scripts -->
 
 		<!--[if !IE]> -->
@@ -568,10 +562,10 @@
 		<!-- <![endif]-->
 
 		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='static/assets/js/jquery1x.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='static/assets/js/jquery1x.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='static/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
@@ -747,6 +741,35 @@
 				if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 				return 'left';
 			}
+		</script>
+		
+		<!-- placeholder兼容性问题 -->
+		<script type="text/javascript">  
+		  if( !('placeholder' in document.createElement('input')) ){  
+		   
+		    $('input[placeholder],textarea[placeholder]').each(function(){   
+		      var that = $(this),   
+		      text= that.attr('placeholder');   
+		      if(that.val()===""){   
+		        that.val(text).addClass('placeholder');   
+		      }   
+		      that.focus(function(){   
+		        if(that.val()===text){   
+		          that.val("").removeClass('placeholder');   
+		        }   
+		      })   
+		      .blur(function(){   
+		        if(that.val()===""){   
+		          that.val(text).addClass('placeholder');   
+		        }   
+		      })   
+		      .closest('form').submit(function(){   
+		        if(that.val() === text){   
+		          that.val('');   
+		        }   
+		      });   
+		    });   
+		  }  
 		</script>
 </body>
 </html>
