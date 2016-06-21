@@ -192,6 +192,50 @@ public class LoginController extends BaseController {
 		logAfter(logger);
 		return mv;
 	}
+	
+	@RequestMapping("/macProtect")
+	public ModelAndView macProtect(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/macProtect");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/relations")
+	public ModelAndView relations(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/relationsQuery");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/tmlRelation")
+	public ModelAndView tmlRelation(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/tmlRelationQuery");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/macByEplate")
+	public ModelAndView macByEplate(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/togetherByEplate");
+		logAfter(logger);
+		return mv;
+	}
 	/**
 	 * 进入tab标签
 	 * @return

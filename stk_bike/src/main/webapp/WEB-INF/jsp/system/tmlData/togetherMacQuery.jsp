@@ -76,12 +76,6 @@
 						<table id="simple-table" class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-									<th class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</th>
 									<th>同行终端MAC</th>
 									<th>同行设备数量</th>
 									<th>采集设备地址</th>
@@ -91,12 +85,6 @@
 		
 							<tbody>
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">ace.com</a>
@@ -108,12 +96,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">base.com</a>
@@ -125,12 +107,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">max.com</a>
@@ -142,12 +118,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">best.com</a>
@@ -159,12 +129,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">pro.com</a>

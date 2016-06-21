@@ -2237,7 +2237,7 @@ pre code {
   }
 }
 table {
-  /* background-color: transparent; */
+  /* background-color: transparent; */ /* 06--21 style change */
 }
 caption {
   padding-top: 8px;
@@ -2259,9 +2259,9 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 8px;
+  padding: 6px;/* padding: 8px; */ /* 06--21 style change */
   line-height: 1.42857143;
-  vertical-align: top;
+  /* vertical-align: top; */ /* 06-21 style change */
   border-top: 1px solid #dddddd;
 }
 .table > thead > tr > th {

@@ -22,7 +22,7 @@
 		
 	<!-- jsp文件头和头部 -->
 	<%@ include file="../admin/top.jsp"%>
-	<title>周边热点查询页面</title>
+	<title>终端轨迹查询页面</title>
 </head>
 <body>
 	<div class="page-content">
@@ -62,12 +62,6 @@
 						<table id="simple-table" class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-									<th class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</th>
 									<th>采集设备MAC</th>
 									<th>采集地址</th>
 									<th>上线时间</th>
@@ -78,12 +72,6 @@
 		
 							<tbody>
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">ace.com</a>
@@ -96,12 +84,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">base.com</a>
@@ -114,12 +96,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">max.com</a>
@@ -132,12 +108,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">best.com</a>
@@ -150,12 +120,6 @@
 								</tr>
 		
 								<tr>
-									<td class="center">
-										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
-											<span class="lbl"></span>
-										</label>
-									</td>
 		
 									<td>
 										<a href="#">pro.com</a>

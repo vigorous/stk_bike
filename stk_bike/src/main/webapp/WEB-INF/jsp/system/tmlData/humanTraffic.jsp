@@ -64,12 +64,6 @@
 				<table id="simple-table" class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</th>
 							<th>位置</th>
 							<th class="hidden-480">
 								<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
@@ -88,12 +82,6 @@
 
 					<tbody>
 						<tr>
-							<td class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</td>
 
 							<td>
 								<a href="#">ace.com</a>
@@ -105,12 +93,6 @@
 						</tr>
 
 						<tr>
-							<td class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</td>
 
 							<td>
 								<a href="#">base.com</a>
@@ -122,12 +104,6 @@
 						</tr>
 
 						<tr>
-							<td class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</td>
 
 							<td>
 								<a href="#">max.com</a>
@@ -139,12 +115,6 @@
 						</tr>
 
 						<tr>
-							<td class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</td>
 
 							<td>
 								<a href="#">best.com</a>
@@ -156,12 +126,6 @@
 						</tr>
 
 						<tr>
-							<td class="center">
-								<label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								</label>
-							</td>
 
 							<td>
 								<a href="#">pro.com</a>

@@ -22,67 +22,34 @@
 		
 	<!-- jsp文件头和头部 -->
 	<%@ include file="../admin/top.jsp"%>
+	<title>MAC布防设置页面</title>
+	
 	<script type="text/javascript">
-	$(function(){HideScrollbar=false;});
-	function Alert(){
-		Dialog.alert("修改成功!");
-	}
-	
-	function openDialog(){
-		var diag = new Dialog();
-		diag.Width = 300;
-		diag.Height = 100;
-		diag.Title = "信息编辑";
-		diag.InnerHtml='<div style="text-align:center;color:red;font-size:14px;">直接输出html，使用 <b>InnerHtml</b> 属性。</div>'
-		diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
-		diag.show();
-	}
-	
-	function deleteMsg(){
-		Dialog.alert("确认删除?");
-	}
+	    $(function(){HideScrollbar=false;});
+	    function addMacProtect(){
+	    	var diag = new Dialog();
+	    	diag.Width = 600;
+	    	diag.Height = 300;
+	    	diag.Title = "MAC布防信息添加";
+	    	diag.InnerHtml='<div style="text-align:center;font-size:14px;padding:5px;">布防名称：<input type="text" /></div>'
+	    	diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
+	    	diag.show();
+	    }
 	</script>
-	<title>终端采集查询页面</title>
 </head>
 <body>
 	<div class="page-content">
 		<div class="row">
 			<div class="col-xs-12">
-				<form class="form-horizontal" role="form">
-					<div class="form-group">
-						<div class="col-sm-2">
-							<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="查询类型...">
-								<option value="">  </option>
-								<option value="场所编号查询">场所编号查询</option>
-								<option value="采集设备编号">采集设备编号</option>
-								<option value="采集设备地址">采集设备地址</option>
-							</select>
-						</div>
-						
-						<div class="col-sm-2">
-							<span class="input-icon">
-								<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
-								<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
-							</span>
-						</div>
-						
-						<div class="col-sm-2">
-							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="开始日期" />
-						</div>
-						
-						<div class="col-sm-2">
-							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="结束日期" />
-						</div>
-						
-						<div class="col-sm-2">
-							<button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button>
-						</div>
-					</div>
-				</form>
+				<table style="border:0;">
+					<tr>
+						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="addMacProtect();"  title="创建新的MAC布防">创建新的MAC布防</button></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		
-		<div class="row">
+		<div class="row" style="margin-top:10px;">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
 				<div class="row">
@@ -90,50 +57,53 @@
 						<table id="simple-table" class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>智能终端MAC地址</th>
-									<th>位置</th>
-									<th class="hidden-480">
-										<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-										进入时间
+									<th class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
 									</th>
-
-									<th>
-										<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-										离开时间
-									</th>
-									<th class="hidden-480">已连接的APMAC</th>
-
-									<th>已连接的AP名称</th>
-									
-									<th>采集次数</th>
+									<th>布防名称</th>
+									<th>布防机具</th>
+									<th>布防终端MAC</th>
+									<th class="hidden-480">开始时间</th>
+									<th class="hidden-480">结束时间</th>
+									<th>状态</th>
+									<th>操作</th>
 								</tr>
 							</thead>
-
+		
 							<tbody>
 								<tr>
-
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+		
 									<td>
 										<a href="#">ace.com</a>
 									</td>
 									<td>$45</td>
 									<td class="hidden-480">3,330</td>
 									<td>Feb 12</td>
-
+									<td></td>
 									<td class="hidden-480">
-										<span class="label label-sm label-warning">Expiring</span>
+										<span class="label label-sm label-success">在线</span>
 									</td>
 
 									<td>
-										<div class="hidden-sm hidden-xs btn-group" >
-											<button class="btn btn-xs btn-success" onclick="Alert();">
+										<div class="hidden-sm hidden-xs btn-group">
+											<button class="btn btn-xs btn-success">
 												<i class="ace-icon fa fa-check bigger-120"></i>
 											</button>
 
-											<button class="btn btn-xs btn-info" onclick="openDialog();">
+											<button class="btn btn-xs btn-info">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
 
-											<button class="btn btn-xs btn-danger" onclick="deleteMsg();">
+											<button class="btn btn-xs btn-danger">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 
@@ -150,7 +120,7 @@
 
 												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+														<a href="#" class="tooltip-info" data-rel="tooltip" title="查看">
 															<span class="blue">
 																<i class="ace-icon fa fa-search-plus bigger-120"></i>
 															</span>
@@ -158,7 +128,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+														<a href="#" class="tooltip-success" data-rel="tooltip" title="编辑">
 															<span class="green">
 																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 															</span>
@@ -166,7 +136,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+														<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
 															<span class="red">
 																<i class="ace-icon fa fa-trash-o bigger-120"></i>
 															</span>
@@ -176,23 +146,26 @@
 											</div>
 										</div>
 									</td>
-									
-									<td class="hidden-480">
-										5
-									</td>
+		
 								</tr>
-
+		
 								<tr>
-
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+		
 									<td>
 										<a href="#">base.com</a>
 									</td>
 									<td>$35</td>
 									<td class="hidden-480">2,595</td>
 									<td>Feb 18</td>
-
+									<td></td>
 									<td class="hidden-480">
-										<span class="label label-sm label-success">Registered</span>
+										<span class="label label-sm label-inverse arrowed-in">离线</span>
 									</td>
 
 									<td>
@@ -222,7 +195,7 @@
 
 												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+														<a href="#" class="tooltip-info" data-rel="tooltip" title="查看">
 															<span class="blue">
 																<i class="ace-icon fa fa-search-plus bigger-120"></i>
 															</span>
@@ -230,7 +203,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+														<a href="#" class="tooltip-success" data-rel="tooltip" title="编辑">
 															<span class="green">
 																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 															</span>
@@ -238,7 +211,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+														<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
 															<span class="red">
 																<i class="ace-icon fa fa-trash-o bigger-120"></i>
 															</span>
@@ -248,23 +221,26 @@
 											</div>
 										</div>
 									</td>
-									
-									<td class="hidden-480">
-										5
-									</td>
+		
 								</tr>
-
+		
 								<tr>
-
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+		
 									<td>
 										<a href="#">max.com</a>
 									</td>
 									<td>$60</td>
 									<td class="hidden-480">4,400</td>
 									<td>Mar 11</td>
-
+									<td></td>
 									<td class="hidden-480">
-										<span class="label label-sm label-warning">Expiring</span>
+										<span class="label label-sm label-success">在线</span>
 									</td>
 
 									<td>
@@ -294,7 +270,7 @@
 
 												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+														<a href="#" class="tooltip-info" data-rel="tooltip" title="查看">
 															<span class="blue">
 																<i class="ace-icon fa fa-search-plus bigger-120"></i>
 															</span>
@@ -302,7 +278,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+														<a href="#" class="tooltip-success" data-rel="tooltip" title="编辑">
 															<span class="green">
 																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 															</span>
@@ -310,7 +286,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+														<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
 															<span class="red">
 																<i class="ace-icon fa fa-trash-o bigger-120"></i>
 															</span>
@@ -320,23 +296,26 @@
 											</div>
 										</div>
 									</td>
-									
-									<td class="hidden-480">
-										5
-									</td>
+		
 								</tr>
-
+		
 								<tr>
-
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+		
 									<td>
 										<a href="#">best.com</a>
 									</td>
 									<td>$75</td>
 									<td class="hidden-480">6,500</td>
 									<td>Apr 03</td>
-
+									<td></td>
 									<td class="hidden-480">
-										<span class="label label-sm label-inverse arrowed-in">Flagged</span>
+										<span class="label label-sm label-warning">进行中</span>
 									</td>
 
 									<td>
@@ -366,7 +345,7 @@
 
 												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+														<a href="#" class="tooltip-info" data-rel="tooltip" title="查看">
 															<span class="blue">
 																<i class="ace-icon fa fa-search-plus bigger-120"></i>
 															</span>
@@ -374,7 +353,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+														<a href="#" class="tooltip-success" data-rel="tooltip" title="编辑">
 															<span class="green">
 																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 															</span>
@@ -382,7 +361,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+														<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
 															<span class="red">
 																<i class="ace-icon fa fa-trash-o bigger-120"></i>
 															</span>
@@ -392,42 +371,46 @@
 											</div>
 										</div>
 									</td>
-									
-									<td class="hidden-480">
-										5
-									</td>
+		
 								</tr>
-
+		
 								<tr>
-
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+		
 									<td>
 										<a href="#">pro.com</a>
 									</td>
 									<td>$55</td>
 									<td class="hidden-480">4,250</td>
 									<td>Jan 21</td>
-
+									<td></td>
 									<td class="hidden-480">
-										<span class="label label-sm label-success">Registered</span>
+										<span class="label label-sm label-inverse arrowed-in">离线</span>
 									</td>
 
 									<td>
-										<div class="hidden-sm hidden-xs btn-group">
+										<div class="hidden-sm hidden-xs btn-group" title="确定">
 											<button class="btn btn-xs btn-success">
 												<i class="ace-icon fa fa-check bigger-120"></i>
 											</button>
 
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" title="编辑">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
 
-											<button class="btn btn-xs btn-danger">
+											<button class="btn btn-xs btn-danger" title="删除">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 
-											<button class="btn btn-xs btn-warning">
+											<button class="btn btn-xs btn-warning" title="标记">
 												<i class="ace-icon fa fa-flag bigger-120"></i>
 											</button>
+											
 										</div>
 
 										<div class="hidden-md hidden-lg">
@@ -438,7 +421,7 @@
 
 												<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 													<li>
-														<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+														<a href="#" class="tooltip-info" data-rel="tooltip" title="查看">
 															<span class="blue">
 																<i class="ace-icon fa fa-search-plus bigger-120"></i>
 															</span>
@@ -446,7 +429,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+														<a href="#" class="tooltip-success" data-rel="tooltip" title="编辑">
 															<span class="green">
 																<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 															</span>
@@ -454,7 +437,7 @@
 													</li>
 
 													<li>
-														<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+														<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
 															<span class="red">
 																<i class="ace-icon fa fa-trash-o bigger-120"></i>
 															</span>
@@ -464,10 +447,7 @@
 											</div>
 										</div>
 									</td>
-									
-									<td class="hidden-480">
-										5
-									</td>
+		
 								</tr>
 							</tbody>
 						</table>
@@ -475,23 +455,8 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- 页码功能模块 -->
-		<div class="page-header position-relative">
-			<table style="width:100%;">
-				<tr>
-					<td style="vertical-align:top;">
-						<a class="btn btn-mini btn-success" onclick="add();">新增</a>
-						<a title="编辑信息" class="btn btn-mini btn-info" onclick="makeAll('确定要给选中的用户发送邮件吗?');"><i class="ace-icon fa fa-pencil bigger-120"></i></a>
-						<a title="标记" class="btn btn-mini btn-warning" onclick="makeAll('确定要给选中的用户发送短信吗?');"><i class="ace-icon fa fa-flag bigger-120"></i></a>
-						<a title="删除" class="btn btn-mini btn-danger" onclick="makeAll('确定要删除选中的数据吗?');"><i class='ace-icon fa fa-trash-o bigger-120'></i></a>
-					</td>
-					<td style="vertical-align:top;"><div class="pagination" style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
-				</tr>
-			</table>
-		</div>
 	</div>
-	
+		
 	<!-- basic scripts -->
 
 		<!--[if !IE]> -->
@@ -529,8 +494,46 @@
 		<script src="static/assets/js/jquery.maskedinput.js"></script>
 		<script src="static/assets/js/bootstrap-tag.js"></script>
 
+		<!-- ace scripts -->
+		<script src="static/assets/js/ace/elements.scroller.js"></script>
+		<script src="static/assets/js/ace/elements.colorpicker.js"></script>
+		<script src="static/assets/js/ace/elements.fileinput.js"></script>
+		<script src="static/assets/js/ace/elements.typeahead.js"></script>
+		<script src="static/assets/js/ace/elements.wysiwyg.js"></script>
+		<script src="static/assets/js/ace/elements.spinner.js"></script>
+		<script src="static/assets/js/ace/elements.treeview.js"></script>
+		<script src="static/assets/js/ace/elements.wizard.js"></script>
+		<script src="static/assets/js/ace/elements.aside.js"></script>
+		<script src="static/assets/js/ace/ace.js"></script>
+		<script src="static/assets/js/ace/ace.ajax-content.js"></script>
+		<script src="static/assets/js/ace/ace.touch-drag.js"></script>
+		<script src="static/assets/js/ace/ace.sidebar.js"></script>
+		<script src="static/assets/js/ace/ace.sidebar-scroll-1.js"></script>
+		<script src="static/assets/js/ace/ace.submenu-hover.js"></script>
+		<script src="static/assets/js/ace/ace.widget-box.js"></script>
+		<script src="static/assets/js/ace/ace.settings.js"></script>
+		<script src="static/assets/js/ace/ace.settings-rtl.js"></script>
+		<script src="static/assets/js/ace/ace.settings-skin.js"></script>
+		<script src="static/assets/js/ace/ace.widget-on-reload.js"></script>
+		<script src="static/assets/js/ace/ace.searchbox-autocomplete.js"></script>
 		
 		<script type="text/javascript">
+			$('#date-timepicker1').datetimepicker({
+				 icons: {
+					time: 'fa fa-clock-o',
+					date: 'fa fa-calendar',
+					up: 'fa fa-chevron-up',
+					down: 'fa fa-chevron-down',
+					previous: 'fa fa-chevron-left',
+					next: 'fa fa-chevron-right',
+					today: 'fa fa-arrows ',
+					clear: 'fa fa-trash',
+					close: 'fa fa-times'
+				 }
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+			});
+			
 			//datepicker plugin
 			//link
 			$('.date-picker').datepicker({
@@ -544,6 +547,18 @@
 				$(this).prev().focus();
 			});
 		
+			//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
+			$('input[name=date-range-picker]').daterangepicker({
+				'applyClass' : 'btn-sm btn-success',
+				'cancelClass' : 'btn-sm btn-default',
+				locale: {
+					applyLabel: 'Apply',
+					cancelLabel: 'Cancel',
+				}
+			})
+			.prev().on(ace.click_event, function(){
+				$(this).next().focus();
+			});
 			
 			jQuery(function($){
 				$('#id-disable-check').on('click', function() {
@@ -631,6 +646,35 @@
 				if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 				return 'left';
 			}
+		</script>
+		
+		<!-- placeholder兼容性问题 -->
+		<script type="text/javascript">  
+		  if( !('placeholder' in document.createElement('input')) ){  
+		   
+		    $('input[placeholder],textarea[placeholder]').each(function(){   
+		      var that = $(this),   
+		      text= that.attr('placeholder');   
+		      if(that.val()===""){   
+		        that.val(text).addClass('placeholder');   
+		      }   
+		      that.focus(function(){   
+		        if(that.val()===text){   
+		          that.val("").removeClass('placeholder');   
+		        }   
+		      })   
+		      .blur(function(){   
+		        if(that.val()===""){   
+		          that.val(text).addClass('placeholder');   
+		        }   
+		      })   
+		      .closest('form').submit(function(){   
+		        if(that.val() === text){   
+		          that.val('');   
+		        }   
+		      });   
+		    });   
+		  }  
 		</script>
 </body>
 </html>

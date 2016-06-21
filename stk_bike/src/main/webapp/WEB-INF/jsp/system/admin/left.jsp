@@ -122,6 +122,7 @@
 					onclick="addTab('4002','','异地车辆查询','remote/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 异地车辆查询
 				</a> <b class="arrow"></b></li>
+
 				
 				<li class=""><a href="javascript:;"
 					onclick="addTab('4003','','同行车辆查询','peer/select')"> <i
@@ -132,6 +133,111 @@
 					onclick="addTab('4004','','车辆轨迹查询','guiji/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 车辆轨迹查询
 				</a> <b class="arrow"></b></li>
+			</ul></li>
+
+		<li class="" id="tmlData">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-calendar"></i>
+
+				<span class="menu-text">
+					智能终端数据分析
+				</span>
+				
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			
+			<ul class="submenu">
+				<li class="" id="5001">
+					<a href="javascript:;" onclick="addTab('5001','tmlData','周边热点查询','nearHot')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						周边热点查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="" id="5002">
+					<a href="javascript:;" onclick="addTab('5002','tmlData','终端采集查询','tmlSelect')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						终端采集查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="" id="5003">
+					<a href="javascript:;" onclick="addTab('5003','tmlData','人流量统计','humanTraffic')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						人流量统计
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="" id="5004">
+					<a href="javascript:;" onclick="addTab('5004','tmlData','虚拟身份查询','virtualId')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						虚拟身份查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="" id="5005">
+					<a href="javascript:;" onclick="addTab('5005','tmlData','智能终端轨迹查询','tmlTrance')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						智能终端轨迹查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5006">
+					<a href="javascript:;" onclick="addTab('5006','tmlData','同行终端MAC查询','togetherMac')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						同行终端MAC查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5007">
+					<a href="javascript:;" onclick="addTab('5007','tmlData','MAC布防设置','macProtect')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						MAC布防设置
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5008">
+					<a href="javascript:;" onclick="addTab('5008','tmlData','关系人分析查询','relations')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						关系人分析查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5009">
+					<a href="javascript:;" onclick="addTab('5009','tmlData','终端关系数据查询','tmlRelation')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						终端关系数据查询
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5010">
+					<a href="javascript:;" onclick="addTab('5010','tmlData','电子车牌找同行终端MAC','macByEplate')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						电子车牌找同行终端MAC
+					</a>
+
+					<b class="arrow"></b>
+				</li>
 				
 				<li class=""><a href="javascript:;"
 					onclick="addTab('4005','','报警记录查询','police/select')"> <i
@@ -159,73 +265,7 @@
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 
-		<li class=""><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-calendar"></i> <span class="menu-text">
-					智能终端数据分析 </span> <b class="arrow fa fa-angle-down"></b>
-		</a> <b class="arrow"></b>
-
-			<ul class="submenu">
-				<li class=""><a href="javascript:;"
-					onclick="addTab('2001','周边热点查询','nearHot')"> <i
-						class="menu-icon fa fa-caret-right"></i> 周边热点查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="javascript:;"
-					onclick="addTab('5002','终端采集查询','tmlSelect')"> <i
-						class="menu-icon fa fa-caret-right"></i> 终端采集查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="form-wizard.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 人流量统计
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="wysiwyg.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 虚拟身份查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 智能终端轨迹查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> MAC同行
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> MAC布防设置
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 关系人分析查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 终端关系数据查询
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 电子车牌找同行
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> MAC落脚点分析
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> RFID落脚点分析
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 虚拟身份关联分析
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 嫌疑MAC分析
-				</a> <b class="arrow"></b></li>
-				<li class=""><a href="dropzone.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 嫌疑MAC框选分析
-				</a> <b class="arrow"></b></li>
-			</ul></li>
+		
 
 		<li class=""><a href="#" class="dropdown-toggle"> <i
 				class="menu-icon fa fa-picture-o"></i> <span class="menu-text">
@@ -291,13 +331,13 @@
 
 			<ul class="submenu">
 				<li class=""><a href="javascript:;"
-					onclick="addTab('1001','和和京津冀','test')"> <i
-						class="menu-icon fa fa-caret-right"></i> 和和京津冀
+					onclick="addTab('1001','other','测试','test')"> <i
+						class="menu-icon fa fa-caret-right"></i> 测试
 				</a> <b class="arrow"></b></li>
 
 				<li class=""><a href="javascript:;"
-					onclick="addTab('1002','地方撒发生','change')"> <i
-						class="menu-icon fa fa-caret-right"></i> 地方撒发生
+					onclick="addTab('1002','other','模块选择','change')"> <i
+						class="menu-icon fa fa-caret-right"></i> 模块选择
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 	</ul>
