@@ -32,8 +32,9 @@
 				<td style="padding: 0 5px;">
 					<button class="btn btn-sm btn-primary">下载.xls</button>
 				</td>
-				<td class="col-xs-4" style="padding: 0 5px;"><input type="file"
-					id="id-input-file-2" /></td>
+				<td class="col-xs-4" style="padding: 0 5px;">
+					<input  type="file" id="id-input-file-2" />
+				</td>
 				<td style="padding: 0 5px;">
 					<button class="btn btn-sm btn-primary">导入</button>
 				</td>
@@ -111,5 +112,20 @@
 			</tbody>
 		</table>
 	</div>
+	<%@ include file="/WEB-INF/jsp/system/admin/bottom.jsp"%>
+	<script>
+		$('#id-input-file-1 , #id-input-file-2').ace_file_input({
+			no_file:'No File ...',
+			btn_choose:'Choose',
+			btn_change:'Change',
+			droppable:false,
+			onchange:null,
+			thumbnail:false //| true | large
+			//whitelist:'gif|png|jpg|jpeg'
+			//blacklist:'exe|php'
+			//onchange:''
+			//
+		});
+	</script>
 </body>
 </html>

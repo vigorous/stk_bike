@@ -122,7 +122,6 @@
 					onclick="addTab('4002','','异地车辆查询','remote/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 异地车辆查询
 				</a> <b class="arrow"></b></li>
-
 				
 				<li class=""><a href="javascript:;"
 					onclick="addTab('4003','','同行车辆查询','peer/select')"> <i
@@ -132,6 +131,27 @@
 				<li class=""><a href="javascript:;"
 					onclick="addTab('4004','','车辆轨迹查询','guiji/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 车辆轨迹查询
+				</a> <b class="arrow"></b></li>
+				
+				<li class=""><a href="javascript:;"
+					onclick="addTab('4005','','报警记录查询','police/select')"> <i
+						class="menu-icon fa fa-caret-right"></i> 报警记录查询
+				</a> <b class="arrow"></b></li>
+				
+				<li class=""><a href="javascript:;"
+					onclick="addTab('4006','','布防设置','entry/select')"> <i
+						class="menu-icon fa fa-caret-right"></i> 布防设置
+				</a> <b class="arrow"></b></li>
+				
+				<li class=""><a href="javascript:;"
+					onclick="addTab('4007','','车流量统计','flow/select')"> <i
+						class="menu-icon fa fa-caret-right"></i> 车流量统计
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="form-elements.html"> <i
+						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆分析
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="form-elements.html"> <i
+						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆框选分析
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 
@@ -250,13 +270,10 @@
 				</a> <b class="arrow"></b></li>
 				
 				<li class=""><a href="javascript:;"
-					onclick="addTab('4007','','车流量统计','entry/select')"> <i
+					onclick="addTab('4007','','车流量统计','flow/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 车流量统计
 				</a> <b class="arrow"></b></li>
 				
-				<li class=""><a href="form-elements.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 车流量统计
-				</a> <b class="arrow"></b></li>
 				<li class=""><a href="form-elements.html"> <i
 						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆分析
 				</a> <b class="arrow"></b></li>

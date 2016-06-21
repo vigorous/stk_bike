@@ -16,22 +16,41 @@
 <title>报警记录查询</title>
 </head>
 <body>
+<div class="page-content">
+<div class="row">
 	<div class="col-xs-12" style="padding: 15px">
 		<table style="border: 0;">
 			<tr>
-				<td style="padding: 0 5px;"><input
-					class="form-control date-picker" id="id-date-picker-1" type="text"
-					data-date-format="dd-mm-yyyy" placeholder="开始日期" /></td>
-				<td style="padding: 0 5px;"><input
-					class="form-control date-picker" id="id-date-picker-2" type="text"
-					data-date-format="dd-mm-yyyy" placeholder="结束时间" /></td>
+				<td>
+					<select class="form-control chosen-select" data-placeholder="经办人">
+						<option value="">请选择类型</option>
+						<option value="布控">布控</option>
+						<option value="被盗">被盗</option>
+					</select>
+				</td>
+				<td style="padding-left:20px;">
+					<div class="input-group margin-right-30">
+						<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+						<span class="input-group-addon border-left-0">
+							<i class="fa fa-calendar bigger-110"></i>
+						</span>
+					</div>
+				</td>
+				<td style="padding-left:20px;">
+					<div class="input-group">
+						<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+						<span class="input-group-addon">
+							<i class="fa fa-calendar bigger-110"></i>
+						</span>
+					</div>
+				</td>
 				<td style="padding: 0 5px;">
 					<button class="btn btn-sm btn-primary">查询</button>
 				</td>
 			</tr>
 		</table>
 	</div>
-
+</div>
 	<div class="col-xs-12" style="padding: 15px">
 		<table id="simple-table"
 			class="table table-striped table-bordered table-hover">
@@ -78,5 +97,11 @@
 			</tbody>
 		</table>
 	</div>
+	</div>
+	<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+		<script type="text/javascript">
+			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
+		</script>
 </body>
 </html>
