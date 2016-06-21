@@ -213,16 +213,33 @@
 						class="menu-icon fa fa-caret-right"></i> 用户管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="dropzone.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0505','经办人管理','business/systemSetting/agentManagement/agentManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 经办人管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="dropzone.html"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0506','系统日志','business/systemSetting/systemLog/systemLogList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 系统日志
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0507','公告管理','business/systemSetting/bulletinManagement/bulletinManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 公告管理
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		
+		<li class=""><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tag"></i> <span class="menu-text">
+					设备管理 </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+		
+			<ul class="submenu">
+				<li class=""><a href="javascript:;" onclick="addTab('0601','RFID设备管理','business/deviceManagement/rfidDeviceManagement/rfidDeviceManagementList')"> <i
+						class="menu-icon fa fa-caret-right"></i> RFID设备管理
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="javascript:;" onclick=""> <i
+						class="menu-icon fa fa-caret-right"></i> MAC设备管理
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="javascript:;" onclick="addTab('0603','场所管理','business/deviceManagement/placeManagement/placeManagementList')"> <i
+						class="menu-icon fa fa-caret-right"></i> 场所管理
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 

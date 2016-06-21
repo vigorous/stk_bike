@@ -13,7 +13,7 @@
 		<style type="text/css">
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
-			.margin-left-30{margin-left: 30px;}
+			.margin-right-30{margin-right: 30px;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
@@ -24,7 +24,7 @@
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="新建" id="new" />
+						<input type="button" class="btn btn-primary" value="新建" />
 					</div>
 				</div>
 			</div>
@@ -33,15 +33,19 @@
 					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 						<thead>
 							<tr>
-								<th class="text-center" width="33.33%">区域ID</th>
-								<th class="text-center" width="33.33%">区域名称</th>
-								<th class="text-center" width="33.33%">操作</th>
+								<th class="text-center" width="15%">公告标题</th>
+								<th class="text-center" width="40%">公告内容</th>
+								<th class="text-center" width="15%">发布人</th>
+								<th class="text-center" width="15%">发布时间</th>
+								<th class="text-center" width="15%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -54,8 +58,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -68,8 +74,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -82,8 +90,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -96,8 +106,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -110,8 +122,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -124,8 +138,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -138,8 +154,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -152,8 +170,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -166,8 +186,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>新城区</td>
+								<td>标题1</td>
+								<td>内容家搜到发的发阿斯顿阿斯蒂芬啊sdfa</td>
+								<td>系统管理员</td>
+								<td>2016/5/25 上午10:59:06</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info">
@@ -188,12 +210,7 @@
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript">
-			$("#new").click(function(){
-				var dialog = Dialog.open({Title:"新建区域",URL:"regionalManagementForm",Height:"150px"});
-				dialog.addButton("save","保存",function(){
-					dialog.close();
-				});
-			});
+			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 		</script>
 	</body>
 </html>
