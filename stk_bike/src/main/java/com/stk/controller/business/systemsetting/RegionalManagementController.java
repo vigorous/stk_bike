@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sse.bikemanagement.entity.Page;
-import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
 
 @Controller
