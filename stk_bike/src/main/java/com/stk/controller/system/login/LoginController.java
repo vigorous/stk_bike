@@ -236,6 +236,50 @@ public class LoginController extends BaseController {
 		logAfter(logger);
 		return mv;
 	}
+	
+	@RequestMapping("/eplateByMac")
+	public ModelAndView eplateByMac(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/togetherByMac");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/macFootHold")
+	public ModelAndView macFoot(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/macFootHold");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/rfidFootHold")
+	public ModelAndView rfidFoot(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/rfidFootHold");
+		logAfter(logger);
+		return mv;
+	}
+	
+	@RequestMapping("/virtualIdAnalysis")
+	public ModelAndView virtualIdAnalysis(){
+		logBefore(logger,"LoginController test method");
+		PageData pd = new PageData(this.getRequest());
+		log(logger,"pd="+pd.toString());
+		ModelAndView mv = this.getModelAndView();
+		mv.setViewName("system/tmlData/virtualIdAnalysis");
+		logAfter(logger);
+		return mv;
+	}
 	/**
 	 * 进入tab标签
 	 * @return

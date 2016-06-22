@@ -32,7 +32,7 @@
 	    	diag.Height = 300;
 	    	diag.Title = "MAC布防信息添加";
 	    	diag.InnerHtml='<div style="text-align:center;font-size:14px;padding:5px;">布防名称：<input type="text" /></div>'
-	    	diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
+	    	//diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
 	    	diag.show();
 	    }
 	</script>

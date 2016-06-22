@@ -251,16 +251,25 @@
 				</li>
 				
 				<li class="" id="5010">
-					<a href="javascript:;" onclick="addTab('5010','tmlData','电子车牌找同行终端MAC','macByEplate')">
+					<a href="javascript:;" onclick="addTab('5010','tmlData','RFID找同行终端MAC','macByEplate')">
 						<i class="menu-icon fa fa-caret-right"></i>
-						电子车牌找同行终端MAC
+						RFID找同行终端MAC
 					</a>
 
 					<b class="arrow"></b>
 				</li>
 				
-				<li class="">
-					<a href="dropzone.html">
+				<li class="" id="5011">
+					<a href="javascript:;" onclick="addTab('5011','tmlData','终端MAC找同行RFID','eplateByMac')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						终端MAC找同行RFID
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="" id="5012">
+					<a href="javascript:;" onclick="addTab('5012','tmlData','MAC落脚点分析','macFootHold')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						MAC落脚点分析
 					</a>
@@ -268,8 +277,8 @@
 					<b class="arrow"></b>
 				</li>
 				
-				<li class="">
-					<a href="dropzone.html">
+				<li class="" id="5013">
+					<a href="javascript:;" onclick="addTab('5013','tmlData','RFIDC落脚点分析','rfidFootHold')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						RFID落脚点分析
 					</a>
@@ -277,8 +286,8 @@
 					<b class="arrow"></b>
 				</li>
 				
-				<li class="">
-					<a href="dropzone.html">
+				<li class="" id="5014">
+					<a href="javascript:;" onclick="addTab('5014','tmlData','虚拟身份关联分析','virtualIdAnalysis')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						虚拟身份关联分析
 					</a>
