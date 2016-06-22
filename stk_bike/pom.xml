@@ -135,13 +135,6 @@
 		</dependency>
 		
 		<!-- 西安jar文件( BikeManagement ) -->
-		<dependency>
-			<groupId>BikeManagement</groupId>
-			<artifactId>BikeManagement</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/BikeManagement-20160429.jar</systemPath>
-		</dependency>
 
 	</dependencies>
 	<build>

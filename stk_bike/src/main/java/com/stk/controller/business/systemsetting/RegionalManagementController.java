@@ -5,8 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sse.bikemanagement.entity.Page;
 import com.stk.controller.base.BaseController;
+import com.stk.entity.Page;
 
 @Controller
 @RequestMapping(value="/business/systemSetting/regionalManagement")
