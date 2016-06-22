@@ -259,28 +259,43 @@
 					<b class="arrow"></b>
 				</li>
 				
-				<li class=""><a href="javascript:;"
-					onclick="addTab('4005','','报警记录查询','police/select')"> <i
-						class="menu-icon fa fa-caret-right"></i> 报警记录查询
-				</a> <b class="arrow"></b></li>
+				<li class="">
+					<a href="dropzone.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						MAC落脚点分析
+					</a>
+
+					<b class="arrow"></b>
+				</li>
 				
-				<li class=""><a href="javascript:;"
-					onclick="addTab('4006','','布防设置','entry/select')"> <i
-						class="menu-icon fa fa-caret-right"></i> 布防设置
-				</a> <b class="arrow"></b></li>
+				<li class="">
+					<a href="dropzone.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						RFID落脚点分析
+					</a>
+
+					<b class="arrow"></b>
+				</li>
 				
-				<li class=""><a href="javascript:;"
-					onclick="addTab('4007','','车流量统计','flow/select')"> <i
-						class="menu-icon fa fa-caret-right"></i> 车流量统计
-				</a> <b class="arrow"></b></li>
+				<li class="">
+					<a href="dropzone.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						虚拟身份关联分析
+					</a>
+
+					<b class="arrow"></b>
+				</li>
 				
-				<li class=""><a href="form-elements.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆分析
-				</a> <b class="arrow"></b></li>
-				<li class=""><a href="form-elements.html"> <i
-						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆框选分析
-				</a> <b class="arrow"></b></li>
-			</ul></li>
+				<li class="">
+					<a href="dropzone.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						嫌疑MAC分析
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
 
 		
 
