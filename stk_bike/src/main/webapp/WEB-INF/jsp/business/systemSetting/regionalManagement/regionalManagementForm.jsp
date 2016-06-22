@@ -11,30 +11,32 @@
 		<base href="<%=basePath%>">
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 		<style type="text/css">
-			.margin-bottom-5{margin-bottom: 5px;}
-			.width-120{width: 120px!important;}
-			.margin-left-30{margin-left: 30px;}
+			.margin-bottom-10{margin-bottom: 10px;}
+			.padding-top-1{padding-top: 1%;}
+			.width-160{width: 160px;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
 		<div class="page-content">
-			<div class="row margin-bottom-5">
-				<div class="col-xs-5 text-right middle">
-					<span>区域ID：</span>
+			<form action="">
+				<div class="row margin-bottom-10">
+					<div class="col-xs-5 text-right padding-top-1">
+						<span>区域ID</span>
+					</div>
+					<div class="col-xs-7">
+						<input type="text" class="width-160" value="" />
+					</div>
 				</div>
-				<div class="col-xs-7">
-					<input type="text" />
+				<div class="row">
+					<div class="col-xs-5 text-right padding-top-1">
+						<span>区域名称</span>
+					</div>
+					<div class="col-xs-7">
+						<input type="text" class="width-160" value="" />
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-5 text-right middle">
-					<span>区域名称：</span>
-				</div>
-				<div class="col-xs-7">
-					<input type="text" />
-				</div>
-			</div>
+			</form>
 		</div>
 	</body>
 </html>

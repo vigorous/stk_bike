@@ -38,7 +38,7 @@
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="新建" />
+						<input type="button" class="btn btn-primary" value="新建" id="new" />
 					</div>
 				</div>
 			</div>
@@ -224,6 +224,7 @@
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
+		<script type="text/javascript" src="static/js/private_js/business/systemSetting/agentManagement/agentManagementList.js"></script>
 		<script type="text/javascript">
 			$('.chosen-select').chosen();
 		</script>

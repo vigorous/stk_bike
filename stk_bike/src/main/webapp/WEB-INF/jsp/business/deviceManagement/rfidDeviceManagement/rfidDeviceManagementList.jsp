@@ -52,7 +52,7 @@
 						<input type="button" class="btn btn-primary" value="设备日志" id="deviceLog" />
 						<input type="button" class="btn btn-primary" value="点位分布" id="pointDistribution" />
 						<input type="button" class="btn btn-primary" value="查询" />
-						<input type="button" class="btn btn-primary" value="新建" />
+						<input type="button" class="btn btn-primary" value="新建" id="new" />
 					</div>
 				</div>
 			</div>
@@ -272,6 +272,7 @@
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
 		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
+		<script type="text/javascript" src="static/js/private_js/business/deviceManagement/rfidDeviceManagement/rfidDeviceManagementList.js"></script>
 		<script type="text/javascript">
 			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 			$('.chosen-select').chosen();

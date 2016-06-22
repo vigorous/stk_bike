@@ -38,4 +38,13 @@ public class UserManagementController extends BaseController {
 		mav.setViewName("business/systemSetting/userManagement/userManagementList");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到用户管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/userManagementForm")
+	public String userManagementForm(){
+		return "business/systemSetting/userManagement/userManagementForm";
+	}
 }

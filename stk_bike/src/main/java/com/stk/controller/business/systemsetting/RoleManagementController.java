@@ -38,4 +38,13 @@ public class RoleManagementController extends BaseController {
 		mav.setViewName("business/systemSetting/roleManagement/roleManagementList");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到角色管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/roleManagementForm")
+	public String roleManagementForm(){
+		return "business/systemSetting/roleManagement/roleManagementForm";
+	}
 }

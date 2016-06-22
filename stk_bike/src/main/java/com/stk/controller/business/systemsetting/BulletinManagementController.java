@@ -38,4 +38,13 @@ public class BulletinManagementController extends BaseController {
 		mav.setViewName("business/systemSetting/bulletinManagement/bulletinManagementList");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到公告管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/bulletinManagementForm")
+	public String bulletinManagementForm(){
+		return "business/systemSetting/bulletinManagement/bulletinManagementForm";
+	}
 }

@@ -38,4 +38,13 @@ public class AgentManagementController extends BaseController {
 		mav.setViewName("business/systemSetting/agentManagement/agentManagementList");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到经办人管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/agentManagementForm")
+	public String agentManagementForm(){
+		return "business/systemSetting/agentManagement/agentManagementForm";
+	}
 }

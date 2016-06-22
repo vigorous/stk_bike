@@ -76,4 +76,13 @@ public class RfidDeviceManagementController extends BaseController {
 		mav.setViewName("business/deviceManagement/rfidDeviceManagement/pointDistributionDetail");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到机具编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/machineForm")
+	public String machineForm(){
+		return "business/deviceManagement/rfidDeviceManagement/machineForm";
+	}
 }

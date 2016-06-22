@@ -38,4 +38,13 @@ public class UnitManagementController extends BaseController {
 		mav.setViewName("business/systemSetting/unitManagement/unitManagementList");
 		return mav;
 	}
+	
+	/**
+	 * 跳转到单位管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/unitManagementForm")
+	public String unitManagementForm(){
+		return "business/systemSetting/unitManagement/unitManagementForm";
+	}
 }

@@ -187,13 +187,6 @@
 		</div>
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script type="text/javascript">
-			$("#new").click(function(){
-				var dialog = Dialog.open({Title:"新建区域",URL:"regionalManagementForm",Height:"150px"});
-				dialog.addButton("save","保存",function(){
-					dialog.close();
-				});
-			});
-		</script>
+		<script type="text/javascript" src="static/js/private_js/business/systemSetting/regionalManagement/regionalManagementList.js"></script>
 	</body>
 </html>
