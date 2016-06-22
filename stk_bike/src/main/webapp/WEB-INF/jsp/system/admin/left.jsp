@@ -147,10 +147,12 @@
 					onclick="addTab('4007','','车流量统计','flow/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 车流量统计
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="form-elements.html"> <i
+				<li class=""><a href="javascript:;"
+					onclick="addTab('4008','','嫌疑车辆分析','suspicion/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆分析
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="form-elements.html"> <i
+				<li class=""><a href="javascript:;"
+					onclick="addTab('4009','','嫌疑车辆框选分析','frameSelection/select')"> <i
 						class="menu-icon fa fa-caret-right"></i> 嫌疑车辆框选分析
 				</a> <b class="arrow"></b></li>
 			</ul></li>
