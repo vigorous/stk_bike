@@ -33,7 +33,7 @@
 		</div>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
 		<script type="text/javascript">
-			$('.chosen-select').chosen({width:"160px"});
+			$('.chosen-select').chosen({width:"100px"});
 		</script>
 	</body>
 </html>
