@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sse.bikemanagement.entity.MenuVO;
 import com.sse.bikemanagement.entity.UserVO;
 import com.sse.bikemanagement.facade.FacadeFactory;
+import com.sse.bikemanagement.facade.MenuFacade;
 import com.stk.controller.base.BaseController;
 import com.stk.domain.system.User;
 import com.stk.service.system.menu.MenuService;
@@ -66,7 +67,7 @@ public class LoginController extends BaseController {
 	    userVO.setUSERNAME(pd.getString("name"));
 	    userVO.setPASSWORD(pd.getString("password"));
 		try {
-			boolean isLogin = FacadeFactory.getUserFacade().login(userVO);
+			boolean isLogin = FacadeFactory.getLoginFacade().login(userVO);
 			if(isLogin){
 				Subject currentUser = SecurityUtils.getSubject();  
 				Session session = currentUser.getSession();
@@ -103,14 +104,21 @@ public class LoginController extends BaseController {
 	public ModelAndView login_index(@PathVariable("changeMenu") String changeMenu){
 		logBefore(logger,"LoginController login_index method " + changeMenu);
 		ModelAndView mv = this.getModelAndView();
-		
 		try {
-			//获取菜单信息
-			//List<MenuVO> firstMenuList = menuService.queryFirstMenu();
-			
-			if("index".equals(changeMenu)){
+			MenuFacade menuFacade = FacadeFactory.getMenuFacade();
+			MenuVO menuVO = new MenuVO();
+			//车辆管理
+			if("01".equals(changeMenu)){
+				//获取菜单信息
+				List<MenuVO> list = menuFacade.findRFIDMenu(menuVO);
+				mv.addObject("list",list);
 				mv.setViewName("system/admin/main");
-				//mv.addObject("firstMenuList",firstMenuList);
+			//智能终端数据分析
+			}else if(("02".equals(changeMenu))){
+				//获取菜单信息
+				List<MenuVO> list = menuFacade.findMACMenu(menuVO);
+				mv.addObject("list",list);
+				mv.setViewName("system/admin/main");
 			}
 		} catch (Exception e) {
 			logDebug(logger,e);

@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path1 = request.getContextPath();
 	String basePath1 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -46,6 +47,43 @@
 	<!-- /.sidebar-shortcuts -->
 
 	<ul class="nav nav-list">
+		<c:forEach items="${list}" var="menu" varStatus="varStatus">
+				<c:choose>
+					<c:when test="${menu.MENU_NAME == '首页'}">
+						<li class="active">
+							<a href="javascript:;" onclick="addTab('${menu.MENU_ID}','${menu.MENU_ID}','${menu.MENU_NAME}','${menu.MENU_URL}')">
+								<i class="menu-icon fa ${menu.MENU_ICON}"></i>
+								<span class="menu-text">${menu.MENU_NAME} </span>
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="">
+							<a href="#" class="dropdown-toggle">
+								<i class="menu-icon fa ${menu.MENU_ICON}"></i>
+								<span class="menu-text">${menu.MENU_NAME}</span>
+								<b class="arrow fa fa-angle-down"></b>
+							</a>
+							<b class="arrow"></b>
+							<ul class="submenu">
+								<c:forEach items="${menu.subMenus}" var="menuItem">
+										<li class="">
+											<a href="javascript:;" onclick="addTab('${menuItem.MENU_ID}','${menuItem.MENU_ID}','${menuItem.MENU_NAME}','${menuItem.MENU_URL}')">
+												<i class="menu-icon fa fa-caret-right"></i>
+												${menuItem.MENU_NAME}
+											</a>
+											<b class="arrow"></b>
+										</li>
+								</c:forEach>
+							</ul>
+						</li>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+	</ul>
+	
+<!-- 	<ul class="nav nav-list">
 		<li class="active"><a href="javascript:;" onclick="addTab('0001','','首页','survey/surveyList')"> <i
 				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 					首页 </span>
@@ -373,11 +411,11 @@
 
 		<li class=""><a href="#" class="dropdown-toggle"> <i
 				class="menu-icon fa fa-file-o"></i> <span class="menu-text">
-					其他页面 <!-- #section:basics/sidebar.layout.badge --> <span
+					其他页面 #section:basics/sidebar.layout.badge <span
 					class="badge badge-transparent tooltip-error"
 					title="2 Important Events"> <i
 						class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-				</span> <!-- /section:basics/sidebar.layout.badge -->
+				</span> /section:basics/sidebar.layout.badge
 			</span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 
@@ -392,7 +430,7 @@
 						class="menu-icon fa fa-caret-right"></i> 模块选择
 				</a> <b class="arrow"></b></li>
 			</ul></li>
-	</ul>
+	</ul> -->
 	<!-- /.nav-list -->
 
 	<!-- #section:basics/sidebar.layout.minimize -->

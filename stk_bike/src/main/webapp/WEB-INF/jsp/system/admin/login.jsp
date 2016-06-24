@@ -29,7 +29,7 @@ String path = request.getContextPath();
 						alert(data.result);
 						if("success" == data.result){
 							//saveCookie();
-							window.location.href="main/index";
+							window.location.href="change";
 						}else if("usererror" == data.result){
 							$("#name").tips({
 								side : 1,

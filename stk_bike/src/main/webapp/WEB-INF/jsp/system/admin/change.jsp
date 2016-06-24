@@ -62,17 +62,11 @@
 </style>
 <script type="text/javascript">
 	function Alert(){
-		Dialog.alert("这是车辆管理模块!");
+		window.location.href="main/01";
 	}
 	
 	function openDialog(){
-		var diag = new Dialog();
-		diag.Width = 300;
-		diag.Height = 100;
-		diag.Title = "提示信息";
-		diag.InnerHtml='<div style="text-align:center;color:red;font-size:14px;">直接输出html，使用 <b>InnerHtml</b> 属性。</div>'
-		diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
-		diag.show();
+		window.location.href="main/02";
 	}
 </script>
 </head>
