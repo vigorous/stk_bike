@@ -15,10 +15,10 @@ public class MacByEplateController extends BaseController {
 	 * 跳转到电子车牌找同行终端MAC页
 	 * @return
 	 */
-	@RequestMapping("/togetherByEplate")
-	public ModelAndView togetherByEplate(){
+	@RequestMapping("/peerByEplate")
+	public ModelAndView peerByEplate(){
 		ModelAndView mv = this.getModelAndView();
-		mv.setViewName("system/tmlData/togetherByEplate");
+		mv.setViewName("system/tmlData/peerByEplate");
 		return mv;
 	}
 }

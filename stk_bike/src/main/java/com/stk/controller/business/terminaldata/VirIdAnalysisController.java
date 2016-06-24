@@ -10,15 +10,15 @@ import com.stk.entity.Page;
 
 @Controller
 @RequestMapping(value="/system/tmlData")
-public class TogetherMacController extends BaseController {
+public class VirIdAnalysisController extends BaseController {
 	/**
-	 * 跳转到同行终端MAC查询页
+	 * 跳转到虚拟身份关联分析页
 	 * @return
 	 */
-	@RequestMapping("/togetherMacQuery")
-	public ModelAndView togetherMacQuery(){
+	@RequestMapping("/virIdAnalysis")
+	public ModelAndView virIdAnalysis(){
 		ModelAndView mv = this.getModelAndView();
-		mv.setViewName("system/tmlData/togetherMacQuery");
+		mv.setViewName("system/tmlData/virIdAnalysis");
 		return mv;
 	}
 }

@@ -217,7 +217,7 @@
 				</li>
 				
 				<li class="" id="5006">
-					<a href="javascript:;" onclick="addTab('5006','tmlData','同行终端MAC查询','system/tmlData/togetherMacQuery')">
+					<a href="javascript:;" onclick="addTab('5006','tmlData','同行终端MAC查询','system/tmlData/peerMacQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						同行终端MAC查询
 					</a>
@@ -244,7 +244,7 @@
 				</li>
 				
 				<li class="" id="5009">
-					<a href="javascript:;" onclick="addTab('5009','tmlData','终端关系数据查询','system/tmlData/tmlRelationQuery')">
+					<a href="javascript:;" onclick="addTab('5009','tmlData','终端关系数据查询','system/tmlData/tmlRelateQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						终端关系数据查询
 					</a>
@@ -253,7 +253,7 @@
 				</li>
 				
 				<li class="" id="5010">
-					<a href="javascript:;" onclick="addTab('5010','tmlData','RFID找同行终端MAC','system/tmlData/togetherByEplate')">
+					<a href="javascript:;" onclick="addTab('5010','tmlData','RFID找同行终端MAC','system/tmlData/peerByEplate')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						RFID找同行终端MAC
 					</a>
@@ -262,7 +262,7 @@
 				</li>
 				
 				<li class="" id="5011">
-					<a href="javascript:;" onclick="addTab('5011','tmlData','终端MAC找同行RFID','system/tmlData/togetherByMac')">
+					<a href="javascript:;" onclick="addTab('5011','tmlData','终端MAC找同行RFID','system/tmlData/peerByMac')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						终端MAC找同行RFID
 					</a>
@@ -289,7 +289,7 @@
 				</li>
 				
 				<li class="" id="5014">
-					<a href="javascript:;" onclick="addTab('5014','tmlData','虚拟身份关联分析','system/tmlData/virtualIdAnalysis')">
+					<a href="javascript:;" onclick="addTab('5014','tmlData','虚拟身份关联分析','system/tmlData/virIdAnalysis')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						虚拟身份关联分析
 					</a>

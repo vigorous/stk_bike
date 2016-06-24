@@ -10,15 +10,15 @@ import com.stk.entity.Page;
 
 @Controller
 @RequestMapping(value="/system/tmlData")
-public class VirtualIdAnalysisController extends BaseController {
+public class PeerMacController extends BaseController {
 	/**
-	 * 跳转到虚拟身份关联分析页
+	 * 跳转到同行终端MAC查询页
 	 * @return
 	 */
-	@RequestMapping("/virtualIdAnalysis")
-	public ModelAndView virtualIdAnalysis(){
+	@RequestMapping("/peerMacQuery")
+	public ModelAndView peerMacQuery(){
 		ModelAndView mv = this.getModelAndView();
-		mv.setViewName("system/tmlData/virtualIdAnalysis");
+		mv.setViewName("system/tmlData/peerMacQuery");
 		return mv;
 	}
 }
