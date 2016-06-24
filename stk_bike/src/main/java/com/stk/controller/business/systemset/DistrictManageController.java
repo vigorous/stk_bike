@@ -1,4 +1,4 @@
-package com.stk.controller.business.realtimealarm;
+package com.stk.controller.business.systemset;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,15 +9,15 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/realTimeAlarm")
-public class RealTimeAlarmController extends BaseController {
+@RequestMapping(value="/districtManage")
+public class DistrictManageController extends BaseController {
 	
 	/**
-	 * 跳转到实时报警列表页
+	 * 跳转到区域管理列表页
 	 * @return
 	 */
-	@RequestMapping(value="/realTimeAlarmList")
-	public ModelAndView realTimeAlarmList(Model model,Integer currentPage,Integer showCount){
+	@RequestMapping(value="/districtManageList")
+	public ModelAndView districtManageList(Model model,Integer currentPage,Integer showCount){
 		//造数据
 		Page page = new Page();
 		if(currentPage == null){
@@ -35,7 +35,16 @@ public class RealTimeAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/realTimeAlarm/realTimeAlarmList");
+		mav.setViewName("business/systemSet/districtManage/districtManageList");
 		return mav;
+	}
+	
+	/**
+	 * 跳转到区域管理编辑页
+	 * @return
+	 */
+	@RequestMapping(value="/districtManageForm")
+	public String districtManageForm(){
+		return "business/systemSet/districtManage/districtManageForm";
 	}
 }

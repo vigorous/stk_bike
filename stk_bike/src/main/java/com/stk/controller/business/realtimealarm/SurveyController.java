@@ -9,7 +9,7 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/business/realTimeAlarm/survey")
+@RequestMapping(value="/survey")
 public class SurveyController extends BaseController {
 	
 	/**

@@ -1,0 +1,12 @@
+$("#macend").off().click(function(){
+	var dialog = new Dialog();
+	dialog.Title = "编辑MAC设备管理";
+	dialog.URL = "macManageForm";
+	dialog.Height = 650;
+	dialog.Width = 700;
+	dialog.ShowButtonRow = true;
+	dialog.OKEvent = function(){
+		save();
+	}
+	dialog.show();
+});

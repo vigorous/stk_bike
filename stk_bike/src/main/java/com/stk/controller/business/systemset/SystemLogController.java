@@ -1,4 +1,4 @@
-package com.stk.controller.business.realtimealarm;
+package com.stk.controller.business.systemset;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,15 +9,15 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/realTimeAlarm")
-public class RealTimeAlarmController extends BaseController {
+@RequestMapping(value="/systemLog")
+public class SystemLogController extends BaseController {
 	
 	/**
-	 * 跳转到实时报警列表页
+	 * 跳转到系统日志列表页
 	 * @return
 	 */
-	@RequestMapping(value="/realTimeAlarmList")
-	public ModelAndView realTimeAlarmList(Model model,Integer currentPage,Integer showCount){
+	@RequestMapping(value="/systemLogList")
+	public ModelAndView systemLogList(Model model,Integer currentPage,Integer showCount){
 		//造数据
 		Page page = new Page();
 		if(currentPage == null){
@@ -35,7 +35,7 @@ public class RealTimeAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/realTimeAlarm/realTimeAlarmList");
+		mav.setViewName("business/systemSet/systemLog/systemLogList");
 		return mav;
 	}
 }
