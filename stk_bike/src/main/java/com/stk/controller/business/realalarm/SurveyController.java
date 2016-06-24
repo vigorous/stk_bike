@@ -35,7 +35,7 @@ public class SurveyController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/survey/surveyList");
+		mav.setViewName("business/realAlarm/survey/surveyList");
 		return mav;
 	}
 }

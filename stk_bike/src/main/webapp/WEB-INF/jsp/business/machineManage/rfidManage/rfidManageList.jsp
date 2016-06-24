@@ -283,7 +283,7 @@
 				addTab('0604','','设备日志','rfidManage/machineLogList');
 			});
 			$("#pointDistribution").off().click(function(){
-				addTab('0605','','点位分布','rfidManage/pointDistrDetail');
+				addTab('0605','','点位分布','rfidManage/pointDistribution');
 			});
 		</script>
 	</body>

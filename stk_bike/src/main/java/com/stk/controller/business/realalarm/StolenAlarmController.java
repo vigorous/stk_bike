@@ -35,7 +35,7 @@ public class StolenAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/stolenAlarm/stolenAlarmList");
+		mav.setViewName("business/realAlarm/stolenAlarm/stolenAlarmList");
 		return mav;
 	}
 }

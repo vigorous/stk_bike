@@ -325,7 +325,7 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="javascript:;" onclick="addTab('0501','','区域管理','districtManage/districtManageList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0501','','区域管理','areaManage/areaManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 区域管理
 				</a> <b class="arrow"></b></li>
 

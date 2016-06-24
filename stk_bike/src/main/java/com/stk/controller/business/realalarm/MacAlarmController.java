@@ -35,7 +35,7 @@ public class MacAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/macAlarm/macAlarmList");
+		mav.setViewName("business/realAlarm/macAlarm/macAlarmList");
 		return mav;
 	}
 }

@@ -182,6 +182,6 @@
 		</div>
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script type="text/javascript" src="static/js/private_js/business/systemSet/districtManage/districtManageList.js"></script>
+		<script type="text/javascript" src="static/js/private_js/business/systemSet/areaManage/areaManageList.js"></script>
 	</body>
 </html>

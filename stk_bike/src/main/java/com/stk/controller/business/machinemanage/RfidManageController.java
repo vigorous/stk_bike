@@ -70,10 +70,10 @@ public class RfidManageController extends BaseController {
 	 * 跳转到点位分布详情页
 	 * @return
 	 */
-	@RequestMapping(value="/pointDistrDetail")
-	public ModelAndView pointDistrDetail(){
+	@RequestMapping(value="/pointDistribution")
+	public ModelAndView pointDistribution(){
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/machineManage/rfidManage/pointDistrDetail");
+		mav.setViewName("business/machineManage/rfidManage/pointDistribution");
 		return mav;
 	}
 	

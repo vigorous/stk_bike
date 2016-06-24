@@ -34,7 +34,7 @@ public class BikeAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/bikeAlarm/bikeAlarmList");
+		mav.setViewName("business/realAlarm/bikeAlarm/bikeAlarmList");
 		return mav;
 	}
 }

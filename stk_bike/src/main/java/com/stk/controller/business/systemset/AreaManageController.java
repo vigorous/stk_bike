@@ -9,15 +9,15 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/districtManage")
-public class DistrictManageController extends BaseController {
+@RequestMapping(value="/areaManage")
+public class AreaManageController extends BaseController {
 	
 	/**
 	 * 跳转到区域管理列表页
 	 * @return
 	 */
-	@RequestMapping(value="/districtManageList")
-	public ModelAndView districtManageList(Model model,Integer currentPage,Integer showCount){
+	@RequestMapping(value="/areaManageList")
+	public ModelAndView areaManageList(Model model,Integer currentPage,Integer showCount){
 		//造数据
 		Page page = new Page();
 		if(currentPage == null){
@@ -35,7 +35,7 @@ public class DistrictManageController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/systemSet/districtManage/districtManageList");
+		mav.setViewName("business/systemSet/areaManage/areaManageList");
 		return mav;
 	}
 	
@@ -43,8 +43,8 @@ public class DistrictManageController extends BaseController {
 	 * 跳转到区域管理编辑页
 	 * @return
 	 */
-	@RequestMapping(value="/districtManageForm")
-	public String districtManageForm(){
-		return "business/systemSet/districtManage/districtManageForm";
+	@RequestMapping(value="/areaManageForm")
+	public String areaManageForm(){
+		return "business/systemSet/areaManage/areaManageForm";
 	}
 }
