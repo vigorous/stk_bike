@@ -3,7 +3,7 @@ $("#macend").off().click(function(){
 	dialog.Title = "编辑MAC设备管理";
 	dialog.URL = "macManageForm";
 	dialog.Height = 650;
-	dialog.Width = 700;
+	dialog.Width = 800;
 	dialog.ShowButtonRow = true;
 	dialog.OKEvent = function(){
 		save();

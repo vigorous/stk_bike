@@ -23,7 +23,7 @@
 					<button class="btn btn-sm btn-primary">导出</button>
 				</td>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">下载.xls</button>
+					<button id="download" class="btn btn-sm btn-primary">下载.zip</button>
 				</td>
 				<td class="col-xs-4" style="padding: 0 5px;">
 					<input  type="file" id="id-input-file-2" />
@@ -142,5 +142,6 @@
 			//
 		});
 	</script>
+	<script type="text/javascript" src="static/js/private_js/business/bikfunctionemanage/bikeManager.js"></script>
 </body>
 </html>

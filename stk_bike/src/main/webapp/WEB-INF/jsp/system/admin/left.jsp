@@ -172,7 +172,7 @@
 			
 			<ul class="submenu">
 				<li class="" id="5001">
-					<a href="javascript:;" onclick="addTab('5001','tmlData','周边热点查询','nearHot')">
+					<a href="javascript:;" onclick="addTab('5001','tmlData','周边热点查询','system/tmlData/nearHotQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						周边热点查询
 					</a>
@@ -181,7 +181,7 @@
 				</li>
 
 				<li class="" id="5002">
-					<a href="javascript:;" onclick="addTab('5002','tmlData','终端采集查询','tmlSelect')">
+					<a href="javascript:;" onclick="addTab('5002','tmlData','终端采集查询','system/tmlData/tmlSelectQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						终端采集查询
 					</a>
@@ -190,7 +190,7 @@
 				</li>
 
 				<li class="" id="5003">
-					<a href="javascript:;" onclick="addTab('5003','tmlData','人流量统计','humanTraffic')">
+					<a href="javascript:;" onclick="addTab('5003','tmlData','人流量统计','system/tmlData/humanTraffic')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						人流量统计
 					</a>
@@ -199,7 +199,7 @@
 				</li>
 
 				<li class="" id="5004">
-					<a href="javascript:;" onclick="addTab('5004','tmlData','虚拟身份查询','virtualId')">
+					<a href="javascript:;" onclick="addTab('5004','tmlData','虚拟身份查询','system/tmlData/virtualIdQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						虚拟身份查询
 					</a>
@@ -208,7 +208,7 @@
 				</li>
 
 				<li class="" id="5005">
-					<a href="javascript:;" onclick="addTab('5005','tmlData','智能终端轨迹查询','tmlTrance')">
+					<a href="javascript:;" onclick="addTab('5005','tmlData','智能终端轨迹查询','system/tmlData/tmlTranceQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						智能终端轨迹查询
 					</a>
@@ -217,7 +217,7 @@
 				</li>
 				
 				<li class="" id="5006">
-					<a href="javascript:;" onclick="addTab('5006','tmlData','同行终端MAC查询','togetherMac')">
+					<a href="javascript:;" onclick="addTab('5006','tmlData','同行终端MAC查询','system/tmlData/togetherMacQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						同行终端MAC查询
 					</a>
@@ -226,7 +226,7 @@
 				</li>
 				
 				<li class="" id="5007">
-					<a href="javascript:;" onclick="addTab('5007','tmlData','MAC布防设置','macProtect')">
+					<a href="javascript:;" onclick="addTab('5007','tmlData','MAC布防设置','system/tmlData/macProtect')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						MAC布防设置
 					</a>
@@ -235,7 +235,7 @@
 				</li>
 				
 				<li class="" id="5008">
-					<a href="javascript:;" onclick="addTab('5008','tmlData','关系人分析查询','relations')">
+					<a href="javascript:;" onclick="addTab('5008','tmlData','关系人分析查询','system/tmlData/relationsQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						关系人分析查询
 					</a>
@@ -244,7 +244,7 @@
 				</li>
 				
 				<li class="" id="5009">
-					<a href="javascript:;" onclick="addTab('5009','tmlData','终端关系数据查询','tmlRelation')">
+					<a href="javascript:;" onclick="addTab('5009','tmlData','终端关系数据查询','system/tmlData/tmlRelationQuery')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						终端关系数据查询
 					</a>
@@ -253,7 +253,7 @@
 				</li>
 				
 				<li class="" id="5010">
-					<a href="javascript:;" onclick="addTab('5010','tmlData','RFID找同行终端MAC','macByEplate')">
+					<a href="javascript:;" onclick="addTab('5010','tmlData','RFID找同行终端MAC','system/tmlData/togetherByEplate')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						RFID找同行终端MAC
 					</a>
@@ -262,7 +262,7 @@
 				</li>
 				
 				<li class="" id="5011">
-					<a href="javascript:;" onclick="addTab('5011','tmlData','终端MAC找同行RFID','eplateByMac')">
+					<a href="javascript:;" onclick="addTab('5011','tmlData','终端MAC找同行RFID','system/tmlData/togetherByMac')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						终端MAC找同行RFID
 					</a>
@@ -271,7 +271,7 @@
 				</li>
 				
 				<li class="" id="5012">
-					<a href="javascript:;" onclick="addTab('5012','tmlData','MAC落脚点分析','macFootHold')">
+					<a href="javascript:;" onclick="addTab('5012','tmlData','MAC落脚点分析','system/tmlData/macFootHold')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						MAC落脚点分析
 					</a>
@@ -280,7 +280,7 @@
 				</li>
 				
 				<li class="" id="5013">
-					<a href="javascript:;" onclick="addTab('5013','tmlData','RFIDC落脚点分析','rfidFootHold')">
+					<a href="javascript:;" onclick="addTab('5013','tmlData','RFIDC落脚点分析','system/tmlData/rfidFootHold')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						RFID落脚点分析
 					</a>
@@ -289,7 +289,7 @@
 				</li>
 				
 				<li class="" id="5014">
-					<a href="javascript:;" onclick="addTab('5014','tmlData','虚拟身份关联分析','virtualIdAnalysis')">
+					<a href="javascript:;" onclick="addTab('5014','tmlData','虚拟身份关联分析','system/tmlData/virtualIdAnalysis')">
 						<i class="menu-icon fa fa-caret-right"></i>
 						虚拟身份关联分析
 					</a>

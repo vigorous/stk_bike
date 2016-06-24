@@ -43,7 +43,8 @@
 			<div class="col-xs-12">
 				<table style="border:0;">
 					<tr>
-						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="addMacProtect();"  title="创建新的MAC布防">创建新的MAC布防</button></td>
+						<!-- <td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="addMacProtect();"  title="创建新的MAC布防">创建新的MAC布防</button></td> -->
+						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" id="macProtectNew"  title="创建新的MAC布防">创建新的MAC布防</button></td>
 					</tr>
 				</table>
 			</div>
@@ -676,5 +677,7 @@
 		    });   
 		  }  
 		</script>
+		
+		<script type="text/javascript" src="static/js/private_js/admin/macProtectEdit.js"></script>
 </body>
 </html>
