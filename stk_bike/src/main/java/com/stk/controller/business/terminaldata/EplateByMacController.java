@@ -15,10 +15,10 @@ public class EplateByMacController extends BaseController {
 	 * 跳转到终端MAC找电子车牌页
 	 * @return
 	 */
-	@RequestMapping("/togetherByMac")
-	public ModelAndView togetherByMac(){
+	@RequestMapping("/peerByMac")
+	public ModelAndView peerByMac(){
 		ModelAndView mv = this.getModelAndView();
-		mv.setViewName("system/tmlData/togetherByMac");
+		mv.setViewName("system/tmlData/peerByMac");
 		return mv;
 	}
 }

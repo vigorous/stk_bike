@@ -15,10 +15,10 @@ public class TmlRelationController extends BaseController {
 	 * 跳转到终端关系数据查询页
 	 * @return
 	 */
-	@RequestMapping("/tmlRelationQuery")
-	public ModelAndView tmlRelationQuery(){
+	@RequestMapping("/tmlRelateQuery")
+	public ModelAndView tmlRelateQuery(){
 		ModelAndView mv = this.getModelAndView();
-		mv.setViewName("system/tmlData/tmlRelationQuery");
+		mv.setViewName("system/tmlData/tmlRelateQuery");
 		return mv;
 	}
 }
