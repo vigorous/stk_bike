@@ -14,7 +14,7 @@
 		<style type="text/css">
 			.margin-bottom-10{margin-bottom: 10px;}
 			.padding-top-1{padding-top: 1%;}
-			.width-160{width: 160px;}
+			.width-160{width: 100px;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
@@ -59,7 +59,7 @@
 				<div  style="margin-top:40px;" class="row margin-bottom-10">
 					<div class="col-xs-6">
 						<div class="input-group margin-right-30">
-						<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+						<input class="form-control date-picker text-center width-160" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
 						<span class="input-group-addon border-left-0">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
@@ -67,7 +67,7 @@
 					</div>
 					<div class="col-xs-6">
 						<div class="input-group margin-right-30">
-						<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+						<input class="form-control date-picker text-center width-160" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
 						<span class="input-group-addon border-left-0">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
@@ -78,10 +78,10 @@
 					<div class="col-xs-4 text-right padding-top-1">
 						<span>电子车牌：</span>
 					</div>
-					<div class="col-xs-7">
+					<div class="col-xs-2">
 						<input type="button" class="btn btn-sm btn-primary" id="addEid" value="添加">
 					</div>
-					<div class="col-xs-3" id="lisend" style="display: none;">
+					<div class="col-xs-6" id="lisend" style="display: none;">
 						
 					</div>
 				</div>
@@ -89,8 +89,11 @@
 					<div class="col-xs-4 text-right padding-top-1">
 						<span>短信推送联系人：</span>
 					</div>
-					<div class="col-xs-7">
-						<button class="btn btn-sm btn-primary">添加</button>
+					<div class="col-xs-2">
+						<input type="button" class="btn btn-sm btn-primary" id="addMessage" value="添加">
+					</div>
+					<div class="col-xs-6" id="lisMessage" style="display: none;">
+						
 					</div>
 				</div>
 			</form>

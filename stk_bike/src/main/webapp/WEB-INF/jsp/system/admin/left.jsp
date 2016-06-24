@@ -46,7 +46,7 @@
 	<!-- /.sidebar-shortcuts -->
 
 	<ul class="nav nav-list">
-		<li class="active"><a href="javascript:;" onclick="addTab('0001','','首页','business/realTimeAlarm/survey/surveyList')"> <i
+		<li class="active"><a href="javascript:;" onclick="addTab('0001','','首页','survey/surveyList')"> <i
 				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 					首页 </span>
 		</a> <b class="arrow"></b></li>
@@ -57,19 +57,19 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="javascript:;" onclick="addTab('0101','','实时报警','business/realTimeAlarm/realTimeAlarm/realTimeAlarmList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0101','','实时报警','realAlarm/realAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 实时报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0102','','被盗车辆报警','business/realTimeAlarm/stolenVehicleAlarm/stolenVehicleAlarmList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0102','','被盗车辆报警','stolenAlarm/stolenAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 被盗车辆报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0103','','布防车辆报警','business/realTimeAlarm/deploymentVehicleAlarm/deploymentVehicleAlarmList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0103','','布防车辆报警','bikeAlarm/bikeAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 布防车辆报警
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0104','','布防MAC报警','business/realTimeAlarm/deploymentMacAlarm/deploymentMacAlarmList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0104','','布防MAC报警','macAlarm/macAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 布防MAC报警
 				</a> <b class="arrow"></b></li>
 			</ul></li>
@@ -325,31 +325,31 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="javascript:;" onclick="addTab('0501','','区域管理','business/systemSetting/regionalManagement/regionalManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0501','','区域管理','areaManage/areaManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 区域管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0502','','单位管理','business/systemSetting/unitManagement/unitManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0502','','单位管理','unitManage/unitManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 单位管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0503','','角色管理','business/systemSetting/roleManagement/roleManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0503','','角色管理','roleManage/roleManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 角色管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0504','','用户管理','business/systemSetting/userManagement/userManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0504','','用户管理','userManage/userManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 用户管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0505','','经办人管理','business/systemSetting/agentManagement/agentManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0505','','经办人管理','agentManage/agentManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 经办人管理
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0506','','系统日志','business/systemSetting/systemLog/systemLogList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0506','','系统日志','systemLog/systemLogList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 系统日志
 				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="javascript:;" onclick="addTab('0507','','公告管理','business/systemSetting/bulletinManagement/bulletinManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0507','','公告管理','noticeManage/noticeManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 公告管理
 				</a> <b class="arrow"></b></li>
 			</ul></li>
@@ -360,13 +360,13 @@
 		</a> <b class="arrow"></b>
 		
 			<ul class="submenu">
-				<li class=""><a href="javascript:;" onclick="addTab('0601','','RFID设备管理','business/deviceManagement/rfidDeviceManagement/rfidDeviceManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0601','','RFID设备管理','rfidManage/rfidManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> RFID设备管理
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="javascript:;" onclick="addTab('0602','','MAC设备管理','business/deviceManagement/macDeviceManagement/macDeviceManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0602','','MAC设备管理','macManage/macManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> MAC设备管理
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="javascript:;" onclick="addTab('0603','','场所管理','business/deviceManagement/placeManagement/placeManagementList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0603','','场所管理','placeManage/placeManageList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 场所管理
 				</a> <b class="arrow"></b></li>
 			</ul></li>

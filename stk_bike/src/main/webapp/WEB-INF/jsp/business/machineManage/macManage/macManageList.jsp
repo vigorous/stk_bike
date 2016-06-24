@@ -13,45 +13,65 @@
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-<title>车辆管理</title>
+<title>MAC设备管理</title>
 </head>
 <body>
-	<div class="col-xs-12" style="padding: 15px">
+<div class="page-content">
+<div class="row">
+	<div class="col-xs-12">
 		<table style="border: 0;">
 			<tr>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">导出</button>
+					<button class="btn btn-sm btn-primary">重启</button>
 				</td>
 				<td style="padding: 0 5px;">
-					<button id="download" class="btn btn-sm btn-primary">下载.zip</button>
+					<button class="btn btn-sm btn-primary">删除</button>
 				</td>
 				<td class="col-xs-4" style="padding: 0 5px;">
 					<input  type="file" id="id-input-file-2" />
 				</td>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">导入</button>
+					<button class="btn btn-sm btn-primary">上传</button>
 				</td>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">筛选</button>
+					<button class="btn btn-sm btn-primary">升级</button>
+				</td>
+				<td style="padding: 0 5px;">
+					<button class="btn btn-sm btn-primary">Mac设备日志</button>
 				</td>
 			</tr>
 		</table>
 	</div>
+</div>
 <div class="row"  style="padding: 10px">
 	<div class="col-xs-12">
 		<table style="border: 0;">
 			<tr>
 				<td>
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="电子牌照" />
+					<input type="text" class="width-120 margin-right-30" value="" placeholder="设备ID" />
 				</td>
 				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="备案牌照" />
+					<input type="text" class="width-120 margin-right-30" value="" placeholder="设备Mac" />
 				</td>
 				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="车辆类型" />
+					<input type="text" class="width-120 margin-right-30" value="" placeholder="场所编号" />
 				</td>
 				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="车主姓名" />
+					<input type="text" class="width-120 margin-right-30" value="" placeholder="设备地址" />
+				</td>
+				<td style="padding-left:20px;">
+					<select class="form-control chosen-select" data-placeholder="经办人">
+						<option value="">查看所有</option>
+						<option value="22">222</option>
+						<option value="33">333</option>
+					</select>
+				</td>
+				<td  style="padding: 0 5px">
+					<select class="form-control chosen-select" data-placeholder="经办人">
+						<option value="">显示所有</option>
+						<option value="1">在线</option>
+						<option value="2">离线</option>
+					</select>
 				</td>
 				<td style="padding: 0 5px;">
 					<button class="btn btn-sm btn-primary">查询</button>
@@ -60,23 +80,36 @@
 		</table>
 	</div>
 </div>
-	<div class="col-xs-12" style="padding: 15px">
+<div class="row" style="margin-top:10px;">
+	<div class="col-xs-12">
 		<table id="simple-table"
 			class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>电子牌照</th>
-					<th>备案牌照</th>
-					<th class="hidden-480">车辆类型</th>
-					<th class="hidden-480">车主姓名</th>
-					<th class="hidden-480">车主电话</th>
-					<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>登记时间</th>
+					<th class="center">
+						<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+						</label>
+					</th>
+					<th>设备ID</th>
+					<th>设备Mac</th>
+					<th class="hidden-480">场所编号</th>
+					<th class="hidden-480">设备地址</th>
+					<th class="hidden-480">在线状态</th>
+					<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>设备IP</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<tr>
+					<td class="center">
+						<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+						</label>				
+					</td>
 					<td><a href="#">ace.com</a></td>
 					<td>$45</td>
 					<td>$45</td>
@@ -87,16 +120,9 @@
 
 					<td>
 						<div class="hidden-sm hidden-xs btn-group">
-							<button class="btn btn-xs btn-success">
-								<i class="ace-icon fa fa-check bigger-120"></i>
-							</button>
 
-							<button class="btn btn-xs btn-info">
+							<button id="macend" class="btn btn-xs btn-info">
 								<i class="ace-icon fa fa-pencil bigger-120"></i>
-							</button>
-
-							<button class="btn btn-xs btn-danger">
-								<i class="ace-icon fa fa-trash-o bigger-120"></i>
 							</button>
 						</div>
 					</td>
@@ -127,6 +153,14 @@
 			</tbody>
 		</table>
 	</div>
+	</div>
+</div>	
+	<script type="text/javascript" src="static/js/private_js/business/machineManage/macManage/macManageList.js"></script>
+<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+		<script type="text/javascript">
+			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
+		</script>
 	<%@ include file="/WEB-INF/jsp/system/admin/bottom.jsp"%>
 	<script>
 		$('#id-input-file-1 , #id-input-file-2').ace_file_input({
@@ -142,6 +176,5 @@
 			//
 		});
 	</script>
-	<script type="text/javascript" src="static/js/private_js/business/bikfunctionemanage/bikeManager.js"></script>
 </body>
 </html>
