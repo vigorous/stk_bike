@@ -14,6 +14,7 @@
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
 			.margin-right-30{margin-right: 30px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>

@@ -14,4 +14,12 @@ public class EntryController {
 		mv.setViewName("business/vehicledata/entry");
 		return mv;
 	}
+	/**
+	 * 跳转到品牌管理添加页面
+	 * @return
+	 */
+	@RequestMapping(value="entryForm")
+	public String add(){
+		return "business/vehicledata/entryForm";
+	}
 }

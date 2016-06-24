@@ -15,11 +15,12 @@
 			.margin-bottom-10{margin-bottom: 10px;}
 			.padding-top-1{padding-top: 1%;}
 			.width-160{width: 160px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content">
+		<div class="page-content padding-bottom-0">
 			<form action="">
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">

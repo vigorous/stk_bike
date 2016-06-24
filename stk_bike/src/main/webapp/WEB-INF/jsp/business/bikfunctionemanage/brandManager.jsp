@@ -19,6 +19,9 @@
 	<div class="col-xs-12" style="padding: 15px">
 		<table style="border: 0;">
 			<tr>
+				<td style="padding: 0 5px;">
+					<button id="addBrand" class="btn btn-sm btn-primary">添加品牌</button>
+				</td>
 				<td style="padding: 0 5px;"><span class="input-icon"> <input
 						autocomplete="off" id="nav-search-input" type="text"
 						name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
@@ -94,5 +97,6 @@
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript" src="static/js/private_js/business/bikfunctionemanage/brandManager.js"></script>
 </body>
 </html>

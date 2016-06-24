@@ -20,7 +20,7 @@
 		<table style="border: 0;">
 			<tr>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">创建新的布防</button>
+					<button id="addentry" class="btn btn-sm btn-primary">创建新的布防</button>
 				</td>
 			</tr>
 		</table>
@@ -76,5 +76,6 @@
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript" src="static/js/private_js/business/vehicledata/entry.js"></script>
 </body>
 </html>

@@ -305,6 +305,15 @@
 
 					<b class="arrow"></b>
 				</li>
+				
+				<li class="">
+					<a href="javascript:;" onclick="addTab('5015','tmlData','电子车牌找同行终端MAC','macByEplate')">
+						<i class="menu-icon fa fa-caret-right"></i>
+						嫌疑MAC框选分析
+					</a>
+
+					<b class="arrow"></b>
+				</li>
 			</ul>
 		</li>
 
@@ -354,7 +363,7 @@
 				<li class=""><a href="javascript:;" onclick="addTab('0601','','RFID设备管理','business/deviceManagement/rfidDeviceManagement/rfidDeviceManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> RFID设备管理
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="javascript:;" onclick=""> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0602','','MAC设备管理','business/deviceManagement/macDeviceManagement/macDeviceManagementList')"> <i
 						class="menu-icon fa fa-caret-right"></i> MAC设备管理
 				</a> <b class="arrow"></b></li>
 				<li class=""><a href="javascript:;" onclick="addTab('0603','','场所管理','business/deviceManagement/placeManagement/placeManagementList')"> <i

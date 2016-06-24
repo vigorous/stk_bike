@@ -1,5 +1,6 @@
 package com.stk.controller.system.login;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sse.bikemanagement.entity.MenuVO;
+import com.sse.bikemanagement.entity.UserVO;
+import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
 import com.stk.domain.system.User;
 import com.stk.service.system.menu.MenuService;
@@ -59,15 +62,26 @@ public class LoginController extends BaseController {
 		log(logger,"pd="+pd.toString());
 		//ModelAndView mv = this.getModelAndView();
 		//mv.setViewName("system/admin/main");
-		Subject currentUser = SecurityUtils.getSubject();  
-		Session session = currentUser.getSession();
-		//测试用的User对象
-		User user = new User();
-		user.setId(1);
-		user.setName(pd.getString("name"));
-		user.setPassword(pd.getString("password"));
-		session.setAttribute(Const.SESSION_USER,user);
-		
+	    UserVO userVO = new UserVO();
+	    userVO.setUSERNAME(pd.getString("name"));
+	    userVO.setPASSWORD(pd.getString("password"));
+		try {
+			boolean isLogin = FacadeFactory.getUserFacade().login(userVO);
+			if(isLogin){
+				Subject currentUser = SecurityUtils.getSubject();  
+				Session session = currentUser.getSession();
+				//测试用的User对象
+				User user = new User();
+				user.setId(1);
+				user.setName(pd.getString("name"));
+				user.setPassword(pd.getString("password"));
+				session.setAttribute(Const.SESSION_USER,user);
+			}else{
+				errInfo = "usererror";
+			}
+		} catch (Exception e) {
+			errInfo = "身份验证失败！";
+		}
 		//shiro加入身份验证
 		Subject subject = SecurityUtils.getSubject(); 
 	    UsernamePasswordToken token = new UsernamePasswordToken(pd.getString("name"), pd.getString("password")); 

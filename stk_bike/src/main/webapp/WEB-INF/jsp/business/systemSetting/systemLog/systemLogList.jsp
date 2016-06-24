@@ -14,11 +14,12 @@
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
 			.margin-right-30{margin-right: 30px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content">
+		<div class="page-content padding-bottom-0">
 			<div class="row margin-bottom-5">
 				<div class="col-xs-7">
 					<form action="business/systemSetting/systemLog/systemLogList">

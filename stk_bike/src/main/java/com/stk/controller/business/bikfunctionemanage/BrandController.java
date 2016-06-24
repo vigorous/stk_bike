@@ -15,4 +15,12 @@ public class BrandController extends BaseController{
 		mv.setViewName("business/bikfunctionemanage/brandManager");
 		return mv;
 	}
+	/**
+	 * 跳转到品牌管理添加页面
+	 * @return
+	 */
+	@RequestMapping(value="brandManagerForm")
+	public String add(){
+		return "business/bikfunctionemanage/brandManagerForm";
+	}
 }

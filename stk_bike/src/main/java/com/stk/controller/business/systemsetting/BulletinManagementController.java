@@ -23,15 +23,14 @@ public class BulletinManagementController extends BaseController {
 	 * @throws IOException 
 	 */
 	@RequestMapping(value="/bulletinManagementList")
-	public ModelAndView bulletinManagementList(Model model,Integer currentPage,Integer showCount) throws IOException{
-		Page page = new Page();
+	public ModelAndView bulletinManagementList(Page page) throws IOException{
 		NoticeDAOImpl noticeDAOImpl = new NoticeDAOImpl();
 		List<NoticeVO> list = noticeDAOImpl.queryAllNotice(page);
-		model.addAttribute("list",list);
-		model.addAttribute("page", page);
-		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/systemSetting/bulletinManagement/bulletinManagementList");
-		return mav;
+		ModelAndView mv = this.getModelAndView();
+		mv.addObject("page", page);
+		mv.addObject("list",list);
+		mv.setViewName("business/systemSetting/bulletinManagement/bulletinManagementList");
+		return mv;
 	}
 	
 	/**

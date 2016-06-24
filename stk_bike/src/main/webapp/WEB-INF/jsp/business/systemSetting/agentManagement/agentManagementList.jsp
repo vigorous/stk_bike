@@ -15,11 +15,12 @@
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
 			.margin-left-30{margin-left: 30px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content">
+		<div class="page-content padding-bottom-0">
 			<div class="row margin-bottom-5">
 				<div class="col-xs-7">
 					<form>
@@ -37,9 +38,7 @@
 					</form>
 				</div>
 				<div class="col-xs-5 text-right">
-					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="新建" id="new" />
-					</div>
+					
 				</div>
 			</div>
 			<div class="row">
@@ -217,6 +216,9 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="btn-group">
+						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
+					</div>
 					${page.getPageStr()}
 				</div>
 			</div>
