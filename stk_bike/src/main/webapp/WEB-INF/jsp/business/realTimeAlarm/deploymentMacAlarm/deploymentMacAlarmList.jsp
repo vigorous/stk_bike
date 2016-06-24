@@ -14,11 +14,12 @@
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
 			.margin-left-30{margin-left: 30px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content">
+		<div class="page-content padding-bottom-0">
 			<div class="row">
 				<div class="col-xs-12">
 					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">

@@ -16,11 +16,12 @@
 			.width-120{width: 120px!important;}
 			.margin-right-30{margin-right: 30px;}
 			.padding-right-30{padding-right: 30px;}
+			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content">
+		<div class="page-content padding-bottom-0">
 			<div class="row margin-bottom-5">
 				<div class="col-xs-7">
 					<form action="business/deviceManagement/rfidDeviceManagement/rfidDeviceManagementList">
@@ -49,10 +50,7 @@
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="设备日志" id="deviceLog" />
-						<input type="button" class="btn btn-primary" value="点位分布" id="pointDistribution" />
 						<input type="button" class="btn btn-primary" value="查询" />
-						<input type="button" class="btn btn-primary" value="新建" id="new" />
 					</div>
 				</div>
 			</div>
@@ -264,6 +262,11 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="btn-group">
+						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
+						<input type="button" class="btn btn-mini btn-success" value="设备日志" id="deviceLog" />
+						<input type="button" class="btn btn-mini btn-success" value="点位分布" id="pointDistribution" />
+					</div>
 					${page.getPageStr()}
 				</div>
 			</div>
