@@ -1,4 +1,4 @@
-package com.stk.controller.business.realtimealarm;
+package com.stk.controller.business.realalarm;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

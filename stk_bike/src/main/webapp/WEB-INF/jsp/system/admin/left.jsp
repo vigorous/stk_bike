@@ -57,7 +57,7 @@
 		</a> <b class="arrow"></b>
 
 			<ul class="submenu">
-				<li class=""><a href="javascript:;" onclick="addTab('0101','','实时报警','realTimeAlarm/realTimeAlarmList')"> <i
+				<li class=""><a href="javascript:;" onclick="addTab('0101','','实时报警','realAlarm/realAlarmList')"> <i
 						class="menu-icon fa fa-caret-right"></i> 实时报警
 				</a> <b class="arrow"></b></li>
 

@@ -1,4 +1,4 @@
-package com.stk.controller.business.realtimealarm;
+package com.stk.controller.business.realalarm;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,15 +9,15 @@ import com.stk.controller.base.BaseController;
 import com.stk.entity.Page;
 
 @Controller
-@RequestMapping(value="/stolenAlarm")
-public class StolenAlarmController extends BaseController {
+@RequestMapping(value="/realAlarm")
+public class RealAlarmController extends BaseController {
 	
 	/**
-	 * 跳转到被盗车辆报警列表页
+	 * 跳转到实时报警列表页
 	 * @return
 	 */
-	@RequestMapping(value="/stolenAlarmList")
-	public ModelAndView stolenAlarmList(Model model,Integer currentPage,Integer showCount){
+	@RequestMapping(value="/realAlarmList")
+	public ModelAndView realAlarmList(Model model,Integer currentPage,Integer showCount){
 		//造数据
 		Page page = new Page();
 		if(currentPage == null){
@@ -35,7 +35,7 @@ public class StolenAlarmController extends BaseController {
 		
 		model.addAttribute("page", page);
 		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realTimeAlarm/stolenAlarm/stolenAlarmList");
+		mav.setViewName("business/realAlarm/realAlarm/realAlarmList");
 		return mav;
 	}
 }
