@@ -38,7 +38,22 @@
 					
 					<div class="form-group">
 						<label class="col-xs-4 control-label no-padding-right dialog-text" for=""> 添加布防机具： </label>
-						<div class="col-xs-8"><input type="text" placeholder="布防机具" /></div>
+						<div class="col-xs-3">
+							<select class="chosen-select form-control" id="form-field-select-2" data-placeholder="所属派出所">
+								<option value="">  </option>
+								<option value="新城派出所">新城派出所</option>
+								<option value="丁兰派出所">丁兰派出所</option>
+								<option value="秀洲交警支队">秀洲交警支队</option>
+							</select>
+						</div>
+						<div class="col-xs-3">
+							<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="安装地址">
+								<option value="">  </option>
+								<option value="丁兰广场">丁兰广场</option>
+								<option value="五联西苑">五联西苑</option>
+								<option value="钱江新城">钱江新城</option>
+							</select>
+						</div>
 					</div>
 					
 					<div class="form-group">
@@ -77,8 +92,8 @@
 					</div>
 					
 					<div class="clearfix form-actions">
-						<div class="col-xs-offset-4 col-xs-3"><input class="btn btn-info" type="button" value="保存" /></div>
-						<div class="col-xs-3"><input class="btn" type="button" value="退出" /></div>
+						<div class="col-xs-offset-4 col-xs-3"><input class="btn btn-info" id="save" type="button" value="保存" /></div>
+						<div class="col-xs-3"><input class="btn" id="quit" type="button" value="退出" /></div>
 					</div>
 					
 				</form>
@@ -153,6 +168,58 @@
 			tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
 			//autosize($('#form-field-tags'));
 		}
+		
+		//选择框效果
+		jQuery(function($){
+			$('#id-disable-check').on('click', function() {
+				var inp = $('#form-input-readonly').get(0);
+				if(inp.hasAttribute('disabled')) {
+					inp.setAttribute('readonly' , 'true');
+					inp.removeAttribute('disabled');
+					inp.value="This text field is readonly!";
+				}
+				else {
+					inp.setAttribute('disabled' , 'disabled');
+					inp.removeAttribute('readonly');
+					inp.value="This text field is disabled!";
+				}
+			});
+		
+		
+			if(!ace.vars['touch']) {
+				$('.chosen-select').chosen({allow_single_deselect:true}); 
+				//resize the chosen on window resize
+		
+				$(window)
+				.off('resize.chosen')
+				.on('resize.chosen', function() {
+					$('.chosen-select').each(function() {
+						 var $this = $(this);
+						 $this.next().css({'width': $this.parent().width()});
+					})
+				}).trigger('resize.chosen');
+				//resize chosen on sidebar collapse/expand
+				$(document).on('settings.ace.chosen', function(e, event_name, event_val) {
+					if(event_name != 'sidebar_collapsed') return;
+					$('.chosen-select').each(function() {
+						 var $this = $(this);
+						 $this.next().css({'width': $this.parent().width()});
+					})
+				});
+		
+		
+				$('#chosen-multiple-style .btn').on('click', function(e){
+					var target = $(this).find('input[type=radio]');
+					var which = parseInt(target.val());
+					if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
+					 else $('#form-field-select-4').removeClass('tag-input-style');
+				});
+			}
+		})
+		
+		$("#quit").click(function(){
+			Dialog.close();
+		})
 	</script>
 </body>
 </html>
