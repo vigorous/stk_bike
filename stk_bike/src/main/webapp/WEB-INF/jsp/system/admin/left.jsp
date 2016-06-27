@@ -59,7 +59,7 @@
 						</li>
 					</c:when>
 					<c:otherwise>
-						<li class="">
+						<li class="" id="${menu.MENU_ID}">
 							<a href="#" class="dropdown-toggle">
 								<i class="menu-icon fa ${menu.MENU_ICON}"></i>
 								<span class="menu-text">${menu.MENU_NAME}</span>
@@ -68,8 +68,8 @@
 							<b class="arrow"></b>
 							<ul class="submenu">
 								<c:forEach items="${menu.subMenus}" var="menuItem">
-										<li class="">
-											<a href="javascript:;" onclick="addTab('${menuItem.MENU_ID}','${menuItem.MENU_ID}','${menuItem.MENU_NAME}','${menuItem.MENU_URL}')">
+										<li class="" id="${menuItem.MENU_ID}">
+											<a href="javascript:;" onclick="addTab('${menuItem.MENU_ID}','${menu.MENU_ID}','${menuItem.MENU_NAME}','${menuItem.MENU_URL}')">
 												<i class="menu-icon fa fa-caret-right"></i>
 												${menuItem.MENU_NAME}
 											</a>
