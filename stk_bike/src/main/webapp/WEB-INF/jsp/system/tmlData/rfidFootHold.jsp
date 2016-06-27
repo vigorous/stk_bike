@@ -11,17 +11,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<base href="<%=basePath%>">
-	<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
-		<link rel="stylesheet" href="static/assets/css/chosen.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-timepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/daterangepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/colorpicker.css" />
-		
+	
 	<!-- jsp文件头和头部 -->
 	<%@ include file="../admin/top.jsp"%>
+	<!-- page specific plugin styles -->
+	<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
+	<link rel="stylesheet" href="static/assets/css/chosen.css" />
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
+		
 	<title>RFID落脚点分析页面</title>
 </head>
 <body>
@@ -38,11 +36,11 @@
 						</td>
 						
 						<td style="padding-right:5px;">
-							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="开始日期" />
+							<input class="form-control datetime-picker" id="" type="text" placeholder="开始日期" />
 						</td>
 						
 						<td style="padding-right:5px;">
-							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="结束日期" />
+							<input class="form-control datetime-picker" id="" type="text" placeholder="结束日期" />
 						</td>
 						
 						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
@@ -147,19 +145,16 @@
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='static/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
-		<script src="static/assets/js/bootstrap.js"></script>
+		<script src="static/assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 		<script src="static/assets/js/jquery-ui.custom.js"></script>
 		<script src="static/assets/js/jquery.ui.touch-punch.js"></script>
 		<script src="static/assets/js/chosen.jquery.js"></script>
 		<script src="static/assets/js/fuelux/fuelux.spinner.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-		<script src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-timepicker.js"></script>
 		<script src="static/assets/js/date-time/moment.js"></script>
-		<script src="static/assets/js/date-time/daterangepicker.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datetimepicker.js"></script>
+		<script src="static/assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
+		<script src="static/assets/js/date-time/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 		<script src="static/assets/js/bootstrap-colorpicker.js"></script>
 		<script src="static/assets/js/jquery.knob.js"></script>
 		<script src="static/assets/js/autosize.js"></script>
@@ -191,47 +186,19 @@
 		<script src="static/assets/js/ace/ace.searchbox-autocomplete.js"></script>
 		
 		<script type="text/javascript">
-			$('#date-timepicker1').datetimepicker({
-				 icons: {
-					time: 'fa fa-clock-o',
-					date: 'fa fa-calendar',
-					up: 'fa fa-chevron-up',
-					down: 'fa fa-chevron-down',
-					previous: 'fa fa-chevron-left',
-					next: 'fa fa-chevron-right',
-					today: 'fa fa-arrows ',
-					clear: 'fa fa-trash',
-					close: 'fa fa-times'
-				 }
-				}).next().on(ace.click_event, function(){
-					$(this).prev().focus();
-			});
-			
-			//datepicker plugin
-			//link
-			$('.date-picker').datepicker({
-				language: 'zh-CN',
-				format: "yyyy-mm-dd",
-				autoclose: true,
-				todayHighlight: true
-			})
-			//show datepicker when clicking on the icon
-			.next().on(ace.click_event, function(){
-				$(this).prev().focus();
-			});
-		
-			//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
-			$('input[name=date-range-picker]').daterangepicker({
-				'applyClass' : 'btn-sm btn-success',
-				'cancelClass' : 'btn-sm btn-default',
-				locale: {
-					applyLabel: 'Apply',
-					cancelLabel: 'Cancel',
-				}
-			})
-			.prev().on(ace.click_event, function(){
-				$(this).next().focus();
-			});
+			$('.datetime-picker').datetimepicker({
+		        language:  'zh-CN',
+		        format: "yyyy-mm-dd hh:ii",
+		        startDate:'2000-01-01',
+		        weekStart: 1,
+		        todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				forceParse: 0,
+		        showMeridian: 0,
+		        minuteStep: 2
+		    });
 			
 			jQuery(function($){
 				$('#id-disable-check').on('click', function() {

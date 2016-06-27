@@ -20,6 +20,8 @@
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.css" />
 		<link rel="stylesheet" href="static/assets/css/colorpicker.css" />
 		
+		
+		<link rel="stylesheet" href="static/css/common_css/content.css" />
 	<!-- jsp文件头和头部 -->
 	<%@ include file="../admin/top.jsp"%>
 	<script type="text/javascript">
@@ -48,7 +50,38 @@
 	<div class="page-content">
 		<div class="row">
 			<div class="col-xs-12">
-				<form class="form-horizontal" role="form">
+				<table style="border:0">
+					<tr>
+						<td  class="col-padding-right">
+							<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="查询类型...">
+								<option value="">  </option>
+								<option value="场所编号查询">场所编号查询</option>
+								<option value="采集设备编号">采集设备编号</option>
+								<option value="采集设备地址">采集设备地址</option>
+							</select>
+						</td>
+						
+						<td  class="col-padding-right">
+							<span class="input-icon">
+								<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
+								<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
+							</span>
+						</td>
+						
+						<td  class="col-padding-right">
+							<input class="form-control date-picker" id="id-date-picker-1" type="text" placeholder="开始日期" />
+						</td>
+						
+						<td  class="col-padding-right">
+							<input class="form-control date-picker" id="id-date-picker-2" type="text" placeholder="结束日期" />
+						</td>
+						
+						<td  class="col-padding-right">
+							<button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button>
+						</td>
+					</tr>
+				</table>
+				<%-- <form class="form-horizontal" role="form">
 					<div class="form-group">
 						<div class="col-sm-2">
 							<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="查询类型...">
@@ -78,11 +111,11 @@
 							<button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button>
 						</div>
 					</div>
-				</form>
+				</form> --%>
 			</div>
 		</div>
 		
-		<div class="row">
+		<div class="row row-margin-top">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
 				<div class="row">
