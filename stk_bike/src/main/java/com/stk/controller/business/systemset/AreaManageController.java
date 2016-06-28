@@ -1,12 +1,17 @@
 package com.stk.controller.business.systemset;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sse.bikemanagement.entity.DistrictVO;
+import com.sse.bikemanagement.entity.Page;
+import com.sse.bikemanagement.facade.DistrictFacade;
+import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.Page;
 
 @Controller
 @RequestMapping(value="/areaManage")
@@ -15,28 +20,17 @@ public class AreaManageController extends BaseController {
 	/**
 	 * 跳转到区域管理列表页
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="/areaManageList")
-	public ModelAndView areaManageList(Model model,Integer currentPage,Integer showCount){
-		//造数据
-		Page page = new Page();
-		if(currentPage == null){
-			page.setCurrentPage(1);
-		}else{
-			page.setCurrentPage(currentPage);
-		}
-		if(showCount == null){
-			page.setShowCount(10);
-		}else{
-			page.setShowCount(showCount);
-		}
-		page.setTotalPage(10);
-		page.setTotalResult(100);
-		
-		model.addAttribute("page", page);
-		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/systemSet/areaManage/areaManageList");
-		return mav;
+	public ModelAndView areaManageList(Page page) throws Exception{
+		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
+		List<DistrictVO> list = districtFacade.queryAllDistrict(page);
+		ModelAndView mv = this.getModelAndView();
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.setViewName("business/systemSet/areaManage/areaManageList");
+		return mv;
 	}
 	
 	/**
@@ -46,5 +40,12 @@ public class AreaManageController extends BaseController {
 	@RequestMapping(value="/areaManageForm")
 	public String areaManageForm(){
 		return "business/systemSet/areaManage/areaManageForm";
+	}
+	
+	@RequestMapping(value="/addArea")
+	public Boolean addArea(DistrictVO districtVO) throws Exception{
+		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
+		Boolean flag = districtFacade.addDistrict(districtVO);
+		return flag;
 	}
 }

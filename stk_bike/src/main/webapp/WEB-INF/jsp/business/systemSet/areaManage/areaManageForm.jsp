@@ -9,7 +9,6 @@
 <html>
 	<head lang="en">
 		<base href="<%=basePath%>">
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 		<style type="text/css">
 			.margin-bottom-10{margin-bottom: 10px;}
 			.padding-top-1{padding-top: 1%;}
@@ -20,16 +19,16 @@
 	</head>
 	<body class="no-skin">
 		<div class="page-content padding-bottom-0">
-			<form action="">
+			<form action="areaManage/areaManageForm">
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
-						<span>区域ID</span>
+						<span>区域编号</span>
 					</div>
 					<div class="col-xs-7">
 						<input type="text" class="width-160" value="" />
 					</div>
 				</div>
-				<div class="row">
+				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
 						<span>区域名称</span>
 					</div>
@@ -37,7 +36,18 @@
 						<input type="text" class="width-160" value="" />
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-5 text-right">
+					</div>
+					<div class="col-xs-7 text-left">
+						<div class="btn-group">
+							<input type="button" class="btn btn-mini btn-success" value="保存" />
+							<input type="button" class="btn btn-mini btn-success" value="取消" id="cancel" />
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
+		<script type="text/javascript" src="static/js/private_js/business/systemSet/areaManage/areaManageForm.js"></script>
 	</body>
 </html>
