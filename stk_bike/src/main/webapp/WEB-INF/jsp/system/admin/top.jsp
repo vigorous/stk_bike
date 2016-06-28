@@ -26,6 +26,9 @@
 		<![endif]-->
 
 		<!-- inline styles related to this page -->
+		
+		<!-- custom style -->
+		<link rel="stylesheet" href="static/css/common_css/content.css" />
 
 		<!-- ace settings handler -->
 		<script src="static/assets/js/ace-extra.js"></script>

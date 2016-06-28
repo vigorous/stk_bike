@@ -97,6 +97,6 @@
 			</tbody>
 		</table>
 	</div>
-	<script type="text/javascript" src="static/js/private_js/business/bikfunctionemanage/brandManager.js"></script>
+	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/brandManager.js"></script>
 </body>
 </html>

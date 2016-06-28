@@ -12,14 +12,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<base href="<%=basePath%>">
 	
-	<!-- jsp文件头和头部 -->
-	<%@ include file="../admin/top.jsp"%>
 	<!-- page specific plugin styles -->
 	<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
 	<link rel="stylesheet" href="static/assets/css/chosen.css" />
 	<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
-		
+	
+	<!-- jsp文件头和头部 -->
+	<%@ include file="../admin/top.jsp"%>
+	
 	<title>RFID落脚点分析页面</title>
 </head>
 <body>
@@ -28,29 +29,29 @@
 			<div class="col-xs-12">
 				<table style="border:0;">
 					<tr>
-						<td style="padding-right:5px;">
+						<td class="col-padding-right">
 							<span class="input-icon">
 								<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
 								<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
 							</span>
 						</td>
 						
-						<td style="padding-right:5px;">
+						<td class="col-padding-right">
 							<input class="form-control datetime-picker" id="" type="text" placeholder="开始日期" />
 						</td>
 						
-						<td style="padding-right:5px;">
+						<td class="col-padding-right">
 							<input class="form-control datetime-picker" id="" type="text" placeholder="结束日期" />
 						</td>
 						
-						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
+						<td class="col-padding-right"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
 						
 					</tr>
 				</table>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top:10px;">
+		<div class="row row-margin-top">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
 				<div class="row">
@@ -129,61 +130,7 @@
 	</div>
 		
 	<!-- basic scripts -->
-
-		<!--[if !IE]> -->
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='static/assets/js/jquery.js'>"+"<"+"/script>");
-		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-		<script type="text/javascript">
-		 window.jQuery || document.write("<script src='static/assets/js/jquery1x.js'>"+"<"+"/script>");
-		</script>
-		<![endif]-->
-		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='static/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
-		</script>
-		<script src="static/assets/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-		<script src="static/assets/js/jquery-ui.custom.js"></script>
-		<script src="static/assets/js/jquery.ui.touch-punch.js"></script>
-		<script src="static/assets/js/chosen.jquery.js"></script>
-		<script src="static/assets/js/fuelux/fuelux.spinner.js"></script>
-		<script src="static/assets/js/date-time/moment.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
-		<script src="static/assets/js/date-time/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-		<script src="static/assets/js/bootstrap-colorpicker.js"></script>
-		<script src="static/assets/js/jquery.knob.js"></script>
-		<script src="static/assets/js/autosize.js"></script>
-		<script src="static/assets/js/jquery.inputlimiter.1.3.1.js"></script>
-		<script src="static/assets/js/jquery.maskedinput.js"></script>
-		<script src="static/assets/js/bootstrap-tag.js"></script>
-
-		<!-- ace scripts -->
-		<script src="static/assets/js/ace/elements.scroller.js"></script>
-		<script src="static/assets/js/ace/elements.colorpicker.js"></script>
-		<script src="static/assets/js/ace/elements.fileinput.js"></script>
-		<script src="static/assets/js/ace/elements.typeahead.js"></script>
-		<script src="static/assets/js/ace/elements.wysiwyg.js"></script>
-		<script src="static/assets/js/ace/elements.spinner.js"></script>
-		<script src="static/assets/js/ace/elements.treeview.js"></script>
-		<script src="static/assets/js/ace/elements.wizard.js"></script>
-		<script src="static/assets/js/ace/elements.aside.js"></script>
-		<script src="static/assets/js/ace/ace.js"></script>
-		<script src="static/assets/js/ace/ace.ajax-content.js"></script>
-		<script src="static/assets/js/ace/ace.touch-drag.js"></script>
-		<script src="static/assets/js/ace/ace.sidebar.js"></script>
-		<script src="static/assets/js/ace/ace.sidebar-scroll-1.js"></script>
-		<script src="static/assets/js/ace/ace.submenu-hover.js"></script>
-		<script src="static/assets/js/ace/ace.widget-box.js"></script>
-		<script src="static/assets/js/ace/ace.settings.js"></script>
-		<script src="static/assets/js/ace/ace.settings-rtl.js"></script>
-		<script src="static/assets/js/ace/ace.settings-skin.js"></script>
-		<script src="static/assets/js/ace/ace.widget-on-reload.js"></script>
-		<script src="static/assets/js/ace/ace.searchbox-autocomplete.js"></script>
+	<%@ include file="../admin/bottom.jsp"%>
 		
 		<script type="text/javascript">
 			$('.datetime-picker').datetimepicker({

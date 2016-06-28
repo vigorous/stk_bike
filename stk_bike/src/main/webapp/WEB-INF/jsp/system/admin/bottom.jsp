@@ -17,7 +17,7 @@
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='static/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
-		<script src="static/assets/js/bootstrap.js"></script>
+		<script src="static/assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 		<script src="static/assets/js/jquery-ui.custom.js"></script>
@@ -29,7 +29,8 @@
 		<script src="static/assets/js/date-time/bootstrap-timepicker.js"></script>
 		<script src="static/assets/js/date-time/moment.js"></script>
 		<script src="static/assets/js/date-time/daterangepicker.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datetimepicker.js"></script>
+		<script src="static/assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
+		<script src="static/assets/js/date-time/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 		<script src="static/assets/js/bootstrap-colorpicker.js"></script>
 		<script src="static/assets/js/jquery.knob.js"></script>
 		<script src="static/assets/js/autosize.js"></script>

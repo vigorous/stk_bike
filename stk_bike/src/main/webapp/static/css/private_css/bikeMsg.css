@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.dialog-content {
+	background-color: #ffffff;
+    position: relative;
+    margin: 0;
+    padding: 8px;
+}
+.dialog-header {
+	padding-bottom: 9px;
+ 			border-bottom: 1px dotted #e2e2e2;
+}
+
+.dialog-header h1 {
+	padding: 0;
+    margin: 0 8px;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #2679b5;
+}
+
+.dialog-text {
+	padding-top: 7px;
+}
+
+.text-rt {
+	text-align: right;
+}

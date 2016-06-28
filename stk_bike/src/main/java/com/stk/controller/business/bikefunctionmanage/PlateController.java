@@ -1,4 +1,4 @@
-package com.stk.controller.business.bikfunctionemanage;
+package com.stk.controller.business.bikefunctionmanage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ public class PlateController {
 	@RequestMapping(value="select")
 	public ModelAndView select(){
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("business/bikfunctionemanage/plateManager");
+		mv.setViewName("business/bikefunctionmanage/plateManager");
 		return mv;
 	}
 }

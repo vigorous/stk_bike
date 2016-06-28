@@ -12,38 +12,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<base href="<%=basePath%>">
 	<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
-		<link rel="stylesheet" href="static/assets/css/chosen.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-timepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/daterangepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/colorpicker.css" />
-		
-		
-		<link rel="stylesheet" href="static/css/common_css/content.css" />
+	<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
+	<link rel="stylesheet" href="static/assets/css/chosen.css" />
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.css" />
+	
 	<!-- jsp文件头和头部 -->
-	<%@ include file="../admin/top.jsp"%>
-	<script type="text/javascript">
-	$(function(){HideScrollbar=false;});
-	function Alert(){
-		Dialog.alert("修改成功!");
-	}
-	
-	function openDialog(){
-		var diag = new Dialog();
-		diag.Width = 300;
-		diag.Height = 100;
-		diag.Title = "信息编辑";
-		diag.InnerHtml='<div style="text-align:center;color:red;font-size:14px;">直接输出html，使用 <b>InnerHtml</b> 属性。</div>'
-		diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
-		diag.show();
-	}
-	
-	function deleteMsg(){
-		Dialog.alert("确认删除?");
-	}
-	</script>
+	<%@ include file="../admin/top.jsp"%>	
+		
 	<title>终端采集查询页面</title>
 </head>
 <body>
@@ -526,43 +502,8 @@
 	</div>
 	
 	<!-- basic scripts -->
+		<%@ include file="../admin/bottom.jsp"%>
 
-		<!--[if !IE]> -->
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='static/assets/js/jquery.js'>"+"<"+"/script>");
-		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-		<script type="text/javascript">
-		 window.jQuery || document.write("<script src='static/assets/js/jquery1x.js'>"+"<"+"/script>");
-		</script>
-		<![endif]-->
-		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='static/assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
-		</script>
-		<script src="static/assets/js/bootstrap.js"></script>
-
-		<!-- page specific plugin scripts -->
-		<script src="static/assets/js/jquery-ui.custom.js"></script>
-		<script src="static/assets/js/jquery.ui.touch-punch.js"></script>
-		<script src="static/assets/js/chosen.jquery.js"></script>
-		<script src="static/assets/js/fuelux/fuelux.spinner.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-		<script src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-timepicker.js"></script>
-		<script src="static/assets/js/date-time/moment.js"></script>
-		<script src="static/assets/js/date-time/daterangepicker.js"></script>
-		<script src="static/assets/js/date-time/bootstrap-datetimepicker.js"></script>
-		<script src="static/assets/js/bootstrap-colorpicker.js"></script>
-		<script src="static/assets/js/jquery.knob.js"></script>
-		<script src="static/assets/js/autosize.js"></script>
-		<script src="static/assets/js/jquery.inputlimiter.1.3.1.js"></script>
-		<script src="static/assets/js/jquery.maskedinput.js"></script>
-		<script src="static/assets/js/bootstrap-tag.js"></script>
-
-		
 		<script type="text/javascript">
 			//datepicker plugin
 			//link

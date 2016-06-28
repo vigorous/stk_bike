@@ -1,4 +1,4 @@
-package com.stk.controller.business.bikfunctionemanage;
+package com.stk.controller.business.bikefunctionmanage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ public class BrandController extends BaseController{
 	@RequestMapping(value="select")
 	public ModelAndView select(){
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("business/bikfunctionemanage/brandManager");
+		mv.setViewName("business/bikefunctionmanage/brandManager");
 		return mv;
 	}
 	/**
@@ -21,6 +21,6 @@ public class BrandController extends BaseController{
 	 */
 	@RequestMapping(value="brandManagerForm")
 	public String add(){
-		return "business/bikfunctionemanage/brandManagerForm";
+		return "business/bikefunctionmanage/brandManagerForm";
 	}
 }

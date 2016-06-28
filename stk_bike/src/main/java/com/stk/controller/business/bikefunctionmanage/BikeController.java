@@ -1,4 +1,4 @@
-package com.stk.controller.business.bikfunctionemanage;
+package com.stk.controller.business.bikefunctionmanage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,16 @@ public class BikeController extends BaseController{
 		page.setTotalResult(100);
 		
 		model.addAttribute("page", page);
-		mv.setViewName("business/bikfunctionemanage/bikeManager");
+		mv.setViewName("business/bikefunctionmanage/bikeManager");
 		return mv;
+	}
+	
+	/**
+	 * 跳转到车辆详细信息弹窗页
+	 * @return
+	 */
+	@RequestMapping(value="/bikeMsg")
+	public String machineForm(){
+		return "dialog/bikeMsg";
 	}
 }
