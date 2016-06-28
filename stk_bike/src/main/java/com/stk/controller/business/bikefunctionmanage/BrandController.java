@@ -1,6 +1,8 @@
 package com.stk.controller.business.bikefunctionmanage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sse.bikemanagement.dao.BrandDAO;
 import com.sse.bikemanagement.entity.BrandVO;
+import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.facade.BrandFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
@@ -20,11 +23,15 @@ import com.stk.entity.UuidUtil;
 @RequestMapping(value="/brand/")
 //品牌管理
 public class BrandController extends BaseController{
-	private static BrandFacade bf=new BrandFacade();
 	@RequestMapping(value="select")
-	public ModelAndView select() throws Exception{
+	public ModelAndView select(Page page, BrandVO brandVO) throws Exception{
 		//BrandFacade brandFacade = FacadeFactory.getBrandFacade();
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		BrandVO vo=new BrandVO();
+		List<BrandVO> li=bf.queryBrandByPage(page, vo);
 		ModelAndView mv=new ModelAndView();
+		mv.addObject("li", li);
+		mv.addObject("page", page);
 		mv.setViewName("business/bikefunctionmanage/brandManager");
 		return mv;
 	}
@@ -33,23 +40,32 @@ public class BrandController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value="brandManagerForm")
-	public String add(){
-		BrandVO brandVO =new BrandVO();
-		return "business/bikefunctionmanage/brandManagerForm";
+	public ModelAndView add(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("business/bikefunctionmanage/brandManagerForm");
+		return mv;
 	}
-	@RequestMapping(value="save",method = RequestMethod.POST)
+	@RequestMapping(value="addBrand",method = RequestMethod.POST)
 	@ResponseBody
-	public Boolean  save(BrandVO bv) throws Exception{
+	public Boolean  addBrand(BrandVO bv) throws Exception{
 		bv.setBRAND_ID(UuidUtil.get32UUID());
 		Boolean bo = true;
-		try {
-			bf=FacadeFactory.getBrandFacade();
-			bo = bf.addBrand(bv);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		bo = bf.addBrand(bv);
+		return bo;
+	}
+	@RequestMapping(value="modifyBrand",method = RequestMethod.POST)
+	public Boolean modifyBrand(BrandVO vo) throws Exception{
+		Boolean bo = true;
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		bo=bf.modifyBrand(vo);
+		return bo;
+	}
+	@RequestMapping(value="deleteBrand",method = RequestMethod.POST)
+	public Boolean deleteBrand(BrandVO vo) throws Exception{
+		Boolean bo = true;
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		bo=bf.deleteBrand(vo);
 		return bo;
 	}
 }

@@ -68,38 +68,6 @@
 			</div>
 		</div>
 		
-		<!-- <div class="row row-margin-top">
-			<div class="col-xs-12">
-				<table style="border:0">
-					<tr>
-						<td class="col-padding-right">
-							<input type="text" value="" placeholder="电子牌照" />
-						</td>
-						
-						<td class="col-padding-right">
-							<input type="text" value="" placeholder="备案牌照" />
-						</td>
-						
-						<td class="col-padding-right">
-							<input type="text" value="" placeholder="车辆类型" />
-						</td>
-						
-						<td class="col-padding-right">
-							<input type="text" value="" placeholder="车主姓名" />
-						</td>
-						
-						<td class="col-padding-right">
-							<button class="btn btn-sm btn-info">查询</button>
-						</td>
-						
-						<td class="col-padding-right">
-							<button class="btn btn-sm btn-info">筛选</button>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div> -->
-		
 		<div class="row row-margin-top">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
@@ -151,95 +119,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="col-xs-12" style="padding: 15px">
-		<table style="border: 0;">
-			<tr>
-				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">导出</button>
-				</td>
-				<td style="padding: 0 5px;">
-					<button id="download" class="btn btn-sm btn-primary">下载.zip</button>
-				</td>
-				<td class="col-xs-4" style="padding: 0 5px;">
-					<input  type="file" id="id-input-file-2" />
-				</td>
-				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">导入</button>
-				</td>
-				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">筛选</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-<div class="row"  style="padding: 10px">
-	<div class="col-xs-12">
-		<table style="border: 0;">
-			<tr>
-				<td>
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="电子牌照" />
-				</td>
-				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="备案牌照" />
-				</td>
-				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="车辆类型" />
-				</td>
-				<td style="padding-left:20px;">
-					<input type="text" class="width-120 margin-right-30" value="" placeholder="车主姓名" />
-				</td>
-				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">查询</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-</div>
-	<div class="col-xs-12" style="padding: 15px">
-		<table id="simple-table"
-			class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>电子牌照</th>
-					<th>备案牌照</th>
-					<th class="hidden-480">车辆类型</th>
-					<th class="hidden-480">车主姓名</th>
-					<th class="hidden-480">车主电话</th>
-					<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>登记时间</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr>
-					<td><a href="#">ace.com</a></td>
-					<td>$45</td>
-					<td>$45</td>
-					<td class="hidden-480">3,330</td>
-					<td>Feb 12</td>
-					<td class="hidden-480"><span
-						class="label label-sm label-warning">Expiring</span></td>
-
-					<td>
-						<div class="hidden-sm hidden-xs btn-group">
-							<button class="btn btn-xs btn-success">
-								<i class="ace-icon fa fa-check bigger-120"></i>
-							</button>
-
-							<button class="btn btn-xs btn-info">
-								<i class="ace-icon fa fa-pencil bigger-120"></i>
-							</button>
-
-							<button class="btn btn-xs btn-danger">
-								<i class="ace-icon fa fa-trash-o bigger-120"></i>
-							</button>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div> -->
-
 	<!-- 尾部页数 -->
 	<div class="col-xs-12">
 		<table style="width: 100%;">

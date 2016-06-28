@@ -4,7 +4,7 @@ $("#download").click(function(){
 
 $("#bikeSelect").click(function(){
 	var diag = new Dialog();
-
+	  
 	diag.Width = 750;
 
 	diag.Height = 650;

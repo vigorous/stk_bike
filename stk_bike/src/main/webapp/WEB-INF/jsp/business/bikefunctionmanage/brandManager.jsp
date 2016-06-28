@@ -15,7 +15,9 @@
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 <title>品牌管理</title>
 </head>
-<body>
+<body class="no-skin">
+<div class="page-content padding-bottom-0">
+	<div class="row">
 	<div class="col-xs-12" style="padding: 15px">
 		<table style="border: 0;">
 			<tr>
@@ -46,11 +48,17 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:if test="${empty li}">
+								<tr>
+									<td colspan="3">暂无数据</td>
+								</tr>
+				</c:if>
+				<c:forEach items="${li}" var="brand">
 				<tr>
-					<td><a href="#">1</a></td>
+					<td>${brand.BRAND_NO }</td>
 
-					<td class="hidden-480"><span>红茶</span></td>
-
+					<td class="hidden-480"><span>${brand.BRAND_NAME }</span></td>
+				
 					<td>
 						<div class="hidden-sm hidden-xs btn-group">
 							<button class="btn btn-xs btn-info">
@@ -62,41 +70,13 @@
 						</div>
 					</td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+			${page.pageStr}
+		</div>
 	</div>
-
-	<!-- 尾部页数 -->
-	<div class="col-xs-12">
-		<table style="width: 100%;">
-			<tbody>
-				<tr>
-					<td><div class="pagination"
-							style="float: right; padding-top: 0px; margin-top: 0px;">
-							<li><a>共<font color="red">7</font>条
-							</a></li>
-							<!-- <li><select title="显示条数" style="width: 55px; float: left;">
-									<option value="1">1页</option>
-									<option value="2">2页</option>
-									<option value="3">3页</option>
-									<option value="4">4页</option>
-									<option value="5">5页</option>
-									<option value="6">6页</option>
-									<option value="7">7页</option>
-							</select></li> -->
-							<li><a>首页</a></li>
-							<li><a>上页</a></li>
-							<li><a><font color="#808080">1</font></a></li>
-							<li><a>下页</a></li>
-							<li><a>尾页</a></li>
-							<li><a>第1页</a></li>
-							<li><a>共1页</a></li>
-						</div></td>
-
-				</tr>
-			</tbody>
-		</table>
-	</div>
+</div>
 	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/brandManager.js"></script>
 </body>
 </html>
