@@ -48,38 +48,40 @@
 
 	<ul class="nav nav-list">
 		<c:forEach items="${list}" var="menu" varStatus="varStatus">
-				<c:choose>
-					<c:when test="${menu.MENU_NAME == '首页'}">
-						<li class="active">
-							<a href="javascript:;" onclick="addTab('${menu.MENU_ID}','${menu.MENU_ID}','${menu.MENU_NAME}','${menu.MENU_URL}')">
-								<i class="menu-icon fa ${menu.MENU_ICON}"></i>
-								<span class="menu-text">${menu.MENU_NAME} </span>
-							</a>
-							<b class="arrow"></b>
-						</li>
-					</c:when>
-					<c:otherwise>
-						<li class="" id="${menu.MENU_ID}">
-							<a href="#" class="dropdown-toggle">
-								<i class="menu-icon fa ${menu.MENU_ICON}"></i>
-								<span class="menu-text">${menu.MENU_NAME}</span>
-								<b class="arrow fa fa-angle-down"></b>
-							</a>
-							<b class="arrow"></b>
-							<ul class="submenu">
-								<c:forEach items="${menu.subMenus}" var="menuItem">
-										<li class="" id="${menuItem.MENU_ID}">
-											<a href="javascript:;" onclick="addTab('${menuItem.MENU_ID}','${menu.MENU_ID}','${menuItem.MENU_NAME}','${menuItem.MENU_URL}')">
-												<i class="menu-icon fa fa-caret-right"></i>
-												${menuItem.MENU_NAME}
-											</a>
-											<b class="arrow"></b>
-										</li>
-								</c:forEach>
-							</ul>
-						</li>
-					</c:otherwise>
-				</c:choose>
+			<c:choose>
+				<c:when test="${menu.MENU_NAME == '首页'}">
+					<li class="active">
+						<a href="javascript:;" onclick="addTab('${menu.MENU_ID}','${menu.MENU_ID}','${menu.MENU_NAME}','${menu.MENU_URL}')">
+							<i class="menu-icon fa ${menu.MENU_ICON}"></i>
+							<span class="menu-text">${menu.MENU_NAME} </span>
+						</a>
+						<b class="arrow"></b>
+					</li>
+				</c:when>
+				<c:otherwise>
+					<li class="" id="${menu.MENU_ID}">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa ${menu.MENU_ICON}"></i>
+							<span class="menu-text">${menu.MENU_NAME}</span>
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+						<b class="arrow"></b>
+						<ul class="submenu">
+							<c:forEach items="${menu.subMenus}" var="menuItem">
+								<c:if test="${menuItem.MENU_TYPE == '00' || menuItem.MENU_TYPE == menu_type}">
+									<li class="" id="${menuItem.MENU_ID}">
+										<a href="javascript:;" onclick="addTab('${menuItem.MENU_ID}','${menu.MENU_ID}','${menuItem.MENU_NAME}','${menuItem.MENU_URL}')">
+											<i class="menu-icon fa fa-caret-right"></i>
+											${menuItem.MENU_NAME}
+										</a>
+										<b class="arrow"></b>
+									</li>
+								</c:if>
+							</c:forEach>
+						</ul>
+					</li>
+				</c:otherwise>
+			</c:choose>
 		</c:forEach>
 	</ul>
 	

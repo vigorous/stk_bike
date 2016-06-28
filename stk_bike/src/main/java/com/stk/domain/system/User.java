@@ -4,6 +4,7 @@ public class User {
 	private Integer id;
 	private String name;
 	private String password;
+	private String role_id;
 	
 	public Integer getId() {
 		return id;
@@ -26,6 +27,12 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
+	public String getRole_id() {
+		return role_id;
+	}
+	public void setRole_id(String role_id) {
+		this.role_id = role_id;
 	}
 	
 	

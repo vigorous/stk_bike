@@ -73,9 +73,9 @@ public class LoginController extends BaseController {
 				Session session = currentUser.getSession();
 				//测试用的User对象
 				User user = new User();
-				user.setId(1);
-				user.setName(pd.getString("name"));
-				user.setPassword(pd.getString("password"));
+				user.setName(userVO.getNAME());
+				user.setPassword(userVO.getPASSWORD());
+				user.setRole_id(userVO.getROLE_ID());
 				session.setAttribute(Const.SESSION_USER,user);
 			}else{
 				errInfo = "usererror";
@@ -95,6 +95,7 @@ public class LoginController extends BaseController {
 		map.put("result", errInfo);
 		return AppUtil.returnObject(new PageData(), map);
 	}
+	
 	/**
 	 * 访问首页
 	 * @param changeMenu
@@ -107,17 +108,24 @@ public class LoginController extends BaseController {
 		try {
 			MenuFacade menuFacade = FacadeFactory.getMenuFacade();
 			MenuVO menuVO = new MenuVO();
+			UserVO userVO = new UserVO();
+			Subject currentUser = SecurityUtils.getSubject();  
+			Session session = currentUser.getSession();
+			User user = (User)session.getAttribute(Const.SESSION_USER);
+			userVO.setROLE_ID(user.getRole_id());
 			//车辆管理
 			if("01".equals(changeMenu)){
 				//获取菜单信息
-				List<MenuVO> list = menuFacade.findRFIDMenu(menuVO);
+				List<MenuVO> list = menuFacade.findRFIDMenu(menuVO, userVO);
 				mv.addObject("list",list);
+				mv.addObject("menu_type","01");
 				mv.setViewName("system/admin/main");
 			//智能终端数据分析
 			}else if(("02".equals(changeMenu))){
 				//获取菜单信息
-				List<MenuVO> list = menuFacade.findMACMenu(menuVO);
+				List<MenuVO> list = menuFacade.findMACMenu(menuVO, userVO);
 				mv.addObject("list",list);
+				mv.addObject("menu_type","02");
 				mv.setViewName("system/admin/main");
 			}
 		} catch (Exception e) {

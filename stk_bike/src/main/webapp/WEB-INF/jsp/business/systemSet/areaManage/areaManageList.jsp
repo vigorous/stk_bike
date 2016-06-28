@@ -9,11 +9,10 @@
 <html>
 	<head lang="en">
 		<base href="<%=basePath%>">
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 		<style type="text/css">
 			.margin-bottom-5{margin-bottom: 5px;}
 			.width-120{width: 120px!important;}
-			.margin-left-30{margin-left: 30px;}
+			.margin-right-30{margin-right: 30px;}
 			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
@@ -25,163 +24,55 @@
 					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 						<thead>
 							<tr>
-								<th class="text-center" width="33.33%">区域ID</th>
-								<th class="text-center" width="33.33%">区域名称</th>
-								<th class="text-center" width="33.33%">操作</th>
+								<th class="text-center" width="10%">
+									<label class="pos-rel">
+										<input type="checkbox" class="ace" />
+										<span class="lbl"></span>
+									</label>
+								</th>
+								<th class="text-center" width="30%">区域编号</th>
+								<th class="text-center" width="30%">区域名称</th>
+								<th class="text-center" width="30%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>新城区</td>
-								<td>
-									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info">
-											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</button>
-										<button class="btn btn-xs btn-danger">
-											<i class="ace-icon fa fa-trash-o bigger-120"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
+							<c:if test="${empty list}">
+								<tr>
+									<td colspan="4">暂无数据</td>
+								</tr>
+							</c:if>
+							<c:forEach items="${list}" var="area">
+								<tr>
+									<td>
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" />
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td>${area.DISTRICT_NO}</td>
+									<td>${area.DISTRICT_NAME}</td>
+									<td>
+										<div class="hidden-sm hidden-xs btn-group">
+											<button class="btn btn-xs btn-info">
+												<i class="ace-icon fa fa-pencil bigger-120"></i>
+											</button>
+											<button class="btn btn-xs btn-danger">
+												<i class="ace-icon fa fa-trash-o bigger-120"></i>
+											</button>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<div class="btn-group">
 						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
+						<input type="button" class="btn btn-mini btn-success" value="删除" id="delete" />
 					</div>
-					${page.getPageStr()}
+					${page.pageStr}
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript" src="static/js/private_js/business/systemSet/areaManage/areaManageList.js"></script>
 	</body>
 </html>
