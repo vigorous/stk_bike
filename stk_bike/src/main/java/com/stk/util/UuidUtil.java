@@ -1,4 +1,4 @@
-package com.stk.entity;
+package com.stk.util;
 
 import java.util.UUID;
 

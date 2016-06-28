@@ -34,12 +34,17 @@
 							</tr>
 						</thead>
 						<tbody>
+							<c:if test="${empty list}">
+								<tr>
+									<td colspan="5">暂无数据</td>
+								</tr>
+							</c:if>
 							<c:forEach items="${list}" var="notice">
 								<tr>
-									<td>${notice.TITLE}</td>
-									<td>${notice.CONTET}</td>
-									<td>${notice.USER_ID}</td>
-									<td><fmt:formatDate value="${notice.CREATE_TIME}" pattern="yyyy-MM-dd"/></td>
+									<td>${notice.noticeVO.TITLE}</td>
+									<td>${notice.noticeVO.CONTET}</td>
+									<td>${notice.userVO.USER_ID}</td>
+									<td><fmt:formatDate value="${notice.noticeVO.CREATE_TIME}" pattern="yyyy-MM-dd"/></td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
 											<button class="btn btn-xs btn-info">

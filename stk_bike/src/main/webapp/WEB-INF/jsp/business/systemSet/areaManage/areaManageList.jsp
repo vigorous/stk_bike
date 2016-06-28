@@ -26,7 +26,7 @@
 							<tr>
 								<th class="text-center" width="10%">
 									<label class="pos-rel">
-										<input type="checkbox" class="ace" />
+										<input type="checkbox" class="ace" id="selectAll" />
 										<span class="lbl"></span>
 									</label>
 								</th>
@@ -45,7 +45,7 @@
 								<tr>
 									<td>
 										<label class="pos-rel">
-											<input type="checkbox" class="ace" />
+											<input type="checkbox" class="ace" name="select" data-id="${area.DISTRICT_ID}" />
 											<span class="lbl"></span>
 										</label>
 									</td>
@@ -53,10 +53,10 @@
 									<td>${area.DISTRICT_NAME}</td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" name="edit" data-id="${area.DISTRICT_ID}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
-											<button class="btn btn-xs btn-danger">
+											<button class="btn btn-xs btn-danger" name="delete" data-id="${area.DISTRICT_ID}">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 										</div>
@@ -67,7 +67,7 @@
 					</table>
 					<div class="btn-group">
 						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
-						<input type="button" class="btn btn-mini btn-success" value="删除" id="delete" />
+						<input type="button" class="btn btn-mini btn-success" value="删除" id="batchDelete" />
 					</div>
 					${page.pageStr}
 				</div>
