@@ -25,6 +25,10 @@
 				<table style="border:0">
 					<tr>
 						<td  class="col-padding-right">
+							<button class="btn btn-sm btn-info">添加车辆</button>
+						</td>
+						
+						<td  class="col-padding-right">
 							<button class="btn btn-sm btn-info">导入</button>
 						</td>
 						
@@ -39,7 +43,15 @@
 						<td  class="col-padding-right">
 							<button id="download" class="btn btn-sm btn-info">下载ZIP包</button>
 						</td>
-						
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="row row-margin-top">
+			<div class="col-xs-12">
+				<table style="border:0">
+					<tr>
 						<td class="col-padding-right">
 							<input type="text" value="" placeholder="电子牌照" />
 						</td>
