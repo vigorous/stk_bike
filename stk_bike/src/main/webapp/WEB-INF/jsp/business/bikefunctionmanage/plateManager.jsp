@@ -22,7 +22,7 @@
 		<table style="border: 0;">
 			<tr>
 				<td style="padding: 0 5px;">
-					<button class="btn btn-sm btn-primary">已巡回车发放电子车牌辆</button>
+					<button id="addPlate" class="btn btn-sm btn-primary">发放电子车牌</button>
 				</td>
 				<td>
 					<div class="input-group margin-right-30">
@@ -101,6 +101,7 @@
 		</table>
 	</div>
 </div>
+	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/plateManager.js"></script>
 <script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript">

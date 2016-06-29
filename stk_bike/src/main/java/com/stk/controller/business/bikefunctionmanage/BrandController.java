@@ -1,3 +1,4 @@
+
 package com.stk.controller.business.bikefunctionmanage;
 
 import java.io.IOException;
@@ -54,10 +55,12 @@ public class BrandController extends BaseController{
 		bo = bf.addBrand(bv);
 		return bo;
 	}
-	@RequestMapping(value="modifyBrand",method = RequestMethod.POST)
-	public Boolean modifyBrand(BrandVO vo) throws Exception{
+	@RequestMapping(value="modifyBrand/{id}",method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean modifyBrand(@PathVariable("id") String id,BrandVO vo) throws Exception{
 		Boolean bo = true;
 		BrandFacade bf=FacadeFactory.getBrandFacade();
+		vo.setBRAND_ID(id);
 		bo=bf.modifyBrand(vo);
 		return bo;
 	}
@@ -75,10 +78,8 @@ public class BrandController extends BaseController{
 	public ModelAndView end(@PathVariable("id") String id,Page page) throws Exception{
 		ModelAndView mv=new ModelAndView();
 		BrandFacade bf=FacadeFactory.getBrandFacade();
-		BrandVO vo=new BrandVO();
-		vo.setBRAND_ID(id);
-		List<BrandVO> list=bf.queryBrandByPage(page, vo);
-		mv.addObject("list", list);
+		BrandVO vo=bf.queryBrandByID(id);
+		mv.addObject("vo", vo);
 		mv.setViewName("business/bikefunctionmanage/brandManagerForm");
 		return mv;
 	}
