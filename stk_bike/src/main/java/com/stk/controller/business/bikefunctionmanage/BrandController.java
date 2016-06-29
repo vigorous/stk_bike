@@ -61,9 +61,9 @@ public class BrandController extends BaseController{
 		bo=bf.modifyBrand(vo);
 		return bo;
 	}
-	@RequestMapping(value="deleteBrand")
+	@RequestMapping(value="deleteBrand/{id}")
 	@ResponseBody
-	public Boolean deleteBrand(String id) throws Exception{
+	public Boolean deleteBrand(@PathVariable("id") String id) throws Exception{
 		BrandVO vo=new BrandVO();
 		vo.setBRAND_ID(id);
 		Boolean bo = true;

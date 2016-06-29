@@ -19,8 +19,7 @@ deleteBrand=function(id){
 	$.ajax({
 		cache:false,
 		type: "POST",
-		data:id,
-		url:ctxPath +"/brand/deleteBrand",
+		url:ctxPath +"/brand/deleteBrand/"+id,
 		success: function(data){
 			if(data==true){
 				alert("删除成功");
