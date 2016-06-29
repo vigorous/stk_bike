@@ -25,7 +25,7 @@
 				<table style="border:0">
 					<tr>
 						<td  class="col-padding-right">
-							<button class="btn btn-sm btn-info">添加车辆</button>
+							<button id="addbike" class="btn btn-sm btn-info">添加车辆</button>
 						</td>
 						
 						<td  class="col-padding-right">

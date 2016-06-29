@@ -18,7 +18,7 @@ import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.facade.BrandFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.UuidUtil;
+import com.stk.util.UuidUtil;
 @Controller
 @RequestMapping(value="/brand/")
 //品牌管理
@@ -61,11 +61,25 @@ public class BrandController extends BaseController{
 		bo=bf.modifyBrand(vo);
 		return bo;
 	}
-	@RequestMapping(value="deleteBrand",method = RequestMethod.POST)
-	public Boolean deleteBrand(BrandVO vo) throws Exception{
+	@RequestMapping(value="deleteBrand/{id}")
+	@ResponseBody
+	public Boolean deleteBrand(@PathVariable("id") String id) throws Exception{
+		BrandVO vo=new BrandVO();
+		vo.setBRAND_ID(id);
 		Boolean bo = true;
 		BrandFacade bf=FacadeFactory.getBrandFacade();
 		bo=bf.deleteBrand(vo);
 		return bo;
+	}
+	@RequestMapping(value="brandManagerForm/{id}")
+	public ModelAndView end(@PathVariable("id") String id,Page page) throws Exception{
+		ModelAndView mv=new ModelAndView();
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		BrandVO vo=new BrandVO();
+		vo.setBRAND_ID(id);
+		List<BrandVO> list=bf.queryBrandByPage(page, vo);
+		mv.addObject("list", list);
+		mv.setViewName("business/bikefunctionmanage/brandManagerForm");
+		return mv;
 	}
 }

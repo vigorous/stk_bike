@@ -45,6 +45,7 @@
 					</div>
 			</form>
 		</div>
+		<script src="static/js/private_js/admin/head.js"></script>
 		 <script type="text/javascript" src="static/js/jquery.tips.js"></script>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
 		<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/brandManagerForm.js"></script>

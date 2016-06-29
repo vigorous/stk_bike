@@ -1,16 +1,20 @@
 package com.stk.controller.business.bikefunctionmanage;
 
+import java.io.IOException;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.sse.bikemanagement.entity.BikeVO;
+import com.sse.bikemanagement.entity.BrandVO;
 import com.sse.bikemanagement.entity.LostBikeVO;
 import com.sse.bikemanagement.entity.OwnerVO;
 import com.sse.bikemanagement.facade.BikeFacade;
+import com.sse.bikemanagement.facade.BrandFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.UuidUtil;
+import com.stk.util.UuidUtil;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.RegisterVO;
 @Controller
@@ -31,10 +35,10 @@ public class BikeController extends BaseController{
 	public String machineForm(){
 		return "dialog/bikeMsg";
 	}
-	@RequestMapping(value="add")
-	public ModelAndView add(){
+	@RequestMapping(value="addbike")
+	public ModelAndView addbike(){
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("business/bikefunctionmanage/");
+		mv.setViewName("business/bikefunctionmanage/addBike");
 		return mv;
 	}
 	@RequestMapping(value="addBikeInfo")
@@ -58,5 +62,13 @@ public class BikeController extends BaseController{
 		BikeFacade bf=FacadeFactory.getBikeFacade();
 		bo=	bf.modifyBikeInfo(bikeVO, ownerVO, registerVO);
 		return bo;
+	}
+	//查询所有品牌返回list对象
+	@RequestMapping(value="selectBrandVO")
+	@ResponseBody
+	public List<BrandVO> selectBrand() throws Exception{
+		BrandFacade bf=FacadeFactory.getBrandFacade();
+		List<BrandVO> li=bf.queryAllBrand();
+		return li;
 	}
 }
