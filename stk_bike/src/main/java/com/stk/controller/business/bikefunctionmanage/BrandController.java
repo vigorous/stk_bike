@@ -1,3 +1,4 @@
+
 package com.stk.controller.business.bikefunctionmanage;
 
 import java.io.IOException;
@@ -75,10 +76,8 @@ public class BrandController extends BaseController{
 	public ModelAndView end(@PathVariable("id") String id,Page page) throws Exception{
 		ModelAndView mv=new ModelAndView();
 		BrandFacade bf=FacadeFactory.getBrandFacade();
-		BrandVO vo=new BrandVO();
-		vo.setBRAND_ID(id);
-		List<BrandVO> list=bf.queryBrandByPage(page, vo);
-		mv.addObject("list", list);
+		BrandVO vo=bf.queryBrandByID(id);
+		mv.addObject("vo", vo);
 		mv.setViewName("business/bikefunctionmanage/brandManagerForm");
 		return mv;
 	}
