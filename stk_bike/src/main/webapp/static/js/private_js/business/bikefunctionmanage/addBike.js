@@ -2,10 +2,6 @@ $("#quit").click(function(){
 	Dialog.close();
 })
 $(document).ready(function(){
-	$("#brandNo").click(function(){
-		
-	});
-	debugger
 	var ctxPath=$("#ctxPath").val();
 	$.ajax({
 		cache: false,
