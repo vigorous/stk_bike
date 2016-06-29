@@ -50,7 +50,7 @@
 		<c:forEach items="${list}" var="menu" varStatus="varStatus">
 			<c:choose>
 				<c:when test="${menu.MENU_NAME == '首页'}">
-					<li class="active">
+					<li class="">
 						<a href="javascript:;" onclick="addTab('${menu.MENU_ID}','${menu.MENU_ID}','${menu.MENU_NAME}','${menu.MENU_URL}')">
 							<i class="menu-icon fa ${menu.MENU_ICON}"></i>
 							<span class="menu-text">${menu.MENU_NAME} </span>
