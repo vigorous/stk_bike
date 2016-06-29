@@ -176,7 +176,7 @@
 
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					经办人工号： </label>
+					经办人姓名： </label>
 				<div class="col-xs-6 no-padding-left">
 					<select class="form-control" name="POLICE_ID" id="adds">
 					</select>
@@ -185,11 +185,6 @@
 		</div>
 
 		<div class="row row-margin-top">
-			<div class="col-xs-6">
-				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					经办人姓名： </label> <input type="text" value="" />
-			</div>
-
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
 					发卡单位： </label> <input type="text" name="POLICE_OFFICE_ID" value="" />

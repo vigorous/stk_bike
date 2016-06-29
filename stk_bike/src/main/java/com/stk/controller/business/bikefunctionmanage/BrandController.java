@@ -55,10 +55,12 @@ public class BrandController extends BaseController{
 		bo = bf.addBrand(bv);
 		return bo;
 	}
-	@RequestMapping(value="modifyBrand",method = RequestMethod.POST)
-	public Boolean modifyBrand(BrandVO vo) throws Exception{
+	@RequestMapping(value="modifyBrand/{id}",method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean modifyBrand(@PathVariable("id") String id,BrandVO vo) throws Exception{
 		Boolean bo = true;
 		BrandFacade bf=FacadeFactory.getBrandFacade();
+		vo.setBRAND_ID(id);
 		bo=bf.modifyBrand(vo);
 		return bo;
 	}
