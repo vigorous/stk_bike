@@ -10,7 +10,7 @@ import com.sse.bikemanagement.entity.OwnerVO;
 import com.sse.bikemanagement.facade.BikeFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.UuidUtil;
+import com.stk.util.UuidUtil;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.RegisterVO;
 @Controller
@@ -31,10 +31,10 @@ public class BikeController extends BaseController{
 	public String machineForm(){
 		return "dialog/bikeMsg";
 	}
-	@RequestMapping(value="add")
-	public ModelAndView add(){
+	@RequestMapping(value="addbike")
+	public ModelAndView addbike(){
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("business/bikefunctionmanage/");
+		mv.setViewName("business/bikefunctionmanage/addBike");
 		return mv;
 	}
 	@RequestMapping(value="addBikeInfo")
