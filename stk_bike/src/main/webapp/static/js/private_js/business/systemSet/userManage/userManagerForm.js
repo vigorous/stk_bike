@@ -1,23 +1,13 @@
-var formId = '#areaForm';
+var formId = '#userForm';
 bindEvent();
 
 function bindEvent(){
-	//区县级别选择二级时，显示上级区县下拉
-	$(formId).find("select[name='DISTRICT_LEVEL']").change(function(){
-		var districtLevel = $(this).val();
-		if(districtLevel == 1){
-			$("#parentDistrict").addClass("hide");
-		}else if(districtLevel == 2){
-			$("#parentDistrict").removeClass("hide");
-		}
-	});
-	
 	//保存
 	$("#save").off().click(function(){
-		var oper = $("#oper").val();	
-		var url = 'areaManage/addArea';
+		var oper = $("#oper").val();
+		var url = 'userManage/addUser';
 		if(oper == 'edit'){
-			url = 'areaManage/editArea';
+			url = 'userManage/editUser';
 		}
 		btnDisenable();
 		$.ajax({
@@ -63,15 +53,5 @@ function showDialog(tip, success){
 
 //刷新页面
 function refresh(){
-	addTab('bea8ebd27048422f9ae9efe2a60eee0d','cc7f755f347c4ae7b0f6c704652d5b4d','区域管理','areaManage/areaManageList')
-}
-
-//按钮不可用
-function btnEnable(){
-	$("input[type='button']").removeAttr("disabled");
-}
-
-//按钮可用
-function btnDisenable(){
-	$("input[type='button']").attr("disabled","disabled");
+	addTab('b7cc9061c19645c9925af0c84ac24633','cc7f755f347c4ae7b0f6c704652d5b4d','用户管理','userManage/userManageList')
 }

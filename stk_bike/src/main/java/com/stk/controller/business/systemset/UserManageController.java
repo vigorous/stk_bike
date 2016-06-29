@@ -1,6 +1,9 @@
 package com.stk.controller.business.systemset;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.jws.WebParam.Mode;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,74 +11,72 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.UserVO;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.UserFacade;
+import com.sse.bikemanagement.info.UserInfoVO;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.Page;
 import com.stk.util.UuidUtil;
 
 @Controller
 @RequestMapping(value = "/userManage")
 public class UserManageController extends BaseController {
 
-	/**
-	 * 跳转到用户管理列表页
-	 * 
-	 * @return
+	/*
+	 * 查询所有用户信息
 	 */
 	@RequestMapping(value = "/userManageList")
-	public ModelAndView userManageList(Model model, Integer currentPage, Integer showCount) {
-		// 造数据
-		Page page = new Page();
-		if (currentPage == null) {
-			page.setCurrentPage(1);
-		} else {
-			page.setCurrentPage(currentPage);
-		}
-		if (showCount == null) {
-			page.setShowCount(10);
-		} else {
-			page.setShowCount(showCount);
-		}
-		page.setTotalPage(10);
-		page.setTotalResult(100);
+	public ModelAndView userManageList(Page page) throws Exception {
+		List<UserInfoVO> userInfoList = FacadeFactory.getUserFacade().queryAllUsers(page, new UserVO());
+		ModelAndView mv = this.getModelAndView();
+		mv.addObject("page", page);
+		mv.addObject("list", userInfoList);
+		mv.setViewName("business/systemSet/userManage/userManageList");
+		return mv;
 
-		model.addAttribute("page", page);
-		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/systemSet/userManage/userManageList");
-		return mav;
 	}
 
 	/**
 	 * 跳转到用户管理编辑页
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
-	@RequestMapping(value = "/userManageForm")
-	public String userManageForm() {
+	@RequestMapping(value = "/userManagePage")
+	public String userManageForm(Model model,UserVO userVO) throws Exception {
+		UserInfoVO userInfoVO=FacadeFactory.getUserFacade().queryUserByID(userVO);
+		model.addAttribute("districtVO", userInfoVO);
+		model.addAttribute("oper", "edit");
 		return "business/systemSet/userManage/userManageForm";
 	}
 
 	/*
-	 * 查询所有角色
-	 * */
-	@RequestMapping(value="/addUserPage")
-	public String addUserPage(Model model) throws IOException, Exception{
+	 * 查询用户所有角色信息
+	 */
+	@RequestMapping(value = "/addUserPage")
+	public String addUserPage(Model model) throws IOException, Exception {
 		FacadeFactory.getRoleFacade().queryAllRole(null);
 		return null;
 	}
-	
-	
+
+	/*
+	 * 修改用户信息
+	 */
+	@RequestMapping(value = "/editUser")
+	public Boolean editUser(UserVO userVO) throws IOException, Exception {
+		boolean flag = FacadeFactory.getUserFacade().modifyUser(userVO);
+		return flag;
+	}
+
 	/*
 	 * 添加用户
-	 * 
 	 */
 	@RequestMapping(value = "/addUser")
 	@ResponseBody
 	public Boolean addUser(UserVO userVO) throws IOException, Exception {
-	    userVO.setUSER_ID(UuidUtil.get32UUID());
-		boolean flag=FacadeFactory.getUserFacade().addUser(userVO);
+		userVO.setUSER_ID(UuidUtil.get32UUID());
+		boolean flag = FacadeFactory.getUserFacade().addUser(userVO);
 		return flag;
 	}
 

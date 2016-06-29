@@ -30,6 +30,7 @@
 	padding-bottom: 0px !important;
 }
 .color-red{color: red;}
+.btn-mini{padding: 4px 12px!important;line-height: 20px!important;border: 1px solid #ddd!important;}
 </style>
 <%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 </head>
@@ -73,6 +74,18 @@
 			</div>
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
+					<span class="color-red">*</span><span>所属公安局</span>
+				</div>
+				<div class="col-xs-7">
+					<select class="form-control chosen-select" data-placeholder="公安局名称" name="POLICE_OFFICE_NAME">
+						<option value=""></option>
+						<option value="2">秀洲公安局</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row margin-bottom-10">
+				<div class="col-xs-5 text-right padding-top-1">
 					<span class="color-red">*</span><span>状态</span>
 				</div>
 				<div class="col-xs-7">
@@ -82,6 +95,7 @@
 					</select>
 				</div>
 			</div>
+			
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
 					<span>电话号码</span>
@@ -106,6 +120,16 @@
 					<input type="text" class="width-160" value="" name="NOTE" />
 				</div>
 			</div>
+			<div class="row">
+					<div class="col-xs-5 text-right">
+					</div>
+					<div class="col-xs-7 text-left">
+						<div class="btn-group">
+							<input type="button" class="btn btn-mini btn-success" value="保存" id="save" />
+							<input type="button" class="btn btn-mini btn-success" value="取消" id="cancel" />
+						</div>
+					</div>
+				</div>
 		</form>
 	</div>
 	<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
