@@ -23,11 +23,7 @@ function bindEvent(){
 	//编辑
 	$("button[name='edit']").off().click(function(){
 		var district_id = $(this).attr("data-id");
-		var dialog = new Dialog();
-		dialog.Title = "编辑区域";
-		dialog.URL = "editAreaPage?DISTRICT_ID=" + district_id;
-		dialog.Height = 180;
-		dialog.show();
+		editDialog(district_id);
 	});
 	
 	//删除
@@ -46,8 +42,8 @@ function bindEvent(){
 						showDialog("删除失败");
 					}
 				},
-				error : function(error){
-					showDialog(error);
+				error : function(){
+					showDialog("删除失败");
 				}
 			});
 		});
@@ -77,12 +73,27 @@ function bindEvent(){
 						showDialog("删除失败");
 					}
 				},
-				error : function(error){
-					showDialog(error);
+				error : function(){
+					showDialog("删除失败");
 				}
 			});
 		}
 	});
+	
+	//表格双击行弹出编辑页面
+	$("#areaManageListTable tbody tr").off().dblclick(function(){
+		var district_id = $(this).attr("data-id");
+		editDialog(district_id);
+	});
+}
+
+//弹出编辑页面
+function editDialog(district_id){
+	var dialog = new Dialog();
+	dialog.Title = "编辑区域";
+	dialog.URL = "editAreaPage?DISTRICT_ID=" + district_id;
+	dialog.Height = 180;
+	dialog.show();
 }
 
 //弹框

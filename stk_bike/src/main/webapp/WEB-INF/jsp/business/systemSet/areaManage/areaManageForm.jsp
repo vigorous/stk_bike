@@ -85,6 +85,7 @@
 			$('.chosen-select').chosen({width:"160px"});
 		</script>
 		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
+		<script type="text/javascript" src="static/js/jquery.tips.js"></script>
 		<script type="text/javascript" src="static/js/private_js/business/systemSet/areaManage/areaManageForm.js"></script>
 	</body>
 </html>
