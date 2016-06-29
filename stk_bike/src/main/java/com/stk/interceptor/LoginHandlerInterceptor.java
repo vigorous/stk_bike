@@ -8,7 +8,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.stk.domain.system.User;
+import com.sse.bikemanagement.entity.UserVO;
 import com.stk.util.Const;
 
 public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
@@ -29,7 +29,7 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 			System.out.println("=====================shiro管理的session=======================");
 			Subject currentUser = SecurityUtils.getSubject();  
 			Session session = currentUser.getSession();
-			User userVO = (User)session.getAttribute(Const.SESSION_USER);
+			UserVO userVO = (UserVO)session.getAttribute(Const.SESSION_USER);
 			System.out.println(userVO);
 			if(userVO!=null){
 				/*path = path.substring(1, path.length());

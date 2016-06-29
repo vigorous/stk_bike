@@ -71,12 +71,7 @@ public class LoginController extends BaseController {
 			if(isLogin){
 				Subject currentUser = SecurityUtils.getSubject();  
 				Session session = currentUser.getSession();
-				//测试用的User对象
-				User user = new User();
-				user.setName(userVO.getNAME());
-				user.setPassword(userVO.getPASSWORD());
-				user.setRole_id(userVO.getROLE_ID());
-				session.setAttribute(Const.SESSION_USER,user);
+				session.setAttribute(Const.SESSION_USER,userVO);
 			}else{
 				errInfo = "usererror";
 			}
@@ -111,8 +106,8 @@ public class LoginController extends BaseController {
 			UserVO userVO = new UserVO();
 			Subject currentUser = SecurityUtils.getSubject();  
 			Session session = currentUser.getSession();
-			User user = (User)session.getAttribute(Const.SESSION_USER);
-			userVO.setROLE_ID(user.getRole_id());
+			UserVO user = (UserVO)session.getAttribute(Const.SESSION_USER);
+			userVO.setROLE_ID(user.getROLE_ID());
 			//车辆管理
 			if("01".equals(changeMenu)){
 				//获取菜单信息
