@@ -1,6 +1,5 @@
 package com.stk.controller.business.systemset;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -50,6 +49,22 @@ public class AreaManageController extends BaseController {
 		model.addAttribute("districtList", districtList);
 		model.addAttribute("oper", "add");
 		return "business/systemSet/areaManage/areaManageForm";
+	}
+	
+	/**
+	 * 跳转到区域管理详情页
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping(value="/areaDetailPage")
+	public String areaDetailPage(Model model, DistrictVO districtVO) throws Exception{
+		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
+		districtVO = districtFacade.queryDistrictByID(districtVO);
+		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
+		model.addAttribute("districtVO", districtVO);
+		model.addAttribute("districtList", districtList);
+		model.addAttribute("oper", "detail");
+		return "business/systemSet/areaManage/areaManageDetail";
 	}
 	
 	/**
@@ -119,9 +134,30 @@ public class AreaManageController extends BaseController {
 	 */
 	@RequestMapping(value="/batchDeleteArea", method = RequestMethod.POST)
 	@ResponseBody
-	public Boolean batchDeleteArea(@RequestBody ArrayList<DistrictVO> list) throws Exception{
+	public Boolean batchDeleteArea(@RequestBody List<DistrictVO> list) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
 		Boolean flag = districtFacade.deleteMoreDistrict(list);
+		return flag;
+	}
+	
+	/**
+	 * 验证区域ID是否存在
+	 * @param districtVO
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/isExistAreaId")
+	@ResponseBody
+	public Boolean isExistAreaId(DistrictVO districtVO) throws Exception{
+		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
+		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
+		Boolean flag = false;
+		for (DistrictVO district : districtList) {
+			if(district.getDISTRICT_ID().equals(districtVO.getDISTRICT_ID())){
+				flag = true;
+				return flag;
+			}
+		}
 		return flag;
 	}
 }
