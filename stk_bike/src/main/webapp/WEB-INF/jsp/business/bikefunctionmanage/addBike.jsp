@@ -14,6 +14,7 @@
 	<title>车辆详细信息弹窗</title>
 </head>
 <body class="no-skin">
+<input type="hidden" value="<%=basePath%>" id="ctxPath" >
 	<div class="page-content">
 	<div class="row">
 	<form action="">
@@ -23,12 +24,12 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 电子牌照： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_EID" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
-				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 案件号： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">备案牌照： </label>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_NO" class="width-160" value="" /></span>
 			</div>
 		</div>
 		
@@ -36,14 +37,14 @@
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车辆类型： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
-					<input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" />
+					<input type="text" id="brandName" name="BIKE_TYPE" class="width-160" value="" />
 				</span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车辆来源： </label>
 				<span class="col-xs-6 no-padding-right dialog-text"><td>
-					<select class="form-control chosen-select" data-placeholder="车辆来源">
+					<select class="form-control chosen-select" name="BIKE_SOURCE" data-placeholder="车辆来源">
 						<option value="0">新车</option>
 						<option value="1">旧车</option>
 					</select>
@@ -54,12 +55,12 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车身主色： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_COLOR" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车辆型号： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_MODEL" class="width-160" value="" /></span>
 			</div>
 		</div>
 		
@@ -67,9 +68,8 @@
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车辆品牌： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
-				<select class="form-control chosen-select" data-placeholder="车辆品牌">
-						<option value="0">新车</option>
-						<option value="1">旧车</option>
+				<select class="form-control chosen-select" id="brandNo" name="BIKE_BRAND_NO" data-placeholder="车辆品牌">
+						
 					</select>
 					</span>
 			</div>
@@ -83,12 +83,7 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车架号： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
-			</div>
-			
-			<div class="col-xs-6">
-				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车架号： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_SKELETON_NO" class="width-160" value="" /></span>
 			</div>
 		</div>
 		
@@ -98,15 +93,15 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车主姓名： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_NAME" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 性别： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
-				<select class="form-control chosen-select" data-placeholder="性别">
-						<option value="0">男</option>
-						<option value="1">女</option>
+				<select class="form-control chosen-select" name="OWNER_SEX" data-placeholder="性别">
+						<option value="00">男</option>
+						<option value="01">女</option>
 					</select>
 				</span>
 			</div>
@@ -114,16 +109,16 @@
 		
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
-				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 身份证： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<label class="col-xs-5 no-padding-right dialog-text text-rt"  for=""> 身份证： </label>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_SFID" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 居住地属性： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
-				<select class="form-control chosen-select" data-placeholder="居住地属性">
-						<option value="0">常住</option>
-						<option value="1">短住</option>
+				<select class="form-control chosen-select" name="OWNER_ADDR_STATUS" data-placeholder="居住地属性">
+						<option value="00">常住</option>
+						<option value="01">短住</option>
 				</select>
 				</span>
 			</div>
@@ -132,19 +127,19 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车主联系地址： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_ADDRESS" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车主工作单位： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_COMPANY" class="width-160" value="" /></span>
 			</div>
 		</div>
 		
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车主联系电话： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_PHONE" class="width-160" value="" /></span>
 			</div>
 			
 		</div>
@@ -157,7 +152,7 @@
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车辆登记时间： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
 					<div class="input-group margin-right-30">
-						<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="登记日期" />
+						<input class="form-control date-picker text-center width-120" name="REGISTER_TIME" type="text" data-date-format="yyyy-mm-dd" placeholder="登记日期" />
 						<span class="input-group-addon border-left-0">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
@@ -167,20 +162,20 @@
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 车主身份证号： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="OWNER_SFID" class="width-160" value="" /></span>
 			</div>
 		</div>
 		
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 电子牌照： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BIKE_ID" class="width-160" value="" /></span>
 			</div>
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 经办人工号： </label>
 				<span class="col-xs-6 no-padding-right dialog-text">
-					<select class="form-control chosen-select" data-placeholder="经办人工号">
+					<select class="form-control chosen-select" name="POLICE_ID" data-placeholder="经办人工号">
 						<option value="0">常住</option>
 						<option value="1">短住</option>
 					</select>
@@ -196,7 +191,7 @@
 			
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 发卡单位： </label>
-				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" /></span>
+				<span class="col-xs-6 no-padding-right dialog-text"><input type="text" id="brandName" name="POLICE_OFFICE_ID" class="width-160" value="" /></span>
 			</div>
 		</div>
 		<div class="clearfix form-actions">
