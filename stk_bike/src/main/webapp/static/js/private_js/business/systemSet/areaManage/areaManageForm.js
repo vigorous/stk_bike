@@ -16,33 +16,92 @@ function bindEvent(){
 	$("#save").off().click(function(){
 		var oper = $("#oper").val();	
 		var url = 'areaManage/addArea';
+		var district_no = $(formId).find("input[name='DISTRICT_NO']").val();
 		if(oper == 'edit'){
 			url = 'areaManage/editArea';
 		}
+		if(!validateForm()){
+			return false;
+		}
 		btnDisenable();
 		$.ajax({
-			url : url,
-			data : $(formId).serialize(),
+			url : 'areaManage/isExistAreaId',
+			data : {
+				DISTRICT_NO : district_no
+			},
 			success : function(data){
 				if(data){
-					showDialog("保存成功", function(){
-						refresh();
-						closeDialog();
+					showDialog("区域编号已存在", btnEnable);
+				}else{
+					$.ajax({
+						url : url,
+						data : $(formId).serialize(),
+						success : function(data){
+							if(data){
+								showDialog("保存成功", function(){
+									refresh();
+									closeDialog();
+								});
+							}else{
+								showDialog("保存失败", btnEnable);
+							}
+						},
+						error : function(){
+							showDialog("保存失败", btnEnable);
+						}
 					});
 				}
 			},
-			error : function(error){
-				showDialog(error);
-			},
-			compelete : function(){
-				btnEnable();
+			error : function(){
+				showDialog("保存失败", btnEnable);
 			}
-		});
+		})
 	});
 	
 	//取消
 	$("#cancel").off().click(function(){
 		closeDialog();
+	});
+}
+
+//验证表单
+function validateForm(){
+	var flag = true;
+	var district_no_input = $(formId).find("input[name='DISTRICT_NO']");
+	var district_no_length = $.trim(district_no_input.val()).length;
+	var district_name_input = $(formId).find("input[name='DISTRICT_NAME']");
+	var district_name_length = $.trim(district_name_input.val()).length;
+	var district_level_select = $(formId).find("select[name='DISTRICT_LEVEL']");
+	var district_level_length = $.trim(district_level_select.val()).length;
+	var parent_no_select = $(formId).find("select[name='PARENT_NO']");
+	var parent_no_length = $.trim(parent_no_select.val()).length;
+	if(district_no_length < 1 || district_no_length > 10){
+		showTip(district_no_input, "20位字符以内");
+		flag = false;
+	}
+	if(district_name_length < 1 || district_name_length > 60){
+		showTip(district_name_input, "60位字符以内");
+		flag = false;
+	}
+	if(district_level_length < 1){
+		showTip(district_level_select.next(), "选择区县级别");
+		flag = false;
+	}
+	if(!$("#parentDistrict").hasClass("hide") && parent_no_length < 1){
+		showTip(parent_no_select.next(), "选择上级区县");
+		flag = false;
+	}
+	return flag;
+}
+
+//给jquery元素设置提示
+function showTip(element, msg){
+	element.tips({
+		msg : msg,
+		side : 2,
+		bg : '#FF0000',
+		time : 3,
+		x : 12
 	});
 }
 
@@ -68,10 +127,10 @@ function refresh(){
 
 //按钮不可用
 function btnEnable(){
-	$("input[type='button']").removeAttr("disabled");
+	$(formId).find("input[type='button']").removeAttr("disabled");
 }
 
 //按钮可用
 function btnDisenable(){
-	$("input[type='button']").attr("disabled","disabled");
+	$(formId).find("input[type='button']").attr("disabled","disabled");
 }

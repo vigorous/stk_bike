@@ -22,7 +22,7 @@
 		<div class="page-content padding-bottom-0">
 			<div class="row">
 				<div class="col-xs-12">
-					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5" id="areaManageListTable">
 						<thead>
 							<tr>
 								<th class="text-center" width="10%">
@@ -44,7 +44,7 @@
 								</tr>
 							</c:if>
 							<c:forEach items="${list}" var="area">
-								<tr>
+								<tr data-id="${area.DISTRICT_ID}">
 									<td>
 										<label class="pos-rel">
 											<input type="checkbox" class="ace" name="select" data-id="${area.DISTRICT_ID}" />

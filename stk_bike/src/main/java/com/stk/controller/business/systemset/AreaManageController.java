@@ -153,7 +153,7 @@ public class AreaManageController extends BaseController {
 		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
 		Boolean flag = false;
 		for (DistrictVO district : districtList) {
-			if(district.getDISTRICT_ID().equals(districtVO.getDISTRICT_ID())){
+			if(district.getDISTRICT_NO().equals(districtVO.getDISTRICT_NO())){
 				flag = true;
 				return flag;
 			}

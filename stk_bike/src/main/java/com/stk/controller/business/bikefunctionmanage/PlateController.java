@@ -13,4 +13,10 @@ public class PlateController {
 		mv.setViewName("business/bikefunctionmanage/plateManager");
 		return mv;
 	}
+	@RequestMapping(value="plateManagerForm")
+	public ModelAndView plateManagerForm(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("business/bikefunctionmanage/plateManagerForm");
+		return mv;
+	}
 }

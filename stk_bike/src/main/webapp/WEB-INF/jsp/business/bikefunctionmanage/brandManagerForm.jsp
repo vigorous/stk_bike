@@ -28,7 +28,7 @@
 						<span>品牌编号：</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" id="brandNo" name="BRAND_NO" class="width-160" value="" />
+						<input type="text" id="brandNo" name="BRAND_NO" class="width-160" value="${vo.BRAND_NO }" />
 					</div>
 			</div>
 			<div class="row margin-bottom-10" style="margin-top: 40px;">
@@ -36,11 +36,11 @@
 						<span>品牌名称：</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="" />
+						<input type="text" id="brandName" name="BRAND_NAME" class="width-160" value="${vo.BRAND_NAME }" />
 					</div>
 				</div>
 				<div class="clearfix form-actions" style="margin-top: 40px;">
-						<div class="col-xs-offset-4 col-xs-3"><input onclick="save()" class="btn btn-info" id="add" type="button" value="保存" /></div>
+						<div class="col-xs-offset-4 col-xs-3"><input onclick="save('${vo.BRAND_ID }')" class="btn btn-info" id="add" type="button" value="保存" /></div>
 						<div class="col-xs-3"><input class="btn" id="quit" type="button" value="退出" /></div>
 					</div>
 			</form>
