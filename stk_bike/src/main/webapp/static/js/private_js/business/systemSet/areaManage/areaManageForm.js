@@ -15,7 +15,7 @@ function bindEvent(){
 	
 	//保存
 	$("#save").off().click(function(){
-		var oper = $("#oper").val();
+		var oper = $("#oper").val();	
 		var url = 'areaManage/addArea';
 		var district_no = $(formId).find("input[name='DISTRICT_NO']").val();
 		if(oper == 'edit'){
