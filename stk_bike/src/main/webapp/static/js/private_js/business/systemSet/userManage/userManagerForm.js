@@ -7,7 +7,7 @@ function bindEvent(){
 		var oper = $("#oper").val();
 		var url = 'userManage/addUser';
 		if(oper == 'edit'){
-			url = 'userManage/editUser';
+			url = 'userManage/editUser';   
 		}
 		btnDisenable();
 		$.ajax({
@@ -54,4 +54,14 @@ function showDialog(tip, success){
 //刷新页面
 function refresh(){
 	addTab('b7cc9061c19645c9925af0c84ac24633','cc7f755f347c4ae7b0f6c704652d5b4d','用户管理','userManage/userManageList')
+}
+
+//按钮不可用
+function btnEnable(){
+	$(formId).find("input[type='button']").removeAttr("disabled");
+}
+
+//按钮可用
+function btnDisenable(){
+	$(formId).find("input[type='button']").attr("disabled","disabled");
 }

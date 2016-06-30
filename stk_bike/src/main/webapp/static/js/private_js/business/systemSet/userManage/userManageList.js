@@ -1,14 +1,13 @@
 bindEvent();
 
-
 // 保存
 function bindEvent() {
 	// 新建
-	$("#new").off().click(function() {
+	 $("#new").off().click(function() {
 		var dialog = new Dialog();
 		dialog.Title = "新建用户";
-		dialog.URL = "userManageForm";
-		dialog.Height = 225;
+		dialog.URL = "addUserPage";
+		dialog.Height = 450;
 		dialog.show();
 	});
 
@@ -18,7 +17,7 @@ function bindEvent() {
 		var dialog = new Dialog();
 		dialog.Title = "编辑区域";
 		dialog.URL = "userManagePage?USER_ID=" + user_id;
-		dialog.Height = 180;
+		dialog.Height = 450;
 		dialog.show();
 	});
 

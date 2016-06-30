@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sse.bikemanagement.entity.Page;
+import com.sse.bikemanagement.entity.PoliceOfficeVO;
+import com.sse.bikemanagement.entity.RoleVO;
 import com.sse.bikemanagement.entity.UserVO;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.UserFacade;
@@ -36,7 +38,6 @@ public class UserManageController extends BaseController {
 		return mv;
 
 	}
-
 	/**
 	 * 跳转到用户管理编辑页
 	 * 
@@ -46,28 +47,28 @@ public class UserManageController extends BaseController {
 	@RequestMapping(value = "/userManagePage")
 	public String userManageForm(Model model,UserVO userVO) throws Exception {
 		UserInfoVO userInfoVO=FacadeFactory.getUserFacade().queryUserByID(userVO);
-		model.addAttribute("districtVO", userInfoVO);
+		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+		model.addAttribute("roleVoList", roleVoList);
+		model.addAttribute("userInfoVO", userInfoVO);
+		model.addAttribute("policeList", policeList);
 		model.addAttribute("oper", "edit");
 		return "business/systemSet/userManage/userManageForm";
 	}
 
 	/*
-	 * 查询用户所有角色信息
+	 *跳转到用户管理新建页
 	 */
 	@RequestMapping(value = "/addUserPage")
 	public String addUserPage(Model model) throws IOException, Exception {
-		FacadeFactory.getRoleFacade().queryAllRole(null);
-		return null;
+		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+		model.addAttribute("policeList", policeList);
+		model.addAttribute("roleVoList", roleVoList);
+		model.addAttribute("oper", "add");
+		return "business/systemSet/userManage/userManageForm";
 	}
 
-	/*
-	 * 修改用户信息
-	 */
-	@RequestMapping(value = "/editUser")
-	public Boolean editUser(UserVO userVO) throws IOException, Exception {
-		boolean flag = FacadeFactory.getUserFacade().modifyUser(userVO);
-		return flag;
-	}
 
 	/*
 	 * 添加用户
