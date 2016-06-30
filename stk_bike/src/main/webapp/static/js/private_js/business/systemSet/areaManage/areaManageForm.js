@@ -1,6 +1,7 @@
 var formId = '#areaForm';
 bindEvent();
 
+//绑定事件
 function bindEvent(){
 	//区县级别选择二级时，显示上级区县下拉
 	$(formId).find("select[name='DISTRICT_LEVEL']").change(function(){
