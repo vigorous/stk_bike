@@ -54,7 +54,7 @@
 						</c:if>
 						<c:forEach items="${list}" var="user">
 							<tr>
-								<td>${user.userVO.USER_ID}</td>
+								<td>${user.userVO.USERNAME}</td>
 								<td>${user.userVO.NAME}</td>
 								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 								<td>${user.roleVo.ROLE_NAME}</td>
@@ -80,6 +80,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript"
 		src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 	<script type="text/javascript"

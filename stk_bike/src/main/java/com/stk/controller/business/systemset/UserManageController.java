@@ -71,7 +71,7 @@ public class UserManageController extends BaseController {
 
 
 	/*
-	 * 添加用户
+	 * 新建用户
 	 */
 	@RequestMapping(value = "/addUser")
 	@ResponseBody
@@ -81,6 +81,19 @@ public class UserManageController extends BaseController {
 		return flag;
 	}
 
+	/*
+	 * 编辑用户
+	 * */
+	
+	@RequestMapping(value="/editUser")
+	@ResponseBody
+	public Boolean editUser(Model model, UserVO userVO) throws IOException, Exception{
+		boolean flag=FacadeFactory.getUserFacade().modifyUser(userVO);
+		model.addAttribute("oper", "edit");
+		return flag;
+		
+	}
+	
 	/*
 	 * 删除用户
 	 * 

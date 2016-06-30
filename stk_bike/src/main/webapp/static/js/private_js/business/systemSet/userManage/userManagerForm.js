@@ -6,8 +6,12 @@ function bindEvent(){
 	$("#save").off().click(function(){
 		var oper = $("#oper").val();
 		var url = 'userManage/addUser';
+		
 		if(oper == 'edit'){
 			url = 'userManage/editUser';   
+		}
+		if(!validateForm()){
+			return false;
 		}
 		btnDisenable();
 		$.ajax({
@@ -36,6 +40,49 @@ function bindEvent(){
 	});
 }
 
+//验证表单
+function validateForm(){
+	var flag = true;
+	var userInfoVO_userName_input = $(formId).find("input[name='USERNAME']");
+	var userInfoVO_userName_length = $.trim(userInfoVO_userName_input.val()).length;
+	
+	var userInfoVO_passWord_input=$(formId).find("input[name='PASSWORD']");
+	var userInfoVO_passWord_length=$.trim(userInfoVO_passWord_input.val()).length;
+	
+	var userInfoVO_name_input=$(formId).find("input[name='NAME']");
+	var userInfoVO_name_length=$.trim(userInfoVO_name_input.val()).length;
+	
+	var userInfoVO_roleName_input=$(formId).find("select[name='ROLE_ID']");
+	var userInfoVO_roleName_length=$.trim(userInfoVO_roleName_input.val()).length;
+	
+	var userInfo_policeOfficeName_input=$(formId).find("select[name='POLICE_OFFICE_ID']");
+	var userInfo_policeOfficeName_legth=$.trim(userInfo_policeOfficeName_input.val()).length;
+	
+	
+	if(userInfoVO_userName_length < 1 || userInfoVO_userName_length > 30){
+		showTip(userInfoVO_userName_input, "30位字符以内");
+		flag = false;
+	}
+	if(userInfoVO_passWord_length < 1 || userInfoVO_passWord_length > 15){
+		showTip(userInfoVO_passWord_input, "15位字符以内");
+		flag = false;
+	}
+	if(userInfoVO_name_length < 1 || userInfoVO_name_length > 15){
+		showTip(userInfoVO_name_input, "30位字符以内");
+		flag = false;
+	}	
+	
+	if(userInfoVO_roleName_length < 1){
+		showTip(userInfoVO_roleName_input.next(), "选择用户权限");
+		flag = false;
+	}
+	if(userInfo_policeOfficeName_legth < 1){
+		showTip(userInfo_policeOfficeName_input.next(), "选择所属公安局");
+		flag = false;
+	}
+	return flag;
+}
+
 //关闭弹出框
 function closeDialog(){
 	Dialog.close();
@@ -48,6 +95,17 @@ function showDialog(tip, success){
 		if(success){
 			success();
 		}
+	});
+}
+
+//给jquery元素设置提示
+function showTip(element, msg){
+	element.tips({
+		msg : msg,
+		side : 2,
+		bg : '#FF0000',
+		time : 3,
+		x : 12
 	});
 }
 
