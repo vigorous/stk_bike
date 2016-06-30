@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -70,32 +71,39 @@
 						</thead>
 			
 						<tbody>
-							<tr>
-								<td><a href="#">南浔区公安局</a></td>
-								<td><a href="#"> </a></td>
-								<td>2016-06-15 13:19:32</td>
-								<td class="hidden-480">33050300000001</td>
-								<td>33050300000100</td>
-								<td>1</td>
-								<td>1</td>
-								<td>100</td>
-							</tr>
+							<!-- 判断li是否为空 -->
+							<c:if test="${empty list}">
+								<tr>
+									<td colspan="8" style="text-align: center;">暂无数据</td>
+								</tr>
+							</c:if>
+							<c:forEach items="${list}" var="card">
+								<tr>
+									<td><a href="#">${card.APPLY_ORG_NAME}</a></td>
+									<td><a href="#">${card.AUTH_ORG_NAME}</a></td>
+									<td>${card.APPLY_TIME}</td>
+									<td>${card.CARD_BEGIN_NO}</td>
+									<td>${card.CARD_END_NO}</td>
+									<td>${card.POLICE_ID}</td>
+									<td>${card.POLICE_NAME}</td>
+									<td>${card.APPLY_NUM}</td>
+							</c:forEach>
+							<tr />
 						</tbody>
 					</table>
+					${page.pageStr}
 				</div>
 			</div>
-		</div>
-		
-		<!-- 底部页码 -->
-		<div class="col-xs-12">
-		
 		</div>
 	</div>
 </div>
 	<%@ include file="../../system/admin/bottom.jsp"%>
+	<script src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/plateManager.js"></script>
 	<script type="text/javascript">
-		$('.form-control.date-picker').datepicker({language: 'zh-CN'});
+		$('.form-control.date-picker').datepicker({
+			language : 'zh-CN'
+		});
 	</script>
 </body>
 </html>

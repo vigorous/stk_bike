@@ -1,12 +1,12 @@
 package com.stk.controller.business.bikefunctionmanage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,14 +16,16 @@ import com.sse.bikemanagement.entity.BrandVO;
 import com.sse.bikemanagement.entity.LostBikeVO;
 import com.sse.bikemanagement.entity.OwnerVO;
 import com.sse.bikemanagement.entity.Page;
+import com.sse.bikemanagement.entity.PoliceOfficeVO;
 import com.sse.bikemanagement.entity.PoliceVO;
 import com.sse.bikemanagement.entity.RegisterVO;
+import com.sse.bikemanagement.entity.UserVO;
 import com.sse.bikemanagement.facade.BikeFacade;
 import com.sse.bikemanagement.facade.BrandFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.PoliceFacade;
+import com.sse.bikemanagement.info.BikeInfoVO;
 import com.stk.controller.base.BaseController;
-import com.stk.domain.system.User;
 import com.stk.util.Const;
 import com.stk.util.UuidUtil;
 
@@ -32,10 +34,10 @@ import com.stk.util.UuidUtil;
 // 车辆管理
 public class BikeController extends BaseController {
 	@RequestMapping(value = "select")
-	public ModelAndView select(Page page, BikeVO vo) throws Exception {
+	public ModelAndView select(Page page, BikeVO bikeVO,OwnerVO ownerVO,RegisterVO registerVO,PoliceOfficeVO policeOfficeVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		BikeFacade bf = FacadeFactory.getBikeFacade();
-		List<BikeVO> list = bf.queryBikeByPage(page, vo);
+		List<BikeInfoVO> list = bf.queryBikeInfoByPage(page, bikeVO,ownerVO,registerVO,policeOfficeVO);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("business/bikefunctionmanage/bikeManager");
@@ -56,10 +58,20 @@ public class BikeController extends BaseController {
 
 	// 添加车辆
 	@RequestMapping(value = "addBikeInfo")
+	@ResponseBody
 	public Boolean addBikeInfo(BikeVO bikeVO, OwnerVO ownerVO, RegisterVO registerVO) throws Exception {
-		bikeVO.setBIKE_ID(UuidUtil.get32UUID());
 		Boolean bo = true;
 		BikeFacade bf = FacadeFactory.getBikeFacade();
+		String BIKE_ID=UuidUtil.get32UUID();
+		String OWNER_ID=UuidUtil.get32UUID();
+		bikeVO.setBIKE_ID(BIKE_ID);
+		ownerVO.setOWNER_ID(OWNER_ID);
+		registerVO.setREGISTER_ID(UuidUtil.get32UUID());
+		registerVO.setBIKE_ID(BIKE_ID);
+		registerVO.setOWNER_ID(OWNER_ID);
+		registerVO.setPOLICE_OFFICE_ID("cb0ced786c1642c89c74b99a4c0b8ffb");
+		bikeVO.setBIKE_STATUS("00");
+		bikeVO.setBIKE_FLAG("00");
 		bo = bf.addBikeInfo(bikeVO, ownerVO, registerVO);
 		return bo;
 	}
@@ -76,6 +88,7 @@ public class BikeController extends BaseController {
 
 	// 修改车辆信息
 	@RequestMapping(value = "modifyBikeInfo")
+	@ResponseBody
 	public Boolean modifyBikeInfo(BikeVO bikeVO, OwnerVO ownerVO, RegisterVO registerVO) throws Exception {
 		Boolean bo = true;
 		BikeFacade bf = FacadeFactory.getBikeFacade();
@@ -98,12 +111,21 @@ public class BikeController extends BaseController {
 	public List<PoliceVO> queryPoliceByPoliceOfficeID() throws Exception {
 		List<PoliceVO> list = null;
 		// 获取session
+		PoliceVO PoliceVO;
 		Subject currentUser = SecurityUtils.getSubject();
 		Session session = currentUser.getSession();
-		User user = (User) session.getAttribute(Const.SESSION_USER);
+		UserVO user = (UserVO) session.getAttribute(Const.SESSION_USER);
 		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
 		list = policeFacade.queryPoliceByPoliceOfficeID("cb0ced786c1642c89c74b99a4c0b8ffb");
 		return list;
 	}
-
+	//根据经办人ID查询经办人所有信息
+	@RequestMapping(value = "queryPoliceByID/{id}")
+	@ResponseBody
+	public PoliceVO  queryPoliceByID(@PathVariable("id") String id,PoliceVO vo) throws Exception {
+		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
+		vo.setPOLICE_ID(id);
+		PoliceVO PoliceVO = policeFacade.queryPoliceByID(vo);
+		return PoliceVO;
+	}
 }

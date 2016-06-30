@@ -20,7 +20,7 @@ $("#addbike").click(function(){
 	  
 	diag.Width = 750;
 
-	diag.Height = 650;
+	diag.Height = 680;
 
 	diag.Title = "车辆详细信息";
 

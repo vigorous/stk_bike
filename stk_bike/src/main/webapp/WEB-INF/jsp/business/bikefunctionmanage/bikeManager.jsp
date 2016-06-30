@@ -78,6 +78,7 @@
 	<!-- 主体表格部分 -->
 	<div class="row row-margin-top">
 		<div class="col-xs-12">
+			<!-- PAGE CONTENT BEGINS -->
 			<div class="row">
 				<div class="col-xs-12">
 					<table id="simple-table" class="table table-striped table-bordered table-hover">
@@ -94,14 +95,20 @@
 						</thead>
 			
 						<tbody>
+						<c:if test="${empty list}" >
 							<tr>
-								<td><a href="#">ace.com</a></td>
-								<td>$45</td>
-								<td>$45</td>
-								<td class="hidden-480">3,330</td>
-								<td>Feb 12</td>
+								<td colspan="7">暂无数据</td>
+							</tr>
+						</c:if>
+						<c:forEach items="${list }" var="list">
+							<tr>
+								<td>${list.bikeVO.BIKE_EID }</td>
+								<td>${list.bikeVO.BIKE_NO }</td>
+								<td>${list.bikeVO.BIKE_TYPE }</td>
+								<td class="hidden-480">${list.ownerVO.OWNER_NAME }</td>
+								<td>${list.ownerVO.OWNER_PHONE }</td>
 								<td class="hidden-480"><span
-									class="label label-sm label-warning">Expiring</span></td>
+									class="label label-sm label-warning">${list.registerVO.REGISTER_TIME }</span></td>
 			
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
@@ -119,18 +126,16 @@
 									</div>
 								</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
+					${page.pageStr}
 				</div>
 			</div>
 		</div>
-		
-		<!-- 底部页码 -->
-		<div class="col-xs-12">
-		
-		</div>
 	</div>
 </div>
+<script src="static/js/private_js/admin/head.js"></script>
 	<%@ include file="../../system/admin/bottom.jsp"%>
 	<script>
 		$('#id-input-file-1 , #id-input-file-2').ace_file_input({
