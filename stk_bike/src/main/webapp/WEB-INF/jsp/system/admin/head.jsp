@@ -113,7 +113,7 @@
 								<img class="nav-user-photo" src="static/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎登录,</small>
-									${sessionScope.sessionUser.name}
+									${sessionScope.sessionUser.NAME}
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
