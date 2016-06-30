@@ -11,9 +11,9 @@
 <head lang="en">
 <base href="<%=basePath%>">
 
-<link rel="stylesheet"
-	href="static/assets/css/bootstrap-datepicker3.css" />
+<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
+<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
 <style type="text/css">
 .margin-bottom-10 {
 	margin-bottom: 10px;
@@ -64,7 +64,7 @@
 					<span>申请时间：</span>
 				</div>
 				<div class="col-xs-7">
-					<input class="form-control date-picker" type="text" id="APPLY_TIME" name="APPLY_TIME"
+					<input class="form-control datetime-picker" type="text" id="APPLY_TIME" name="APPLY_TIME"
 						class="width-160" value="" />
 				</div>
 			</div>
@@ -142,10 +142,19 @@
 			width : "100px"
 		});
 		
-		$('.form-control.date-picker').datepicker({
-			language : 'zh-CN',
-			format : 'yyyy-mm-dd'
-		});
+		$('.datetime-picker').datetimepicker({
+	        language:  'zh-CN',
+	        format: "yyyy-mm-dd hh:ii:00",
+	        startDate:'2000-01-01',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 0,
+	        minuteStep: 2
+	    });
 	</script>
 </body>
 </html>
