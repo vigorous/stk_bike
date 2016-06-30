@@ -24,11 +24,11 @@
 			<!-- <div class="row margin-bottom-5"> -->
 			<div class="row">
 				<div class="col-xs-12">
-					<form class="form-horizontal" role="form" id="surveySearchForm" action="realTimeAlarm/survey">
+					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList">
 						<div class="form-group">
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+									<input class="form-control date-picker text-center" type="text" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -37,7 +37,7 @@
 							
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+									<input class="form-control date-picker text-center" type="text" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -45,11 +45,11 @@
 							</div>
 							
 							<div class="col-sm-2">
-								<select class="form-control chosen-select" data-placeholder="车辆类型">
+								<select class="form-control chosen-select" data-placeholder="车辆类型" name="BIKE_SOURCE">
 									<option value=""></option>
 									<option value="">全部车辆</option>
-									<option value="0">新车</option>
-									<option value="1">旧车</option>
+									<option value="00">新车</option>
+									<option value="01">旧车</option>
 								</select>
 							</div>
 							<!-- 按钮控件 -->
@@ -80,66 +80,14 @@
 									</tr>
 								</thead>
 								<tbody>
+									<c:forEach items="${list}" var="statisticBike" varStatus="varStatus">
 									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
+										<td>${statisticBike.NAME }</td>
+										<td>${statisticBike.CARS_COUNT}</td>
+										<td>${statisticBike.LOST_CARS_COUNT}</td>
+										<td>${statisticBike.BACK_CARS_COUNT}</td>
 									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
-									<tr>
-										<td>杭州吉祥派出所</td>
-										<td>100000</td>
-										<td>100</td>
-										<td>100</td>
-									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							${page.getPageStr()}
