@@ -20,6 +20,7 @@ import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.PoliceOfficeVO;
 import com.sse.bikemanagement.entity.PoliceVO;
 import com.sse.bikemanagement.entity.RegisterVO;
+import com.sse.bikemanagement.entity.UserVO;
 import com.sse.bikemanagement.facade.BikeFacade;
 import com.sse.bikemanagement.facade.BrandFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
@@ -70,6 +71,7 @@ public class BikeController extends BaseController {
 		registerVO.setREGISTER_ID(UuidUtil.get32UUID());
 		registerVO.setBIKE_ID(BIKE_ID);
 		registerVO.setOWNER_ID(OWNER_ID);
+		registerVO.setPOLICE_OFFICE_ID("cb0ced786c1642c89c74b99a4c0b8ffb");
 		bikeVO.setBIKE_STATUS("00");
 		bikeVO.setBIKE_FLAG("00");
 		bo = bf.addBikeInfo(bikeVO, ownerVO, registerVO);
@@ -113,7 +115,7 @@ public class BikeController extends BaseController {
 		// 获取session
 		Subject currentUser = SecurityUtils.getSubject();
 		Session session = currentUser.getSession();
-		User user = (User) session.getAttribute(Const.SESSION_USER);
+		UserVO user = (UserVO) session.getAttribute(Const.SESSION_USER);
 		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
 		list = policeFacade.queryPoliceByPoliceOfficeID("cb0ced786c1642c89c74b99a4c0b8ffb");
 		return list;

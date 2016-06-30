@@ -130,6 +130,7 @@ $("#save").click(function(){
 			if(data==true){
 				alert("添加成功");
 				Dialog.close();
+				addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
 			}
 		}
 	});

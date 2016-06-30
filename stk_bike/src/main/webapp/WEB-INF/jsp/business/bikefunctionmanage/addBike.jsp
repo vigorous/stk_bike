@@ -40,7 +40,14 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车辆类型： </label> <input type="text" name="BIKE_TYPE" value="" />
+					车辆类型： </label>
+					<div class="col-xs-6 no-padding-left">
+					<select class="form-control" name="BIKE_TYPE">
+						<option value="01">自行车</option>
+						<option value="00">电动车</option>
+						<option value="03">小轿车</option>
+					</select>
+				</div>
 			</div>
 
 			<div class="col-xs-6">
@@ -190,7 +197,7 @@
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
 				<input type="hidden">
-					发卡单位： </label> <input type="text" id="POLICE_OFFICE_ID" name="POLICE_OFFICE_ID" value="" />
+					发卡单位： </label> <input type="text" id="POLICE_OFFICE_ID"  value="" />
 			</div>
 		</div>
 
