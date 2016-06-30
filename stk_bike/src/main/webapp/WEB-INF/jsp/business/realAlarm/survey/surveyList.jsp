@@ -96,14 +96,16 @@
 				</div>
 			</div>
 			<div class="row hide" id="histogramTagPage">
-				<div class="col-xs-12">
-					
+				<div class="col-xs-12 row-margin-top">
+					<div id="container"></div>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
+		<script src="plugins/Highcharts-4.1.10/js/highcharts.js"></script>
+		<script src="plugins/Highcharts-4.1.10/js/modules/exporting.js"></script>
 		<script type="text/javascript">
 			$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 			$("#histogramTag").off().click(function(){
@@ -119,6 +121,84 @@
 				$("#histogramTagPage").addClass("hide");
 			});
 			$('.chosen-select').chosen();
+			
+			$(function () {
+				$('#container').highcharts({
+					credits: {
+						enabled: false
+					},
+					exporting: {
+						enabled: false
+					},
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: '车辆详细记录'
+					},
+					subtitle: {
+						text: '车辆数量（辆）'
+					},
+					xAxis: {
+						categories: [
+							'秀洲公安局',
+							'洪河交警中队',
+							'王店派出所',
+							'洪河派出所',
+							'新城派出所',
+							'王店交警中队',
+							'五联派出所',
+							'江泾派出所'
+						],
+						//type: 'category',
+						//labels: {
+						//	rotation: -45,
+						//	style: {
+						//		fontSize: '13px',
+						//		fontFamily: 'Verdana, sans-serif'
+						//	}
+						//}
+						//crosshair: true
+						labels: {
+							rotation: -15
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: '车辆数量 (辆)'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y} 辆</b></td></tr>',//{point.y:.1f}修改颜色：#434348-->#e4393c
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: '总车辆数',
+						data: [185, 71, 106, 129, 144, 176, 135, 148]
+
+					}, {
+						name: '遗失',
+						data: [83, 78, 98, 93, 106, 84, 105, 104]
+
+					}, {
+						name: '寻回',
+						data: [48, 38, 39, 41, 47, 48, 59, 56]
+
+					}]
+				});
+			});
+
 		</script>
 	</body>
 </html>
