@@ -24,38 +24,26 @@ function bindEvent(){
 			return false;
 		}
 		btnDisenable();
-		$.ajax({
-			url : 'areaManage/isExistAreaId',
-			data : {
-				DISTRICT_NO : district_no
-			},
-			success : function(data){
-				if(data){
-					showDialog("区域编号已存在", btnEnable);
-				}else{
-					$.ajax({
-						url : url,
-						data : $(formId).serialize(),
-						success : function(data){
-							if(data){
-								showDialog("保存成功", function(){
-									refresh();
-									closeDialog();
-								});
-							}else{
-								showDialog("保存失败", btnEnable);
-							}
-						},
-						error : function(){
-							showDialog("保存失败", btnEnable);
-						}
-					});
+		if(oper == 'add'){
+			$.ajax({
+				url : 'areaManage/isExistAreaNo',
+				data : {
+					DISTRICT_NO : district_no
+				},
+				success : function(data){
+					if(data){
+						showDialog("区域编号已存在", btnEnable);
+					}else{
+						save(url);
+					}
+				},
+				error : function(){
+					showDialog("保存失败", btnEnable);
 				}
-			},
-			error : function(){
-				showDialog("保存失败", btnEnable);
-			}
-		})
+			});
+		}else{
+			save(url);
+		}
 	});
 	
 	//取消
@@ -92,6 +80,27 @@ function validateForm(){
 		flag = false;
 	}
 	return flag;
+}
+
+//保存方法
+function save(url){
+	$.ajax({
+		url : url,
+		data : $(formId).serialize(),
+		success : function(data){
+			if(data){
+				showDialog("保存成功", function(){
+					refresh();
+					closeDialog();
+				});
+			}else{
+				showDialog("保存失败", btnEnable);
+			}
+		},
+		error : function(){
+			showDialog("保存失败", btnEnable);
+		}
+	});
 }
 
 //给jquery元素设置提示

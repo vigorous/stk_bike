@@ -20,125 +20,131 @@
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
 	<body class="no-skin">
-		<div class="page-content padding-bottom-0">
-			<div class="row margin-bottom-5">
-				<div class="col-xs-7">
-					<form id="surveySearchForm" action="realTimeAlarm/survey">
-						<table>
-							<tr>
-								<td>
-									<div class="input-group margin-right-30">
-										<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
-										<span class="input-group-addon border-left-0">
-											<i class="fa fa-calendar bigger-110"></i>
-										</span>
-									</div>
-								</td>
-								<td>
-									<div class="input-group margin-right-30">
-										<input class="form-control date-picker text-center width-120" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
-										<span class="input-group-addon">
-											<i class="fa fa-calendar bigger-110"></i>
-										</span>
-									</div>
-								</td>
-								<td>
-									<select class="form-control chosen-select" data-placeholder="车辆类型">
-										<option value=""></option>
-										<option value="">全部车辆</option>
-										<option value="0">新车</option>
-										<option value="1">旧车</option>
-									</select>
-								</td>
-							</tr>
-						</table>
+		<div class="page-content">
+			<!-- <div class="row margin-bottom-5"> -->
+			<div class="row">
+				<div class="col-xs-12">
+					<form class="form-horizontal" role="form" id="surveySearchForm" action="realTimeAlarm/survey">
+						<div class="form-group">
+							<div class="col-sm-2">
+								<div class="input-group">
+									<input class="form-control date-picker text-center" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+									<span class="input-group-addon">
+										<i class="fa fa-calendar bigger-110"></i>
+									</span>
+								</div>
+							</div>
+							
+							<div class="col-sm-2">
+								<div class="input-group">
+									<input class="form-control date-picker text-center" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+									<span class="input-group-addon">
+										<i class="fa fa-calendar bigger-110"></i>
+									</span>
+								</div>
+							</div>
+							
+							<div class="col-sm-2">
+								<select class="form-control chosen-select" data-placeholder="车辆类型">
+									<option value=""></option>
+									<option value="">全部车辆</option>
+									<option value="0">新车</option>
+									<option value="1">旧车</option>
+								</select>
+							</div>
+							<!-- 按钮控件 -->
+							<button class="btn btn-sm btn-light" onclick="search();"  title="查询">
+								<i class="ace-icon fa fa-search nav-search-icon"></i>
+							</button>
+							<!-- /按钮控件 -->
+						</div>
 					</form>
 				</div>
-				<div class="col-xs-5 text-right">
-					<div class="btn-group">
-						<input type="button" class="btn btn-primary" value="查询" />
-					</div>
-				</div>
 			</div>
-			<ul class="nav nav-tabs">
-				<li class="active"><a id="tableTag">表格</a></li>
-				<li><a id="histogramTag">柱状图</a></li>
-			</ul>
-			<div class="row" id="tableTagPage">
+			
+			<div class="row">
 				<div class="col-xs-12">
-					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
-						<thead>
-							<tr>
-								<th class="text-center" width="25%">单位</th>
-								<th class="text-center" width="25%">总量</th>
-								<th class="text-center" width="25%">丢失</th>
-								<th class="text-center" width="25%">寻回</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-							<tr>
-								<td>杭州吉祥派出所</td>
-								<td>100000</td>
-								<td>100</td>
-								<td>100</td>
-							</tr>
-						</tbody>
-					</table>
-					${page.getPageStr()}
+					<ul class="nav nav-tabs">
+						<li class="active"><a id="tableTag">表格</a></li>
+						<li><a id="histogramTag">柱状图</a></li>
+					</ul>
+					<div class="row" id="tableTagPage">
+						<div class="col-xs-12">
+							<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+								<thead>
+									<tr>
+										<th class="text-center" width="25%">单位</th>
+										<th class="text-center" width="25%">总量</th>
+										<th class="text-center" width="25%">丢失</th>
+										<th class="text-center" width="25%">寻回</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+									<tr>
+										<td>杭州吉祥派出所</td>
+										<td>100000</td>
+										<td>100</td>
+										<td>100</td>
+									</tr>
+								</tbody>
+							</table>
+							${page.getPageStr()}
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row hide" id="histogramTagPage">

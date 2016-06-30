@@ -63,7 +63,6 @@ public class AreaManageController extends BaseController {
 		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
 		model.addAttribute("districtVO", districtVO);
 		model.addAttribute("districtList", districtList);
-		model.addAttribute("oper", "detail");
 		return "business/systemSet/areaManage/areaManageDetail";
 	}
 	
@@ -141,14 +140,14 @@ public class AreaManageController extends BaseController {
 	}
 	
 	/**
-	 * 验证区域ID是否存在
+	 * 验证区域编号是否存在
 	 * @param districtVO
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/isExistAreaId")
+	@RequestMapping(value="/isExistAreaNo")
 	@ResponseBody
-	public Boolean isExistAreaId(DistrictVO districtVO) throws Exception{
+	public Boolean isExistAreaNo(DistrictVO districtVO) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
 		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
 		Boolean flag = false;
