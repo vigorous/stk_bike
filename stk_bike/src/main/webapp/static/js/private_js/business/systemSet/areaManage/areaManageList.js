@@ -1,6 +1,17 @@
+var tableId = "#areaManageListTable";
 bindEvent();
 
 function bindEvent(){
+	//全选
+	$("#selectAll").off().click(function(){
+		var isChecked = $(this).is(":checked");
+		if(isChecked){
+			$(tableId).find("input[name='select']").prop("checked", true);
+		}else{
+			$(tableId).find("input[name='select']").prop("checked", false);
+		}
+	});
+	
 	//新建
 	$("#new").off().click(function(){
 		var dialog = new Dialog();
@@ -11,7 +22,7 @@ function bindEvent(){
 	});
 	
 	//详情
-	$("button[name='detail']").off().click(function(){
+	$(tableId).find("button[name='detail']").off().click(function(){
 		var district_id = $(this).attr("data-id");
 		var dialog = new Dialog();
 		dialog.Title = "区域详情";
@@ -21,13 +32,13 @@ function bindEvent(){
 	});
 
 	//编辑
-	$("button[name='edit']").off().click(function(){
+	$(tableId).find("button[name='edit']").off().click(function(){
 		var district_id = $(this).attr("data-id");
 		editDialog(district_id);
 	});
 	
 	//删除
-	$("button[name='delete']").off().click(function(){
+	$(tableId).find("button[name='delete']").off().click(function(){
 		var district_id = $(this).attr("data-id");
 		Dialog.confirm("确定删除吗？",function(){
 			$.ajax({
@@ -81,7 +92,7 @@ function bindEvent(){
 	});
 	
 	//表格双击行弹出编辑页面
-	$("#areaManageListTable tbody tr").off().dblclick(function(){
+	$(tableId + " tbody tr").off().dblclick(function(){
 		var district_id = $(this).attr("data-id");
 		editDialog(district_id);
 	});
