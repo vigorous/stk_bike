@@ -12,6 +12,7 @@
 <base href="<%=basePath%>">
 
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
+<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
 <link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
 
 <%@ include file="../../system/admin/top.jsp"%>
@@ -20,13 +21,14 @@
 <body class="no-skin">
 	<input type="hidden" value="<%=basePath%>" id="ctxPath">
 	<div class="dialog-content">
+	<form action="" id="form">
 		<div class="dialog-header">
 			<h1>车辆信息</h1>
 		</div>
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					电子牌照： </label> <input type="text" name="BIKE_EID" value="" />
+					电子牌照<span style="color: red">*</span>： </label> <input type="text" id="BIKE_EID" name="BIKE_EID" value="" />
 			</div>
 
 			<div class="col-xs-6">
@@ -100,7 +102,7 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车主姓名： </label> <input type="text" name="OWNER_NAME" value="" />
+					车主姓名<span style="color: red">*</span>： </label> <input type="text" id="OWNER_NAME" name="OWNER_NAME" value="" />
 			</div>
 
 			<div class="col-xs-6">
@@ -118,7 +120,7 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					身份证： </label> <input type="text" value="" name="OWNER_SFID" />
+					身份证<span style="color: red">*</span>： </label> <input id="OWNER_SFID" type="text" value="" name="OWNER_SFID" />
 			</div>
 
 			<div class="col-xs-6">
@@ -136,7 +138,7 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车主联系地址： </label> <input type="text" name="OWNER_ADDRESS" value="" />
+					车主联系地址<span style="color: red">*</span>： </label> <input id="OWNER_ADDRESS" type="text" name="OWNER_ADDRESS" value="" />
 			</div>
 
 			<div class="col-xs-6">
@@ -148,7 +150,7 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车主联系电话： </label> <input type="text" value="" name="OWNER_PHONE" />
+					车主联系电话<span style="color: red">*</span>： </label> <input id="OWNER_PHONE" type="text" value="" name="OWNER_PHONE" />
 			</div>
 
 		</div>
@@ -159,26 +161,26 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车辆登记时间： </label> <input type="text" name="REGISTER_TIME" value="" />
+					车辆登记时间<span style="color: red">*</span>： </label> <input type="text" id="REGISTER_TIME" class="datetime-picker" name="REGISTER_TIME" value="" />
 			</div>
 
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					车主身份证号： </label> <input type="text" name="OWNER_SFID" value="" />
+					车主身份证号： </label> <input type="text" value="" />
 			</div>
 		</div>
 
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					电子牌照： </label> <input type="text" name="BIKE_ID" value="" />
+					电子牌照： </label> <input type="text" value="" />
 			</div>
 
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					经办人姓名： </label>
+					经办人姓名<span style="color: red">*</span>： </label>
 				<div class="col-xs-6 no-padding-left">
-					<select class="form-control" name="POLICE_ID" id="adds">
+					<select  class="form-control"  name="POLICE_ID" id="POLICE_ID">
 					</select>
 				</div>
 			</div>
@@ -187,7 +189,8 @@
 		<div class="row row-margin-top">
 			<div class="col-xs-6">
 				<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-					发卡单位： </label> <input type="text" name="POLICE_OFFICE_ID" value="" />
+				<input type="hidden">
+					发卡单位： </label> <input type="text" id="POLICE_OFFICE_ID" name="POLICE_OFFICE_ID" value="" />
 			</div>
 		</div>
 
@@ -201,13 +204,28 @@
 					value="退出" />
 			</div>
 		</div>
-
+		</form>
 	</div>
-	<script type="text/javascript"
-		src="static/js/private_js/business/bikefunctionmanage/addBike.js"></script>
+	<%@ include file="../../system/admin/bottom.jsp"%>
+	 <script type="text/javascript" src="static/js/jquery.tips.js"></script>
+	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/addBike.js"></script>
 	<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
 	<script type="text/javascript">
 		$('.chosen-select').chosen();
+		
+		$('.datetime-picker').datetimepicker({
+	        language:  'zh-CN',
+	        format: "yyyy-mm-dd hh:ii:ss",
+	        startDate:'2000-01-01',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 0,
+	        minuteStep: 2
+	    });
 	</script>
 </body>
 </html>
