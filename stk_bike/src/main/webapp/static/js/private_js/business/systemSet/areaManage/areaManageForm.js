@@ -26,7 +26,7 @@ function bindEvent(){
 		btnDisenable();
 		if(oper == 'add'){
 			$.ajax({
-				url : 'areaManage/isExistAreaId',
+				url : 'areaManage/isExistAreaNo',
 				data : {
 					DISTRICT_NO : district_no
 				},
