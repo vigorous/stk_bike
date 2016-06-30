@@ -63,7 +63,6 @@ public class AreaManageController extends BaseController {
 		List<DistrictVO> districtList = districtFacade.queryAllDistrict();
 		model.addAttribute("districtVO", districtVO);
 		model.addAttribute("districtList", districtList);
-		model.addAttribute("oper", "detail");
 		return "business/systemSet/areaManage/areaManageDetail";
 	}
 	
