@@ -2,7 +2,7 @@
 $("#new").off().click(function(){
 	var dialog = new Dialog();
 	dialog.Title = "新建单位";
-	dialog.URL = "unitManageForm";
+	dialog.URL = "addUnitPage";
 	dialog.Height = 270;
 	dialog.ShowButtonRow = true;
 	dialog.OKEvent = function(){

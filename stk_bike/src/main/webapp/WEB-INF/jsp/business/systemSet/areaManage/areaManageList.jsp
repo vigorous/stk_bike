@@ -10,7 +10,7 @@
 	<head lang="en">
 		<base href="<%=basePath%>">
 		<style type="text/css">
-			.margin-bottom-5{margin-bottom: 5px;}
+			.margin-bottom-5{margin-bottom: 5px!important;}
 			.width-120{width: 120px!important;}
 			.margin-right-30{margin-right: 30px;}
 			.padding-bottom-0{padding-bottom: 0px!important;}
