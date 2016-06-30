@@ -15,7 +15,7 @@ function bindEvent(){
 	
 	//保存
 	$("#save").off().click(function(){
-		var oper = $("#oper").val();
+		var oper = $("#oper").val();	
 		var url = 'areaManage/addArea';
 		var district_no = $(formId).find("input[name='DISTRICT_NO']").val();
 		if(oper == 'edit'){
@@ -115,11 +115,6 @@ function showTip(element, msg){
 	});
 }
 
-//关闭弹出框
-function closeDialog(){
-	Dialog.close();
-}
-
 //弹框
 function showDialog(tip, success){
 	tip = "<font size='3'>" + tip + "</font>";
@@ -128,6 +123,11 @@ function showDialog(tip, success){
 			success();
 		}
 	});
+}
+
+//关闭弹出框
+function closeDialog(){
+	Dialog.close();
 }
 
 //刷新页面
