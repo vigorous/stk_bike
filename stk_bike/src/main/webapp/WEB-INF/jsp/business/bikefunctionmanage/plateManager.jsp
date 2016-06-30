@@ -10,8 +10,6 @@
 <head lang="en">
 	<base href="<%=basePath%>">
 	<%@ include file="../../system/admin/top.jsp"%>
-	<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 	<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
 	<title>电子车牌发卡管理</title>
 </head>
@@ -94,10 +92,8 @@
 		</div>
 	</div>
 </div>
-
+	<%@ include file="../../system/admin/bottom.jsp"%>
 	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/plateManager.js"></script>
-	<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
 	<script type="text/javascript">
 		$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 	</script>
