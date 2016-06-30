@@ -1,6 +1,5 @@
 package com.stk.controller.business.bikefunctionmanage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
@@ -27,7 +26,6 @@ import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.PoliceFacade;
 import com.sse.bikemanagement.info.BikeInfoVO;
 import com.stk.controller.base.BaseController;
-import com.stk.domain.system.User;
 import com.stk.util.Const;
 import com.stk.util.UuidUtil;
 
@@ -113,6 +111,7 @@ public class BikeController extends BaseController {
 	public List<PoliceVO> queryPoliceByPoliceOfficeID() throws Exception {
 		List<PoliceVO> list = null;
 		// 获取session
+		PoliceVO PoliceVO;
 		Subject currentUser = SecurityUtils.getSubject();
 		Session session = currentUser.getSession();
 		UserVO user = (UserVO) session.getAttribute(Const.SESSION_USER);

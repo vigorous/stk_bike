@@ -21,20 +21,14 @@ function bindEvent(){
 		dialog.show();
 	});
 	
-	//详情
-	$(tableId).find("button[name='detail']").off().click(function(){
-		var district_id = $(this).attr("data-id");
-		var dialog = new Dialog();
-		dialog.Title = "区域详情";
-		dialog.URL = "areaDetailPage?DISTRICT_ID=" + district_id;
-		dialog.Height = 150;
-		dialog.show();
-	});
-
 	//编辑
 	$(tableId).find("button[name='edit']").off().click(function(){
 		var district_id = $(this).attr("data-id");
-		editDialog(district_id);
+		var dialog = new Dialog();
+		dialog.Title = "编辑区域";
+		dialog.URL = "editAreaPage?DISTRICT_ID=" + district_id;
+		dialog.Height = 180;
+		dialog.show();
 	});
 	
 	//删除
@@ -91,20 +85,15 @@ function bindEvent(){
 		}
 	});
 	
-	//表格双击行弹出编辑页面
+	//表格双击行弹出详情页面
 	$(tableId + " tbody tr").off().dblclick(function(){
 		var district_id = $(this).attr("data-id");
-		editDialog(district_id);
+		var dialog = new Dialog();
+		dialog.Title = "区域详情";
+		dialog.URL = "areaDetailPage?DISTRICT_ID=" + district_id;
+		dialog.Height = 150;
+		dialog.show();
 	});
-}
-
-//弹出编辑页面
-function editDialog(district_id){
-	var dialog = new Dialog();
-	dialog.Title = "编辑区域";
-	dialog.URL = "editAreaPage?DISTRICT_ID=" + district_id;
-	dialog.Height = 180;
-	dialog.show();
 }
 
 //弹框

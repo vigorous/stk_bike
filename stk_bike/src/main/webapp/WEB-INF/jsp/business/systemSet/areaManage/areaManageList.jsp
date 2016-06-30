@@ -56,9 +56,6 @@
 									<td>${area.PARENT_NO}</td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-warning" name="detail" data-id="${area.DISTRICT_ID}">
-												<i class="ace-icon fa fa-flag bigger-120"></i>
-											</button>
 											<button class="btn btn-xs btn-info" name="edit" data-id="${area.DISTRICT_ID}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
