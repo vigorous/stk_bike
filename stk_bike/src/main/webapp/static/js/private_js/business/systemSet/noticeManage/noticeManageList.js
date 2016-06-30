@@ -1,17 +1,15 @@
-//新建
-$("#new").off().click(function(){
-	var dialog = new Dialog();
-	dialog.Title = "新建公告";
-	dialog.URL = "noticeManageForm";
-	dialog.Height = 165;
-	dialog.ShowButtonRow = true;
-	dialog.OKEvent = function(){
-		save();
-	}
-	dialog.show();
-});
+var tableId = 'noticeManageListTable';
+bindEvent();
 
-//保存
-function save(){
-	alert("保存成功");
+function bindEvent(){
+	//新建
+	$("#new").off().click(function(){
+		var dialog = new Dialog();
+		dialog.Title = "新建公告";
+		dialog.URL = "addNoticePage";
+		dialog.Height = 205;
+		dialog.show();
+	});
+
+	
 }
