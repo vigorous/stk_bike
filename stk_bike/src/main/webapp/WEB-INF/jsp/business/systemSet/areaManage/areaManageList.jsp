@@ -89,6 +89,10 @@
 						</c:forEach>
 					</tbody>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
 				<div class="btn-group">
 					<input type="button" class="btn btn-mini btn-success" value="新建"
 						id="new" /> <input type="button" class="btn btn-mini btn-success"
