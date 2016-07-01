@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-xs-7">
 					<input type="text" class="width-160"
-						value="${userInfoVO.userVO.USERNAME}" name="USERNAME" />
+					    value="${userInfoVO.userVO.USERNAME}" name="USERNAME" <c:if test="${oper == 'edit'}">readonly="readonly"</c:if> />
 				</div>
 			</div>
 			<div class="row margin-bottom-10">
