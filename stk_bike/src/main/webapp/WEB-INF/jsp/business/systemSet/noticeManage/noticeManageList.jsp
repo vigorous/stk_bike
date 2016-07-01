@@ -27,33 +27,32 @@
 						<thead>
 							<tr>
 								<th class="text-center" width="20%">公告标题</th>
-								<th class="text-center" width="35%">公告内容</th>
-								<th class="text-center" width="15%">发布人</th>
-								<th class="text-center" width="15%">发布时间</th>
-								<th class="text-center" width="15%">操作</th>
+								<th class="text-center" width="25%">公告内容</th>
+								<th class="text-center" width="10%">发布人</th>
+								<th class="text-center" width="17.5%">发布时间</th>
+								<th class="text-center" width="17.5%">上次修改时间</th>
+								<th class="text-center" width="10%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:if test="${empty list}">
 								<tr>
-									<td colspan="5">暂无数据</td>
+									<td colspan="6">暂无数据</td>
 								</tr>
 							</c:if>
 							<c:forEach items="${list}" var="notice">
-								<tr>
+								<tr data-id="${notice.noticeVO.NOTICE_ID}">
 									<td>${notice.noticeVO.TITLE}</td>
 									<td>${notice.noticeVO.CONTET}</td>
 									<td>${notice.userVO.NAME}</td>
-									<td><fmt:formatDate value="${notice.noticeVO.CREATE_TIME}" pattern="yyyy-MM-dd"/></td>
+									<td><fmt:formatDate value="${notice.noticeVO.CREATE_TIME}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+									<td><fmt:formatDate value="${notice.noticeVO.UPDATE_TIME}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-warning" name="detail" data-id="${area.DISTRICT_ID}">
-												<i class="ace-icon fa fa-flag bigger-120"></i>
-											</button>
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" name="edit" data-id="${notice.noticeVO.NOTICE_ID}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
-											<button class="btn btn-xs btn-danger">
+											<button class="btn btn-xs btn-danger" name="delete" data-id="${notice.noticeVO.NOTICE_ID}">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 										</div>

@@ -18,17 +18,31 @@
 			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
+		
+		<script type="text/javascript">
+			function validate(){
+				var startTime = $("#START_TIME").val();
+				var endTime = $("#END_TIME").val();
+				
+				if(endTime < startTime){
+					alert("开始日期不能大于结束日期");
+					$("#START_TIME").val("");
+					$("#END_TIME").val("");
+					return false;
+				}
+			}
+		</script>
 	</head>
 	<body class="no-skin">
 		<div class="page-content">
 			<!-- <div class="row margin-bottom-5"> -->
 			<div class="row">
 				<div class="col-xs-12">
-					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList">
+					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList" method="post" >
 						<div class="form-group">
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+									<input class="form-control date-picker text-center" type="text" id="START_TIME" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -37,7 +51,7 @@
 							
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+									<input class="form-control date-picker text-center" type="text" id="END_TIME" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" onchange="validate()"/>
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -45,7 +59,7 @@
 							</div>
 							
 							<div class="col-sm-2">
-								<select class="form-control chosen-select" data-placeholder="车辆类型" name="BIKE_SOURCE">
+								<select class="form-control chosen-select" data-placeholder="车辆类型" id="BIKE_SOURCE" name="BIKE_SOURCE">
 									<option value=""></option>
 									<option value="">全部车辆</option>
 									<option value="00">新车</option>
@@ -53,7 +67,7 @@
 								</select>
 							</div>
 							<!-- 按钮控件 -->
-							<button class="btn btn-sm btn-light" onclick="search();"  title="查询">
+							<button class="btn btn-sm btn-light"  title="查询">
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
 							</button>
 							<!-- /按钮控件 -->
@@ -97,7 +111,10 @@
 			</div>
 			<div class="row hide" id="histogramTagPage">
 				<div class="col-xs-12 row-margin-top">
-					<div id="container"></div>
+					<div class="row">
+						<div class="col-xs-6" id="container"></div>
+						<div class="col-xs-6" id="container1"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -140,7 +157,7 @@
 						text: '车辆数量（辆）'
 					},
 					xAxis: {
-						categories: [
+						/* categories: [
 							'秀洲公安局',
 							'洪河交警中队',
 							'王店派出所',
@@ -149,7 +166,8 @@
 							'王店交警中队',
 							'五联派出所',
 							'江泾派出所'
-						],
+						], */
+						categories:${namesJson},
 						//type: 'category',
 						//labels: {
 						//	rotation: -45,
@@ -171,8 +189,8 @@
 					},
 					tooltip: {
 						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y} 辆</b></td></tr>',//{point.y:.1f}修改颜色：#434348-->#e4393c
+						pointFormat: '<tr><td style="color:{series.color};padding:0;border:1px solid #ccc;text-align:right">{series.name}: </td>' +
+						'<td style="padding:0;border:1px solid #ccc"><b>{point.y} 辆</b></td></tr>',//{point.y:.1f}修改颜色：#434348-->#e4393c
 						footerFormat: '</table>',
 						shared: true,
 						useHTML: true
@@ -185,20 +203,74 @@
 					},
 					series: [{
 						name: '总车辆数',
-						data: [185, 71, 106, 129, 144, 176, 135, 148]
+						/* data: [185, 71, 106, 129, 144, 176, 135, 148] */
+						data: ${totalBikeJson}
 
 					}, {
 						name: '遗失',
-						data: [83, 78, 98, 93, 106, 84, 105, 104]
+						/* data: [83, 78, 98, 93, 106, 84, 105, 104] */
+						data: ${lostBikeJson}
 
 					}, {
 						name: '寻回',
-						data: [48, 38, 39, 41, 47, 48, 59, 56]
+						/* data: [48, 38, 39, 41, 47, 48, 59, 56] */
+						data: ${recoverBikeJson}
 
 					}]
 				});
 			});
-
+			
+			$(function () {
+			    $('#container1').highcharts({
+			    	credits: {
+						enabled: false
+					},
+					exporting: {
+						enabled: false
+					},
+			        chart: {
+			            plotBackgroundColor: null,
+			            plotBorderWidth: null,
+			            plotShadow: false
+			        },
+			        title: {
+			            text: '车辆数量统计分布图'
+			        },
+			        tooltip: {
+			    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			        },
+			        plotOptions: {
+			            pie: {
+			                allowPointSelect: true,
+			                cursor: 'pointer',
+			                dataLabels: {
+			                    enabled: true,
+			                    color: '#000000',
+			                    connectorColor: '#000000',
+			                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+			                },
+			                showInLegend: true
+			            }
+			        },
+			        series: [{
+			            type: 'pie',
+			            name: '车辆占有比率',
+			            data: [
+			                ['秀洲公安局',   45.0],
+			                ['王店派出所',       26.8],
+			                {
+			                    name: '洪河派出所',
+			                    y: 12.8,
+			                    sliced: true,
+			                    selected: true
+			                },
+			                ['新城派出所',    8.5],
+			                ['五联派出所',     6.2],
+			                ['洪河交警中队',   0.7]
+			            ]
+			        }]
+			    });
+			});
 		</script>
 	</body>
 </html>
