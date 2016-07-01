@@ -1,6 +1,7 @@
 var tableId = "#areaManageListTable";
 bindEvent();
 
+//绑定事件
 function bindEvent(){
 	//全选
 	$("#selectAll").off().click(function(){

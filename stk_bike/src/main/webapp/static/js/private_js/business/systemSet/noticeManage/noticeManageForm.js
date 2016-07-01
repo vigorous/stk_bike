@@ -27,6 +27,18 @@ function bindEvent(){
 //验证表单
 function validateForm(){
 	var flag = true;
+	var title_input = $(formId).find("input[name='TITLE']");
+	var title_length = $.trim(title_input.val()).length;
+	var contet_textarea = $(formId).find("textarea[name='CONTET']");
+	var contet_length = $.trim(contet_textarea.val()).length;
+	if(title_length < 1 || title_length > 100){
+		showTip(title_input, "100位字符以内");
+		flag = false;
+	}
+	if(contet_length < 1 || contet_length > 4000){
+		showTip(contet_textarea, "4000位字符以内");
+		flag = false;
+	}
 	return flag;
 }
 

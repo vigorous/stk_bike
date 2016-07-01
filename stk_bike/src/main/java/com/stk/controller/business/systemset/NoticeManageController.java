@@ -13,17 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sse.bikemanagement.entity.DistrictVO;
 import com.sse.bikemanagement.entity.NoticeVO;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.UserVO;
-import com.sse.bikemanagement.facade.DistrictFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.NoticeFacade;
 import com.sse.bikemanagement.info.NoticeInfoVO;
 import com.stk.controller.base.BaseController;
 import com.stk.util.Const;
-import com.stk.util.DateUtil;
 import com.stk.util.UuidUtil;
 
 @Controller
@@ -121,6 +118,20 @@ public class NoticeManageController extends BaseController {
 		noticeVO.setUPDATE_TIME(new Timestamp(new Date().getTime()));
 		NoticeFacade noticeFacade = FacadeFactory.getNoticeFacade();
 		Boolean flag = noticeFacade.modifyNotice(noticeVO);
+		return flag;
+	}
+	
+	/**
+	 * 删除公告
+	 * @param noticeVO
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/deleteNotice")
+	@ResponseBody
+	public Boolean deleteNotice(NoticeVO noticeVO) throws Exception{
+		NoticeFacade noticeFacade = FacadeFactory.getNoticeFacade();
+		Boolean flag = noticeFacade.deleteNotice(noticeVO);
 		return flag;
 	}
 }

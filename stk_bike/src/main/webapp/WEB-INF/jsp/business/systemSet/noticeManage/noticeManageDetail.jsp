@@ -57,7 +57,7 @@
 					上次修改时间
 				</div>
 				<div class="col-xs-7 text-left padding-top-1">
-					<span>${noticeInfoVO.noticeVO.UPDATE_TIME}</span>
+					<span><fmt:formatDate value="${noticeInfoVO.noticeVO.UPDATE_TIME}" pattern="yyyy-MM-dd hh:mm:ss"/></span>
 				</div>
 			</div>
 		</div>
