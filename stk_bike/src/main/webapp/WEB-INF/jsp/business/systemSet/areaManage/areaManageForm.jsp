@@ -16,7 +16,6 @@
 			.width-160{width: 160px;}
 			.padding-bottom-0{padding-bottom: 0px!important;}
 			.color-red{color: red;}
-			.btn-mini{padding: 4px 12px!important;line-height: 20px!important;border: 1px solid #ddd!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
@@ -68,12 +67,12 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-5 text-right">
-					</div>
-					<div class="col-xs-7 text-left">
-						<div class="btn-group">
-							<input type="button" class="btn btn-mini btn-success" value="保存" id="save" />
-							<input type="button" class="btn btn-mini btn-success" value="取消" id="cancel" />
+					<div class="col-xs-12">
+						<div class="col-xs-offset-4 col-xs-3">
+							<input type="button" class="btn btn-sm btn-success" value="保存" id="save" />
+						</div>
+						<div class="col-xs-3">
+							<input type="button" class="btn btn-sm btn-success" value="取消" id="cancel" />
 						</div>
 					</div>
 				</div>
