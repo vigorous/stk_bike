@@ -19,9 +19,7 @@
 	padding-top: 1%;
 }
 
-.color-red {
-	color: red;
-}
+
 
 .width-160 {
 	width: 160px;
@@ -40,7 +38,7 @@
 				value="${userInfoVO.userVO.USER_ID}" />
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>用户名称</span>
+					<span>用户名称</span>
 				</div>
 				<div class="col-xs-7  padding-top-1">
 					<span>${userInfoVO.userVO.USERNAME}</span>
@@ -48,7 +46,7 @@
 			</div>
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>密码</span>
+					<span>密码</span>
 				</div>
 				<div class="col-xs-7  padding-top-1">
 					<span>${userInfoVO.userVO.PASSWORD}</span>
@@ -58,7 +56,7 @@
 			</div>
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>真实姓名</span>
+					<span>真实姓名</span>
 				</div>
 				<div class="col-xs-7  padding-top-1">
 					<span>${userInfoVO.userVO.NAME}</span>
@@ -66,7 +64,7 @@
 			</div>
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>角色名称</span>
+					<span>角色名称</span>
 				</div>
 				<div class="col-xs-7 text-left padding-top-1">
 					<c:forEach items="${roleVoList}" var="roleVo">
@@ -79,7 +77,7 @@
 
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>所属公安局</span>
+					<span>所属公安局</span>
 				</div>
 				<div class="col-xs-7 text-left padding-top-1">
 					<c:forEach items="${policeList}" var="police">
@@ -92,7 +90,7 @@
 
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
-					<span class="color-red">*</span><span>状态</span>
+				<span>状态</span>
 				</div>
 				<div class="col-xs-7 text-left padding-top-1">
 					<c:choose>

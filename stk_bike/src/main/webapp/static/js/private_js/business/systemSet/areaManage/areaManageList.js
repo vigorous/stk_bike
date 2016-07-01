@@ -37,6 +37,7 @@ function bindEvent(){
 		var district_id = $(this).attr("data-id");
 		Dialog.confirm("确定删除吗？",function(){
 			$.ajax({
+				type : 'POST',
 				url : 'areaManage/deleteArea',
 				data : {
 					DISTRICT_ID : district_id

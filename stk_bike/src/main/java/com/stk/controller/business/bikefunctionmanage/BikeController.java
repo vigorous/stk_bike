@@ -1,5 +1,6 @@
 package com.stk.controller.business.bikefunctionmanage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
@@ -26,6 +27,7 @@ import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.PoliceFacade;
 import com.sse.bikemanagement.info.BikeInfoVO;
 import com.stk.controller.base.BaseController;
+import com.stk.domain.system.User;
 import com.stk.util.Const;
 import com.stk.util.UuidUtil;
 
@@ -59,7 +61,16 @@ public class BikeController extends BaseController {
 		mv.setViewName("business/bikefunctionmanage/addBike");
 		return mv;
 	}
-
+	//编辑车辆信息
+	@RequestMapping(value = "editbike")
+	public ModelAndView editbike(BikeVO bikeVO) throws Exception{
+		BikeFacade bf = FacadeFactory.getBikeFacade();
+		BikeInfoVO li=bf.queryBikeInfoByBikeID(bikeVO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", li);
+		mv.setViewName("business/bikefunctionmanage/addBike");
+		return mv;
+	}
 	// 添加车辆
 	@RequestMapping(value = "addBikeInfo")
 	@ResponseBody
@@ -95,6 +106,9 @@ public class BikeController extends BaseController {
 	@ResponseBody
 	public Boolean modifyBikeInfo(BikeVO bikeVO, OwnerVO ownerVO, RegisterVO registerVO) throws Exception {
 		Boolean bo = true;
+		registerVO.setPOLICE_OFFICE_ID("cb0ced786c1642c89c74b99a4c0b8ffb");
+		bikeVO.setBIKE_STATUS("00");
+		bikeVO.setBIKE_FLAG("00");
 		BikeFacade bf = FacadeFactory.getBikeFacade();
 		bo = bf.modifyBikeInfo(bikeVO, ownerVO, registerVO);
 		return bo;
@@ -115,7 +129,6 @@ public class BikeController extends BaseController {
 	public List<PoliceVO> queryPoliceByPoliceOfficeID() throws Exception {
 		List<PoliceVO> list = null;
 		// 获取session
-		PoliceVO PoliceVO;
 		Subject currentUser = SecurityUtils.getSubject();
 		Session session = currentUser.getSession();
 		UserVO user = (UserVO) session.getAttribute(Const.SESSION_USER);

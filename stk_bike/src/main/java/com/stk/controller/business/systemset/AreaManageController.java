@@ -88,7 +88,7 @@ public class AreaManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/addArea")
+	@RequestMapping(value="/addArea", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean addArea(DistrictVO districtVO) throws Exception{
 		districtVO.setDISTRICT_ID(UuidUtil.get32UUID());
@@ -103,7 +103,7 @@ public class AreaManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/editArea")
+	@RequestMapping(value="/editArea", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editArea(DistrictVO districtVO) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
@@ -117,7 +117,7 @@ public class AreaManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/deleteArea")
+	@RequestMapping(value="/deleteArea", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean deleteArea(DistrictVO districtVO) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
@@ -145,7 +145,7 @@ public class AreaManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/isExistAreaNo")
+	@RequestMapping(value="/isExistAreaNo", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean isExistAreaNo(DistrictVO districtVO) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
