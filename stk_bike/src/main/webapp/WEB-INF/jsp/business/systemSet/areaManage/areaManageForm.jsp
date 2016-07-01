@@ -59,7 +59,7 @@
 						<select class="form-control chosen-select" data-placeholder="上级区县" name="PARENT_NO">
 							<option value=""></option>
 							<c:forEach items="${districtList}" var="district">
-								<c:if test="${district.DISTRICT_LEVEL == 1}">
+								<c:if test="${district.DISTRICT_LEVEL == 1 && district.DISTRICT_ID != districtVO.DISTRICT_ID}">
 									<option value="${district.DISTRICT_NO}"  <c:if test="${districtVO.PARENT_NO == district.DISTRICT_NO}">selected="selected"</c:if>>${district.DISTRICT_NAME}</option>
 								</c:if>
 							</c:forEach>
