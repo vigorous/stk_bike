@@ -27,6 +27,7 @@ function bindEvent(){
 		btnDisenable();
 		if(oper == 'add'){
 			$.ajax({
+				type : 'POST',
 				url : 'areaManage/isExistAreaNo',
 				data : {
 					DISTRICT_NO : district_no
@@ -86,8 +87,9 @@ function validateForm(){
 //保存方法
 function save(url){
 	$.ajax({
+		type : 'POST',
 		url : url,
-		data : $(formId).serialize(),
+		data : $(formId).serializeArray(),
 		success : function(data){
 			if(data){
 				showDialog("保存成功", function(){
