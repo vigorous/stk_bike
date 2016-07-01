@@ -1,5 +1,6 @@
 package com.stk.controller.business.realalarm;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,8 @@ import com.stk.util.Const;
 import com.stk.util.DateUtil;
 import com.stk.util.PageData;
 import com.stk.util.Tools;
+
+import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping(value="/survey")
@@ -56,11 +59,36 @@ public class SurveyController extends BaseController {
 		}else{
 			eTime = DateUtil.fomatDate("2030-01-01");
 		}
-		
+		//统计公安局车辆信息（车辆总数、被盗车辆数量、寻回车辆数量）
 		List<StatisticsBikeVO> list = f.statisticsBikeByPoliceOffice(user.getPOLICE_OFFICE_ID(), sTime, eTime, bikeSource);
+		
+		//配置柱状图json数据
+		List<String> names = new ArrayList<String>();
+		List<Integer> totalBike  = new ArrayList<Integer>();
+		List<Integer> lostBike = new ArrayList<Integer>();
+		List<Integer> recoverBike = new ArrayList<Integer>();
+		
+		for(StatisticsBikeVO vo : list){
+			names.add(vo.getNAME());
+			totalBike.add(vo.getCARS_COUNT());
+			lostBike.add(vo.getLOST_CARS_COUNT());
+			recoverBike.add(vo.getBACK_CARS_COUNT());
+		}
+		
+		JSONArray namesJson = JSONArray.fromObject(names);				//名称
+		JSONArray totalBikeJson = JSONArray.fromObject(totalBike);		//车辆总数集合
+		JSONArray lostBikeJson = JSONArray.fromObject(lostBike);		//被盗车辆集合
+		JSONArray recoverBikeJson = JSONArray.fromObject(recoverBike);	//寻回车辆集合
+		
 		ModelAndView mv = this.getModelAndView();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
+		
+		mv.addObject("namesJson", namesJson.toString());
+		mv.addObject("totalBikeJson", totalBikeJson.toString());
+		mv.addObject("lostBikeJson", lostBikeJson.toString());
+		mv.addObject("recoverBikeJson", recoverBikeJson.toString());
+		
 		mv.setViewName("business/realAlarm/survey/surveyList");
 		return mv;
 	}
