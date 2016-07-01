@@ -50,7 +50,7 @@
 					</c:choose>
 				</div>
 			</div>
-			<div class="row margin-bottom-10 <c:if test="${districtVO.DISTRICT_LEVEL != 2}">hide</c:if>" id="parentDistrict">
+			<div class="row margin-bottom-10 <c:if test="${districtVO.DISTRICT_LEVEL != 2}">hide</c:if>">
 				<div class="col-xs-5 text-right padding-top-1">
 					<span>上级区县</span>
 				</div>
