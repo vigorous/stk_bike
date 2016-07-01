@@ -14,6 +14,7 @@
 	<title>车辆管理</title>
 </head>
 <body>
+<input type="hidden" value="<%=basePath%>" id="ctxPath" />
 <div class="page-content">
 	<!-- 主体查询条件部分 -->
 	<div class="row">
@@ -49,23 +50,23 @@
 			<table style="border:0">
 				<tr>
 					<td class="col-padding-right">
-						<input type="text" value="" placeholder="电子牌照" />
+						<input type="text" value="${bikeEid }" id="bikeEid" placeholder="电子牌照" />
 					</td>
 					
 					<td class="col-padding-right">
-						<input type="text" value="" placeholder="备案牌照" />
+						<input type="text" value="${bikeNo }" id="bikeNo" placeholder="备案牌照" />
 					</td>
 					
 					<td class="col-padding-right">
-						<input type="text" value="" placeholder="车辆类型" />
+						<input type="text" value="${bikeType }" id="bikeType" placeholder="车辆类型" />
 					</td>
 					
 					<td class="col-padding-right">
-						<input type="text" value="" placeholder="车主姓名" />
+						<input type="text" value="${bikeName }" id="bikeName" placeholder="车主姓名" />
 					</td>
 					
 					<td class="col-padding-right">
-						<button class="btn btn-sm btn-info">查询</button>
+						<button id="selectBike" class="btn btn-sm btn-info">查询</button>
 					</td>
 					
 					<td class="col-padding-right">
@@ -116,11 +117,11 @@
 											<i class="ace-icon fa fa-check bigger-120"></i>
 										</button>
 			
-										<button class="btn btn-xs btn-info">
+										<button onclick="edit('${list.bikeVO.BIKE_ID}','${list.ownerVO.OWNER_ID }','${list.registerVO.REGISTER_ID }')" class="btn btn-xs btn-info">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
 			
-										<button class="btn btn-xs btn-danger">
+										<button onclick="deletes('${list.bikeVO.BIKE_ID}','${list.ownerVO.OWNER_ID }','${list.registerVO.REGISTER_ID }')" class="btn btn-xs btn-danger">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</button>
 									</div>

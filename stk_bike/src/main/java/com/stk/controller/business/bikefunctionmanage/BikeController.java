@@ -40,6 +40,10 @@ public class BikeController extends BaseController {
 		List<BikeInfoVO> list = bf.queryBikeInfoByPage(page, bikeVO,ownerVO,registerVO,policeOfficeVO);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
+		mv.addObject("bikeEid",bikeVO.getBIKE_EID());
+		mv.addObject("bikeNo",bikeVO.getBIKE_NO());
+		mv.addObject("bikeType",bikeVO.getBIKE_TYPE());
+		mv.addObject("bikeName",ownerVO.getOWNER_NAME());
 		mv.setViewName("business/bikefunctionmanage/bikeManager");
 		return mv;
 	}

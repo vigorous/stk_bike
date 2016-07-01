@@ -23,7 +23,7 @@
 	<body class="no-skin">
 		<div class="page-content padding-bottom-0">
 			<form id="areaForm">
-				<input type="hidden" name="DISTRICT_ID" value="${districtVO.DISTRICT_ID}" />
+				<input type="hidden" value="${districtVO.DISTRICT_ID}" name="DISTRICT_ID" />
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
 						<span class="color-red">*</span><span>区域编号</span>
