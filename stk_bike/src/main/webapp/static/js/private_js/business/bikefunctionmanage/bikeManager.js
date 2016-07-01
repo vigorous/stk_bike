@@ -28,7 +28,7 @@ $("#addbike").click(function(){
 
 	diag.show();
 })
- function edit(bid,oid,rid){
+  edit=function (bid){
 	var diag = new Dialog();
 	  
 	diag.Width = 750;
@@ -37,7 +37,7 @@ $("#addbike").click(function(){
 
 	diag.Title = "编辑车辆信息";
 	
-	diag.URL = "editbike?BIKE_ID="+bid+"&OWNER_ID="+oid+"&REGISTER_ID="+rid;
+	diag.URL = "editbike?BIKE_ID="+bid;
 
 	diag.show();
 }

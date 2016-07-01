@@ -57,6 +57,20 @@ public class UserManageController extends BaseController {
 	}
 
 	/*
+	 * 跳转到用户管理详情页
+	 * */
+	@RequestMapping(value="/userDetailPage")
+	public String userDetailPage(Model model,UserVO userVO) throws Exception{
+		UserInfoVO userInfoVO=FacadeFactory.getUserFacade().queryUserByID(userVO);
+		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+		model.addAttribute("roleVoList", roleVoList);
+		model.addAttribute("userInfoVO", userInfoVO);
+		model.addAttribute("policeList", policeList);
+		return "business/systemSet/userManage/userManageDetail";
+	}
+	
+	/*
 	 *跳转到用户管理新建页
 	 */
 	@RequestMapping(value = "/addUserPage")

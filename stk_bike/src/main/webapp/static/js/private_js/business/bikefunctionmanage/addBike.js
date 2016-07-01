@@ -37,12 +37,35 @@ $(document).ready(
 								html += "<option   value = '"+ data[i].POLICE_ID + "'>"+ data[i].POLICE_NAME + "</option>";
 							}
 						}
-						$("#POLICE_ID").html(html)
+						$("#POLICE_OFFICE_ID").val(data[0].POLICE_NO); 
+						$("#POLICE_ID").html(html);
 					}
 				},
 			})
+			if($("#BIKE_EID").val()!=""){
+				$("#BIKE_EID").attr("readonly",true); 
+			}
+			if($("#BIKE_SKELETON_NO").val()!=""){
+				$("#BIKE_SKELETON_NO").attr("readonly",true); 
+			}
+			if($("#BIKE_MACHINE_NO").val()!=""){
+				$("#BIKE_MACHINE_NO").attr("readonly",true); 
+			}
+			if($("#OWNER_NAME").val()!=""){
+				$("#OWNER_NAME").attr("readonly",true); 
+			}
+			if($("#OWNER_SFID").val()!=""){
+				$("#OWNER_SFID").attr("readonly",true); 
+			}
+			if($("#OWNER_PHONE").val()!=""){
+				$("#OWNER_PHONE").attr("readonly",true); 
+			}
+			if($("#REGISTER_TIME").val()!=""){
+				$("#REGISTER_TIME").attr("readonly",true); 
+			}
 		});
-$("#POLICE_ID").change(function(){
+$("#POLICE_ID").off().change(function(){
+	debugger;
 	var id=$("#POLICE_ID").val();
 	$.ajax({
 		cache : false,
@@ -50,13 +73,12 @@ $("#POLICE_ID").change(function(){
 		url : ctxPath + "bike/queryPoliceByID/"+id,
 		success : function(data) {
 			if (data != null) {
-				$("#POLICE_OFFICE_ID").val(data.POLICE_OFFICE_NO)
+				$("#POLICE_OFFICE_ID").val(data.POLICE_NO)
 			}
 		},
 	})
 })	
-
-$("#save").click(function(){
+function save(id){
 	if($("#BIKE_EID").val()==""||$("#BIKE_EID").val()==null){
 		$("#BIKE_EID").tips({
 			side : 1,
@@ -120,18 +142,38 @@ $("#save").click(function(){
 		});
 		return false;
 	}
+	debugger;
 	var params=form.serialize();
-	$.ajax({
-		cache: false,
-		type: "POST",
-		data:params,
-		url:ctxPath +"/bike/addBikeInfo",
-		success:function(data){
-			if(data==true){
-				alert("添加成功");
-				 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
-				Dialog.close();
+	if(id==""){
+		$.ajax({
+			cache: false,
+			type: "POST",
+			data:params,
+			url:ctxPath +"/bike/addBikeInfo",
+			success:function(data){
+				if(data==true){
+					alert("添加成功");
+					Dialog.close();
+					 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+				}
 			}
-		}
-	});
-});
+		});
+	}else{
+		$.ajax({
+			cache: false,
+			type: "POST",
+			data:params,
+			url:ctxPath +"/bike/modifyBikeInfo",
+			success: function(data){
+				if(data==true){
+					alert("修改成功");
+					Dialog.close();
+					 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+				}else{
+					alert("修改失败");
+				}
+			}
+		})
+	}
+	
+}

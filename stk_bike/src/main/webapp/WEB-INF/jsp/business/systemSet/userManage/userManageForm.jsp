@@ -45,14 +45,15 @@
 <body class="no-skin">
 	<div class="page-content padding-bottom-0">
 		<form action="userManage/userManageForm" id="userForm">
-			<input type="hidden" name="USER_ID" value="${userInfoVO.userVO.USER_ID}" />
+			<input type="hidden" name="USER_ID"
+				value="${userInfoVO.userVO.USER_ID}" />
 			<div class="row margin-bottom-10">
 				<div class="col-xs-5 text-right padding-top-1">
 					<span class="color-red">*</span><span>用户名称</span>
 				</div>
 				<div class="col-xs-7">
 					<input type="text" class="width-160"
-						value="${userInfoVO.userVO.USERNAME}" name="USERNAME" />
+					    value="${userInfoVO.userVO.USERNAME}" name="USERNAME" <c:if test="${oper == 'edit'}">readonly="readonly"</c:if> />
 				</div>
 			</div>
 			<div class="row margin-bottom-10">
@@ -168,6 +169,7 @@
 	</script>
 	<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript" src="static/js/jquery.tips.js"></script>
-	<script type="text/javascript" src="static/js/private_js/business/systemSet/userManage/userManagerForm.js"></script>
+	<script type="text/javascript"
+		src="static/js/private_js/business/systemSet/userManage/userManagerForm.js"></script>
 </body>
 </html>

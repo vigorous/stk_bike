@@ -18,17 +18,31 @@
 			.padding-bottom-0{padding-bottom: 0px!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
+		
+		<script type="text/javascript">
+			function validate(){
+				var startTime = $("#START_TIME").val();
+				var endTime = $("#END_TIME").val();
+				
+				if(endTime < startTime){
+					alert("开始日期不能大于结束日期");
+					$("#START_TIME").val("");
+					$("#END_TIME").val("");
+					return false;
+				}
+			}
+		</script>
 	</head>
 	<body class="no-skin">
 		<div class="page-content">
 			<!-- <div class="row margin-bottom-5"> -->
 			<div class="row">
 				<div class="col-xs-12">
-					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList">
+					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList" method="post" >
 						<div class="form-group">
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+									<input class="form-control date-picker text-center" type="text" id="START_TIME" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -37,7 +51,7 @@
 							
 							<div class="col-sm-2">
 								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+									<input class="form-control date-picker text-center" type="text" id="END_TIME" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" onchange="validate()"/>
 									<span class="input-group-addon">
 										<i class="fa fa-calendar bigger-110"></i>
 									</span>
@@ -45,7 +59,7 @@
 							</div>
 							
 							<div class="col-sm-2">
-								<select class="form-control chosen-select" data-placeholder="车辆类型" name="BIKE_SOURCE">
+								<select class="form-control chosen-select" data-placeholder="车辆类型" id="BIKE_SOURCE" name="BIKE_SOURCE">
 									<option value=""></option>
 									<option value="">全部车辆</option>
 									<option value="00">新车</option>
@@ -53,7 +67,7 @@
 								</select>
 							</div>
 							<!-- 按钮控件 -->
-							<button class="btn btn-sm btn-light" onclick="search();"  title="查询">
+							<button class="btn btn-sm btn-light"  title="查询">
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
 							</button>
 							<!-- /按钮控件 -->
@@ -143,7 +157,7 @@
 						text: '车辆数量（辆）'
 					},
 					xAxis: {
-						categories: [
+						/* categories: [
 							'秀洲公安局',
 							'洪河交警中队',
 							'王店派出所',
@@ -152,7 +166,8 @@
 							'王店交警中队',
 							'五联派出所',
 							'江泾派出所'
-						],
+						], */
+						categories:${namesJson},
 						//type: 'category',
 						//labels: {
 						//	rotation: -45,
@@ -188,15 +203,18 @@
 					},
 					series: [{
 						name: '总车辆数',
-						data: [185, 71, 106, 129, 144, 176, 135, 148]
+						/* data: [185, 71, 106, 129, 144, 176, 135, 148] */
+						data: ${totalBikeJson}
 
 					}, {
 						name: '遗失',
-						data: [83, 78, 98, 93, 106, 84, 105, 104]
+						/* data: [83, 78, 98, 93, 106, 84, 105, 104] */
+						data: ${lostBikeJson}
 
 					}, {
 						name: '寻回',
-						data: [48, 38, 39, 41, 47, 48, 59, 56]
+						/* data: [48, 38, 39, 41, 47, 48, 59, 56] */
+						data: ${recoverBikeJson}
 
 					}]
 				});
