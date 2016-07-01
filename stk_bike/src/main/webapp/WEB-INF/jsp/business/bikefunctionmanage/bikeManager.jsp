@@ -117,7 +117,7 @@
 											<i class="ace-icon fa fa-check bigger-120"></i>
 										</button>
 			
-										<button onclick="edit('${list.bikeVO.BIKE_ID}','${list.ownerVO.OWNER_ID }','${list.registerVO.REGISTER_ID }')" class="btn btn-xs btn-info">
+										<button onclick="edit('${list.bikeVO.BIKE_ID}')" class="btn btn-xs btn-info">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
 			
