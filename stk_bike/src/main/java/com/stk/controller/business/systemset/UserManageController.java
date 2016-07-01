@@ -8,6 +8,7 @@ import javax.jws.WebParam.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -87,7 +88,7 @@ public class UserManageController extends BaseController {
 	/*
 	 * 新建用户
 	 */
-	@RequestMapping(value = "/addUser")
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean addUser(UserVO userVO) throws IOException, Exception {
 		userVO.setUSER_ID(UuidUtil.get32UUID());
@@ -99,7 +100,7 @@ public class UserManageController extends BaseController {
 	 * 编辑用户
 	 * */
 	
-	@RequestMapping(value="/editUser")
+	@RequestMapping(value="/editUser", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editUser(Model model, UserVO userVO) throws IOException, Exception{
 		boolean flag=FacadeFactory.getUserFacade().modifyUser(userVO);
@@ -112,7 +113,7 @@ public class UserManageController extends BaseController {
 	 * 删除用户
 	 * 
 	 **/
-	@RequestMapping(value = "/deleteUser")
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean deleteUser(UserVO userVO) throws Exception {
 		UserFacade userFacade;
