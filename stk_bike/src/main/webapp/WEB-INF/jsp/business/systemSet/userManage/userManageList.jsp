@@ -36,7 +36,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<table
-					class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+					class="table table-striped table-bordered table-hover text-center margin-bottom-5"
+					id="userManageListTable">
 					<thead>
 						<tr>
 							<th class="text-center" width="20%">用户名称</th>
@@ -53,17 +54,19 @@
 							</tr>
 						</c:if>
 						<c:forEach items="${list}" var="user">
-							<tr>
+							<tr data-id="${user.userVO.USER_ID}">
 								<td>${user.userVO.USERNAME}</td>
 								<td>${user.userVO.NAME}</td>
 								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 								<td>${user.roleVo.ROLE_NAME}</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
-										<button class="btn btn-xs btn-info" name="edit" data-id="${user.userVO.USER_ID}">
+										<button class="btn btn-xs btn-info" name="edit"
+											data-id="${user.userVO.USER_ID}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
-										<button class="btn btn-xs btn-danger" name="delete" data-id="${user.userVO.USER_ID}">
+										<button class="btn btn-xs btn-danger" name="delete"
+											data-id="${user.userVO.USER_ID}">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</button>
 									</div>

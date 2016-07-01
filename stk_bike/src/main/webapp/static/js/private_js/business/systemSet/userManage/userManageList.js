@@ -1,3 +1,4 @@
+var tableId = "#userManageListTable";
 bindEvent();
 
 // 保存
@@ -42,6 +43,16 @@ function bindEvent() {
 				}
 			});
 		});
+	});
+	
+	//表格双击行弹出详情页面
+	$(tableId+" tbody tr").off().dblclick(function(){
+		var user_id = $(this).attr("data-id");
+		var dialog = new Dialog();
+		dialog.Title = "用户详情";
+		dialog.URL = "userDetailPage?USER_ID=" + user_id;
+		dialog.Height = 350;
+		dialog.show();
 	});
 }
 
