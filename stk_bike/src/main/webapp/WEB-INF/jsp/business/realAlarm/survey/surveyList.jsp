@@ -97,7 +97,10 @@
 			</div>
 			<div class="row hide" id="histogramTagPage">
 				<div class="col-xs-12 row-margin-top">
-					<div id="container"></div>
+					<div class="row">
+						<div class="col-xs-6" id="container"></div>
+						<div class="col-xs-6" id="container1"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -171,8 +174,8 @@
 					},
 					tooltip: {
 						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y} 辆</b></td></tr>',//{point.y:.1f}修改颜色：#434348-->#e4393c
+						pointFormat: '<tr><td style="color:{series.color};padding:0;border:1px solid #ccc;text-align:right">{series.name}: </td>' +
+						'<td style="padding:0;border:1px solid #ccc"><b>{point.y} 辆</b></td></tr>',//{point.y:.1f}修改颜色：#434348-->#e4393c
 						footerFormat: '</table>',
 						shared: true,
 						useHTML: true
@@ -198,7 +201,58 @@
 					}]
 				});
 			});
-
+			
+			$(function () {
+			    $('#container1').highcharts({
+			    	credits: {
+						enabled: false
+					},
+					exporting: {
+						enabled: false
+					},
+			        chart: {
+			            plotBackgroundColor: null,
+			            plotBorderWidth: null,
+			            plotShadow: false
+			        },
+			        title: {
+			            text: '车辆数量统计分布图'
+			        },
+			        tooltip: {
+			    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			        },
+			        plotOptions: {
+			            pie: {
+			                allowPointSelect: true,
+			                cursor: 'pointer',
+			                dataLabels: {
+			                    enabled: true,
+			                    color: '#000000',
+			                    connectorColor: '#000000',
+			                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+			                },
+			                showInLegend: true
+			            }
+			        },
+			        series: [{
+			            type: 'pie',
+			            name: '车辆占有比率',
+			            data: [
+			                ['秀洲公安局',   45.0],
+			                ['王店派出所',       26.8],
+			                {
+			                    name: '洪河派出所',
+			                    y: 12.8,
+			                    sliced: true,
+			                    selected: true
+			                },
+			                ['新城派出所',    8.5],
+			                ['五联派出所',     6.2],
+			                ['洪河交警中队',   0.7]
+			            ]
+			        }]
+			    });
+			});
 		</script>
 	</body>
 </html>
