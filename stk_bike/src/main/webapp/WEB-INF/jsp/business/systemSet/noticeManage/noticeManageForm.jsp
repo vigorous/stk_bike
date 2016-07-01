@@ -22,13 +22,15 @@
 	<body class="no-skin">
 		<div class="page-content padding-bottom-0">
 			<form id="noticeForm">
-				<input type="hidden" value="" />
+				<input type="hidden" value="${noticeInfoVO.noticeVO.NOTICE_ID}" name="NOTICE_ID" />
+				<input type="hidden" value="${userVO.USER_ID}" name="USER_ID" />
+				<input type="hidden" value="${noticeInfoVO.noticeVO.CREATE_TIME}" name="CREATE_TIME" />
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
 						<span>公告标题</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="TITLE" />
+						<input type="text" class="width-160" value="${noticeInfoVO.noticeVO.TITLE}" name="TITLE" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -36,7 +38,7 @@
 						<span>公告内容</span>
 					</div>
 					<div class="col-xs-7">
-						<textarea class="width-160" name="CONTET"></textarea>
+						<textarea class="width-160" name="CONTET">${noticeInfoVO.noticeVO.CONTET}</textarea>
 					</div>
 				</div>
 				<div class="row margin-bottom-10">

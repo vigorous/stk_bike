@@ -40,17 +40,14 @@
 								</tr>
 							</c:if>
 							<c:forEach items="${list}" var="notice">
-								<tr>
+								<tr data-id="${notice.noticeVO.NOTICE_ID}">
 									<td>${notice.noticeVO.TITLE}</td>
 									<td>${notice.noticeVO.CONTET}</td>
 									<td>${notice.userVO.NAME}</td>
-									<td><fmt:formatDate value="${notice.noticeVO.CREATE_TIME}" pattern="yyyy-MM-dd"/></td>
+									<td><fmt:formatDate value="${notice.noticeVO.CREATE_TIME}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-warning" name="detail" data-id="${area.DISTRICT_ID}">
-												<i class="ace-icon fa fa-flag bigger-120"></i>
-											</button>
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" name="edit" data-id="${notice.noticeVO.NOTICE_ID}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
 											<button class="btn btn-xs btn-danger">
