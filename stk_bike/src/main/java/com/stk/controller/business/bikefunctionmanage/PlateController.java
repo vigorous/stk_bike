@@ -31,11 +31,24 @@ import com.stk.util.UuidUtil;
 // 电子车牌发卡管理
 public class PlateController extends BaseController {
 	@RequestMapping(value = "select")
-	public ModelAndView select(Page page, CardVO vo, Date start_time, Date end_time) throws Exception {
+	public ModelAndView select(Page page, CardVO vo, String startTime, String endTime) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		CardFacade cardFacade = FacadeFactory.getCardFacade();
 		CardVO cov = new CardVO();
-		List<CardVO> list = cardFacade.queryCardByPage(page, cov, start_time, end_time);
+		Date startDate = null;
+		Date endDate = null;
+		try {
+			if (startTime != null || !startTime.equals("")) {
+				startDate = DateUtil.fomatDates(startTime);
+			}
+			if (endTime != null || !endTime.equals("")) {
+				endDate = DateUtil.fomatDates(endTime);
+			}
+		} catch (NullPointerException e) {
+			
+		}
+
+		List<CardVO> list = cardFacade.queryCardByPage(page, cov, startDate, endDate);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("business/bikefunctionmanage/plateManager");
