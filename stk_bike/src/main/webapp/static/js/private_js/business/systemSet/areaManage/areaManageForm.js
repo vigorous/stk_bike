@@ -66,7 +66,7 @@ function validateForm(){
 	var parent_no_select = $(formId).find("select[name='PARENT_NO']");
 	var parent_no_length = $.trim(parent_no_select.val()).length;
 	if(district_no_length < 1 || district_no_length > 10){
-		showTip(district_no_input, "20位字符以内");
+		showTip(district_no_input, "10位字符以内");
 		flag = false;
 	}
 	if(district_name_length < 1 || district_name_length > 60){
@@ -134,15 +134,15 @@ function closeDialog(){
 
 //刷新页面
 function refresh(){
-	addTab('bea8ebd27048422f9ae9efe2a60eee0d','cc7f755f347c4ae7b0f6c704652d5b4d','区域管理','areaManage/areaManageList')
+	addTab('bea8ebd27048422f9ae9efe2a60eee0d','cc7f755f347c4ae7b0f6c704652d5b4d','区域管理','areaManage/areaManageList');
 }
 
-//按钮不可用
+//按钮可用
 function btnEnable(){
 	$(formId).find("input[type='button']").removeAttr("disabled");
 }
 
-//按钮可用
+//按钮不可用
 function btnDisenable(){
 	$(formId).find("input[type='button']").attr("disabled","disabled");
 }

@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sse.bikemanagement.entity.DistrictVO;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.PoliceOfficeVO;
-import com.sse.bikemanagement.facade.DistrictFacade;
+import com.sse.bikemanagement.entity.PoliceVO;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.PoliceFacade;
 import com.sse.bikemanagement.facade.PoliceOfficeFacade;
@@ -50,7 +49,9 @@ public class UnitManageController extends BaseController {
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
 		List<PoliceOfficeVO> policeOfficeList = policeOfficeFacade.queryAllPoliceOffice();
 		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
+		List<PoliceVO> policeList = policeFacade.queryAllPolice();
 		model.addAttribute("policeOfficeList", policeOfficeList);
+		model.addAttribute("policeList", policeList);
 		model.addAttribute("oper", "add");
 		return "business/systemSet/unitManage/unitManageForm";
 	}
@@ -64,7 +65,12 @@ public class UnitManageController extends BaseController {
 	public String unitDetailPage(Model model, PoliceOfficeVO policeOfficeVO) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
 		policeOfficeVO = policeOfficeFacade.queryPoliceOfficeByID(policeOfficeVO);
+		List<PoliceOfficeVO> policeOfficeList = policeOfficeFacade.queryAllPoliceOffice();
+		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
+		List<PoliceVO> policeList = policeFacade.queryAllPolice();
 		model.addAttribute("policeOfficeVO", policeOfficeVO);
+		model.addAttribute("policeOfficeList", policeOfficeList);
+		model.addAttribute("policeList", policeList);
 		return "business/systemSet/unitManage/unitManageDetail";
 	}
 	
@@ -77,8 +83,12 @@ public class UnitManageController extends BaseController {
 	public String editUnitPage(Model model, PoliceOfficeVO policeOfficeVO) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
 		policeOfficeVO = policeOfficeFacade.queryPoliceOfficeByID(policeOfficeVO);
+		List<PoliceOfficeVO> policeOfficeList = policeOfficeFacade.queryAllPoliceOffice();
 		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
+		List<PoliceVO> policeList = policeFacade.queryAllPolice();
 		model.addAttribute("policeOfficeVO", policeOfficeVO);
+		model.addAttribute("policeOfficeList", policeOfficeList);
+		model.addAttribute("policeList", policeList);
 		model.addAttribute("oper", "edit");
 		return "business/systemSet/unitManage/unitManageForm";
 	}
@@ -89,7 +99,7 @@ public class UnitManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/addUnit")
+	@RequestMapping(value="/addUnit", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean addUnit(PoliceOfficeVO policeOfficeVO) throws Exception{
 		policeOfficeVO.setPOLICE_OFFICE_ID(UuidUtil.get32UUID());
@@ -104,7 +114,7 @@ public class UnitManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/editUnit")
+	@RequestMapping(value="/editUnit", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editUnit(PoliceOfficeVO policeOfficeVO) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
@@ -118,7 +128,7 @@ public class UnitManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/deleteUnit")
+	@RequestMapping(value="/deleteUnit", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean deleteUnit(PoliceOfficeVO policeOfficeVO) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
