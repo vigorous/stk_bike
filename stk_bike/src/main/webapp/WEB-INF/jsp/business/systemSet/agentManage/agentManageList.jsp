@@ -7,7 +7,7 @@
 			+ path + "/";
 %>
 <!DOCTYPE html>
-<html> 
+<html>
 <head lang="en">
 <base href="<%=basePath%>">
 <link rel="stylesheet"
@@ -57,9 +57,9 @@
 					class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 					<thead>
 						<tr>
-							<th class="text-center" width="16.66%"><label class="pos-rel">
-									<input type="checkbox" class="ace" id="selectAll" /> <span
-									class="lbl"></span>
+							<th class="text-center" width="16.66%"><label
+								class="pos-rel"> <input type="checkbox" class="ace"
+									id="selectAll" /> <span class="lbl"></span>
 							</label></th>
 							<th class="text-center" width="16.66%">经办人编号</th>
 							<th class="text-center" width="16.66%">经办人姓名</th>
@@ -69,16 +69,16 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:if test="${empty list}">
+						<c:if test="${empty list}">
 							<tr>
 								<td colspan="5">暂无数据</td>
 							</tr>
 						</c:if>
 						<c:forEach items="${list}" var="police">
 							<tr data-id="${police.policeVO.POLICE_ID}">
-							<td><label class="pos-rel"> <input type="checkbox"
-										class="ace" name="select" data-id="${police.policeVO.POLICE_ID}" /> <span
-										class="lbl"></span>
+								<td><label class="pos-rel"> <input type="checkbox"
+										class="ace" name="select"
+										data-id="${police.policeVO.POLICE_ID}" /> <span class="lbl"></span>
 								</label></td>
 								<td>${police.policeVO.POLICE_NO}</td>
 								<td>${police.policeVO.POLICE_NAME}</td>
@@ -87,18 +87,18 @@
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info" name="edit"
-											data-id="${police.policeVO.POLICE_NO}">
+											data-id="${police.policeVO.POLICE_ID}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
 										<button class="btn btn-xs btn-danger" name="delete"
-											data-id="${police.policeVO.POLICE_NO}">
+											data-id="${police.policeVO.POLICE_ID}">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</button>
 									</div>
 								</td>
 							</tr>
 						</c:forEach>
-					
+
 					</tbody>
 				</table>
 				<div class="btn-group">
@@ -109,6 +109,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript"
 		src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 	<script type="text/javascript"
