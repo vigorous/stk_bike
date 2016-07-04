@@ -107,6 +107,9 @@ public class AreaManageController extends BaseController {
 	@RequestMapping(value="/editArea", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editArea(DistrictVO districtVO) throws Exception{
+		if(districtVO.getDISTRICT_LEVEL() == 1){
+			districtVO.setPARENT_NO("");
+		}
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
 		Boolean flag = districtFacade.modifyDistrict(districtVO);
 		return flag;

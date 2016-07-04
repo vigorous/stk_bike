@@ -69,5 +69,5 @@ function showDialog(tip, success){
 
 //刷新页面
 function refresh(){
-	addTab('61b41081f89042bd9dc908d4176e7ac2','cc7f755f347c4ae7b0f6c704652d5b4d','公告管理','noticeManage/noticeManageList')
+	addTab('61b41081f89042bd9dc908d4176e7ac2','cc7f755f347c4ae7b0f6c704652d5b4d','公告管理','noticeManage/noticeManageList');
 }

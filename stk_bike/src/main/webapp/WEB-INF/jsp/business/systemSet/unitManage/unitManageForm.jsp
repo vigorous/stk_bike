@@ -28,7 +28,7 @@
 						<span class="color-red">*</span><span>单位编码</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="POLICE_OFFICE_NO" />
+						<input type="text" class="width-160" value="${policeOfficeVO.POLICE_OFFICE_NO}" name="POLICE_OFFICE_NO" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -36,7 +36,7 @@
 						<span class="color-red">*</span><span>单位名称</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="POLICE_OFFICE_NAME" />
+						<input type="text" class="width-160" value="${policeOfficeVO.POLICE_OFFICE_NAME}" name="POLICE_OFFICE_NAME" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -47,7 +47,9 @@
 						<select class="form-control chosen-select" data-placeholder="上层机构" name="PARENT_NO">
 							<option value=""></option>
 							<c:forEach items="${policeOfficeList}" var="policeOffice">
-								<option value="${policeOffice.POLICE_OFFICE_NO}">${policeOffice.POLICE_OFFICE_NAME}</option>
+								<c:if test="${policeOffice.POLICE_OFFICE_ID != policeOfficeVO.POLICE_OFFICE_ID}">
+									<option value="${policeOffice.POLICE_OFFICE_NO}" <c:if test="${policeOfficeVO.PARENT_NO == policeOffice.POLICE_OFFICE_NO}">selected="selected"</c:if>>${policeOffice.POLICE_OFFICE_NAME}</option>
+								</c:if>
 							</c:forEach>
 						</select>
 					</div>
@@ -59,7 +61,9 @@
 					<div class="col-xs-7">
 						<select class="form-control chosen-select" data-placeholder="负责人" name="MANAGER_ID">
 							<option value=""></option>
-							<option value="89504b2cf2c54a01a93c998f62298984">王磊</option>
+							<c:forEach items="${policeList}" var="police">
+								<option value="${police.POLICE_ID}" <c:if test="${policeOfficeVO.MANAGER_ID == police.POLICE_ID}">selected="selected"</c:if>>${police.POLICE_NAME}</option>
+							</c:forEach>
 						</select>
 					</div>
 				</div>
@@ -68,7 +72,7 @@
 						<span class="color-red">*</span><span>地址</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="ADDRESS" />
+						<input type="text" class="width-160" value="${policeOfficeVO.ADDRESS}" name="ADDRESS" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -76,7 +80,7 @@
 						<span class="color-red">*</span><span>联系电话</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="PHONE" />
+						<input type="text" class="width-160" value="${policeOfficeVO.PHONE}" name="PHONE" />
 					</div>
 				</div>
 				<div class="row">
@@ -90,10 +94,14 @@
 					</div>
 				</div>
 			</form>
+			<input type="hidden" value="${oper}" id="oper" />
 		</div>
 		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
 		<script type="text/javascript">
 			$('.chosen-select').chosen({width:"160px"});
 		</script>
+		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
+		<script type="text/javascript" src="static/js/jquery.tips.js"></script>
+		<script type="text/javascript" src="static/js/private_js/business/systemSet/unitManage/unitManageForm.js"></script>
 	</body>
 </html>

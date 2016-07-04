@@ -40,7 +40,7 @@
 								</tr>
 							</c:if>
 							<c:forEach items="${list}" var="policeOffice">
-								<tr>
+								<tr data-id="${policeOffice.policeOfficeVO.POLICE_OFFICE_ID}">
 									<td>${policeOffice.policeOfficeVO.POLICE_OFFICE_NO}</td>
 									<td>${policeOffice.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 									<td>${policeOffice.policeOfficeVO.PARENT_NO}</td>
@@ -49,10 +49,10 @@
 									<td>${policeOffice.policeOfficeVO.PHONE}</td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" name="edit" data-id="${policeOffice.policeOfficeVO.POLICE_OFFICE_ID}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
-											<button class="btn btn-xs btn-danger">
+											<button class="btn btn-xs btn-danger" name="delete" data-id="${policeOffice.policeOfficeVO.POLICE_OFFICE_ID}">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 										</div>

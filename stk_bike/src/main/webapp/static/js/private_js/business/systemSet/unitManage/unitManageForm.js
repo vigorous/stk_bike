@@ -47,6 +47,36 @@ function bindEvent(){
 //验证表单
 function validateForm(){
 	var flag = true;
+	var police_office_no_input = $(formId).find("input[name='POLICE_OFFICE_NO']");
+	var police_office_no_length = $.trim(police_office_no_input.val()).length;
+	var police_office_name_input = $(formId).find("input[name='POLICE_OFFICE_NAME']");
+	var police_office_name_length = $.trim(police_office_name_input.val()).length;
+	var manager_id_select = $(formId).find("select[name='MANAGER_ID']");
+	var manager_id_length = $.trim(manager_id_select.val()).length;
+	var address_input = $(formId).find("input[name='ADDRESS']");
+	var address_length = $.trim(address_input.val()).length;
+	var phone_input = $(formId).find("input[name='PHONE']");
+	var phone_length = $.trim(phone_input.val()).length;
+	if(police_office_no_length < 1 || police_office_no_length > 20){
+		showTip(police_office_no_input, "20位字符以内");
+		flag = false;
+	}
+	if(police_office_name_length < 1 || police_office_name_length > 60){
+		showTip(police_office_name_input, "60位字符以内");
+		flag = false;
+	}
+	if(manager_id_length < 1){
+		showTip(manager_id_select.next(), "选择负责人");
+		flag = false;
+	}
+	if(address_length < 1 || address_length > 100){
+		showTip(address_input, "100位字符以内");
+		flag = false;
+	}
+	if(phone_length < 1 || phone_length > 20){
+		showTip(phone_input, "20位字符以内");
+		flag = false;
+	}
 	return flag;
 }
 
@@ -100,15 +130,15 @@ function closeDialog(){
 
 //刷新页面
 function refresh(){
-	addTab('4eb3a9dcdd7f4b3cbc99c7e0a7085239','cc7f755f347c4ae7b0f6c704652d5b4d','单位管理','unitManage/unitManageList')
+	addTab('4eb3a9dcdd7f4b3cbc99c7e0a7085239','cc7f755f347c4ae7b0f6c704652d5b4d','单位管理','unitManage/unitManageList');
 }
 
-//按钮不可用
+//按钮可用
 function btnEnable(){
 	$(formId).find("input[type='button']").removeAttr("disabled");
 }
 
-//按钮可用
+//按钮不可用
 function btnDisenable(){
 	$(formId).find("input[type='button']").attr("disabled","disabled");
 }
