@@ -11,7 +11,7 @@ modifyBrand= function(id){
 	var dialog = new Dialog();
 	dialog.Title = "编辑品牌";
 	dialog.URL = "brandManagerForm/"+id;
-	dialog.Height = 300;
+	dialog.Height = 150;
 	dialog.show();
 }
 deleteBrand=function(id){
