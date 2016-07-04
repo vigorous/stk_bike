@@ -9,14 +9,14 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-<base href="<%=basePath%>">
-
-<link rel="stylesheet" href="static/assets/css/chosen.css" />
-<link rel="stylesheet"
-	href="static/assets/css/bootstrap-datetimepicker.min.css" />
-<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
-
-<%@ include file="../../system/admin/top.jsp"%>
+	<base href="<%=basePath%>">
+	
+	<link rel="stylesheet" href="static/assets/css/chosen.css" />
+	<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
+	
+	<%@ include file="../../system/admin/top.jsp"%>
+	
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
 </head>
 <body class="no-skin">
 	<input type="hidden" value="<%=basePath%>" id="addCtxPath" />

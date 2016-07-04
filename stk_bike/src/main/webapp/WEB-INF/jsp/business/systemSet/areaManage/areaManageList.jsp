@@ -42,10 +42,11 @@
 									<input type="checkbox" class="ace" id="selectAll" /> <span
 									class="lbl"></span>
 							</label></th>
-							<th class="text-center" width="22.5%">区域编号</th>
-							<th class="text-center" width="22.5%">区域名称</th>
-							<th class="text-center" width="22.5%">上级区域编号</th>
-							<th class="text-center" width="22.5%">操作</th>
+							<th class="text-center" width="18%">区域编号</th>
+							<th class="text-center" width="18%">区域名称</th>
+							<th class="text-center" width="18%">上级区域编号</th>
+							<th class="text-center" width="18%">上级区域名称</th>
+							<th class="text-center" width="18%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,22 +56,23 @@
 							</tr>
 						</c:if>
 						<c:forEach items="${list}" var="area">
-							<tr data-id="${area.DISTRICT_ID}">
+							<tr data-id="${area.districtVO.DISTRICT_ID}">
 								<td><label class="pos-rel"> <input type="checkbox"
-										class="ace" name="select" data-id="${area.DISTRICT_ID}" /> <span
+										class="ace" name="select" data-id="${area.districtVO.DISTRICT_ID}" /> <span
 										class="lbl"></span>
 								</label></td>
-								<td>${area.DISTRICT_NO}</td>
-								<td>${area.DISTRICT_NAME}</td>
-								<td>${area.PARENT_NO}</td>
+								<td>${area.districtVO.DISTRICT_NO}</td>
+								<td>${area.districtVO.DISTRICT_NAME}</td>
+								<td>${area.parentDistrictVO.DISTRICT_NO}</td>
+								<td>${area.parentDistrictVO.DISTRICT_NAME}</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info" name="edit"
-											data-id="${area.DISTRICT_ID}">
+											data-id="${area.districtVO.DISTRICT_ID}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
 										<button class="btn btn-xs btn-danger" name="delete"
-											data-id="${area.DISTRICT_ID}">
+											data-id="${area.districtVO.DISTRICT_ID}">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</button>
 									</div>
