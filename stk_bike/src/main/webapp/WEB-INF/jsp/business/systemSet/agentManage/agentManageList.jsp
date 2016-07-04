@@ -7,7 +7,7 @@
 			+ path + "/";
 %>
 <!DOCTYPE html>
-<html>
+<html> 
 <head lang="en">
 <base href="<%=basePath%>">
 <link rel="stylesheet"
@@ -57,11 +57,15 @@
 					class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 					<thead>
 						<tr>
-							<th class="text-center" width="20%">经办人编号</th>
-							<th class="text-center" width="20%">经办人姓名</th>
-							<th class="text-center" width="20%">所属单位</th>
-							<th class="text-center" width="20%">联系电话</th>
-							<th class="text-center" width="20%">操作</th>
+							<th class="text-center" width="16.66%"><label class="pos-rel">
+									<input type="checkbox" class="ace" id="selectAll" /> <span
+									class="lbl"></span>
+							</label></th>
+							<th class="text-center" width="16.66%">经办人编号</th>
+							<th class="text-center" width="16.66%">经办人姓名</th>
+							<th class="text-center" width="16.66%">所属单位</th>
+							<th class="text-center" width="16.66%">联系电话</th>
+							<th class="text-center" width="16.66%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -71,19 +75,23 @@
 							</tr>
 						</c:if>
 						<c:forEach items="${list}" var="police">
-							<tr data-id="${police.POLICE_ID}">
-								<td>${police.POLICE_NO}</td>
-								<td>${police.POLICE_NAME}</td>
-								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
-								<td>${user.POLICE_PHONE}</td>
+							<tr data-id="${police.policeVO.POLICE_ID}">
+							<td><label class="pos-rel"> <input type="checkbox"
+										class="ace" name="select" data-id="${police.policeVO.POLICE_ID}" /> <span
+										class="lbl"></span>
+								</label></td>
+								<td>${police.policeVO.POLICE_NO}</td>
+								<td>${police.policeVO.POLICE_NAME}</td>
+								<td>${police.policeOfficeVO.POLICE_OFFICE_NAME}</td>
+								<td>${police.policeVO.POLICE_PHONE}</td>
 								<td>
 									<div class="hidden-sm hidden-xs btn-group">
 										<button class="btn btn-xs btn-info" name="edit"
-											data-id="${user.userVO.USER_ID}">
+											data-id="${police.policeVO.POLICE_NO}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
 										<button class="btn btn-xs btn-danger" name="delete"
-											data-id="${user.userVO.USER_ID}">
+											data-id="${police.policeVO.POLICE_NO}">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</button>
 									</div>
@@ -94,7 +102,7 @@
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<input type="button" class="btn btn-mini btn-success" value="新建"
+					<input type="button" class="btn btn-sm btn-success" value="新建"
 						id="new" />
 				</div>
 				${page.getPageStr()}
