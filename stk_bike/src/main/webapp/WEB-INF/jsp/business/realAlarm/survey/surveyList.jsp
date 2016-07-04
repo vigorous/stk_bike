@@ -35,54 +35,46 @@
 	</head>
 	<body class="no-skin">
 		<div class="page-content">
-			<!-- <div class="row margin-bottom-5"> -->
 			<div class="row">
 				<div class="col-xs-12">
-					<form class="form-horizontal" role="form" id="surveySearchForm" action="survey/surveyList" method="post" >
-						<div class="form-group">
-							<div class="col-sm-2">
-								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" id="START_TIME" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
-									<span class="input-group-addon">
-										<i class="fa fa-calendar bigger-110"></i>
-									</span>
-								</div>
-							</div>
-							
-							<div class="col-sm-2">
-								<div class="input-group">
-									<input class="form-control date-picker text-center" type="text" id="END_TIME" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" onchange="validate()"/>
-									<span class="input-group-addon">
-										<i class="fa fa-calendar bigger-110"></i>
-									</span>
-								</div>
-							</div>
-							
-							<div class="col-sm-2">
-								<select class="form-control chosen-select" data-placeholder="车辆类型" id="BIKE_SOURCE" name="BIKE_SOURCE">
-									<option value=""></option>
-									<option value="">全部车辆</option>
-									<option value="00">新车</option>
-									<option value="01">旧车</option>
-								</select>
-							</div>
-							<!-- 按钮控件 -->
-							<button class="btn btn-sm btn-light"  title="查询">
-								<i class="ace-icon fa fa-search nav-search-icon"></i>
-							</button>
-							<!-- /按钮控件 -->
-						</div>
+					<form  role="form" id="surveySearchForm" action="survey/surveyList" method="post" >
+						<table style="border:0">
+							<tr>
+								<td  class="col-padding-right">
+									<input class="form-control date-picker" type="text" id="START_TIME" name="START_TIME" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
+								</td>
+								
+								<td  class="col-padding-right">
+									<input class="form-control date-picker" type="text" id="END_TIME" name="END_TIME" data-date-format="yyyy-mm-dd" placeholder="结束日期" onchange="validate()"/>
+								</td>
+								
+								<td  class="col-padding-right">
+									<select class="form-control chosen-select" data-placeholder="车辆类型" id="BIKE_SOURCE" name="BIKE_SOURCE">
+										<option value=""></option>
+										<option value="">全部车辆</option>
+										<option value="00">新车</option>
+										<option value="01">旧车</option>
+									</select>
+								</td>
+								
+								<td  class="col-padding-right">
+									<button class="btn btn-sm btn-info"  title="查询">
+										<i class="ace-icon fa fa-search nav-search-icon"></i>
+									</button>
+								</td>
+							</tr>
+						</table>
 					</form>
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row row-margin-top">
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs">
 						<li class="active"><a id="tableTag">表格</a></li>
-						<li><a id="histogramTag">柱状图</a></li>
+						<li><a id="histogramTag">图表</a></li>
 					</ul>
-					<div class="row" id="tableTagPage">
+					<div class="row row-margin-top" id="tableTagPage">
 						<div class="col-xs-12">
 							<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
 								<thead>
