@@ -7,16 +7,42 @@
 %>
 <!DOCTYPE html>
 <html>
-	<head lang="en">
-		<base href="<%=basePath%>">
-		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
-		<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-<title>嫌疑车辆分析</title>
+<head lang="en">
+	<base href="<%=basePath%>">
+	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
+
+	<%@ include file="../../system/admin/top.jsp"%>
+	<title>嫌疑车辆分析</title>
 </head>
 <body>
 <div class="page-content">
+	<div class="dialog-header">
+		<h1>轨迹点位：</h1>
+	</div>
+	
+	<div class="row row-margin-top">
+		<div class="col-xs-12">
+			<div class="col-xs-6">
+				<div class="col-xs-6">
+					<select class="form-control chosen-select" data-placeholder="经办人">
+						<option value="">请选择机具</option>
+						<option value="66">66</option>
+						<option value="77">77</option>
+					</select>
+				</div>
+				
+				<div class="col-xs-6">
+					<select class="form-control chosen-select" data-placeholder="经办人">
+						<option value="">请选择机具</option>
+						<option value="66">66</option>
+						<option value="77">77</option>
+					</select>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 <div class="row">
 	<div class="col-xs-12" style="padding: 15px">
 		<table style="border: 0;">
