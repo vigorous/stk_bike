@@ -27,6 +27,7 @@ function bindEvent(){
 		var notice_id = $(this).attr("data-id");
 		Dialog.confirm("确定删除吗？",function(){
 			$.ajax({
+				type : 'POST',
 				url : 'noticeManage/deleteNotice',
 				data : {
 					NOTICE_ID : notice_id

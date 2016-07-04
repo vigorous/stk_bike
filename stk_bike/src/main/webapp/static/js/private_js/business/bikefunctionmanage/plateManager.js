@@ -2,7 +2,7 @@ $("#addPlate").off().click(function() {
 	var dialog = new Dialog();
 	dialog.Title = "添加电子车牌";
 	dialog.URL = "plateManagerForm";
-	dialog.Height = 500;
+	dialog.Height = 400;
 	dialog.show();
 });
 
@@ -13,7 +13,7 @@ $(form).find("select[name='APPLY_ORG_NAME']").off().change(function() {
 	$(form).find("input[name='APPLY_ORG_ID']").val(apply_org_id);
 });
 
-$(form).find("select[name='manageID']").off().change(function() {
+$(form).find("select[name='POLICE_ID']").off().change(function() {
 	var apply_org_id = $(this).children("option:selected").attr("data-id");
 	$(form).find("input[name='AUTH_ORG_ID']").val(apply_org_id);
 });
@@ -27,7 +27,7 @@ function save() {
 		// msg : "申请卡单位不能为空",
 		// bg : '#FF5080',
 		// time : 3
-		//		});
+		// });
 		alert("申请卡单位不能为空");
 		return false;
 	}
@@ -37,7 +37,7 @@ function save() {
 		// msg : "发卡单位不能为空",
 		// bg : '#FF5080',
 		// time : 3
-		//		});
+		// });
 		alert("发卡单位不能为空");
 		return false;
 	}
@@ -47,7 +47,7 @@ function save() {
 		// msg : "申请时间不能为空",
 		// bg : '#FF5080',
 		// time : 3
-		//		});
+		// });
 		alert("申请时间不能为空");
 		return false;
 	}
@@ -57,40 +57,40 @@ function save() {
 		// msg : "开始号码不能为空",
 		// bg : '#FF5080',
 		// time : 3
-		//		});
+		// });
 		alert("开始号码不能为空");
 		return false;
 	}
 
 	if ($("#CARD_END_NO").val() == "" || $("#CARD_END_NO").val() == null) {
-//		$("#CARD_END_NO").tips({
-//			side : 1,
-//			msg : "结束号码不能为空",
-//			bg : '#FF5080',
-//			time : 3
-//		});
+		// $("#CARD_END_NO").tips({
+		// side : 1,
+		// msg : "结束号码不能为空",
+		// bg : '#FF5080',
+		// time : 3
+		// });
 		alert("结束号码不能为空");
 
 		return false;
 	}
 	if ($("#APPLY_NUM").val() == "" || $("#APPLY_NUM").val() == null) {
-//		$("#APPLY_NUM").tips({
-//			side : 1,
-//			msg : "卡片数量不能为空",
-//			bg : '#FF5080',
-//			time : 3
-//		});
+		// $("#APPLY_NUM").tips({
+		// side : 1,
+		// msg : "卡片数量不能为空",
+		// bg : '#FF5080',
+		// time : 3
+		// });
 		alert("卡片数量不能为空");
 
 		return false;
 	}
-	if ($("#manageID").val() == "" || $("#manageID").val() == null) {
-//		$("#manageID").tips({
-//			side : 1,
-//			msg : "经办人ID不能为空",
-//			bg : '#FF5080',
-//			time : 3
-//		});
+	if ($("#POLICE_ID").val() == "" || $("#POLICE_ID").val() == null) {
+		// $("#manageID").tips({
+		// side : 1,
+		// msg : "经办人ID不能为空",
+		// bg : '#FF5080',
+		// time : 3
+		// });
 		alert("经办人ID不能为空");
 		return false;
 	}
@@ -129,3 +129,15 @@ function save() {
 	})
 
 }
+
+// 点击事件
+$("#selectPlate").off().click(
+		function() {
+			// 根据id获取控件
+			var startTime = $("#startTime").val();
+			var endTime = $("#endTime").val();
+			var ctxPaths = $("#ctxPath").val();
+			addTab('c1c24ce5599d4951b5f5209d9c624ad4',
+					'5ca05caac74545bc9a1dc343741f4209', '电子车牌发卡管理',
+					'plate/select?startTime='+startTime+'&endTime='+endTime)
+		});

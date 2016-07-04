@@ -10,6 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -95,7 +96,7 @@ public class NoticeManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/addNotice")
+	@RequestMapping(value="/addNotice", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean addNotice(NoticeVO noticeVO) throws Exception{
 		noticeVO.setNOTICE_ID(UuidUtil.get32UUID());
@@ -112,7 +113,7 @@ public class NoticeManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/editNotice")
+	@RequestMapping(value="/editNotice", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editNotice(NoticeVO noticeVO) throws Exception{
 		noticeVO.setUPDATE_TIME(new Timestamp(new Date().getTime()));
@@ -127,7 +128,7 @@ public class NoticeManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/deleteNotice")
+	@RequestMapping(value="/deleteNotice", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean deleteNotice(NoticeVO noticeVO) throws Exception{
 		NoticeFacade noticeFacade = FacadeFactory.getNoticeFacade();

@@ -15,8 +15,9 @@ function bindEvent(){
 		}
 		btnDisenable();
 		$.ajax({
+			type : 'POST',
 			url : url,
-			data : $(formId).serialize(),
+			data : $(formId).serializeArray(),
 			success : function(data){
 				if(data){
 					showDialog("保存成功", function(){

@@ -27,6 +27,7 @@ function bindEvent() {
 		var user_id = $(this).attr("data-id");
 		Dialog.confirm("确定删除吗？", function() {
 			$.ajax({
+				type : 'POST',
 				url : 'userManage/deleteUser',
 				data : {
 					USER_ID : user_id

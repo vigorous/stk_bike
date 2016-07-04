@@ -18,7 +18,7 @@ function bindEvent(){
 		var dialog = new Dialog();
 		dialog.Title = "新建区域";
 		dialog.URL = "addAreaPage";
-		dialog.Height = 180;
+		dialog.Height = 220;
 		dialog.show();
 	});
 	
@@ -28,7 +28,7 @@ function bindEvent(){
 		var dialog = new Dialog();
 		dialog.Title = "编辑区域";
 		dialog.URL = "editAreaPage?DISTRICT_ID=" + district_id;
-		dialog.Height = 180;
+		dialog.Height = 220;
 		dialog.show();
 	});
 	
@@ -37,6 +37,7 @@ function bindEvent(){
 		var district_id = $(this).attr("data-id");
 		Dialog.confirm("确定删除吗？",function(){
 			$.ajax({
+				type : 'POST',
 				url : 'areaManage/deleteArea',
 				data : {
 					DISTRICT_ID : district_id
