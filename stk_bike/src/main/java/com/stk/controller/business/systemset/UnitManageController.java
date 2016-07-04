@@ -5,14 +5,18 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sse.bikemanagement.entity.DistrictVO;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.entity.PoliceOfficeVO;
+import com.sse.bikemanagement.facade.DistrictFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
 import com.sse.bikemanagement.facade.PoliceFacade;
 import com.sse.bikemanagement.facade.PoliceOfficeFacade;
+import com.sse.bikemanagement.info.PoliceOfficeInfoVO;
 import com.stk.controller.base.BaseController;
 import com.stk.util.UuidUtil;
 
@@ -28,7 +32,7 @@ public class UnitManageController extends BaseController {
 	@RequestMapping(value="/unitManageList")
 	public ModelAndView unitManageList(Page page) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
-		List<PoliceOfficeVO> list = policeOfficeFacade.queryAllPoliceOffice(page);
+		List<PoliceOfficeInfoVO> list = policeOfficeFacade.queryAllPoliceOffice(page);
 		ModelAndView mv = this.getModelAndView();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
@@ -43,7 +47,10 @@ public class UnitManageController extends BaseController {
 	 */
 	@RequestMapping(value="/addUnitPage")
 	public String addUnitPage(Model model) throws Exception{
+		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
+		List<PoliceOfficeVO> policeOfficeList = policeOfficeFacade.queryAllPoliceOffice();
 		PoliceFacade policeFacade = FacadeFactory.getPoliceFacade();
+		model.addAttribute("policeOfficeList", policeOfficeList);
 		model.addAttribute("oper", "add");
 		return "business/systemSet/unitManage/unitManageForm";
 	}
@@ -125,7 +132,7 @@ public class UnitManageController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/isExistUnitNo")
+	@RequestMapping(value="/isExistUnitNo", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean isExistUnitNo(PoliceOfficeVO policeOfficeVO) throws Exception{
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();

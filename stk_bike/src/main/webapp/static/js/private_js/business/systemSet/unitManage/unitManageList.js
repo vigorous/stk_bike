@@ -1,17 +1,14 @@
-//新建
-$("#new").off().click(function(){
-	var dialog = new Dialog();
-	dialog.Title = "新建单位";
-	dialog.URL = "addUnitPage";
-	dialog.Height = 270;
-	dialog.ShowButtonRow = true;
-	dialog.OKEvent = function(){
-		save();
-	}
-	dialog.show();
-});
+var tableId = "#unitManageListTable";
+bindEvent();
 
-//保存
-function save(){
-	alert("保存成功");
+//绑定事件
+function bindEvent(){
+	//新建
+	$("#new").off().click(function(){
+		var dialog = new Dialog();
+		dialog.Title = "新建单位";
+		dialog.URL = "addUnitPage";
+		dialog.Height = 310;
+		dialog.show();
+	});
 }
