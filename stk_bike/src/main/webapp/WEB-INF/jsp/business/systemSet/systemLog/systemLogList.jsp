@@ -65,56 +65,31 @@
 							</tr>
 						</thead>
 						<tbody>
+							<c:if test="${empty list}">
 							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
+								<td colspan="5">暂无数据</td>
 							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
+						</c:if>
+						<c:forEach items="${list}" var="user">
+							<tr data-id="${user.userVO.USER_ID}">
+								<td>${user.userVO.USERNAME}</td>
+								<td>${user.userVO.NAME}</td>
+								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
+								<td>${user.roleVo.ROLE_NAME}</td>
+								<td>
+									<div class="hidden-sm hidden-xs btn-group">
+										<button class="btn btn-xs btn-info" name="edit"
+											data-id="${user.userVO.USER_ID}">
+											<i class="ace-icon fa fa-pencil bigger-120"></i>
+										</button>
+										<button class="btn btn-xs btn-danger" name="delete"
+											data-id="${user.userVO.USER_ID}">
+											<i class="ace-icon fa fa-trash-o bigger-120"></i>
+										</button>
+									</div>
+								</td>
 							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
-							<tr>
-								<td>admin</td>
-								<td>新用户注册</td>
-								<td>2016-06-16 15:47:06</td>
-							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 					${page.getPageStr()}

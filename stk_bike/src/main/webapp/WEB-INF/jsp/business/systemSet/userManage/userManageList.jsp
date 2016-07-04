@@ -60,7 +60,7 @@
 								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 								<td>${user.roleVo.ROLE_NAME}</td>
 								<td>
-									<div class="hidden-sm hidden-xs btn-group">
+									<div class="btn-group">
 										<button class="btn btn-xs btn-info" name="edit"
 											data-id="${user.userVO.USER_ID}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
