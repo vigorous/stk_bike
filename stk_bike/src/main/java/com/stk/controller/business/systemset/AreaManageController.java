@@ -14,6 +14,7 @@ import com.sse.bikemanagement.entity.DistrictVO;
 import com.sse.bikemanagement.entity.Page;
 import com.sse.bikemanagement.facade.DistrictFacade;
 import com.sse.bikemanagement.facade.FacadeFactory;
+import com.sse.bikemanagement.info.DistrictInfoVO;
 import com.stk.controller.base.BaseController;
 import com.stk.util.UuidUtil;
 
@@ -29,7 +30,7 @@ public class AreaManageController extends BaseController {
 	@RequestMapping(value="/areaManageList")
 	public ModelAndView areaManageList(Page page) throws Exception{
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
-		List<DistrictVO> list = districtFacade.queryAllDistrict(page);
+		List<DistrictInfoVO> list = districtFacade.queryAllDistrict(page);
 		ModelAndView mv = this.getModelAndView();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
@@ -106,6 +107,9 @@ public class AreaManageController extends BaseController {
 	@RequestMapping(value="/editArea", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editArea(DistrictVO districtVO) throws Exception{
+		if(districtVO.getDISTRICT_LEVEL() == 1){
+			districtVO.setPARENT_NO("");
+		}
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
 		Boolean flag = districtFacade.modifyDistrict(districtVO);
 		return flag;

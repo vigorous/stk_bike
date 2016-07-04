@@ -14,7 +14,6 @@
 			.width-120{width: 120px!important;}
 			.margin-right-30{margin-right: 30px;}
 			.padding-bottom-0{padding-bottom: 0px!important;}
-			.btn-mini{padding: 4px 12px!important;line-height: 20px!important;border: 1px solid #ddd!important;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
@@ -22,7 +21,7 @@
 		<div class="page-content padding-bottom-0">
 			<div class="row">
 				<div class="col-xs-12">
-					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+					<table class="table table-striped table-bordered table-hover text-center margin-bottom-5" id="unitManageListTable">
 						<thead>
 							<tr>
 								<th class="text-center" width="14.28%">单位编码</th>
@@ -42,17 +41,14 @@
 							</c:if>
 							<c:forEach items="${list}" var="policeOffice">
 								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td>${policeOffice.policeOfficeVO.POLICE_OFFICE_NO}</td>
+									<td>${policeOffice.policeOfficeVO.POLICE_OFFICE_NAME}</td>
+									<td>${policeOffice.policeOfficeVO.PARENT_NO}</td>
+									<td>${policeOffice.policeVO.POLICE_NAME}</td>
+									<td>${policeOffice.policeOfficeVO.ADDRESS}</td>
+									<td>${policeOffice.policeOfficeVO.PHONE}</td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-warning" name="detail" data-id="${area.DISTRICT_ID}">
-												<i class="ace-icon fa fa-flag bigger-120"></i>
-											</button>
 											<button class="btn btn-xs btn-info">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
@@ -65,8 +61,12 @@
 							</c:forEach>
 						</tbody>
 					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
 					<div class="btn-group">
-						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
+						<input type="button" class="btn btn-sm btn-success" value="新建" id="new" />
 					</div>
 					${page.pageStr}
 				</div>
