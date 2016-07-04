@@ -40,11 +40,12 @@
 					id="userManageListTable">
 					<thead>
 						<tr>
-							<th class="text-center" width="20%">用户名称</th>
-							<th class="text-center" width="20%">真实姓名</th>
-							<th class="text-center" width="20%">所在单位</th>
-							<th class="text-center" width="20%">角色</th>
-							<th class="text-center" width="20%">操作</th>
+							<th class="text-center" width="16.66%">用户名称</th>
+							<th class="text-center" width="16.66%">真实姓名</th>
+							<th class="text-center" width="16.66%">所在单位</th>
+							<th class="text-center" width="16.66%">状态</th>
+							<th class="text-center" width="16.66%">角色</th>
+							<th class="text-center" width="16.66%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,6 +59,10 @@
 								<td>${user.userVO.USERNAME}</td>
 								<td>${user.userVO.NAME}</td>
 								<td>${user.policeOfficeVO.POLICE_OFFICE_NAME}</td>
+								<td><c:choose>
+										<c:when test="${user.userVO.STATUS=='0'}">冻结</c:when>
+										<c:when test="${user.userVO.STATUS=='1'}">正常</c:when>
+									</c:choose></td>
 								<td>${user.roleVo.ROLE_NAME}</td>
 								<td>
 									<div class="btn-group">
@@ -76,7 +81,7 @@
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<input type="button" class="btn btn-mini btn-success" value="新建"
+					<input type="button" class="btn btn-sm btn-success" value="新建"
 						id="new" />
 				</div>
 				${page.getPageStr()}

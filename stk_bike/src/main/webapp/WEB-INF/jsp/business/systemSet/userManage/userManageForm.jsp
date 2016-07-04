@@ -10,72 +10,47 @@
 <html>
 <head lang="en">
 <base href="<%=basePath%>">
+<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
 <link rel="stylesheet"
 	href="static/assets/css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
-<style type="text/css">
-.margin-bottom-10 {
-	margin-bottom: 10px;
-}
 
-.padding-top-1 {
-	padding-top: 1%;
-}
-
-.width-160 {
-	width: 160px;
-}
-
-.padding-bottom-0 {
-	padding-bottom: 0px !important;
-}
-
-.color-red {
-	color: red;
-}
-
-.btn-mini {
-	padding: 4px 12px !important;
-	line-height: 20px !important;
-	border: 1px solid #ddd !important;
-}
-</style>
 <%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 </head>
 <body class="no-skin">
-	<div class="page-content padding-bottom-0">
+	<div class="page-content ">
 		<form action="userManage/userManageForm" id="userForm">
 			<input type="hidden" name="USER_ID"
 				value="${userInfoVO.userVO.USER_ID}" />
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>用户名称</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" class="width-160"
+					<input type="text" 
 					    value="${userInfoVO.userVO.USERNAME}" name="USERNAME" <c:if test="${oper == 'edit'}">readonly="readonly"</c:if> />
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>密码</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="password" class="width-160"
+					<input type="password" 
 						value="${userInfoVO.userVO.PASSWORD}" name="PASSWORD" />
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>真实姓名</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" class="width-160"
+					<input type="text" 
 						value="${userInfoVO.userVO.NAME}" name="NAME" />
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>角色名称</span>
 				</div>
 				<div class="col-xs-7">
@@ -89,8 +64,8 @@
 					</select>
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>所属公安局</span>
 				</div>
 				<div class="col-xs-7">
@@ -105,8 +80,8 @@
 				</div>
 			</div>
 
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span class="color-red">*</span><span>状态</span>
 				</div>
 				<div class="col-xs-7">
@@ -121,43 +96,43 @@
 				</div>
 			</div>
 
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span>电话号码</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="tel" class="width-160"
+					<input type="tel" 
 						value="${userInfoVO.userVO.PHONE}" name="PHONE" />
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span>身份证号</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" class="width-160"
+					<input type="text" 
 						value="${userInfoVO.userVO.SFID}" name="SFID" />
 				</div>
 			</div>
-			<div class="row margin-bottom-10">
-				<div class="col-xs-5 text-right padding-top-1">
+			<div class="row row-margin-top">
+				<div class="col-xs-5 text-right ">
 					<span>备注</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" class="width-160"
+					<input type="text" 
 						value="${userInfoVO.userVO.NOTE}" name="NOTE" />
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-5 text-right"></div>
-				<div class="col-xs-7 text-left">
-					<div class="btn-group">
-						<input type="button" class="btn btn-mini btn-success" value="保存"
-							id="save" /> <input type="button"
-							class="btn btn-mini btn-success" value="取消" id="cancel" />
+			<div class="row row-margin-top">
+					<div class="col-xs-12">
+						<div class="col-xs-offset-4 col-xs-3">
+							<input  class="btn btn-sm btn-success" id="save" type="button" value="保存" />
+						</div>
+						<div class="col-xs-3">
+							<input class="btn btn-sm btn-success" id="cancel" type="button" value="退出" />
+						</div>
 					</div>
 				</div>
-			</div>
 		</form>
 		<input type="hidden" value="${oper}" id="oper" />
 	</div>
