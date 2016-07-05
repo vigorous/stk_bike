@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -15,6 +17,7 @@
 <title>被盗车辆管理</title>
 </head>
 <body>
+	<input type="hidden" value="<%=basePath%>" id="ctxPath" />
 	<div class="page-content">
 		<!-- 主体查询条件部分 -->
 		<div class="row">
@@ -22,26 +25,13 @@
 				<table style="border: 0">
 					<tr>
 						<td class="col-padding-right"><span class="input-icon">
-								<input autocomplete="off" id="nav-search-input" type="text"
-								name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入丢失地点" />
-								<i id="nav-search-icon"
+								<input autocomplete="off" type="text" name="USERNAME"
+								value="${pd.USERNAME }" id="LOST_BIKE_EID"
+								placeholder="这里输入电子车牌" /> <i id="nav-search-icon"
 								class="ace-icon fa fa-search nav-search-icon"></i>
 						</span></td>
-						<td class="col-padding-right"><span class="input-icon">
-								<input autocomplete="off" id="nav-search-input" type="text"
-								name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入电子车牌" />
-								<i id="nav-search-icon"
-								class="ace-icon fa fa-search nav-search-icon"></i>
-						</span></td>
-						<td class="col-padding-right"><span class="input-icon">
-								<input autocomplete="off" id="nav-search-input" type="text"
-								name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入车主电话" />
-								<i id="nav-search-icon"
-								class="ace-icon fa fa-search nav-search-icon"></i>
-						</span></td>
-
 						<td class="col-padding-right">
-							<button class="btn btn-sm btn-info">查询</button>
+							<button class="btn btn-sm btn-info" id="selectStolen">查询</button>
 						</td>
 
 						<td class="col-padding-right">
@@ -99,29 +89,34 @@
 								</c:if>
 								<c:forEach items="${stolenList}" var="stolen">
 									<tr>
-										<td><a href="#">${stolen.lostBikeVO.LOST_BIKE_NO}</a></td>
-										<td>${stolen.lostBikeVO.POLICE_OFFICE_ID}</td>
+										<td>${stolen.lostBikeVO.LOST_BIKE_NO}</td>
+										<td>${stolen.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 										<td>${stolen.lostBikeVO.LOST_BIKE_EID}</td>
-										<td class="hidden-480">${stolen.lostBikeVO.OWNER_ID}</td>
+										<td class="hidden-480">${stolen.ownerVO.OWNER_NAME}</td>
 										<td>${stolen.lostBikeVO.OWNER_PHONE}</td>
 										<td class="hidden-480"><span
-											class="label label-sm label-warning">${stolen.lostBikeVO.LOST_BEGIN_TIME}</span></td>
+											class="label label-sm label-warning"> <fmt:formatDate
+													value="${stolen.lostBikeVO.LOST_BEGIN_TIME}"
+													pattern="yyyy-MM-dd hh:mm:ss" />
+										</span></td>
 										<td>${stolen.lostBikeVO.LOST_ADDRESS}</td>
-										<td>${stolen.lostBikeVO.POLICE_ID}</td>
-										<td>${stolen.lostBikeVO.LOST_END_TIME}</td>
+										<td>${stolen.policeVO.POLICE_NAME}</td>
+										<td><fmt:formatDate
+												value="${stolen.lostBikeVO.LOST_END_TIME}"
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<c:if test="${stolen.lostBikeVO.STATUS=='00'}">
-											<td>未巡回</td>
+											<td>未寻回</td>
 										</c:if>
 										<c:if test="${stolen.lostBikeVO.STATUS=='01'}">
-											<td>以巡回</td>
+											<td>已寻回</td>
 										</c:if>
-										<td>${stolen.lostBikeVO.STATUS}</td>
 										<td>
 											<div class="hidden-sm hidden-xs btn-group">
-												<button class="btn btn-xs btn-danger">
+												<button
+													onclick="deleteStolen('${stolen.lostBikeVO.LOST_BIKE_ID}')"
+													class="btn btn-xs btn-danger">
 													<i class="ace-icon fa fa-trash-o bigger-120"></i>
 												</button>
-
 												<button class="btn btn-xs btn-warning">
 													<i class="ace-icon fa fa-flag bigger-120"></i>
 												</button>
@@ -131,6 +126,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						${page.pageStr}
 					</div>
 				</div>
 			</div>
@@ -139,8 +135,10 @@
 			<div class="col-xs-12"></div>
 		</div>
 	</div>
-
+	<script src="static/js/private_js/admin/head.js"></script>
 	<%@ include file="../../system/admin/bottom.jsp"%>
+	<script type="text/javascript"
+		src="static/js/private_js/business/bikefunctionmanage/stolenManger.js"></script>
 	<script>
 		$('#id-input-file-1 , #id-input-file-2').ace_file_input({
 			no_file : '上传文件',

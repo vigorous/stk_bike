@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
 	</head>
 	<body class="no-skin">
+		<input type="hidden" value="<%=basePath%>" id="ctxPath">
 		<div class="dialog-content">
 			<form action="" id="form">
 				<div class="row row-margin-top">
@@ -35,14 +36,12 @@
 						<label class="col-xs-4 no-padding-right dialog-text text-rt" for=""> 添加布防机具： </label>
 						<div class="col-xs-6 no-padding-left">
 							<div class="col-xs-6 no-padding-left">
-								<select class="form-control" data-placeholder="查看所有单位">
-									<option value="2222">2222</option>
+								<select class="form-control" data-placeholder="查看所有单位" id="POLICE_OFFICE_NAME">
 								</select>
 							</div>
 							
 							<div class="col-xs-6 no-padding-left">
-								<select class="form-control" data-placeholder="请选择机具">
-									<option value="333">333</option>
+								<select class="form-control" data-placeholder="请选择机具" id="MACHINE_NAME">
 								</select>
 							</div>
 						</div>

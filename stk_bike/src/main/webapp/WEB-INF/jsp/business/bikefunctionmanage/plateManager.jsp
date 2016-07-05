@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
@@ -82,9 +83,10 @@
 								</c:if>
 								<c:forEach items="${list}" var="card">
 									<tr>
-										<td><a href="#">${card.APPLY_ORG_NAME}</a></td>
-										<td><a href="#">${card.AUTH_ORG_NAME}</a></td>
-										<td>${card.APPLY_TIME}</td>
+										<td>${card.APPLY_ORG_NAME}</td>
+										<td>${card.AUTH_ORG_NAME}</td>
+										<td><fmt:formatDate value="${card.APPLY_TIME}"
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<td>${card.CARD_BEGIN_NO}</td>
 										<td>${card.CARD_END_NO}</td>
 										<td>${card.POLICE_ID}</td>
