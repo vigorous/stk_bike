@@ -141,6 +141,7 @@ public class AreaManageController extends BaseController {
 		DistrictFacade districtFacade = FacadeFactory.getDistrictFacade();
 		Boolean flag = districtFacade.deleteMoreDistrict(list);
 		return flag;
+		
 	}
 	
 	/**

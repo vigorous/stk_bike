@@ -6,7 +6,7 @@ function bindEvent() {
 	$("#save").off().click(function() {
 		var oper = $("#oper").val();
 		var url = 'agentManage/addAgent';
-
+		var police_no = $(formId).find("input[name='POLICE_NO']").val();
 		if (oper == 'edit') {
 			url = 'agentManage/editAgent';
 		}
@@ -14,25 +14,27 @@ function bindEvent() {
 			return false;
 		}
 		btnDisenable();
-		$.ajax({
-			type : 'POST',
-			url : url,
-			data : $(formId).serializeArray(),
-			success : function(data) {
-				if (data) {
-					showDialog("保存成功", function() {
-						refresh();
-						closeDialog();
-					});
-				}
-			},
-			error : function(error) {
-				showDialog(error);
-			},
-			compelete : function() {
-				btnEnable();
-			}
-		});
+		if(oper == 'add'){
+			$.ajax({
+				type : 'POST',
+				url : 'agentManage/isExistAgentNo',
+				data : {
+					POLICE_NO : police_no
+				},
+				success : function(data) {
+					if (data) {
+						showDialog("该警员已存在", btnEnable);
+					}else{
+						save(url);
+					}
+				},
+				error : function(error) {
+					showDialog("保存失败", btnEnable);
+				},
+			});
+		}else{
+			save(url);
+		}
 	});
 
 	// 取消
@@ -83,6 +85,29 @@ function validateForm() {
 	return flag;
 }
 
+//保存方法
+function save(url){
+	$.ajax({
+		type : 'POST',
+		url : url,
+		data : $(formId).serializeArray(),
+		success : function(data){
+			if(data){
+				showDialog("保存成功", function(){
+					refresh();
+					closeDialog();
+				});
+			}else{
+				showDialog("保存失败", btnEnable);
+			}
+		},
+		error : function(){
+			showDialog("保存失败", btnEnable);
+		}
+	});
+}
+
+
 // 关闭弹出框
 function closeDialog() {
 	Dialog.close();
@@ -117,7 +142,7 @@ function refresh() {
 //按钮不可用
 function btnEnable(){
 	$(formId).find("input[type='button']").removeAttr("disabled");
-}
+} 	
 
 //按钮可用
 function btnDisenable(){

@@ -32,24 +32,25 @@ public class UserManageController extends BaseController {
 	@RequestMapping(value = "/userManageList")
 	public ModelAndView userManageList(Page page) throws Exception {
 		List<UserInfoVO> userInfoList = FacadeFactory.getUserFacade().queryAllUsers(page, new UserVO());
-		ModelAndView mv = this.getModelAndView();
+		ModelAndView mv = this.getModelAndView();  
 		mv.addObject("page", page);
 		mv.addObject("list", userInfoList);
 		mv.setViewName("business/systemSet/userManage/userManageList");
 		return mv;
 
 	}
+
 	/**
 	 * 跳转到用户管理编辑页
 	 * 
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/userManagePage")
-	public String userManageForm(Model model,UserVO userVO) throws Exception {
-		UserInfoVO userInfoVO=FacadeFactory.getUserFacade().queryUserByID(userVO);
-		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
-		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+	public String userManageForm(Model model, UserVO userVO) throws Exception {
+		UserInfoVO userInfoVO = FacadeFactory.getUserFacade().queryUserByID(userVO);
+		List<RoleVO> roleVoList = FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
 		model.addAttribute("roleVoList", roleVoList);
 		model.addAttribute("userInfoVO", userInfoVO);
 		model.addAttribute("policeList", policeList);
@@ -59,31 +60,30 @@ public class UserManageController extends BaseController {
 
 	/*
 	 * 跳转到用户管理详情页
-	 * */
-	@RequestMapping(value="/userDetailPage")
-	public String userDetailPage(Model model,UserVO userVO) throws Exception{
-		UserInfoVO userInfoVO=FacadeFactory.getUserFacade().queryUserByID(userVO);
-		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
-		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+	 */
+	@RequestMapping(value = "/userDetailPage")
+	public String userDetailPage(Model model, UserVO userVO) throws Exception {
+		UserInfoVO userInfoVO = FacadeFactory.getUserFacade().queryUserByID(userVO);
+		List<RoleVO> roleVoList = FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
 		model.addAttribute("roleVoList", roleVoList);
 		model.addAttribute("userInfoVO", userInfoVO);
 		model.addAttribute("policeList", policeList);
 		return "business/systemSet/userManage/userManageDetail";
 	}
-	
+
 	/*
-	 *跳转到用户管理新建页
+	 * 跳转到用户管理新建页
 	 */
 	@RequestMapping(value = "/addUserPage")
 	public String addUserPage(Model model) throws IOException, Exception {
-		List<RoleVO> roleVoList=FacadeFactory.getRoleFacade().queryAllRole();
-		List<PoliceOfficeVO> policeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+		List<RoleVO> roleVoList = FacadeFactory.getRoleFacade().queryAllRole();
+		List<PoliceOfficeVO> policeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
 		model.addAttribute("policeList", policeList);
 		model.addAttribute("roleVoList", roleVoList);
 		model.addAttribute("oper", "add");
 		return "business/systemSet/userManage/userManageForm";
 	}
-
 
 	/*
 	 * 新建用户
@@ -98,20 +98,34 @@ public class UserManageController extends BaseController {
 
 	/*
 	 * 编辑用户
-	 * */
-	
-	@RequestMapping(value="/editUser", method = RequestMethod.POST)
+	 */
+	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
 	@ResponseBody
-	public Boolean editUser(Model model, UserVO userVO) throws IOException, Exception{
-		boolean flag=FacadeFactory.getUserFacade().modifyUser(userVO);
+	public Boolean editUser(Model model, UserVO userVO) throws IOException, Exception {
+		boolean flag = FacadeFactory.getUserFacade().modifyUser(userVO);
 		model.addAttribute("oper", "edit");
 		return flag;
-		
 	}
-	
+
+	/*
+	 * 验证用户名称是否存在
+	 */
+	@RequestMapping(value = "/isExistUserName", method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean isExistUserName(UserVO userVO) throws Exception {
+		List<UserInfoVO> userList = FacadeFactory.getUserFacade().queryAllUsers(new Page(), userVO);
+		boolean flag = false;
+		for (UserInfoVO infoVO : userList) {
+			if (infoVO.getUserVO().getUSERNAME().equals(userVO.getUSERNAME())) {
+				flag = true;
+			}
+		}
+		return flag;
+
+	}
+
 	/*
 	 * 删除用户
-	 * 
 	 **/
 	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
 	@ResponseBody

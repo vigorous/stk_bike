@@ -6,7 +6,7 @@ function bindEvent(){
 	$("#save").off().click(function(){
 		var oper = $("#oper").val();
 		var url = 'userManage/addUser';
-		
+		var user_name = $(formId).find("input[name='USERNAME']").val();
 		if(oper == 'edit'){
 			url = 'userManage/editUser';   
 		}
@@ -14,25 +14,28 @@ function bindEvent(){
 			return false;
 		}
 		btnDisenable();
-		$.ajax({
-			type : 'POST',
-			url : url,
-			data : $(formId).serializeArray(),
-			success : function(data){
-				if(data){
-					showDialog("保存成功", function(){
-						refresh();
-						closeDialog();
-					});
-				}
-			},
-			error : function(error){
-				showDialog(error);
-			},
-			compelete : function(){
-				btnEnable();
-			}
-		});
+		if(oper == 'add'){
+			$.ajax({
+				type : 'POST',
+				url : 'userManage/isExistUserName',
+				data :{
+					USERNAME:user_name
+				},
+				success : function(data){
+					if(data){
+						showDialog("该用户名已存在", btnEnable);
+					}else{
+						save(url);
+					}
+				},
+				error : function(error){
+					showDialog("保存失败", btnEnable);
+				},
+				
+			});
+		}else{
+			save(url);
+		}
 	});
 	
 	//取消
@@ -83,6 +86,29 @@ function validateForm(){
 	}
 	return flag;
 }
+
+//保存方法
+function save(url){
+	$.ajax({
+		type : 'POST',
+		url : url,
+		data : $(formId).serializeArray(),
+		success : function(data){
+			if(data){
+				showDialog("保存成功", function(){
+					refresh();
+					closeDialog();
+				});
+			}else{
+				showDialog("保存失败", btnEnable);
+			}
+		},
+		error : function(){
+			showDialog("保存失败", btnEnable);
+		}
+	});
+}
+
 
 //关闭弹出框
 function closeDialog(){

@@ -15,9 +15,7 @@
 	href="static/assets/css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
 <style type="text/css">
-.color-red {
-	color: red;
-}
+
 </style>
 <%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 </head>
@@ -27,15 +25,15 @@
 			<input type="hidden" name="POLICE_ID" value="${policeVO.POLICE_ID}" />
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span class="color-red">*</span><span>经办人编号</span>
+					<span>经办人编号</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" value="${policeVO.POLICE_NO}" name="POLICE_NAME" />
+					<span>${policeVO.POLICE_NO}</span>
 				</div>
 			</div>
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span class="color-red">*</span><span>经办人姓名</span>
+					<span>经办人姓名</span>
 				</div>
 				<div class="col-xs-7">
 					<span>${policeVO.POLICE_NAME}</span>
@@ -58,7 +56,7 @@
 
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span class="color-red">*</span><span>联系电话</span>
+					<span>联系电话</span>
 				</div>
 				<div class="col-xs-7">
 					<span>${policeVO.POLICE_PHONE}</span>
