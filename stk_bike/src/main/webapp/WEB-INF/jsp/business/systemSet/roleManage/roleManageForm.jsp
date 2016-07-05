@@ -9,40 +9,43 @@
 <html>
 	<head lang="en">
 		<base href="<%=basePath%>">
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="static/assets/css/chosen.css" />
-		<style type="text/css">
-			.margin-bottom-10{margin-bottom: 10px;}
-			.padding-top-1{padding-top: 1%;}
-			.width-160{width: 160px;}
-			.padding-bottom-0{padding-bottom: 0px!important;}
-		</style>
+		<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
+		
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
+		<title>新建角色弹窗</title>
 	</head>
 	<body class="no-skin">
-		<div class="page-content padding-bottom-0">
-			<form action="">
-				<div class="row margin-bottom-10">
-					<div class="col-xs-5 text-right padding-top-1">
-						<span>角色ID</span>
-					</div>
-					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" />
+		<div class="dialog-content">
+			<form action="" id="form">
+				<div class="row row-margin-top">
+					<div class="col-xs-12">
+						<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 角色ID： </label>
+						<div class="col-xs-6 no-padding-left">
+							<input type="text" id="brandNo" name="" value="" />
+						</div>
 					</div>
 				</div>
-				<div class="row margin-bottom-10">
-					<div class="col-xs-5 text-right padding-top-1">
-						<span>角色名称</span>
+				
+				<div class="row row-margin-top">
+					<div class="col-xs-12">
+						<label class="col-xs-5 no-padding-right dialog-text text-rt" for=""> 角色名称： </label>
+						<div class="col-xs-6 no-padding-left">
+							<input type="text" id="brandNo" name="" value="" />
+						</div>
 					</div>
-					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" />
+				</div>
+				
+				<div class="row row-margin-top">
+					<div class="col-xs-12">
+						<div class="col-xs-offset-4 col-xs-3">
+							<input class="btn btn-sm btn-success" id="" type="button" value="保存" />
+						</div>
+						<div class="col-xs-3">
+							<input class="btn btn-sm btn-success" id="" type="button" value="退出" />
+						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
-		<script type="text/javascript">
-			$('.chosen-select').chosen({width:"160px"});
-		</script>
 	</body>
 </html>

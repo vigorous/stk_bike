@@ -185,7 +185,7 @@
 						</tbody>
 					</table>
 					<div class="btn-group">
-						<input type="button" class="btn btn-mini btn-success" value="新建" id="new" />
+						<input type="button" class="btn btn-sm btn-success" value="新建" id="new" />
 					</div>
 					${page.getPageStr()}
 				</div>
