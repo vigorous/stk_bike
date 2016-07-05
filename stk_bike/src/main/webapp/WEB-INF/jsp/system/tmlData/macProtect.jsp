@@ -11,31 +11,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<base href="<%=basePath%>">
-	<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="static/assets/css/jquery-ui.custom.css" />
-		<link rel="stylesheet" href="static/assets/css/chosen.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-timepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/daterangepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.css" />
-		<link rel="stylesheet" href="static/assets/css/colorpicker.css" />
-		
+	
 	<!-- jsp文件头和头部 -->
 	<%@ include file="../admin/top.jsp"%>
 	<title>MAC布防设置页面</title>
-	
-	<script type="text/javascript">
-	    $(function(){HideScrollbar=false;});
-	    function addMacProtect(){
-	    	var diag = new Dialog();
-	    	diag.Width = 600;
-	    	diag.Height = 300;
-	    	diag.Title = "MAC布防信息添加";
-	    	diag.InnerHtml='<div style="text-align:center;font-size:14px;padding:5px;">布防名称：<input type="text" /></div>'
-	    	//diag.OKEvent = function(){diag.close();};//点击确定后调用的方法
-	    	diag.show();
-	    }
-	</script>
 </head>
 <body>
 	<div class="page-content">
@@ -43,16 +22,14 @@
 			<div class="col-xs-12">
 				<table style="border:0;">
 					<tr>
-						<!-- <td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="addMacProtect();"  title="创建新的MAC布防">创建新的MAC布防</button></td> -->
-						<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" id="macProtectNew"  title="创建新的MAC布防">创建新的MAC布防</button></td>
+						<td><button class="btn btn-sm btn-info" id="macProtectNew"  title="创建新的MAC布防">创建新的MAC布防</button></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top:10px;">
+		<div class="row row-margin-top">
 			<div class="col-xs-12">
-				<!-- PAGE CONTENT BEGINS -->
 				<div class="row">
 					<div class="col-xs-12">
 						<table id="simple-table" class="table table-striped table-bordered table-hover">
@@ -458,169 +435,48 @@
 		</div>
 	</div>
 		
-	<!-- basic scripts -->
 	<%@ include file="../admin/bottom.jsp"%>
 		
-		<script type="text/javascript">
-			$('#date-timepicker1').datetimepicker({
-				 icons: {
-					time: 'fa fa-clock-o',
-					date: 'fa fa-calendar',
-					up: 'fa fa-chevron-up',
-					down: 'fa fa-chevron-down',
-					previous: 'fa fa-chevron-left',
-					next: 'fa fa-chevron-right',
-					today: 'fa fa-arrows ',
-					clear: 'fa fa-trash',
-					close: 'fa fa-times'
-				 }
-				}).next().on(ace.click_event, function(){
-					$(this).prev().focus();
+	<script type="text/javascript">
+		//And for the first simple table, which doesn't have TableTools or dataTables
+		//select/deselect all rows according to table header checkbox
+		var active_class = 'active';
+		$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+			var th_checked = this.checked;//checkbox inside "TH" table header
+
+			$(this).closest('table').find('tbody > tr').each(function(){
+				var row = this;
+				if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+				else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
 			});
-			
-			//datepicker plugin
-			//link
-			$('.date-picker').datepicker({
-				language: 'zh-CN',
-				format: "yyyy-mm-dd",
-				autoclose: true,
-				todayHighlight: true
-			})
-			//show datepicker when clicking on the icon
-			.next().on(ace.click_event, function(){
-				$(this).prev().focus();
-			});
-		
-			//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
-			$('input[name=date-range-picker]').daterangepicker({
-				'applyClass' : 'btn-sm btn-success',
-				'cancelClass' : 'btn-sm btn-default',
-				locale: {
-					applyLabel: 'Apply',
-					cancelLabel: 'Cancel',
-				}
-			})
-			.prev().on(ace.click_event, function(){
-				$(this).next().focus();
-			});
-			
-			jQuery(function($){
-				$('#id-disable-check').on('click', function() {
-					var inp = $('#form-input-readonly').get(0);
-					if(inp.hasAttribute('disabled')) {
-						inp.setAttribute('readonly' , 'true');
-						inp.removeAttribute('disabled');
-						inp.value="This text field is readonly!";
-					}
-					else {
-						inp.setAttribute('disabled' , 'disabled');
-						inp.removeAttribute('readonly');
-						inp.value="This text field is disabled!";
-					}
-				});
-			
-			
-				if(!ace.vars['touch']) {
-					$('.chosen-select').chosen({allow_single_deselect:true}); 
-					//resize the chosen on window resize
-			
-					$(window)
-					.off('resize.chosen')
-					.on('resize.chosen', function() {
-						$('.chosen-select').each(function() {
-							 var $this = $(this);
-							 $this.next().css({'width': $this.parent().width()});
-						})
-					}).trigger('resize.chosen');
-					//resize chosen on sidebar collapse/expand
-					$(document).on('settings.ace.chosen', function(e, event_name, event_val) {
-						if(event_name != 'sidebar_collapsed') return;
-						$('.chosen-select').each(function() {
-							 var $this = $(this);
-							 $this.next().css({'width': $this.parent().width()});
-						})
-					});
-			
-			
-					$('#chosen-multiple-style .btn').on('click', function(e){
-						var target = $(this).find('input[type=radio]');
-						var which = parseInt(target.val());
-						if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
-						 else $('#form-field-select-4').removeClass('tag-input-style');
-					});
-				}
-			})
-		</script>
-		
-		<script>
-			//And for the first simple table, which doesn't have TableTools or dataTables
-			//select/deselect all rows according to table header checkbox
-			var active_class = 'active';
-			$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
-				var th_checked = this.checked;//checkbox inside "TH" table header
+		});
+
+		//select/deselect a row when the checkbox is checked/unchecked
+		$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
+			var $row = $(this).closest('tr');
+			if(this.checked) $row.addClass(active_class);
+			else $row.removeClass(active_class);
+		});
+
+		/********************************/
+		//add tooltip for small view action buttons in dropdown menu
+		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+
+		//tooltip placement on right or left
+		function tooltip_placement(context, source) {
+			var $source = $(source);
+			var $parent = $source.closest('table');
+			var off1 = $parent.offset();
+			var w1 = $parent.width();
+
+			var off2 = $source.offset();
+			//var w2 = $source.width();
+
+			if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+			return 'left';
+		}
+	</script>
 	
-				$(this).closest('table').find('tbody > tr').each(function(){
-					var row = this;
-					if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-					else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
-				});
-			});
-	
-			//select/deselect a row when the checkbox is checked/unchecked
-			$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
-				var $row = $(this).closest('tr');
-				if(this.checked) $row.addClass(active_class);
-				else $row.removeClass(active_class);
-			});
-	
-			/********************************/
-			//add tooltip for small view action buttons in dropdown menu
-			$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-	
-			//tooltip placement on right or left
-			function tooltip_placement(context, source) {
-				var $source = $(source);
-				var $parent = $source.closest('table');
-				var off1 = $parent.offset();
-				var w1 = $parent.width();
-	
-				var off2 = $source.offset();
-				//var w2 = $source.width();
-	
-				if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-				return 'left';
-			}
-		</script>
-		
-		<!-- placeholder兼容性问题 -->
-		<script type="text/javascript">  
-		  if( !('placeholder' in document.createElement('input')) ){  
-		   
-		    $('input[placeholder],textarea[placeholder]').each(function(){   
-		      var that = $(this),   
-		      text= that.attr('placeholder');   
-		      if(that.val()===""){   
-		        that.val(text).addClass('placeholder');   
-		      }   
-		      that.focus(function(){   
-		        if(that.val()===text){   
-		          that.val("").removeClass('placeholder');   
-		        }   
-		      })   
-		      .blur(function(){   
-		        if(that.val()===""){   
-		          that.val(text).addClass('placeholder');   
-		        }   
-		      })   
-		      .closest('form').submit(function(){   
-		        if(that.val() === text){   
-		          that.val('');   
-		        }   
-		      });   
-		    });   
-		  }  
-		</script>
-		
-		<script type="text/javascript" src="static/js/private_js/admin/macProtectEdit.js"></script>
+	<script type="text/javascript" src="static/js/private_js/admin/macProtectEdit.js"></script>
 </body>
 </html>

@@ -25,122 +25,46 @@
 	<div class="page-content">
 		<div class="row">
 			<div class="col-xs-12">
-			<table style="border:0;">
-				<tr>
-					<td style="padding-right:5px;"> 
-					 	<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="请选择类型...">
-							<option value="">  </option>
-							<option value="AL">Alabama</option>
-							<option value="AK">Alaska</option>
-							<option value="AZ">Arizona</option>
-							<option value="AR">Arkansas</option>
-							<option value="CA">California</option>
-							<option value="CO">Colorado</option>
-							<option value="CT">Connecticut</option>
-							<option value="DE">Delaware</option>
-							<option value="FL">Florida</option>
-						</select>
-					</td>
-					
-					<td style="padding-right:5px;">
-						<span class="input-icon">
-							<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
-							<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
-						</span>
-					</td>
-					
-					<td style="padding-right:5px;">
-						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="开始日期" />
-					</td>
-					
-					<td style="padding-right:5px;">
-						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="结束日期" />
-					</td>
-					
-					<td style="vertical-align:middle;padding-right:5px;"><button class="btn btn-sm btn-info" onclick="search();"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
-					
-					<!-- <td style="vertical-align:middle;padding-right:5px;"><a class="btn btn-sm btn-info" onclick="toExcel();" title="导出到EXCEL"><i id="nav-search-icon" class="fa fa-download"></i></a></td> -->
-				</tr>
-			</table>
-			</div>
-			
-			<!-- <div class="col-sm-2">
-				<div>
-					<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="请选择类型...">
-						<option value="">  </option>
-						<option value="AL">Alabama</option>
-						<option value="AK">Alaska</option>
-						<option value="AZ">Arizona</option>
-						<option value="AR">Arkansas</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DE">Delaware</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="HI">Hawaii</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="IA">Iowa</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="ME">Maine</option>
-						<option value="MD">Maryland</option>
-					</select>
-				</div>			
-			</div>
-		
-			<div class="col-sm-3">
-				<div class="row">
-					<div class="col-xs-8 col-sm-11">
-						#section:plugins/date-time.datepicker
-						<div class="input-group">
-							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" />
-							<span class="input-group-addon">
-								<i class="fa fa-calendar bigger-110"></i>
+				<table style="border:0;">
+					<tr>
+						<td class="col-padding-right"> 
+						 	<select class="chosen-select form-control" id="form-field-select-3" data-placeholder="请选择类型">
+								<option value="">  </option>
+								<option value="AL">Alabama</option>
+								<option value="AK">Alaska</option>
+								<option value="AZ">Arizona</option>
+								<option value="AR">Arkansas</option>
+								<option value="CA">California</option>
+								<option value="CO">Colorado</option>
+								<option value="CT">Connecticut</option>
+								<option value="DE">Delaware</option>
+								<option value="FL">Florida</option>
+							</select>
+						</td>
+						
+						<td class="col-padding-right">
+							<span class="input-icon">
+								<input autocomplete="off" id="nav-search-input" type="text" name="USERNAME" value="${pd.USERNAME }" placeholder="这里输入关键词" />
+								<i id="nav-search-icon" class="ace-icon fa fa-search nav-search-icon"></i>
 							</span>
-						</div>
-					</div>
-				</div>
+						</td>
+						
+						<td class="col-padding-right">
+							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="开始日期" />
+						</td>
+						
+						<td class="col-padding-right">
+							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="结束日期" />
+						</td>
+						
+						<td class="col-padding-right"><button class="btn btn-sm btn-info"  title="查询"><i id="nav-search-icon" class="fa fa-search"></i></button></td>
+					</tr>
+				</table>
 			</div>
-			
-			<div class="col-sm-3">
-				<label for="date-timepicker1">Date/Time Picker</label>
-
-				#section:plugins/date-time.datetimepicker
-				<div class="input-group">
-					<input id="date-timepicker1" type="text" class="form-control" />
-					<span class="input-group-addon">
-						<i class="fa fa-clock-o bigger-110"></i>
-					</span>
-				</div>
-			</div>
-			
-			<div class="col-sm-3">
-				<label for="id-date-range-picker-1">Date Range Picker</label>
-
-				<div class="row">
-					<div class="col-xs-8 col-sm-11">
-						#section:plugins/date-time.daterangepicker
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i class="fa fa-calendar bigger-110"></i>
-							</span>
-
-							<input class="form-control" type="text" name="date-range-picker" id="id-date-range-picker-1" />
-						</div>
-
-						/section:plugins/date-time.daterangepicker
-					</div>
-				</div>
-			</div> -->
 		</div>
 		
-		<div class="row" style="margin-top:10px;">
+		<div class="row row-margin-top">
 			<div class="col-xs-12">
-				<!-- PAGE CONTENT BEGINS -->
 				<div class="row">
 					<div class="col-xs-12">
 						<table id="simple-table" class="table table-striped table-bordered table-hover">
@@ -517,22 +441,6 @@
 
 	<%@ include file="../admin/bottom.jsp"%>		
 		<script type="text/javascript">
-			$('#date-timepicker1').datetimepicker({
-				 icons: {
-					time: 'fa fa-clock-o',
-					date: 'fa fa-calendar',
-					up: 'fa fa-chevron-up',
-					down: 'fa fa-chevron-down',
-					previous: 'fa fa-chevron-left',
-					next: 'fa fa-chevron-right',
-					today: 'fa fa-arrows ',
-					clear: 'fa fa-trash',
-					close: 'fa fa-times'
-				 }
-				}).next().on(ace.click_event, function(){
-					$(this).prev().focus();
-			});
-			
 			//datepicker plugin
 			//link
 			$('.date-picker').datepicker({
@@ -545,36 +453,8 @@
 			.next().on(ace.click_event, function(){
 				$(this).prev().focus();
 			});
-		
-			//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
-			$('input[name=date-range-picker]').daterangepicker({
-				'applyClass' : 'btn-sm btn-success',
-				'cancelClass' : 'btn-sm btn-default',
-				locale: {
-					applyLabel: 'Apply',
-					cancelLabel: 'Cancel',
-				}
-			})
-			.prev().on(ace.click_event, function(){
-				$(this).next().focus();
-			});
 			
 			jQuery(function($){
-				$('#id-disable-check').on('click', function() {
-					var inp = $('#form-input-readonly').get(0);
-					if(inp.hasAttribute('disabled')) {
-						inp.setAttribute('readonly' , 'true');
-						inp.removeAttribute('disabled');
-						inp.value="This text field is readonly!";
-					}
-					else {
-						inp.setAttribute('disabled' , 'disabled');
-						inp.removeAttribute('readonly');
-						inp.value="This text field is disabled!";
-					}
-				});
-			
-			
 				if(!ace.vars['touch']) {
 					$('.chosen-select').chosen({allow_single_deselect:true}); 
 					//resize the chosen on window resize
@@ -605,75 +485,6 @@
 					});
 				}
 			})
-		</script>
-		
-		<script>
-			//And for the first simple table, which doesn't have TableTools or dataTables
-			//select/deselect all rows according to table header checkbox
-			var active_class = 'active';
-			$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
-				var th_checked = this.checked;//checkbox inside "TH" table header
-	
-				$(this).closest('table').find('tbody > tr').each(function(){
-					var row = this;
-					if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-					else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
-				});
-			});
-	
-			//select/deselect a row when the checkbox is checked/unchecked
-			$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
-				var $row = $(this).closest('tr');
-				if(this.checked) $row.addClass(active_class);
-				else $row.removeClass(active_class);
-			});
-	
-			/********************************/
-			//add tooltip for small view action buttons in dropdown menu
-			$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-	
-			//tooltip placement on right or left
-			function tooltip_placement(context, source) {
-				var $source = $(source);
-				var $parent = $source.closest('table');
-				var off1 = $parent.offset();
-				var w1 = $parent.width();
-	
-				var off2 = $source.offset();
-				//var w2 = $source.width();
-	
-				if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-				return 'left';
-			}
-		</script>
-		
-		<!-- placeholder兼容性问题 -->
-		<script type="text/javascript">  
-		  if( !('placeholder' in document.createElement('input')) ){  
-		   
-		    $('input[placeholder],textarea[placeholder]').each(function(){   
-		      var that = $(this),   
-		      text= that.attr('placeholder');   
-		      if(that.val()===""){   
-		        that.val(text).addClass('placeholder');   
-		      }   
-		      that.focus(function(){   
-		        if(that.val()===text){   
-		          that.val("").removeClass('placeholder');   
-		        }   
-		      })   
-		      .blur(function(){   
-		        if(that.val()===""){   
-		          that.val(text).addClass('placeholder');   
-		        }   
-		      })   
-		      .closest('form').submit(function(){   
-		        if(that.val() === text){   
-		          that.val('');   
-		        }   
-		      });   
-		    });   
-		  }  
 		</script>
 </body>
 </html>
