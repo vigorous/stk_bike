@@ -35,6 +35,7 @@
 								</span>
 							</div>
 						</td>
+						
 						<td class="col-padding-right">
 							<div class="input-group">
 								<input class="form-control date-picker text-center" type="text"
