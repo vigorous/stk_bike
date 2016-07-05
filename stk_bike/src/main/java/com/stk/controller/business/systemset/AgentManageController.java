@@ -1,9 +1,11 @@
 package com.stk.controller.business.systemset;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,25 +59,25 @@ public class AgentManageController extends BaseController {
 
 	/*
 	 * 跳转到经办人管理新建页
-	 * */
-	@RequestMapping(value="/addAgentPage")
-	public String addPolicePage(Model model) throws Exception{
-		List<PoliceOfficeVO> officeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+	 */
+	@RequestMapping(value = "/addAgentPage")
+	public String addPolicePage(Model model) throws Exception {
+		List<PoliceOfficeVO> officeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
 		model.addAttribute("officeList", officeList);
 		model.addAttribute("oper", "add");
 		return "business/systemSet/agentManage/agentManageForm";
 	}
-	
+
 	/**
 	 * 跳转到经办人管理编辑页
 	 * 
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/agentManageForm")
-	public String agentManageForm(Model model,PoliceVO policeVO) throws Exception {
-		PoliceVO vo=FacadeFactory.getPoliceFacade().queryPoliceByID(policeVO);
-		List<PoliceOfficeVO> officeList=FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+	public String agentManageForm(Model model, PoliceVO policeVO) throws Exception {
+		PoliceVO vo = FacadeFactory.getPoliceFacade().queryPoliceByID(policeVO);
+		List<PoliceOfficeVO> officeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
 		model.addAttribute("policeVO", vo);
 		model.addAttribute("officeList", officeList);
 		model.addAttribute("oper", "edit");
@@ -83,9 +85,21 @@ public class AgentManageController extends BaseController {
 	}
 
 	/*
+	 * 跳转到经办人管理详情页
+	 */
+	@RequestMapping(value = "/agentDetailPage")
+	public String agentDetailPage(Model model, PoliceVO policeVO) throws Exception {
+		PoliceVO vo = FacadeFactory.getPoliceFacade().queryPoliceByID(policeVO);
+		List<PoliceOfficeVO> officeList = FacadeFactory.getPoliceOfficeFacade().queryAllPoliceOffice();
+		model.addAttribute("policeVO", vo);
+		model.addAttribute("officeList", officeList);
+		return "business/systemSet/agentManage/agentManageDetail";
+	}
+
+	/*
 	 * 新建经办人
 	 */
-	@RequestMapping(value = "/addAgent" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/addAgent", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean addAgent(PoliceVO policeVO) throws Exception {
 		policeVO.setPOLICE_ID(UuidUtil.get32UUID());
@@ -97,7 +111,7 @@ public class AgentManageController extends BaseController {
 	/*
 	 * 删除经办人
 	 */
-	@RequestMapping(value = "/deleteAgent",method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteAgent", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean deleteAgent(PoliceVO policeVO) throws Exception {
 		boolean flag = FacadeFactory.getPoliceFacade().deletePolice(policeVO);
@@ -107,10 +121,38 @@ public class AgentManageController extends BaseController {
 	/*
 	 * 编辑经办人
 	 */
-	@RequestMapping(value = "/editAgent",method = RequestMethod.POST)
+	@RequestMapping(value = "/editAgent", method = RequestMethod.POST)
 	@ResponseBody
 	public Boolean editAgent(PoliceVO policeVO) throws Exception {
 		boolean flag = FacadeFactory.getPoliceFacade().modifyPolice(policeVO);
 		return flag;
 	}
+
+	/*
+	 * 批量删除经办人
+	 */
+	@RequestMapping(value = "/batchDeleteAgent", method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean batchDeleteAgent(@RequestBody List<PoliceVO> list) throws Exception {
+		boolean flag = FacadeFactory.getPoliceFacade().deletePolice(list);
+		return flag;
+	}
+
+	/*
+	 * 验证经办人编号是否存在
+	 */
+	@RequestMapping(value = "/isExistAgentNo", method = RequestMethod.POST)
+	@ResponseBody
+	public Boolean isExistAgentNo(PoliceVO policeVO) throws IOException, Exception {
+		List<PoliceVO> policeList = FacadeFactory.getPoliceFacade().queryAllPolice();
+		boolean flag = false;
+		for (PoliceVO vo : policeList) {
+			if (vo.getPOLICE_NO().equals(policeVO.getPOLICE_NO())) {
+				flag = true;
+			}
+		}
+		return flag;
+
+	}
+
 }

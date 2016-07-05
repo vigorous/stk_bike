@@ -54,18 +54,19 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<table
-					class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+					class="table table-striped table-bordered table-hover text-center margin-bottom-5"
+					id="agentManageListTable">
 					<thead>
 						<tr>
-							<th class="text-center" width="16.66%"><label
+							<th class="text-center" width="10%"><label
 								class="pos-rel"> <input type="checkbox" class="ace"
 									id="selectAll" /> <span class="lbl"></span>
 							</label></th>
-							<th class="text-center" width="16.66%">经办人编号</th>
-							<th class="text-center" width="16.66%">经办人姓名</th>
-							<th class="text-center" width="16.66%">所属单位</th>
-							<th class="text-center" width="16.66%">联系电话</th>
-							<th class="text-center" width="16.66%">操作</th>
+							<th class="text-center" width="18%">经办人编号</th>
+							<th class="text-center" width="18%">经办人姓名</th>
+							<th class="text-center" width="18%">所属单位</th>
+							<th class="text-center" width="18%">联系电话</th>
+							<th class="text-center" width="18%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -103,7 +104,8 @@
 				</table>
 				<div class="btn-group">
 					<input type="button" class="btn btn-sm btn-success" value="新建"
-						id="new" />
+						id="new" /> <input type="button" class="btn btn-sm btn-success"
+						value="删除" id="batchDelete" />
 				</div>
 				${page.getPageStr()}
 			</div>
