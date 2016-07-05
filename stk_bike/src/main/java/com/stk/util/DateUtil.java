@@ -87,9 +87,8 @@ public class DateUtil {
 	}
 
 	public static Date fomatDates(String date) {
-		DateFormat fmt = new SimpleDateFormat("yyyy-mm-dd");
 		try {
-			return fmt.parse(date);
+			return sdfDay.parse(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return null;

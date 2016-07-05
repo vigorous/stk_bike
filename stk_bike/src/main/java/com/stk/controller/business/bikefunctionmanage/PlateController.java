@@ -1,7 +1,6 @@
 package com.stk.controller.business.bikefunctionmanage;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +46,6 @@ public class PlateController extends BaseController {
 		} catch (NullPointerException e) {
 			
 		}
-
 		List<CardVO> list = cardFacade.queryCardByPage(page, cov, startDate, endDate);
 		mv.addObject("list", list);
 		mv.addObject("page", page);

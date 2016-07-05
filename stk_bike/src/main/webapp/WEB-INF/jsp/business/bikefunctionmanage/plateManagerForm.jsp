@@ -135,7 +135,7 @@
 							type="button" value="保存" />
 					</div>
 					<div class="col-xs-3">
-						<input class="btn btn-sm btn-success" id="quit" type="button"
+						<input class="btn btn-sm btn-success" id="close" type="button"
 							value="退出" />
 					</div>
 				</div>
