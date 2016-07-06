@@ -1,6 +1,3 @@
-$("#download").click(function(){
-	window.location = "/expimp.zip";
-})
 
 $("#bikeSelect").click(function(){
 	var diag = new Dialog();
@@ -42,6 +39,9 @@ $("#addbike").click(function(){
 	diag.show();
 }
 var ctxPath=$("#ctxPath").val();
+$("#download").click(function(){
+	window.location=ctxPath+"expimps.zip";
+})
 $("#selectBike").click(function(){
 	var bikeEid=$("#bikeEid").val();
 	var bikeNo=$("#bikeNo").val();
@@ -78,3 +78,12 @@ $("#selectBike").click(function(){
 			}
 		})
  }
+  
+  $("#toDcExcel").click(function(){
+	  debugger
+	  window.location=ctxPath+"excel/dcExcel";
+	  alert("导出成功")
+  })
+  function bikeClick(bid){
+	  window.location=ctxPath+"bike/selectbike?BIKE_ID="+bid;
+  }

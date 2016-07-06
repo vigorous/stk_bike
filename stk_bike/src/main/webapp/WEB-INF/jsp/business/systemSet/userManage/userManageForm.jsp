@@ -14,7 +14,9 @@
 <link rel="stylesheet"
 	href="static/assets/css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
-
+	<style type="text/css">
+		.color-red{color: red;}
+	</style>
 <%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 </head>
 <body class="no-skin">

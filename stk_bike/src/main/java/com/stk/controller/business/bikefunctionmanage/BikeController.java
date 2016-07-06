@@ -1,14 +1,23 @@
 package com.stk.controller.business.bikefunctionmanage;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -69,6 +78,16 @@ public class BikeController extends BaseController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", li);
 		mv.setViewName("business/bikefunctionmanage/addBike");
+		return mv;
+	}
+	//查看详情
+	@RequestMapping(value = "selectbike")
+	public ModelAndView selectbike(BikeVO bikeVO) throws Exception{
+		BikeFacade bf = FacadeFactory.getBikeFacade();
+		BikeInfoVO li=bf.queryBikeInfoByBikeID(bikeVO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", li);
+		mv.setViewName("business/bikefunctionmanage/bikeMsg");
 		return mv;
 	}
 	// 添加车辆
@@ -145,4 +164,11 @@ public class BikeController extends BaseController {
 		PoliceVO PoliceVO = policeFacade.queryPoliceByID(vo);
 		return PoliceVO;
 	}
+	@RequestMapping(value="dcExcel",method=RequestMethod.GET)  
+    public ModelAndView toDcExcel(ModelMap model, HttpServletRequest request,HttpServletResponse response) throws Exception, IOException{  
+		ExcelServlet excelServlet=new ExcelServlet();
+		excelServlet.doGet(request, response);
+       ModelAndView mv = new ModelAndView();
+       return mv;  
+   }  
 }

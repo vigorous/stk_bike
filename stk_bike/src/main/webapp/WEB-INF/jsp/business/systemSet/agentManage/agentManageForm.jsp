@@ -14,45 +14,52 @@
 <link rel="stylesheet"
 	href="static/assets/css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="static/assets/css/chosen.css" />
-
+<style type="text/css">
+		.color-red{color: red;}
+	</style>
 <%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 </head>
 <body class="no-skin">
 	<div class="page-content ">
-		<form action="">
+		<form action="agentManage/agentManageForm" id="agentForm">
+		<input type="hidden" name="POLICE_ID"
+				value="${policeVO.POLICE_ID}" />
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span>经办人编号</span>
+					<span class="color-red">*</span><span>经办人编号</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" value="" />
+					<input type="text" value="${policeVO.POLICE_NO}" name="POLICE_NO"  <c:if test="${oper == 'edit'}">readonly="readonly"</c:if>/>
 				</div>
 			</div>
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span>经办人姓名</span>
+					<span class="color-red">*</span><span>经办人姓名</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" value="" />
+					<input type="text" value="${policeVO.POLICE_NAME}" name="POLICE_NAME" />
 				</div>
 			</div>
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span>经办人所属单位</span>
+					<span class="color-red">*</span><span>经办人所属单位</span>
 				</div>
 				<div class="col-xs-7">
-					<select class="form-control chosen-select" data-placeholder="所属单位">
+					<select class="form-control chosen-select" data-placeholder="所属单位" name="POLICE_OFFICE_NO">
 						<option value=""></option>
-						<option value="330411000000">秀洲公安局</option>
+						<c:forEach items="${officeList}" var="policeOffice">
+							<option value="${policeOffice.POLICE_OFFICE_NO}"
+								<c:if test="${policeOffice.POLICE_OFFICE_NO==policeVO.POLICE_OFFICE_NO}">selected="selected"</c:if>>${policeOffice.POLICE_OFFICE_NAME}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			<div class="row row-margin-top">
 				<div class="col-xs-5 text-right ">
-					<span>经办人联系电话</span>
+					<span class="color-red">*</span><span>经办人联系电话</span>
 				</div>
 				<div class="col-xs-7">
-					<input type="text" value="" />
+					<input type="text" value="${policeVO.POLICE_PHONE}" name="POLICE_PHONE" />
 				</div>
 			</div>
 			<div class="row row-margin-top">
@@ -61,7 +68,7 @@
 							<input  class="btn btn-sm btn-success" id="save" type="button" value="保存" />
 						</div>
 						<div class="col-xs-3">
-							<input class="btn btn-sm btn-success" id="cancle" type="button" value="退出" />
+							<input class="btn btn-sm btn-success" id="cancel" type="button" value="退出" />
 						</div>
 					</div>
 				</div>
@@ -77,6 +84,6 @@
 		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript" src="static/js/jquery.tips.js"></script>
 	<script type="text/javascript"
-		src="static/js/private_js/business/systemSet/agentManage/agentManagerForm.js"></script>
+		src="static/js/private_js/business/systemSet/agentManage/agentManageForm.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
@@ -28,18 +29,20 @@
 						</td>
 						<td class="col-padding-right">
 							<div class="input-group margin-right-30">
-								<input class="form-control date-picker text-center" type="text"
+								<input value="${startTime}"
+									class="form-control date-picker text-center" type="text"
 									data-date-format="yyyy-mm-dd" placeholder="开始日期" id="startTime" />
 								<span class="input-group-addon border-left-0"> <i
-									class="fa fa-calendar bigger-110"></i>
-								</span>
+									class="fa fa-calendar bigger-110"></i></span>
 							</div>
 						</td>
+
 						<td class="col-padding-right">
 							<div class="input-group">
-								<input class="form-control date-picker text-center" type="text"
-									data-date-format="yyyy-mm-dd" placeholder="结束日期" id="endTime" />
-								<span class="input-group-addon"> <i
+								<input class="form-control date-picker text-center"
+									value="${endTime}" type="text" data-date-format="yyyy-mm-dd"
+									placeholder="结束日期" id="endTime" /> <span
+									class="input-group-addon"> <i
 									class="fa fa-calendar bigger-110"></i>
 								</span>
 							</div>
@@ -66,7 +69,6 @@
 									<th><i
 										class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 开始号码</th>
 									<th class="hidden-480">结束号码</th>
-									<th>经办人ID</th>
 									<th>经办人姓名</th>
 									<th>发卡数量</th>
 								</tr>
@@ -81,12 +83,12 @@
 								</c:if>
 								<c:forEach items="${list}" var="card">
 									<tr>
-										<td><a href="#">${card.APPLY_ORG_NAME}</a></td>
-										<td><a href="#">${card.AUTH_ORG_NAME}</a></td>
-										<td>${card.APPLY_TIME}</td>
+										<td>${card.APPLY_ORG_NAME}</td>
+										<td>${card.AUTH_ORG_NAME}</td>
+										<td><fmt:formatDate value="${card.APPLY_TIME}"
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<td>${card.CARD_BEGIN_NO}</td>
 										<td>${card.CARD_END_NO}</td>
-										<td>${card.POLICE_ID}</td>
 										<td>${card.POLICE_NAME}</td>
 										<td>${card.APPLY_NUM}</td>
 								</c:forEach>

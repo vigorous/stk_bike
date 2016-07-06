@@ -32,6 +32,7 @@ public class SurveyController extends BaseController {
 	 * 跳转到概况列表页
 	 * @return
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/surveyList")
 	public ModelAndView surveyList(Page page)throws Exception{
 		
@@ -52,7 +53,7 @@ public class SurveyController extends BaseController {
 		if(Tools.notEmpty(startTime)){
 			sTime = DateUtil.fomatDate(startTime);
 		}else{
-			sTime = DateUtil.fomatDate("1970-01-01");
+			sTime = DateUtil.fomatDate("2000-01-01");
 		}
 		if(Tools.notEmpty(endTime)){
 			eTime = DateUtil.fomatDate(endTime);
@@ -75,19 +76,34 @@ public class SurveyController extends BaseController {
 			recoverBike.add(vo.getBACK_CARS_COUNT());
 		}
 		
+		//饼状图
+		List<List> ls = new ArrayList<List>();
+		for(int i=1; i<list.size(); i++){
+			List sonList = new ArrayList();
+			sonList.add(list.get(i).getNAME());
+			sonList.add(list.get(i).getCARS_COUNT());
+			ls.add(sonList);
+		}
+		
+		
+		/* 柱状图显示 */
 		JSONArray namesJson = JSONArray.fromObject(names);				//名称
 		JSONArray totalBikeJson = JSONArray.fromObject(totalBike);		//车辆总数集合
 		JSONArray lostBikeJson = JSONArray.fromObject(lostBike);		//被盗车辆集合
 		JSONArray recoverBikeJson = JSONArray.fromObject(recoverBike);	//寻回车辆集合
 		
 		ModelAndView mv = this.getModelAndView();
+		/* 表格数据 */
 		mv.addObject("page", page);
 		mv.addObject("list", list);
 		
+		/* 柱状图数据 */
 		mv.addObject("namesJson", namesJson.toString());
 		mv.addObject("totalBikeJson", totalBikeJson.toString());
 		mv.addObject("lostBikeJson", lostBikeJson.toString());
 		mv.addObject("recoverBikeJson", recoverBikeJson.toString());
+		/* 饼状图 */
+		mv.addObject("ls", JSONArray.fromObject(ls));
 		
 		mv.setViewName("business/realAlarm/survey/surveyList");
 		return mv;
