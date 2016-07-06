@@ -152,9 +152,14 @@ function save(id){
 			url:ctxPath +"/bike/addBikeInfo",
 			success:function(data){
 				if(data==true){
-					alert("添加成功");
-					Dialog.close();
-					 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					showDialog("添加成功", function(){
+						 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					});
+					
+				}else{
+					showDialog("添加失败", function(){
+						 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					});
 				}
 			}
 		});
@@ -166,14 +171,24 @@ function save(id){
 			url:ctxPath +"/bike/modifyBikeInfo",
 			success: function(data){
 				if(data==true){
-					alert("修改成功");
-					Dialog.close();
-					 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					showDialog("修改成功", function(){
+						 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					});
 				}else{
-					alert("修改失败");
+					showDialog("修改失败", function(){
+						 addTab('18b6a36d86fc4b918c751b5ac41917cd','5ca05caac74545bc9a1dc343741f4209','车辆管理','bike/select')
+					});
 				}
 			}
 		})
 	}
 	
+}
+function showDialog(tip, success){
+	tip = "<font size='3'>" + tip + "</font>";
+	Dialog.alert(tip, function(){
+		if(success){
+			success();
+		}
+	});
 }

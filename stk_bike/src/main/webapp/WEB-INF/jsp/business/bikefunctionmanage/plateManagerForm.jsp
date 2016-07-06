@@ -9,14 +9,15 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-	<base href="<%=basePath%>">
-	
-	<link rel="stylesheet" href="static/assets/css/chosen.css" />
-	<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
-	
-	<%@ include file="../../system/admin/top.jsp"%>
-	
-	<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
+<base href="<%=basePath%>">
+
+<link rel="stylesheet" href="static/assets/css/chosen.css" />
+<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
+
+<%@ include file="../../system/admin/top.jsp"%>
+
+<link rel="stylesheet"
+	href="static/assets/css/bootstrap-datetimepicker.min.css" />
 </head>
 <body class="no-skin">
 	<input type="hidden" value="<%=basePath%>" id="addCtxPath" />
@@ -29,15 +30,19 @@
 					<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">申请卡片单位：</label>
 					<div class="col-xs-6 no-padding-left">
 						<div class="col-xs-8 no-padding-left">
-							<select class="form-control" name="APPLY_ORG_NAME"
-								id="APPLY_ORG_NAME">
+							<select class="form-control" name="POLICE_OFFICE_ID"
+								id="POLICE_OFFICE_ID">
 								<option value="">申请卡片单位</option>
-								<c:forEach items="${policeList}" var="police">
-									<option value="${police.APPLY_ORG_NAME}"
-										data-id="${police.APPLY_ORG_ID}">${police.APPLY_ORG_NAME}</option>
+								<c:forEach items="${PoliceOfficeList}" var="police">
+									<option value="${police.POLICE_OFFICE_ID}"
+										data-id="${police.POLICE_OFFICE_ID}">${police.POLICE_OFFICE_NAME}</option>
 								</c:forEach>
 							</select>
 						</div>
+					</div>
+					<div style="display: none;">
+						<input type="text" id="APPLY_ORG_NAME" name="APPLY_ORG_NAME"
+							value="">
 					</div>
 				</div>
 			</div>
@@ -48,7 +53,7 @@
 						发卡单位： </label>
 					<div class="col-xs-6 no-padding-left">
 						<input type="text" id="AUTH_ORG_NAME" name="AUTH_ORG_NAME"
-							value="" />
+							value="" disabled="true" />
 					</div>
 				</div>
 			</div>
@@ -87,38 +92,7 @@
 				</div>
 			</div>
 
-			<div class="row row-margin-top">
-				<div class="col-xs-12">
-					<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-						卡片数量： </label>
-					<div class="col-xs-6 no-padding-left">
-						<input type="text" id="APPLY_NUM" name="APPLY_NUM" value="" />
-					</div>
-				</div>
-			</div>
-
-			<div class="row row-margin-top">
-				<div class="col-xs-12">
-					<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
-						经办人ID： </label>
-					<div class="col-xs-6 no-padding-left">
-						<div class="col-xs-8 no-padding-left">
-							<select class="form-control col-xs-8" name="POLICE_ID"
-								id="POLICE_ID">
-								<c:if test="${empty policeList}">
-									<option>站务数据</option>
-								</c:if>
-								<c:forEach items="${policeList}" var="police">
-									<option value="${police.POLICE_ID}"
-										data-id="${police.AUTH_ORG_ID}">${police.POLICE_ID}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row row-margin-top">
+			<div style="display: none;" class="row row-margin-top">
 				<div class="col-xs-12">
 					<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
 						经办人姓名： </label>
@@ -128,6 +102,27 @@
 				</div>
 			</div>
 
+			<div class="row row-margin-top">
+				<div class="col-xs-12">
+					<label class="col-xs-5 no-padding-right dialog-text text-rt" for="">
+						经办人姓名： </label>
+					<div class="col-xs-6 no-padding-left">
+						<div class="col-xs-8 no-padding-left">
+							<select class="form-control col-xs-8" name="POLICE_ID"
+								id="POLICE_ID">
+								<option value="">请选择</option>
+								<c:if test="${empty policeList}">
+									<option>暂无数据</option>
+								</c:if>
+								<c:forEach items="${policeList}" var="police">
+									<option value="${police.POLICE_ID}"
+										data-id="${police.POLICE_ID}">${police.POLICE_NAME}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row row-margin-top">
 				<div class="col-xs-12">
 					<div class="col-xs-offset-4 col-xs-3">
@@ -143,6 +138,7 @@
 		</form>
 	</div>
 	<%@ include file="../../system/admin/bottom.jsp"%>
+	<script src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript"
 		src="static/js/private_js/business/bikefunctionmanage/plateManager.js"></script>
 	<script type="text/javascript" src="static/js/jquery.tips.js"></script>
