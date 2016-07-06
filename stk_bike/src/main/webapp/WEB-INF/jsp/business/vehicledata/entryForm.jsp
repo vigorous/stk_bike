@@ -10,13 +10,10 @@
 	<head lang="en">
 		<base href="<%=basePath%>">
 		<link rel="stylesheet" href="static/css/private_css/bikeMsg.css" />
-		<!-- <style type="text/css">
-			.margin-bottom-10{margin-bottom: 10px;}
-			.padding-top-1{padding-top: 1%;}
-			.width-160{width: 100px;}
-		</style> -->
-		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
+		
+		<%@ include file="../../system/admin/top.jsp"%>
 		<link rel="stylesheet" href="static/assets/css/bootstrap-datetimepicker.min.css" />
+		<title>创建新的布防弹窗</title>
 	</head>
 	<body class="no-skin">
 		<input type="hidden" value="<%=basePath%>" id="ctxPath">
@@ -127,86 +124,6 @@
 				</div>
 			</form>
 		</div>
-		<!-- <div class="page-content">
-		<div class="row">
-			<form action="">
-				<div style="margin-top:20px;" class="row margin-bottom-10">
-					<div class="col-xs-4 text-right padding-top-1">
-						<span>布防名称：</span>
-					</div>
-					<div class="col-xs-7">
-						<input type="text" class="width-160" style="width: 385px;" value="" />
-					</div>
-				</div>
-				<div  style="margin-top:40px;" class="row margin-bottom-10">
-					<div class="col-xs-4 text-right padding-top-1">
-						<span>添加布防机具：</span>
-					</div>
-					<div class="col-xs-4">
-						<select class="form-control chosen-select" data-placeholder="查看所有单位">
-							<option value=""></option>
-							<option value="2222">2222</option>
-						</select>
-						
-					</div>
-					<div class="col-xs-4">
-						<select class="form-control chosen-select" data-placeholder="请选择机具">
-							<option value=""></option>
-							<option value="333">333</option>
-						</select>
-					</div>
-				</div>
-				<div  style="margin-top:40px;" class="row margin-bottom-10">
-					<div class="col-xs-4 text-right padding-top-1">
-						<span>布防机具：</span>
-					</div>
-					<div class="col-xs-7">
-						<textarea style="width: 385px;" class="width-160"></textarea>
-					</div>
-				</div>
-				<div  style="margin-top:40px;" class="row margin-bottom-10">
-					<div class="col-xs-6">
-						<div class="input-group margin-right-30">
-						<input class="form-control date-picker text-center width-160" type="text" data-date-format="yyyy-mm-dd" placeholder="开始日期" />
-						<span class="input-group-addon border-left-0">
-							<i class="fa fa-calendar bigger-110"></i>
-						</span>
-					</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="input-group margin-right-30">
-						<input class="form-control date-picker text-center width-160" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
-						<span class="input-group-addon border-left-0">
-							<i class="fa fa-calendar bigger-110"></i>
-						</span>
-					</div>
-					</div>
-				</div>
-				<div style="margin-top:20px;" class="row margin-bottom-10">
-					<div class="col-xs-4 text-right padding-top-1">
-						<span>电子车牌：</span>
-					</div>
-					<div class="col-xs-2">
-						<input type="button" class="btn btn-sm btn-primary" id="addEid" value="添加">
-					</div>
-					<div class="col-xs-6" id="lisend" style="display: none;">
-						
-					</div>
-				</div>
-				<div style="margin-top:20px;" class="row margin-bottom-10">
-					<div class="col-xs-4 text-right padding-top-1">
-						<span>短信推送联系人：</span>
-					</div>
-					<div class="col-xs-2">
-						<input type="button" class="btn btn-sm btn-primary" id="addMessage" value="添加">
-					</div>
-					<div class="col-xs-6" id="lisMessage" style="display: none;">
-						
-					</div>
-				</div>
-			</form>
-			</div>
-		</div> -->
 		<script type="text/javascript" src="static/js/private_js/business/vehicledata/entryForm.js"></script>
 		<%@ include file="../../system/admin/bottom.jsp"%>
 		<script type="text/javascript">
