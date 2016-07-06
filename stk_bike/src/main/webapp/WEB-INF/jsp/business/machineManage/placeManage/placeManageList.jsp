@@ -38,9 +38,10 @@
 <body class="no-skin">
 	<div class="page-content padding-bottom-0">
 		<div class="row margin-bottom-5">
-			<div class="col-xs-7">
+			<div class="col-xs-3">
 				<form
-					action="business/deviceManagement/placeManagement/placeManagementList" id="placeListSreachForm">
+					action="business/deviceManagement/placeManagement/placeManagementList"
+					id="placeListSreachForm">
 					<table>
 						<tr>
 							<td class="padding-right-30"><input type="text"
@@ -51,16 +52,14 @@
 					</table>
 				</form>
 			</div>
-			<div class="col-xs-5 text-right">
-				<div class="btn-group">
-					<button class="btn btn-primary" id="placeListSreachBtn">查询</button>
-				</div>
+			<div class="col-xs-5 text-left">
+					<button class="btn btn-sm btn-primary" id="placeListSreachBtn">查询</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<table
-					class="table table-striped table-bordered table-hover text-center margin-bottom-5">
+					class="table table-striped table-bordered table-hover text-center margin-bottom-5" id="placeManageListTable">
 					<thead>
 						<tr>
 							<th class="text-center" width="8.28%"><label class="pos-rel">
@@ -81,10 +80,11 @@
 								<td colspan="5">暂无数据</td>
 							</tr>
 						</c:if>
+						
 						<c:forEach items="${placeList}" var="place">
 							<tr data-id="${place.PLACE_ID}">
 								<td><label class="pos-rel"> <input type="checkbox"
-										class="ace" name="select" data-id="${police.PLACE_ID}" /> <span
+										class="ace" name="select" data-id="${place.PLACE_ID}" /> <span
 										class="lbl"></span>
 								</label></td>
 								<td>${place.PLACE_NO}</td>
@@ -107,13 +107,18 @@
 									</c:choose></td>
 								</td>
 								<td><c:choose>
-										<c:when test="${place.PROPERTY=='0'}">冻结</c:when>
-										<c:when test="${place.PROPERTY=='1'}">正常</c:when>
+										<c:when test="${place.PROPERTY=='0'}">经营</c:when>
+										<c:when test="${place.PROPERTY=='1'}">非经营</c:when>
+										<c:when test="${place.PROPERTY=='3'}">其他</c:when>
 									</c:choose></td>
 								</td>
 								<td>
 									<div class="btn-group">
-										<button class="btn btn-xs btn-info" name="edit"
+										<button class="btn btn-xs btn-danger" name="delete"
+											data-id="${place.PLACE_ID}">
+											<i class="ace-icon fa fa-trash-o bigger-120"></i>
+										</button>
+										<button class="btn btn-xs btn-info" name="edit" 
 											data-id="${place.PLACE_ID}">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
 										</button>
@@ -124,13 +129,14 @@
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<input type="button" class="btn btn-sm btn-success" value="删除" />
+					<input type="button" class="btn btn-sm btn-success" value="删除" id="batchDelete"/>
 					<input type="button" class="btn btn-sm btn-success" value="导出" />
 				</div>
 				${page.getPageStr()}
 			</div>
 		</div>
 	</div>
+		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript"
 		src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 	<script type="text/javascript"
@@ -140,7 +146,7 @@
 			language : 'zh-CN'
 		});
 	</script>
-		<script type="text/javascript"
+	<script type="text/javascript"
 		src="static/js/private_js/business/machineManage/placeManage/placeManageList.js"></script>
 </body>
 </html>
