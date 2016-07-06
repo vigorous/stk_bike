@@ -78,15 +78,9 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- 底部页码 -->
-		<div class="col-xs-12">
-		
-		</div>
 	</div>
 </div>
-	<script type="text/javascript" src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="static/assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+	<%@ include file="../../system/admin/bottom.jsp"%>
 	<script type="text/javascript">
 		$('.form-control.date-picker').datepicker({language: 'zh-CN'});
 	</script>

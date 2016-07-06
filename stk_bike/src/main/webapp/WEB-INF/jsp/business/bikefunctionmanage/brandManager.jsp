@@ -84,7 +84,8 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
+	<%@ include file="../../system/admin/bottom.jsp"%>
+	<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript" src="static/js/private_js/business/bikefunctionmanage/brandManager.js"></script>
 </body>
 </html>
