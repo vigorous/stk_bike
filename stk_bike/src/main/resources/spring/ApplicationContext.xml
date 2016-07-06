@@ -58,7 +58,6 @@
 		
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/> 
-	
 	<!-- ================ Shiro end ================ -->
-   
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 </beans>

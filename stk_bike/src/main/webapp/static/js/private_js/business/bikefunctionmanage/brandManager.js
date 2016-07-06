@@ -15,21 +15,36 @@ modifyBrand= function(id){
 	dialog.show();
 }
 deleteBrand=function(id){
-	debugger;
-	$.ajax({
-		cache:false,
-		type: "POST",
-		url:ctxPath +"/brand/deleteBrand/"+id,
-		success: function(data){
-			if(data==true){
-				alert("删除成功");
-				addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
-			}else{
-				alert("删除失败");
+	Dialog.confirm("确定删除吗？",function(){
+		$.ajax({
+			cache:false,
+			type: "POST",
+			url:ctxPath +"/brand/deleteBrand/"+id,
+			success: function(data){
+				if(data==true){
+					showDialog("删除成功", function(){
+						addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+					});
+				}else{
+					showDialog("删除失败", function(){
+						addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+					});
+				}
+			},
+			error:function(data){
+				showDialog("删除失败", function(){
+					addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+				});
 			}
-		},
-		error:function(data){
-			alert("删除失败");
-		}
+		})
 	})
+	
+}
+function showDialog(tip, success){
+	tip = "<font size='3'>" + tip + "</font>";
+	Dialog.alert(tip, function(){
+		if(success){
+			success();
+		}
+	});
 }
