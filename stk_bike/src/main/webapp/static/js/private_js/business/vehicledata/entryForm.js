@@ -86,7 +86,6 @@ $("#POLICE_OFFICE_NAME").off().change(
 				},
 			})
 		})
-
 // 机具编号选中状态
 $("#MACHINE_NO").off().change(function() {
 	var html = "";
@@ -94,18 +93,10 @@ $("#MACHINE_NO").off().change(function() {
 	var MACHINE_NO = $("#MACHINE_NO").find("option:selected").text();
 	// 布防工具赋值
 	var textarea = $("#textarea").val();
-	html += "<div> <span>"+MACHINE_NO+" </span> </div>";
-	
-	$("#textarea").html(html)
-	
-	if (MACHINE_NO != null) {
-		$("#textarea").val(textarea + "," + MACHINE_NO);
-	} else {
-		$("#textarea").val(MACHINE_NO);
-	}
-	
-	
-	
+	debugger
+	$("#textarea").html("<div style='width:auto;height:24px;float:left;margin-left:5px;margin-top:5px;'>"+MACHINE_NO+"" +
+			"<a href='#' style='color: red;float:right;margin-left:5px;width:15px;height:24px' " +
+			"onclick='closeDiv(MACHINE_NO)'>x</a><input type='hidden' value='"+$("#MACHINE_NO").val()+"'/></div>");
 
 })
 
