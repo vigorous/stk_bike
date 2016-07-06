@@ -1,6 +1,5 @@
 package com.stk.controller.business.vehicledata;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -28,7 +27,6 @@ public class EntryController {
 		ModelAndView mv = new ModelAndView();
 		MonitorRuleFacade facade = FacadeFactory.getMonitorRuleFacade();
 		List<MonitorRuleInfoVO> monitorList = facade.queryMonitorRuleInfoByPage(page);
-
 		// 查询所有公安局名称
 		PoliceOfficeFacade policeOfficeFacade = FacadeFactory.getPoliceOfficeFacade();
 		List<PoliceOfficeVO> policeList = policeOfficeFacade.queryAllPoliceOffice();
@@ -52,14 +50,10 @@ public class EntryController {
 	// 添加布防
 	@RequestMapping(value = "addMonitorRuleInfo")
 	@ResponseBody
-	public boolean addMonitorRuleInfo(MonitorRuleVO monitorRuleVO, MonitorMachineVO monitorMachineVOList,
-			MonitorBikeVO monitorBikeVOList) throws Exception {
+	public boolean addMonitorRuleInfo(MonitorRuleVO monitorRuleVO, List<MonitorMachineVO> monitorMachineVOList,
+			List<MonitorBikeVO> monitorBikeVOList) throws Exception {
 		MonitorRuleFacade facade = FacadeFactory.getMonitorRuleFacade();
-		List<MonitorMachineVO> listmonitor = new ArrayList<MonitorMachineVO>();
-		List<MonitorBikeVO> listbike = new ArrayList<MonitorBikeVO>();
-		listmonitor.add(monitorMachineVOList);
-		listbike.add(monitorBikeVOList);
-		facade.addMonitorRuleInfo(monitorRuleVO, listmonitor, listbike);
+		facade.addMonitorRuleInfo(monitorRuleVO, monitorMachineVOList, monitorBikeVOList);
 		return false;
 	}
 
@@ -81,7 +75,6 @@ public class EntryController {
 		// 查询所有公安局名称
 		MonitorRuleFacade facade = FacadeFactory.getMonitorRuleFacade();
 		List<MachineVO> policeList = facade.queryMachineByPoliceOffceID(vo);
-		System.out.println(policeList.size());
 		return policeList;
 	}
 

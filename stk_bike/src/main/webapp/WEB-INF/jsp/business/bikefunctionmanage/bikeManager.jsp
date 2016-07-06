@@ -24,17 +24,17 @@
 					<td  class="col-padding-right">
 						<button id="addbike" class="btn btn-sm btn-info">添加车辆</button>
 					</td>
-					
+					<form action="import/impBike" method="post" enctype="multipart/form-data">
 					<td  class="col-padding-right">
-						<button class="btn btn-sm btn-info">导入</button>
+						<button  type="submit" class="btn btn-sm btn-info">导入</button>
 					</td>
 					
 					<td  class="col-xs-5 no-padding-left col-padding-right">
-						<input  type="file" id="id-input-file-2" />
+						<input  type="file" name="file" />
 					</td>
-					
+					</form>
 					<td  class="col-padding-right">
-						<button class="btn btn-sm btn-info">导出</button>
+						<button id="toDcExcel" class="btn btn-sm btn-info">导出</button>
 					</td>
 					
 					<td  class="col-padding-right">
@@ -44,7 +44,6 @@
 			</table>
 		</div>
 	</div>
-	
 	<div class="row row-margin-top">
 		<div class="col-xs-12">
 			<table style="border:0">
@@ -102,7 +101,7 @@
 							</tr>
 						</c:if>
 						<c:forEach items="${list }" var="list">
-							<tr>
+							<tr ondblclick="bikeClick('${list.bikeVO.BIKE_ID}')">
 								<td>${list.bikeVO.BIKE_EID }</td>
 								<td>${list.bikeVO.BIKE_NO }</td>
 								<td>${list.bikeVO.BIKE_TYPE }</td>
@@ -139,13 +138,13 @@
 <script src="static/js/private_js/admin/head.js"></script>
 	<%@ include file="../../system/admin/bottom.jsp"%>
 	<script>
-		$('#id-input-file-1 , #id-input-file-2').ace_file_input({
+		$('.input-file').ace_file_input({
 			no_file:'上传文件',
 			btn_choose:'Choose',
 			btn_change:'Change',
 			droppable:false,
-			onchange:null,
-			thumbnail:false //| true | large
+			/* onchange:null, */
+			/* thumbnail:false  */
 			//whitelist:'gif|png|jpg|jpeg'
 			//blacklist:'exe|php'
 			//onchange:''

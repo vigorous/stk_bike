@@ -32,11 +32,15 @@ function save(id){
 			url:ctxPath +"/brand/addBrand",
 			success: function(data){
 				if(data==true){
-					alert("添加成功");
-					addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
-					Dialog.close();
+					showDialog("添加成功", function(){
+						addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+						Dialog.close();
+					});
 				}else{
-					alert("添加失败");
+					showDialog("添加失败", function(){
+						addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+						Dialog.close();
+					});
 				}
 			},
 			error:function(data){
@@ -52,15 +56,25 @@ function save(id){
 			url:ctxPath +"/brand/modifyBrand/"+id,
 			success: function(data){
 				if(data==true){
-					alert("修改成功");
-					debugger;
-					addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
-					Dialog.close();
+					showDialog("修改成功", function(){
+						addTab('d2ef4d27e4d84f548e6304f7a5856d3d','5ca05caac74545bc9a1dc343741f4209','品牌管理','brand/select')
+						Dialog.close();
+					});
 				}else{
-					alert("修改失败");
+					showDialog("修改失败", function(){
+						Dialog.close();
+					});
 				}
 			}
 		})
 	}
 	
+}
+function showDialog(tip, success){
+	tip = "<font size='3'>" + tip + "</font>";
+	Dialog.alert(tip, function(){
+		if(success){
+			success();
+		}
+	});
 }
