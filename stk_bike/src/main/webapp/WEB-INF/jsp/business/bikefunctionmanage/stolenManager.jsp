@@ -93,7 +93,7 @@
 										<td>${stolen.policeOfficeVO.POLICE_OFFICE_NAME}</td>
 										<td>${stolen.lostBikeVO.LOST_BIKE_EID}</td>
 										<td class="hidden-480">${stolen.ownerVO.OWNER_NAME}</td>
-										<td>${stolen.lostBikeVO.OWNER_PHONE}</td>
+										<td>${stolen.ownerVO.OWNER_PHONE}</td>
 										<td class="hidden-480"><span
 											class="label label-sm label-warning"> <fmt:formatDate
 													value="${stolen.lostBikeVO.LOST_BEGIN_TIME}"
