@@ -101,6 +101,7 @@
 			</div>
 		</div>
 	</div>
+		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 	<script type="text/javascript"
 		src="static/assets/js/date-time/bootstrap-datepicker.js"></script>
 	<script type="text/javascript"
