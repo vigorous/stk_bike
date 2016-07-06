@@ -25,3 +25,7 @@
 .text-rt {
 	text-align: right;
 }
+
+.word-danger {
+	color: #e4393c;
+}
