@@ -9,8 +9,7 @@
 <html>
 	<head lang="en">
 		<base href="<%=basePath%>">
-		<link rel="stylesheet" href="static/assets/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="static/assets/css/chosen.css" />
+		<link rel="stylesheet" href="plugins/zTree/css/zTreeStyle/zTreeStyle.css" />
 		<style type="text/css">
 			.margin-bottom-10{margin-bottom: 10px;}
 			.padding-top-1{padding-top: 1%;}
@@ -21,13 +20,13 @@
 	</head>
 	<body class="no-skin">
 		<div class="page-content padding-bottom-0">
-			<form action="">
+			<form id="roleForm">
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
 						<span>角色ID</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" />
+						<input type="text" class="width-160" value="${role_Id}" readonly="readonly" name="ROLE_ID" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -35,14 +34,33 @@
 						<span>角色名称</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" />
+						<input type="text" class="width-160" value="" name="ROLE_NAME" />
+					</div>
+				</div>
+				<div class="row margin-bottom-10">
+					<div class="col-xs-5 text-right padding-top-1">
+						<span>角色权限</span>
+					</div>
+					<div class="col-xs-7">
+						<div id="menuTree" class="ztree"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="col-xs-offset-4 col-xs-3">
+							<input type="button" class="btn btn-sm btn-success" value="保存" id="save" />
+						</div>
+						<div class="col-xs-3">
+							<input type="button" class="btn btn-sm btn-success" value="取消" id="cancel" />
+						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript" src="static/assets/js/chosen.jquery.js"></script>
-		<script type="text/javascript">
-			$('.chosen-select').chosen({width:"160px"});
-		</script>
+		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
+		<script type="text/javascript" src="static/js/jquery.tips.js"></script>
+		<script type="text/javascript" src="plugins/zTree/js/jquery.ztree.core.min.js"></script>
+		<script type="text/javascript" src="plugins/zTree/js/jquery.ztree.excheck.min.js"></script>
+		<script type="text/javascript" src="static/js/private_js/business/systemSet/roleManage/roleManageForm.js"></script>
 	</body>
 </html>
