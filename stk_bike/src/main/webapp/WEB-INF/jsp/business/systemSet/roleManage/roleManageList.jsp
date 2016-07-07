@@ -42,10 +42,10 @@
 								</tr>
 							</c:if>
 							<c:forEach items="${list}" var="role">
-								<tr>
+								<tr data-id="${role.roleVO.ROLE_ID}">
 									<td>
 										<label class="pos-rel">
-											<input type="checkbox"class="ace" name="select" data-id="" />
+											<input type="checkbox"class="ace" name="select" data-id="${role.roleVO.ROLE_ID}" />
 											<span class="lbl"></span>
 										</label>
 									</td>
@@ -53,10 +53,10 @@
 									<td>${role.roleVO.ROLE_NAME}</td>
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-											<button class="btn btn-xs btn-info">
+											<button class="btn btn-xs btn-info" name="edit" data-id="${role.roleVO.ROLE_ID}" data-name="${role.roleVO.ROLE_NAME}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</button>
-											<button class="btn btn-xs btn-danger">
+											<button class="btn btn-xs btn-danger" name="delete" data-id="${role.roleVO.ROLE_ID}">
 												<i class="ace-icon fa fa-trash-o bigger-120"></i>
 											</button>
 										</div>
@@ -71,11 +71,13 @@
 				<div class="col-xs-12">
 					<div class="btn-group">
 						<input type="button" class="btn btn-sm btn-success" value="新建" id="new" />
+						<input type="button" class="btn btn-sm btn-success" value="删除" id="batchDelete" />
 					</div>
 					${page.getPageStr()}
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 		<script type="text/javascript" src="static/js/private_js/business/systemSet/roleManage/roleManageList.js"></script>
 	</body>
 </html>

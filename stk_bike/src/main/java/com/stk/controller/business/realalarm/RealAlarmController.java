@@ -1,12 +1,16 @@
 package com.stk.controller.business.realalarm;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sse.bikemanagement.entity.Page;
+import com.sse.bikemanagement.facade.FacadeFactory;
+import com.sse.bikemanagement.facade.RealTimeAlarmFacade;
+import com.sse.bikemanagement.info.RealTimeAlarmInfoVO;
 import com.stk.controller.base.BaseController;
-import com.stk.entity.Page;
 
 @Controller
 @RequestMapping(value="/realAlarm")
@@ -15,27 +19,16 @@ public class RealAlarmController extends BaseController {
 	/**
 	 * 跳转到实时报警列表页
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="/realAlarmList")
-	public ModelAndView realAlarmList(Model model,Integer currentPage,Integer showCount){
-		//造数据
-		Page page = new Page();
-		if(currentPage == null){
-			page.setCurrentPage(1);
-		}else{
-			page.setCurrentPage(currentPage);
-		}
-		if(showCount == null){
-			page.setShowCount(10);
-		}else{
-			page.setShowCount(showCount);
-		}
-		page.setTotalPage(10);
-		page.setTotalResult(100);
-		
-		model.addAttribute("page", page);
-		ModelAndView mav = this.getModelAndView();
-		mav.setViewName("business/realAlarm/realAlarm/realAlarmList");
-		return mav;
+	public ModelAndView realAlarmList(Page page) throws Exception{
+		RealTimeAlarmFacade realTimeAlarmFacade = FacadeFactory.getRealTimeAlarmFacade();
+		List<RealTimeAlarmInfoVO> list = realTimeAlarmFacade.queryRealTimeAlarmInfoByPage(page);
+		ModelAndView mv = this.getModelAndView();
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.setViewName("business/realAlarm/realAlarm/realAlarmList");
+		return mv;
 	}
 }

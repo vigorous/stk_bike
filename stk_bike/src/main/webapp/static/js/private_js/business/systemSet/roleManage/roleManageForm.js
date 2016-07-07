@@ -5,6 +5,7 @@ bindEvent();
 //初始化
 function init(){
 	//初始化树状结构
+	var role_id = $(formId).find("input[name='roleVO.ROLE_ID']").val();
 	var setting = {
 			view: {
 				showIcon : false,
@@ -21,7 +22,9 @@ function init(){
 				enable : true,
 				type : 'post',
 				url : 'roleManage/findAllMenu',
-				otherParam : ['oper', '']
+				otherParam : {
+					ROLE_ID : role_id
+				}
 			}
 		};
 	$.fn.zTree.init($('#menuTree'), setting);
@@ -52,38 +55,53 @@ function bindEvent(){
 //验证表单
 function validateForm(){
 	var flag = true;
+	var role_name_input = $(formId).find("input[name='roleVO.ROLE_NAME']");
+	var role_name_length = $.trim(role_name_input.val()).length;
+	if(role_name_length < 1 || role_name_length > 100){
+		showTip(role_name_input, "100位字符以内");
+		flag = false;
+	}
 	return flag;
 }
 
 //保存方法
 function save(url){
+	var role_id = $(formId).find("input[name='roleVO.ROLE_ID']").val();
+	var role_name = $(formId).find("input[name='roleVO.ROLE_NAME']").val();
 	var treeObj = $.fn.zTree.getZTreeObj("menuTree");
 	var menuArray = treeObj.getCheckedNodes();
 	var menuIdArray = [];
 	$.each(menuArray, function(index, menu){
-		menuIdArray.push(menu.id);
+		menuIdArray.push({
+			MENU_ID : menu.id
+		});
 	});
-	console.log($(formId).serializeArray());
-//	$.ajax({
-//		type : 'POST',
-//		url : url,
-//		data : JSON.stringify(),
-//		dataType : 'json',
-//		contentType:"application/json",
-//		success : function(data){
-//			if(data){
-//				showDialog("保存成功", function(){
-//					refresh();
-//					closeDialog();
-//				});
-//			}else{
-//				showDialog("保存失败", btnEnable);
-//			}
-//		},
-//		error : function(){
-//			showDialog("保存失败", btnEnable);
-//		}
-//	});
+	$.ajax({
+		type : 'POST',
+		url : url,
+		data : JSON.stringify({
+			roleVO : {
+				ROLE_ID : role_id,
+				ROLE_NAME : role_name
+			},
+			menuVOs : menuIdArray
+		}),
+		dataType : 'json',
+		contentType:"application/json",
+		success : function(data){
+			if(data){
+				showDialog("保存成功", function(){
+					refresh();
+					closeDialog();
+				});
+			}else{
+				showDialog("保存失败", btnEnable);
+			}
+		},
+		error : function(){
+			showDialog("保存失败", btnEnable);
+		}
+	});
 }
 
 //给jquery元素设置提示

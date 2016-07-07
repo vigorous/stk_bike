@@ -32,69 +32,26 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
-							<tr>
-								<td>43011111111111</td>
-								<td>新城区白石路</td>
-								<td>即时</td>
-								<td>2015-5-5 10:10</td>
-							</tr>
+							<c:forEach items="${list}" var="realAlarm">
+								<tr>
+									<td>${realAlarm.bikeVO.BIKE_EID}</td>
+									<td>${realAlarm.machineVO.MACHINE_ADDRESS}</td>
+									<td>
+										<c:choose>
+											<c:when test="${realAlarm.focusRecordVO.FLAG == '00'}">被盗</c:when>
+											<c:when test="${realAlarm.focusRecordVO.FLAG == '01'}">布控</c:when>
+										</c:choose>
+									</td>
+									<td>${realAlarm.focusRecordVO.CREATE_TIME}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
-					${page.getPageStr()}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					${page.pageStr}
 				</div>
 			</div>
 		</div>

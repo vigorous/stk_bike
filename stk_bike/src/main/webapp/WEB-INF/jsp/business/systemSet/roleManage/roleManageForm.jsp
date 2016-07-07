@@ -15,6 +15,7 @@
 			.padding-top-1{padding-top: 1%;}
 			.width-160{width: 160px;}
 			.padding-bottom-0{padding-bottom: 0px!important;}
+			.color-red{color: red;}
 		</style>
 		<%@ include file="/WEB-INF/jsp/system/admin/top.jsp"%>
 	</head>
@@ -26,15 +27,15 @@
 						<span>角色ID</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="${role_Id}" readonly="readonly" name="ROLE_ID" />
+						<input type="text" class="width-160" value="${oper == 'add' ? role_Id : roleVO.ROLE_ID}" readonly="readonly" name="roleVO.ROLE_ID" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
 					<div class="col-xs-5 text-right padding-top-1">
-						<span>角色名称</span>
+						<span class="color-red">*</span><span>角色名称</span>
 					</div>
 					<div class="col-xs-7">
-						<input type="text" class="width-160" value="" name="ROLE_NAME" />
+						<input type="text" class="width-160" value="${roleVO.ROLE_NAME}" name="roleVO.ROLE_NAME" />
 					</div>
 				</div>
 				<div class="row margin-bottom-10">
@@ -56,6 +57,7 @@
 					</div>
 				</div>
 			</form>
+			<input type="hidden" value="${oper}" id="oper" />
 		</div>
 		<script type="text/javascript" src="static/js/private_js/admin/head.js"></script>
 		<script type="text/javascript" src="static/js/jquery.tips.js"></script>
